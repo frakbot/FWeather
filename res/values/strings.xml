@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name" translatable="false">FWeather widget</string>
 
-    <string name="loading_main">I\'m trying to watch out of a fucking window.</string>
+    <string name="loading_main">Let me look out of a fucking window.</string>
     <string name="loading_small">Get close to one so that I can tell you the weather.</string>
 
     <string name="weather_sunny">Fucking <font color="red">love</font> is in the air.</string>

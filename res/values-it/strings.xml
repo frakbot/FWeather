@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="loading_main">Cerco di guardare dalla cazzo di finestra.</string>
-    <string name="loading_small">Avvicinati ad una così posso dirti il meteo.</string>
+    <string name="loading_main">Fammi guardare da una cazzo di finestra.</string>
+    <string name="loading_small">Avvicinati così posso dirti il meteo.</string>
 
     <string name="weather_sunny">C\'è il cazzo di <font color="red">amore</font> nell\'aria.</string>
     <string name="weather_rainy">Sta <font color="#155695">piovendo,</font> ora. Merda.</string>

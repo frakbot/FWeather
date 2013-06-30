@@ -20,7 +20,6 @@ import net.frakbot.FWeather.model.Weather;
 import org.json.JSONException;
 
 import java.io.IOException;
-import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -221,11 +220,11 @@ public class UpdaterService extends IntentService {
         }
         else if (weatherId == 800 || weatherId == 801) {
             // Sunny or mostly sunny
-            return isDay() ? R.drawable.clear_day : R.drawable.clear_night;
+            return isDay(weather) ? R.drawable.clear_day : R.drawable.clear_night;
         }
         else if (weatherId == 802 && weatherId == 803) {
             // Mostly cloudy
-            return isDay() ? R.drawable.mostly_cloudy_day : R.drawable.mostly_cloudy_night;
+            return isDay(weather) ? R.drawable.mostly_cloudy_day : R.drawable.mostly_cloudy_night;
         }
         else if (weatherId >= 804 && weatherId <= 899) {
             // Cloudy
@@ -241,15 +240,15 @@ public class UpdaterService extends IntentService {
     }
 
     /**
-     * Determines if it's day or night in a simple way (no actual
-     * check on the real world; probably only good for non-polar countries).
+     * Determines if it's day or night as reported by the weather provider.
      *
      * @return Returns true if it's day, false if it's night.
      */
-    private boolean isDay() {
-        Calendar cal = Calendar.getInstance();
-        int hour = cal.get(Calendar.HOUR_OF_DAY);
-        return hour > 6 && hour < 18;
+    private boolean isDay(Weather weather) {
+        long sunrise = weather.mLocation.getSunrise();
+        long sunset = weather.mLocation.getSunset();
+        final long currTime = System.currentTimeMillis() / 1000;
+        return currTime > sunrise && currTime < sunset;
     }
 
     /**
