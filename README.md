@@ -5,7 +5,7 @@ A weather widget for Android based upon Tobias van Scheider's [Authentic Weather
 
 
 # Screenshots
-![On the homescreen](https://www.dropbox.com/s/aqdp6rabvgquqbd/fweather_1.png) ![On the lockscreen](https://www.dropbox.com/s/gcxat41usg5yjxd/fweather_2.png)
+![On the homescreen](https://dl.dropboxusercontent.com/u/1419527/temp_FWeather/fweather_1.png) ![On the lockscreen](https://dl.dropboxusercontent.com/u/1419527/temp_FWeather/fweather_2.png)
 
 # Credits
 This widget is partly based upon Surviving With Android's [WeatherApp](https://github.com/survivingwithandroid/Surviving-with-android/tree/master/WeatherApp), and uses [OpenWeatherMap](http://openweathermap.org/)'s weather APIs.
