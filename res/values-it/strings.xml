@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="loading_main">Fammi guardare da una cazzo di finestra.</string>
-    <string name="loading_small">Avvicinati così posso dirti il meteo.</string>
+    <string name="loading_main"><![CDATA[Fammi guardare da una cazzo di finestra.]]></string>
+    <string name="loading_small"><![CDATA[Avvicinati così posso dirti il meteo.]]></string>
 
-    <string name="weather_sunny">C\'è il cazzo di <font color="red">amore</font> nell\'aria.</string>
-    <string name="weather_rainy">Sta <font color="#155695">piovendo,</font> ora. Merda.</string>
-    <string name="weather_cloudy">È tutto di un <font color="#999999">grigio</font> di merda.</string>
-    <string name="weather_thunderstorm">I <font color="#fff883">fulmini dell\'Ade</font> del cazzo.</string>
-    <string name="weather_haze"><font color="#afa6bb">Non vedo</font> uno stracazzo.</string>
-    <string name="weather_mostly_cloudy">Non piove, cazzo. <font color="#c64e40">Per ora.</font></string>
-    <string name="weather_drizzle">Pioviggina, come una <font color="#ff88c2">fighetta.</font></string>
-    <string name="weather_snowy">Arriva il <font color="#ff0c00">Babbo Natale</font> del cazzo.</string>
-    <string name="weather_extreme"><font color="#ff6300">Corri</font> per salvarti la vita.</string>
-    <string name="weather_wtf"><font color="#cbff64">Che cazzo,</font> Non sai guardare da solo?</string>
+    <string name="weather_sunny"><![CDATA[C\'è il cazzo di <font color="#ff0160">amore</font> nell\'aria.]]></string>
+    <string name="weather_rainy"><![CDATA[Sta <font color="#0076e9">piovendo,</font> ora. Merda.]]></string>
+    <string name="weather_cloudy"><![CDATA[È tutto di un <font color="#999999">grigio</font> di merda.]]></string>
+    <string name="weather_thunderstorm"><![CDATA[I <font color="#fff883">fulmini dell\'Ade</font> del cazzo.]]></string>
+    <string name="weather_haze"><![CDATA[<font color="#beafd2">Non vedo</font> uno stracazzo.]]></string>
+    <string name="weather_mostly_cloudy"><![CDATA[Non piove, cazzo. <font color="#fb6e5e">Per ora.</font>]]></string>
+    <string name="weather_drizzle"><![CDATA[Pioviggina, come una <font color="#ffa6d1">fighetta.</font>]]></string>
+    <string name="weather_snowy"><![CDATA[Arriva il <font color="#ff3836">Babbo Natale</font> del cazzo.]]></string>
+    <string name="weather_extreme"><![CDATA[<font color="#ff6f14">Corri</font> per salvarti la vita.]]></string>
+    <string name="weather_wtf"><![CDATA[<font color="#cbff64">Che cazzo,</font> Non sai guardare da solo?]]></string>
 
-    <string name="temp_freezing"><font color="#986fb2">Porca troia.</font> E\' tipo il polo nord.</string>
-    <string name="temp_cold">Fa <font color="#5979a7">freddo</font> come in un cazzo di frigo.</string>
-    <string name="temp_hot">È <font color="#a74628">caldo</font> come un forno del cazzo.</string>
-    <string name="temp_warm">Goditi i cazzo di uccellini che <font color="#4a8d1d">cantano.</font></string>
-    <string name="temp_wtf">No, sul serio, al momento è la tua chance migliore, non ne ho idea, cazzo.</string>
+    <string name="temp_freezing"><![CDATA[<font color="#d28aff">Porca troia.</font> E\' tipo il polo nord.]]></string>
+    <string name="temp_cold"><![CDATA[Fa <font color="#cde2ff">freddo</font> come in un cazzo di frigo.]]></string>
+    <string name="temp_hot"><![CDATA[È <font color="#f25e5e">caldo</font> come un forno del cazzo.]]></string>
+    <string name="temp_warm"><![CDATA[Goditi i cazzo di uccellini che <font color="#00d500">cantano.</font>]]></string>
+    <string name="temp_wtf"><![CDATA[Cazzo, sul serio, al momento è la tua chance migliore, io non ne ho idea.]]></string>
 
     <string name="cdesc_weathericon">Meteo attuale</string>
 </resources>

@@ -264,20 +264,20 @@ public class UpdaterService extends IntentService {
             temp = weather.mTemperature.getTemp();
         }
         else {
-            return getString(R.string.temp_wtf);
+            return Html.fromHtml(getString(R.string.temp_wtf));
         }
 
         if (temp < 0f) {
-            return getString(R.string.temp_freezing);
+            return Html.fromHtml(getString(R.string.temp_freezing));
         }
         else if (temp < 15f) {
-            return getString(R.string.temp_cold);
+            return Html.fromHtml(getString(R.string.temp_cold));
         }
         else if (temp < 28f) {
-            return getString(R.string.temp_warm);
+            return Html.fromHtml(getString(R.string.temp_warm));
         }
         else {
-            return getString(R.string.temp_hot);
+            return Html.fromHtml(getString(R.string.temp_hot));
         }
     }
 

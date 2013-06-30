@@ -23,11 +23,11 @@
 
     <style name="SmallText.Medium">
         <item name="android:textSize">@dimen/small_text_size_medium</item>
-        <item name="android:layout_marginTop">@dimen/small_text_margin_large</item>
+        <item name="android:layout_marginTop">@dimen/small_text_margin_medium</item>
     </style>
 
     <style name="SmallText.Small">
         <item name="android:textSize">@dimen/small_text_size_small</item>
-        <item name="android:layout_marginTop">@dimen/small_text_margin_large</item>
+        <item name="android:layout_marginTop">@dimen/small_text_margin_small</item>
     </style>
 </resources>

@@ -36,22 +36,21 @@ import java.util.Locale;
  */
 public class WeatherHttpClient {
 
-    private static final String API_KEY = "2ab566b32d4464be0517751370e18fed";
     private final static String CITY_BASE_URL = "http://api.openweathermap.org/data/2.5/" +
                                                 "weather?q=%1$s&mode=json&lang=en&units=metric&APPID=" +
-                                                API_KEY;
+                                                FWeatherApplication.getApiKey();
     private final static String LATLON_BASE_URL = "http://api.openweathermap.org/data/2.5/" +
                                                   "weather?lat=%1$f&lon=%2$f&mode=json&lang=en&units=metric&APPID=" +
-                                                  API_KEY;
+                                                  FWeatherApplication.getApiKey();
     private final static String IMG_URL = "http://openweathermap.org/img/w/";
 
     /**
      * Gets the JSON weather data for the specified city.
      *
-     * @param cityName The name of the city to get the weather of.
+     * @param cityName The name of the city to get the weather of
      *
      * @return Returns the weather JSON data, or null if there was any
-     *         error.
+     *         error
      */
     public String getCityWeatherJsonData(String cityName) {
         HttpURLConnection con = null;
@@ -59,7 +58,7 @@ public class WeatherHttpClient {
 
         try {
             Log.i("FWeatherHttp", "City weather update started: " + cityName);
-            con = openConnection(String.format(CITY_BASE_URL, cityName), con);
+            con = openConnection(String.format(CITY_BASE_URL, cityName));
 
             // Let's read the response
             StringBuilder buffer = new StringBuilder();
@@ -90,10 +89,10 @@ public class WeatherHttpClient {
     /**
      * Gets the JSON weather data for the specified location.
      *
-     * @param location The location to get the weather of.
+     * @param location The location to get the weather of
      *
      * @return Returns the weather JSON data, or null if there was any
-     *         error.
+     *         error
      */
     public String getLocationWeatherJsonData(Location location) {
         HttpURLConnection con = null;
@@ -103,7 +102,7 @@ public class WeatherHttpClient {
             Log.i("FWeatherHttp", "Loaction weather update started: " + location.toString());
             // We specify the locale to avoid passing latlong data with the wrong decimal separators
             con = openConnection(String.format(Locale.US, LATLON_BASE_URL, location.getLatitude(),
-                                               location.getLongitude()), con);
+                                               location.getLongitude()));
 
             // Let's read the response
             StringBuilder buffer = new StringBuilder();
@@ -131,6 +130,12 @@ public class WeatherHttpClient {
         return null;
     }
 
+    /**
+     * Tries to close the connection resources.
+     *
+     * @param con The HTTP connection to close
+     * @param is  The InputStream to close
+     */
     private void cleanup(HttpURLConnection con, InputStream is) {
         try {
             is.close();
@@ -144,8 +149,16 @@ public class WeatherHttpClient {
         }
     }
 
-    private HttpURLConnection openConnection(String url, HttpURLConnection con) throws IOException {
-        con = (HttpURLConnection) (new URL(url)).openConnection();
+    /**
+     * Opens a connection to the specified URL and returns it.
+     *
+     * @param url The URL to connect to
+     *
+     * @return Returns the connection
+     * @throws IOException Thrown if an error occurs while connecting to the URL
+     */
+    private HttpURLConnection openConnection(String url) throws IOException {
+        HttpURLConnection con = (HttpURLConnection) (new URL(url)).openConnection();
         con.setRequestMethod("GET");
         con.setDoInput(true);
         con.setDoOutput(true);
@@ -153,6 +166,14 @@ public class WeatherHttpClient {
         return con;
     }
 
+    /**
+     * Gets the weather image data for the specified weather code.
+     *
+     * @param code The code to get the image of
+     *
+     * @return Returns the weather image data, or null if there was any
+     *         error
+     */
     public byte[] getImage(String code) {
         HttpURLConnection con = null;
         InputStream is = null;
