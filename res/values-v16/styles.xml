@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MainText">
+        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:textColor">@color/main_text_color</item>
+        <item name="android:textSize">@dimen/main_text_size_large</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="SmallText">
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textColor">@color/main_text_color</item>
+        <item name="android:textSize">@dimen/small_text_size_large</item>
+        <item name="android:layout_marginTop">@dimen/small_text_margin_large</item>
+    </style>
+</resources>

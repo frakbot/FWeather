@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MainText">
+        <item name="android:textColor">@color/main_text_color</item>
+        <item name="android:textSize">@dimen/main_text_size_large</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="MainText.Medium">
+        <item name="android:textSize">@dimen/main_text_size_medium</item>
+    </style>
+
+    <style name="MainText.Small">
+        <item name="android:textSize">@dimen/main_text_size_small</item>
+    </style>
+
+    <style name="SmallText">
+        <item name="android:textColor">@color/main_text_color</item>
+        <item name="android:textSize">@dimen/small_text_size_large</item>
+        <item name="android:layout_marginTop">@dimen/small_text_margin_large</item>
+    </style>
+
+    <style name="SmallText.Medium">
+        <item name="android:textSize">@dimen/small_text_size_medium</item>
+        <item name="android:layout_marginTop">@dimen/small_text_margin_large</item>
+    </style>
+
+    <style name="SmallText.Small">
+        <item name="android:textSize">@dimen/small_text_size_small</item>
+        <item name="android:layout_marginTop">@dimen/small_text_margin_large</item>
+    </style>
+</resources>

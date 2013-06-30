@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">FWeather widget</string>
+
+    <string name="loading_main">I\'m trying to watch out of a fucking window.</string>
+    <string name="loading_small">Get close to one so that I can tell you the weather.</string>
+
+    <string name="weather_sunny">Fucking <font color="red">love</font> is in the air.</string>
+    <string name="weather_rainy">It\'s fucking <font color="#155695">raining.</font> Now.</string>
+    <string name="weather_cloudy">Just fucking <font color="#999999">grey.</font></string>
+    <string name="weather_thunderstorm">Hell\'s fucking <font color="#fff883">thunder fury.</font></string>
+    <string name="weather_haze"><font color="#afa6bb">Can\'t see</font> a damn thing.</string>
+    <string name="weather_mostly_cloudy">Not fucking raining. <font color="#c64e40">Yet.</font></string>
+    <string name="weather_drizzle">Slight raining, like a fucking <font color="#ff88c2">pussy.</font></string>
+    <string name="weather_snowy">Here\'s <font color="#ff0c00">Santa</font> fucking Claus.</string>
+    <string name="weather_extreme"><font color="#ff6300">Run</font> for your fucking life.</string>
+    <string name="weather_wtf"><font color="#cbff64">WTF</font> can\'t you just watch outside?</string>
+
+    <string name="temp_freezing"><font color="#986fb2">WTF.</font> Fucking north pole.</string>
+    <string name="temp_cold"><font color="#5979a7">Cold</font> like a fucking fridge.</string>
+    <string name="temp_hot"><font color="#a74628">Hot</font> as in a fucking oven.</string>
+    <string name="temp_warm">Enjoy the fucking <font color="#4a8d1d">singing</font> birds.</string>
+    <string name="temp_wtf">No, seriously, right now that\'s your best chance, I have no fucking idea.</string>
+
+    <string name="cdesc_weathericon">Current weather</string>
+</resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="widget_margin">8dp</dimen>
+
+    <dimen name="small_text_margin_large">12dp</dimen>
+    <dimen name="small_text_margin_medium">8dp</dimen>
+    <dimen name="small_text_margin_small">6dp</dimen>
+    <dimen name="main_text_size_large">50sp</dimen>
+    <dimen name="main_text_size_medium">40sp</dimen>
+    <dimen name="main_text_size_small">30sp</dimen>
+    <dimen name="small_text_size_large">25sp</dimen>
+    <dimen name="small_text_size_medium">18sp</dimen>
+    <dimen name="small_text_size_small">14sp</dimen>
+</resources>
