@@ -5,7 +5,7 @@
                     android:minResizeWidth="200dp"
                     android:minResizeHeight="100dp"
                     android:updatePeriodMillis="7200000"
-                    android:previewImage="@drawable/icon"
+                    android:previewImage="@drawable/fweather_preview"
                     android:initialLayout="@layout/loading_large"
                     android:resizeMode="vertical"
                     android:widgetCategory="home_screen|keyguard"
