@@ -14,13 +14,13 @@
     <string name="weather_drizzle"><![CDATA[Slight raining, like a fucking <font color="#ffa6d1">pussy.</font>]]></string>
     <string name="weather_snowy"><![CDATA[Here\'s <font color="#ff3836">Santa</font> fucking Claus.]]></string>
     <string name="weather_extreme"><![CDATA[<font color="#ff6f14">Run</font> for your fucking life.]]></string>
-    <string name="weather_wtf"><![CDATA[<font color="#cbff64">WTF</font> can\'t you just look outside?]]></string>
+    <string name="weather_wtf"><![CDATA[<font color="#cbff64">WTF,</font> can\'t you just look outside?]]></string>
 
     <string name="temp_freezing"><![CDATA[<font color="#d28aff">WTF.</font> Fucking north pole.]]></string>
     <string name="temp_cold"><![CDATA[<font color="#cde2ff">Cold</font> like a fucking fridge.]]></string>
     <string name="temp_hot"><![CDATA[<font color="#f25e5e">Hot</font> as in a fucking oven.]]></string>
-    <string name="temp_warm"><![CDATA[Enjoy the fucking <font color="#00d500">singing</font> birds.]]></string>
-    <string name="temp_wtf"><![CDATA[No, seriously, right now that\'s your best chance, I have no fucking idea.]]></string>
+    <string name="temp_warm"><![CDATA[Enjoy the fucking birds <font color="#00d500">singing</font> and shit.]]></string>
+    <string name="temp_wtf"><![CDATA[No, seriously, that\'s your best chance right now, I have no fucking idea.]]></string>
 
     <string name="cdesc_weathericon">Current weather</string>
 </resources>

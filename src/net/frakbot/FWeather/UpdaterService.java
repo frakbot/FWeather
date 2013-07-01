@@ -331,7 +331,7 @@ public class UpdaterService extends IntentService {
         }
 
         // Get the city name, if possible
-        String cityName = "Palermo,IT";//getCityName(location);
+        String cityName = getCityName(location);
 
         Weather weather;
         String json;
