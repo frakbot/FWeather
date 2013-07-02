@@ -1,5 +1,4 @@
 /out/
 /gen/
-/*.iml
-/*.iws
+*.iws
 api_keys.xml
