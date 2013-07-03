@@ -28,6 +28,7 @@ import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.MenuItem;
 import net.frakbot.FWeather.R;
+import net.frakbot.FWeather.util.TrackerHelper;
 
 /**
  * A simple Activity that shows the third-party licenses for the app.
@@ -44,6 +45,18 @@ public class LicensesActivity extends SherlockFragmentActivity {
 
     WebView mWebView;
     ProgressBar mProgressBar;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        TrackerHelper.activityStart(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        TrackerHelper.activityStop(this);
+    }
 
     @TargetApi(VERSION_CODES.JELLY_BEAN)
     public void onCreate(Bundle savedInstanceState) {

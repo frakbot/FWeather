@@ -35,8 +35,10 @@ import android.util.Log;
 import android.widget.Toast;
 import com.actionbarsherlock.app.SherlockPreferenceActivity;
 import com.actionbarsherlock.view.MenuItem;
+import com.google.analytics.tracking.android.EasyTracker;
 import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.global.Const;
+import net.frakbot.FWeather.util.TrackerHelper;
 
 import java.util.List;
 
@@ -66,6 +68,18 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
      * to reflect its new value.
      */
     private Preference.OnPreferenceChangeListener sBindPreferenceSummaryToValueListener = null;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        TrackerHelper.activityStart(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        TrackerHelper.activityStop(this);
+    }
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
@@ -251,6 +265,64 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
     }
 
     /**
+     * Handles the preference change by requesting the TrackerHelper to send an event.
+     * @param preference    The changed preference
+     * @param newValue      The new value
+     */
+    private void handlePreferenceChange(Preference preference, Object newValue) {
+        Long value = Long.valueOf(0);
+        if (preference.getKey().equals(Const.Preferences.ANALYTICS)) {
+            if (newValue == Boolean.FALSE)
+                value = Long.valueOf(0);
+            else
+                value = Long.valueOf(1);
+        } else if (preference.getKey().equals(Const.Preferences.SYNC_FREQUENCY)) {
+            value = Long.valueOf((String)newValue);
+        }
+        TrackerHelper.preferenceChange(this, preference.getKey(), value);
+    }
+
+    /** Builds the listener for the preference changes. */
+    private void buildListener() {
+        sBindPreferenceSummaryToValueListener = new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object value) {
+                String stringValue = value.toString();
+
+                if (preference.getKey().equals(Const.Preferences.SYNC_FREQUENCY)) {
+                    SharedPreferences prefs = preference.getSharedPreferences();
+                    // If the old value differs from the new value
+                    if (!prefs.getString(Const.Preferences.SYNC_FREQUENCY, "-1").equals(stringValue)) {
+                        sendSyncPreferenceChangedBroadcast();
+                        // Handle the generic preference change
+                        handlePreferenceChange(preference, value);
+                    }
+                }
+
+                if (preference instanceof ListPreference) {
+                    // For list preferences, look up the correct display value in
+                    // the preference's 'entries' list.
+                    ListPreference listPreference = (ListPreference) preference;
+                    int index = listPreference.findIndexOfValue(stringValue);
+
+                    // Set the summary to reflect the new value.
+                    preference
+                            .setSummary(index >= 0 ? listPreference.getEntries()[index]
+                                    : null);
+
+                }
+                else {
+                    // For all other preferences, set the summary to the value's
+                    // simple string representation.
+                    preference.setSummary(stringValue);
+                }
+
+                return true;
+            }
+        };
+    }
+
+    /**
      * Sets up the Analytics preference listener.
      *
      * @param preference The Analytics preference.
@@ -259,6 +331,9 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
         preference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
             @Override
             public boolean onPreferenceChange(final Preference preference, Object newValue) {
+                // Handle the generic preference change
+                handlePreferenceChange(preference, newValue);
+
                 if (newValue == Boolean.FALSE) {
 
                     AlertDialog.Builder b = new AlertDialog.Builder(SettingsActivity.this);
@@ -276,7 +351,7 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
                     });
                     dialog.show();
 
-                    Log.i(SettingsActivity.class.getSimpleName(), "Enabled Google Analytics");
+                    Log.i(SettingsActivity.class.getSimpleName(), "Disabled Google Analytics");
 
                     return true;
                 }
@@ -403,43 +478,6 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
 
             setupFeedbackOnClickListener(findPreference(getString(R.string.pref_key_feedback)));
         }
-    }
-
-    /** Builds the listener for the preference changes. */
-    private void buildListener() {
-        sBindPreferenceSummaryToValueListener = new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object value) {
-                String stringValue = value.toString();
-
-                if (preference.getKey().equals(Const.Preferences.SYNC_FREQUENCY)) {
-                    SharedPreferences prefs = preference.getSharedPreferences();
-                    // If the old value differs from the new value
-                    if (!prefs.getString(Const.Preferences.SYNC_FREQUENCY, "-1").equals(stringValue)) {
-                        sendSyncPreferenceChangedBroadcast();
-                    }
-                }
-
-                if (preference instanceof ListPreference) {
-                    // For list preferences, look up the correct display value in
-                    // the preference's 'entries' list.
-                    ListPreference listPreference = (ListPreference) preference;
-                    int index = listPreference.findIndexOfValue(stringValue);
-
-                    // Set the summary to reflect the new value.
-                    preference
-                        .setSummary(index >= 0 ? listPreference.getEntries()[index]
-                                               : null);
-
-                }
-                else {
-                    // For all other preferences, set the summary to the value's
-                    // simple string representation.
-                    preference.setSummary(stringValue);
-                }
-                return true;
-            }
-        };
     }
 
     /**
