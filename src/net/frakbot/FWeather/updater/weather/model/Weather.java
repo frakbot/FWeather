@@ -9,7 +9,7 @@
  * survivingwithandroid@gmail.com
  *
  */
-package net.frakbot.FWeather.model;
+package net.frakbot.FWeather.updater.weather.model;
 
 /*
  * Copyright (C) 2013 Surviving with Android (http://www.survivingwithandroid.com)

@@ -9,10 +9,10 @@
  * survivingwithandroid@gmail.com
  *
  */
-package net.frakbot.FWeather;
+package net.frakbot.FWeather.updater.weather;
 
-import net.frakbot.FWeather.model.Location;
-import net.frakbot.FWeather.model.Weather;
+import net.frakbot.FWeather.updater.weather.model.Location;
+import net.frakbot.FWeather.updater.weather.model.Weather;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
