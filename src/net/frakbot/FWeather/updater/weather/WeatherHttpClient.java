@@ -9,10 +9,11 @@
  * survivingwithandroid@gmail.com
  *
  */
-package net.frakbot.FWeather;
+package net.frakbot.FWeather.updater.weather;
 
 import android.location.Location;
 import android.util.Log;
+import net.frakbot.FWeather.FWeatherApplication;
 
 import java.io.*;
 import java.net.HttpURLConnection;

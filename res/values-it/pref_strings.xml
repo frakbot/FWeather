@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+
+    <!-- Settings for Data & Sync -->
+    <string name="pref_header_data_sync">Dati &amp; aggiornamento</string>
+    <string name="pref_title_sync_frequency">Frequenza di aggiornamento</string>
+
+    <string-array name="pref_sync_frequency_titles">
+        <item>1 minuto</item>
+        <item>5 minuti</item>
+        <item>10 minuti</item>
+        <item>15 minuti</item>
+        <item>30 minuti</item>
+        <item>1 ora</item>
+        <item>3 ore</item>
+        <item>6 ore</item>
+        <item>Mai</item>
+    </string-array>
+
+    <string name="pref_title_system_sync_settings">Impostazioni sincronizzazione di sistema</string>
+
+    <!-- Settings for Info -->
+    <string name="pref_header_info">Informazioni</string>
+    <string name="pref_title_info_authors">Informazioni su Italiansubs</string>
+    <string name="pref_title_info_license">Licenze di terze parti</string>
+    <string name="pref_title_feedback">Invia feedback</string>
+    <string name="feedback_send_chooser_title">Invia email di feedback usando:</string>
+
+    <!-- Settings for Advanced -->
+    <string name="pref_header_advanced">Avanzate</string>
+    <string name="pref_title_analytics">Abilita Analytics</string>
+    <string name="analytics_disable_warning">Questa app usa Google Analytics per determinare le funzioni più usate dagli utenti in modo completamente anonimo, e consentire agli sviluppatori di indirizzare lo sviluppo in modo mirato. Ti chiediamo, se possibile, di lasciarlo abilitato.</string>
+    <string name="analytics_disabled">Google Analytics è stato disabilitato.</string>
+    <string name="analytics_enabled_thanks">Google Analytics è stato abilitato. Grazie!</string>
+
+    <!-- ABOUT DIALOG -->
+    <string name="about_body">Beccati il tuo cazzo di meteo</string>
+    <string name="about_developers"><![CDATA[Sviluppata da <font style="font-weight: 700;">Frakbot</font> (Sebastiano Poggi e Francesco Pontillo).<br>Basata sul concept <font style="font-weight: 600;">Authentic Weather</font> di Tobias van Scheider.]]></string>
+    <string name="donate_frakbot">Dona a\nFrakbot</string>
+
+</resources>
