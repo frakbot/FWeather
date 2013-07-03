@@ -19,28 +19,28 @@
 
     <style name="MainText">
         <item name="android:fontFamily">sans-serif-condensed</item>
-        <item name="android:textColor">@color/main_text_color</item>
-        <item name="android:textSize">@dimen/main_text_size_large</item>
+        <item name="android:textColor">@color/text_widget_main_color</item>
+        <item name="android:textSize">@dimen/text_main_size_large</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="SmallText">
         <item name="android:fontFamily">sans-serif-light</item>
-        <item name="android:textColor">@color/main_text_color</item>
-        <item name="android:textSize">@dimen/small_text_size_large</item>
-        <item name="android:layout_marginTop">@dimen/small_text_margin_large</item>
+        <item name="android:textColor">@color/text_widget_main_color</item>
+        <item name="android:textSize">@dimen/text_small_size_large</item>
+        <item name="android:layout_marginTop">@dimen/text_small_margin_large</item>
     </style>
 
     <style name="SmallText.Medium">
-        <item name="android:textSize">@dimen/small_text_size_medium</item>
+        <item name="android:textSize">@dimen/text_small_size_medium</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:layout_marginTop">@dimen/small_text_margin_medium</item>
+        <item name="android:layout_marginTop">@dimen/text_small_margin_medium</item>
     </style>
 
     <style name="SmallText.Small">
-        <item name="android:textSize">@dimen/small_text_size_small</item>
+        <item name="android:textSize">@dimen/text_small_size_small</item>
         <item name="android:fontFamily">sans-serif</item>
-        <item name="android:layout_marginTop">@dimen/small_text_margin_small</item>
+        <item name="android:layout_marginTop">@dimen/text_small_margin_small</item>
     </style>
 
 </resources>

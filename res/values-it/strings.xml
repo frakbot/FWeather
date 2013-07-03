@@ -16,8 +16,13 @@
   -->
 
 <resources>
-    <!-- Activity names -->
-    <string name="activity_settings">Impostazioni</string>
+    <!-- Activity labels -->
+    <string name="activity_settings">Impostazioni FWeather</string>
+    <string name="activity_credits">Autori</string>
+    <string name="activity_licenses">Licenze di terze parti</string>
+
+    <!-- Service labels -->
+    <string name="updater_service">Servizio aggiornamento di FWeather</string>
 
     <!-- Widget loading messages -->
     <string name="loading_main"><![CDATA[Fammi guardare da una cazzo di finestra.]]></string>

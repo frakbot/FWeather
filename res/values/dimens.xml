@@ -16,15 +16,23 @@
   -->
 
 <resources>
+
+    <!-- TEXT -->
+    <dimen name="text_big_title">30sp</dimen>
+    <dimen name="text_small_margin_large">12dp</dimen>
+    <dimen name="text_small_margin_medium">8dp</dimen>
+    <dimen name="text_small_margin_small">6dp</dimen>
+    <dimen name="text_main_size_large">50sp</dimen>
+    <dimen name="text_main_size_medium">40sp</dimen>
+    <dimen name="text_main_size_small">30sp</dimen>
+    <dimen name="text_small_size_large">25sp</dimen>
+    <dimen name="text_small_size_medium">18sp</dimen>
+    <dimen name="text_small_size_small">14sp</dimen>
+
+    <!-- MARGINS AND SPACING -->
+    <dimen name="login_margin">20dp</dimen>
+    <dimen name="spacing_double">16dp</dimen>
+    <dimen name="spacing_double">16dp</dimen>
     <dimen name="widget_margin">8dp</dimen>
 
-    <dimen name="small_text_margin_large">12dp</dimen>
-    <dimen name="small_text_margin_medium">8dp</dimen>
-    <dimen name="small_text_margin_small">6dp</dimen>
-    <dimen name="main_text_size_large">50sp</dimen>
-    <dimen name="main_text_size_medium">40sp</dimen>
-    <dimen name="main_text_size_small">30sp</dimen>
-    <dimen name="small_text_size_large">25sp</dimen>
-    <dimen name="small_text_size_medium">18sp</dimen>
-    <dimen name="small_text_size_small">14sp</dimen>
 </resources>

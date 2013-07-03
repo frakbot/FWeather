@@ -18,4 +18,10 @@
 <resources>
     <style name="Theme.FWeather" parent="@style/Theme.Sherlock.Light.DarkActionBar">
     </style>
+
+    <style name="Theme.FWeather.Settings.Dialog" parent="android:Theme.Holo.Light.Dialog">
+    </style>
+
+    <style name="ProgressBar.FWeather.Indeterminate.Large" parent="android:Widget.Holo.Light.ProgressBar.Large">
+    </style>
 </resources>

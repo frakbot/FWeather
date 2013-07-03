@@ -18,8 +18,13 @@
 <resources>
     <string name="app_name" translatable="false">FWeather widget</string>
 
-    <!-- Activity names -->
-    <string name="activity_settings">FWeather preferences</string>
+    <!-- Activity labels -->
+    <string name="activity_settings">FWeather settings</string>
+    <string name="activity_credits">Authors</string>
+    <string name="activity_licenses">Third party licenses</string>
+
+    <!-- Service labels -->
+    <string name="updater_service">FWeather updater service</string>
 
     <!-- Widget loading messages -->
     <string name="loading_main"><![CDATA[Let me look out of a fucking window.]]></string>

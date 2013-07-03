@@ -18,4 +18,10 @@
 <resources>
     <style name="Theme.FWeather" parent="android:Theme.DeviceDefault.Light.DarkActionBar">
     </style>
+
+    <style name="Theme.FWeather.Settings.Dialog" parent="android:Theme.DeviceDefault.Light.Dialog">
+    </style>
+
+    <style name="Theme.FWeather.Settings.DialogWhenLarge" parent="android:Theme.DeviceDefault.Light.DialogWhenLarge">
+    </style>
 </resources>

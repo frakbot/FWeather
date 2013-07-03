@@ -25,15 +25,23 @@
                 android:theme="@style/Theme.FWeather.Settings">
 
             <intent-filter>
-                <action android:name="net.italiansubs.droitasa.SETTINGS_ITASA_ACTION"/>
+                <action android:name="net.frakbot.FWeather.SETTINGS_FWEATHER_ACTION"/>
                 <action android:name="android.intent.action.MANAGE_NETWORK_USAGE"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
 
+        <activity android:name=".activity.LicensesActivity"
+                  android:theme="@style/Theme.FWeather.Settings"
+                  android:label="@string/activity_licenses"/>
+
+        <activity android:name=".activity.AuthorsDialog"
+                  android:label="@string/pref_title_info_authors"
+                  android:theme="@style/Theme.FWeather.Settings.Dialog"/>
+
         <service
                 android:name=".updater.UpdaterService"
-                android:label="FWeather updater service"/>
+                android:label="@string/updater_service"/>
 
         <receiver android:name=".FWeatherWidgetProvider">
             <intent-filter>

@@ -51,7 +51,7 @@
 
     <!-- ABOUT DIALOG -->
     <string name="about_body">Beccati il tuo cazzo di meteo</string>
-    <string name="about_developers"><![CDATA[Sviluppata da <font style="font-weight: 700;">Frakbot</font> (Sebastiano Poggi e Francesco Pontillo).<br>Basata sul concept <font style="font-weight: 600;">Authentic Weather</font> di Tobias van Scheider.]]></string>
+    <string name="about_developers"><![CDATA[Sviluppata da <b>Frakbot</b> (Sebastiano Poggi e Francesco Pontillo).<br>Basata sul concept <b>Authentic Weather</b> di Tobias van Scheider.]]></string>
     <string name="donate_frakbot">Dona a\nFrakbot</string>
 
 </resources>

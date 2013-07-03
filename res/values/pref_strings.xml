@@ -19,7 +19,7 @@
 
     <!-- Preference keys -->
     <!-- Always keep these values in sync with the ones in
-    	 net.italiansubs.droitasa.global.Const.Preferences . -->
+    	 net.frakbot.FWeather.global.Const.Preferences . -->
     <string name="pref_key_sync_frequency" translatable="false">sync_frequency</string>
     <string name="pref_key_feedback" translatable="false">feedback</string>
     <string name="pref_key_authors" translatable="false">authors</string>
@@ -76,7 +76,8 @@
     <string name="app_name_and_version" translatable="false">
         <![CDATA[<b>FWeather</b>&nbsp;<font color=\"#888888\"><br/>v%1$s</font>]]></string>
     <string name="about_body">Get your fucking weather right</string>
-    <string name="about_developers"><![CDATA[Developed by <font style="font-weight: 700;">Frakbot</font> (Sebastiano Poggi and Francesco Pontillo).<br>Based on the <font style="font-weight: 600;">Authentic Weather</font> concept by Tobias van Scheider.]]></string>
+    <string name="about_developers"><![CDATA[Developed by <b>Frakbot</b> (Sebastiano Poggi and Francesco Pontillo).<p/>Based on the <b>Authentic Weather</b> concept by Tobias van Scheider.]]></string>
     <string name="donate_frakbot">Donate to\nFrakbot</string>
+    <string name="authentic_weather" translatable="false">Authentic\nWeather</string>
 
 </resources>

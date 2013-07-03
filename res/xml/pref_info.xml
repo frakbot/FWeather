@@ -22,15 +22,15 @@
 
         <intent
                 android:action="android.intent.action.MAIN"
-                android:targetClass="net.italiansubs.droitasa.activity.AuthorsDialog"
-                android:targetPackage="net.italiansubs.droitasa"/>
+                android:targetClass="net.frakbot.FWeather.activity.AuthorsDialog"
+                android:targetPackage="net.frakbot.FWeather"/>
     </Preference>
 
     <Preference android:title="@string/pref_title_info_license">
         <intent
                 android:action="android.intent.action.MAIN"
-                android:targetClass="net.italiansubs.droitasa.activity.LicensesActivity"
-                android:targetPackage="net.italiansubs.droitasa"/>
+                android:targetClass="net.frakbot.FWeather.activity.LicensesActivity"
+                android:targetPackage="net.frakbot.FWeather"/>
     </Preference>
 
     <Preference

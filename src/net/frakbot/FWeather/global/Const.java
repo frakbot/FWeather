@@ -25,7 +25,7 @@ import net.frakbot.FWeather.BuildConfig;
  */
 public class Const {
 
-    public static final String APP_NAME = "ItaSA";
+    public static final String APP_NAME = "FWeather";
 
     public static final boolean VERBOSE = BuildConfig.DEBUG;
     public static final boolean DEBUG = VERBOSE /* TODO add a preference to toggle it */;
@@ -43,7 +43,7 @@ public class Const {
      * @author Francesco Pontillo
      */
     public class Intents {
-        public static final String SYNC_RATE_PREFERENCE_CHANGED_ACTION = "net.italiansubs.droitasa.SYNC_RATE_PREFERENCE_CHANGED_ACTION";
+        public static final String SYNC_RATE_PREFERENCE_CHANGED_ACTION = "net.frakbot.FWeather.SYNC_RATE_PREFERENCE_CHANGED_ACTION";
     }
 
     public class Frags {
@@ -53,6 +53,8 @@ public class Const {
     }
 
     public class Urls {
+        public static final String DONATE_FRAKBOT = "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=frakbot@gmail.com&lc=EU&currency_code=EUR&item_name=Italiansubs.net%20Android&amount=";
+        public static final String AUTHENTIC_WEATHER = "http://www.behance.net/gallery/Authentic-Weather/7196565";
     }
     
     /**
