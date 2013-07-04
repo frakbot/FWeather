@@ -15,9 +15,10 @@
   -->
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/window_bg">
+                android:background="@drawable/about_bg">
 
     <net.frakbot.FWeather.widget.FontTextView
             android:id="@+id/app_name_and_version"
@@ -44,7 +45,7 @@
             android:paddingBottom="16dp"
             android:text="@string/about_body"
             android:textSize="16sp"
-            android:textColor="@color/text_dash_button"/>
+            android:textColor="@color/text_subtitle"/>
 
     <TextView
             android:id="@+id/about_authors"

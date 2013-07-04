@@ -20,6 +20,8 @@
     <!-- Settings for Data & Sync -->
     <string name="pref_header_data_sync">Dati &amp; aggiornamento</string>
     <string name="pref_title_sync_frequency">Frequenza di aggiornamento</string>
+    <string name="pref_title_sync_force">Aggiorna il meteo</string>
+    <string name="toast_force_update">Ok, ok, non c\'è bisogno di essere così scassaminchia. Ora lo faccio. Felice?</string>
 
     <string-array name="pref_sync_frequency_titles">
         <item>1 minuto</item>
@@ -50,8 +52,11 @@
     <string name="analytics_enabled_thanks">Google Analytics è stato abilitato. Grazie!</string>
 
     <!-- ABOUT DIALOG -->
-    <string name="about_body">Beccati il tuo cazzo di meteo</string>
+    <string name="about_body">Beccati il tuo stracazzo di meteo</string>
     <string name="about_developers"><![CDATA[Sviluppata da <b>Frakbot</b> (Sebastiano Poggi e Francesco Pontillo).<br>Basata sul concept <b>Authentic Weather</b> di Tobias van Scheider.]]></string>
     <string name="donate_frakbot">Dona a\nFrakbot</string>
+
+    <!-- Action Bar items -->
+    <string name="done">FATTO</string>
 
 </resources>

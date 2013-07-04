@@ -21,6 +21,7 @@
     <!-- Always keep these values in sync with the ones in
     	 net.frakbot.FWeather.global.Const.Preferences . -->
     <string name="pref_key_sync_frequency" translatable="false">sync_frequency</string>
+    <string name="pref_key_sync_force" translatable="false">sync_force</string>
     <string name="pref_key_feedback" translatable="false">feedback</string>
     <string name="pref_key_authors" translatable="false">authors</string>
     <string name="pref_key_analytics" translatable="false">analytics</string>
@@ -28,10 +29,8 @@
     <!-- Settings for Data & Sync -->
     <string name="pref_header_data_sync">Data &amp; sync</string>
     <string name="pref_title_sync_frequency">Sync frequency</string>
-    <string name="pref_title_logout">Logout</string>
-    <string name="pref_logout_message">Do you really want to logout?</string>
-    <string name="pref_logout_yes">Yes</string>
-    <string name="pref_logout_no">No</string>
+    <string name="pref_title_sync_force">Refresh weather now</string>
+    <string name="toast_force_update">OK, OK, no need to be such a bloody pain in the ass. Doing it now. Happy?</string>
 
     <string-array name="pref_sync_frequency_titles">
         <item>1 minute</item>
@@ -80,4 +79,6 @@
     <string name="donate_frakbot">Donate to\nFrakbot</string>
     <string name="authentic_weather" translatable="false">Authentic\nWeather</string>
 
+    <!-- Action Bar items -->
+    <string name="done">DONE</string>
 </resources>

@@ -27,15 +27,17 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Html;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.RemoteViews;
+import android.widget.Toast;
 import net.frakbot.FWeather.R;
-import net.frakbot.FWeather.updater.weather.model.Weather;
 import net.frakbot.FWeather.updater.weather.JSONWeatherParser;
 import net.frakbot.FWeather.updater.weather.WeatherHttpClient;
+import net.frakbot.FWeather.updater.weather.model.Weather;
 import org.json.JSONException;
 
 import java.io.IOException;
@@ -58,7 +60,10 @@ public class UpdaterService extends IntentService {
 
     private LocationManager mLocationManager;
 
+    public static final String EXTRA_USER_FORCE_UPDATE = "the_motherfocker_wants_us_to_do_stuff";
+    public static final String EXTRA_SILENT_FORCE_UPDATE = "a_ninja_is_making_me_do_it";
     public static final String EXTRA_WIDGET_IDS = "widget_ids";
+    private Handler mHandler;
 
     public UpdaterService() {
         super(UpdaterService.class.getSimpleName());
@@ -69,6 +74,7 @@ public class UpdaterService extends IntentService {
         super.onCreate();
 
         Log.i(TAG, "Initializing the UpdaterService");
+        mHandler = new Handler();
         mLocationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         bootstrapLocationProvider();
     }
@@ -79,6 +85,19 @@ public class UpdaterService extends IntentService {
         if (appWidgetIds == null || appWidgetIds.length == 0) {
             Log.d(TAG, "Intent with no widgets ID received, ignoring\n\t> " + intent);
             return;
+        }
+
+        if (intent.getBooleanExtra(EXTRA_USER_FORCE_UPDATE, false)) {
+            Log.i(TAG, "User has requested a forced update");
+            // TODO: custom Toast layout? Would be nice.
+            mHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    // We need this because the IntentService thread is too fast and dies too soon,
+                    // resulting in the toast being on screen for an unpercievable time
+                    Toast.makeText(UpdaterService.this, R.string.toast_force_update, Toast.LENGTH_LONG).show();
+                }
+            });
         }
 
         Log.i(TAG, "Starting widgets update");
@@ -183,7 +202,7 @@ public class UpdaterService extends IntentService {
             // Sunny or mostly sunny
             return Html.fromHtml(getString(R.string.weather_sunny));
         }
-        else if (weatherId == 802 && weatherId == 803) {
+        else if (weatherId == 802 || weatherId == 803) {
             // Mostly cloudy
             return Html.fromHtml(getString(R.string.weather_mostly_cloudy));
         }
@@ -241,7 +260,7 @@ public class UpdaterService extends IntentService {
             // Sunny or mostly sunny
             return isDay(weather) ? R.drawable.clear_day : R.drawable.clear_night;
         }
-        else if (weatherId == 802 && weatherId == 803) {
+        else if (weatherId == 802 || weatherId == 803) {
             // Mostly cloudy
             return isDay(weather) ? R.drawable.mostly_cloudy_day : R.drawable.mostly_cloudy_night;
         }

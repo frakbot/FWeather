@@ -31,4 +31,8 @@
 
     <style name="ProgressBar.FWeather.Indeterminate.Large" parent="android:Widget.ProgressBar.Large.Inverse">
     </style>
+
+    <style name="ActionBar.Button" parent="Widget.Sherlock.ActionButton">
+        <item name="android:textColor">@color/abs__primary_text_holo_dark</item>
+    </style>
 </resources>

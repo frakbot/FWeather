@@ -21,10 +21,8 @@ import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.app.ApplicationErrorReport;
 import android.app.backup.BackupManager;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.SharedPreferences;
+import android.appwidget.AppWidgetManager;
+import android.content.*;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
@@ -32,11 +30,16 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.*;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
+import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockPreferenceActivity;
 import com.actionbarsherlock.view.MenuItem;
+import net.frakbot.FWeather.FWeatherWidgetProvider;
 import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.global.Const;
+import net.frakbot.FWeather.updater.UpdaterService;
 
 import java.util.List;
 
@@ -66,20 +69,57 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
      * to reflect its new value.
      */
     private Preference.OnPreferenceChangeListener sBindPreferenceSummaryToValueListener = null;
+    private int mNewWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Intent intent = getIntent();
+        if (intent != null
+            && AppWidgetManager.ACTION_APPWIDGET_CONFIGURE.equals(intent.getAction())) {
+
+            mNewWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
+                                              AppWidgetManager.INVALID_APPWIDGET_ID);
+
+            // See http://code.google.com/p/android/issues/detail?id=2539
+            setResult(RESULT_CANCELED, new Intent()
+                .putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, mNewWidgetId));
+        }
+    }
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
 
         // Sets and shows the title in the ActionBar
-        getSupportActionBar().setDisplayShowTitleEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        //        getSupportActionBar().setTitle(R.string.activity_settings);  TODO
-        //        getSupportActionBar().setIcon(R.drawable.ab_icon_normal);
+        final ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            setupActionBar(actionBar);
+        }
 
         buildListener();
         setupSimplePreferencesScreen();
+    }
+
+    private void setupActionBar(ActionBar actionBar) {
+        actionBar.setDisplayShowTitleEnabled(false);
+        actionBar.setDisplayShowHomeEnabled(false);
+        actionBar.setDisplayShowCustomEnabled(true);
+
+        Button btnDone = (Button) getLayoutInflater().inflate(R.layout.include_ab_done, null);
+
+        btnDone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mNewWidgetId != AppWidgetManager.INVALID_APPWIDGET_ID) {
+                    setResult(RESULT_OK, new Intent().putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, mNewWidgetId));
+                }
+
+                finish();
+            }
+        });
+
+        actionBar.setCustomView(btnDone);
     }
 
     @SuppressWarnings("deprecation")
@@ -90,6 +130,15 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
         // Unregister the SharedPreferences listener (me, duh)
         getPreferenceManager().getSharedPreferences()
             .unregisterOnSharedPreferenceChangeListener(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        // Update the widgets after the configuration is closed
+        Log.d("SettingsActivity", "Closing the settings Activity; updating widgets");
+        requestWidgetsUpdate(true, true);
     }
 
     @SuppressWarnings("deprecation")
@@ -146,6 +195,7 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
         fakeHeader.setTitle(R.string.pref_header_data_sync);
         screen.addPreference(fakeHeader);
         addPreferencesFromResource(R.xml.pref_data_sync);
+        setupRefreshNowOnClickListener(findPreference(getString(R.string.pref_key_sync_force)));
 
         // Add 'advanced' preferences, and a corresponding header.
         fakeHeader = new PreferenceCategory(this);
@@ -168,6 +218,60 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
     }
 
     /**
+     * Sets up the OnClick listener for the refresh now preference.
+     *
+     * @param preference The refresh now preference
+     */
+    private void setupRefreshNowOnClickListener(Preference preference) {
+        preference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                Log.i(SettingsActivity.class.getSimpleName(), "Forcing weather update (user request)");
+                requestWidgetsUpdate(true);
+
+                return true;
+            }
+        });
+    }
+
+    /**
+     * Requests an update of all the widgets we currently have.
+     *
+     * @param forced True if this is a forced update request, false otherwise
+     */
+    private void requestWidgetsUpdate(boolean forced) {
+        requestWidgetsUpdate(forced, false);
+    }
+
+    /**
+     * Requests an update of all the widgets we currently have. It can optionally
+     * also be silent (no UI).
+     *
+     * @param forced True if this is a forced update request, false otherwise
+     * @param silent True if this is a silent forced update request, false otherwise
+     */
+    private void requestWidgetsUpdate(boolean forced, boolean silent) {
+        Intent i = new Intent(this, UpdaterService.class);
+        AppWidgetManager mgr = AppWidgetManager.getInstance(this);
+        int[] ids = mgr.getAppWidgetIds(new ComponentName(this, FWeatherWidgetProvider.class));
+
+        i.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+        i.putExtra(UpdaterService.EXTRA_WIDGET_IDS, ids);
+        if (forced) {
+            if (silent) {
+                // Code-originated forced update (config changes, etc)
+                i.putExtra(UpdaterService.EXTRA_SILENT_FORCE_UPDATE, true);
+            }
+            else {
+                // User-forced updated
+                i.putExtra(UpdaterService.EXTRA_USER_FORCE_UPDATE, true);
+            }
+        }
+
+        startService(i);
+    }
+
+    /**
      * Sets up the OnClick listener for the feedback preference.
      * Inspired by http://blog.tomtasche.at/2012/10/use-built-in-feedback-mechanism-on.html
      *
@@ -175,7 +279,7 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
      */
     private void setupFeedbackOnClickListener(Preference preference) {
         preference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-            @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
+
             @Override
             public boolean onPreferenceClick(Preference preference) {
                 Log.i(SettingsActivity.class.getSimpleName(), "Sending feedback");
@@ -196,9 +300,10 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
                     startActivity(intent);
                 }
                 else {
-                    // Use the backup email mechanism
+                    // Use the fallback "share" mechanism
+                    // TODO: attach logcat
                     Intent email = new Intent(Intent.ACTION_SEND);
-                    email.putExtra(Intent.EXTRA_EMAIL, new String[] {"frakbot@gmail.com"});
+                    email.putExtra(Intent.EXTRA_EMAIL, new String[]{"frakbot@gmail.com"});
                     email.putExtra(Intent.EXTRA_SUBJECT, "[FEEDBACK] " + getString(R.string.app_name));
                     email.putExtra(Intent.EXTRA_TEXT, generateFeedbackBody());
                     email.setType("message/rfc822");

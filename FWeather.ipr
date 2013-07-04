@@ -274,6 +274,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FWeather.iml" filepath="$PROJECT_DIR$/FWeather.iml" />
+      <module fileurl="file://$PROJECT_DIR$/submods/abs/actionbarsherlock/actionbarsherlock.iml" filepath="$PROJECT_DIR$/submods/abs/actionbarsherlock/actionbarsherlock.iml" />
       <module fileurl="file://$PROJECT_DIR$/submods/abs/actionbarsherlock/actionbarsherlock.iml" filepath="$PROJECT_DIR$/submods/abs/actionbarsherlock/actionbarsherlock.iml" group="Dependencies" />
     </modules>
   </component>

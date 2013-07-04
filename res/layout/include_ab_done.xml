@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <!--
   ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
   ~
@@ -15,11 +16,13 @@
   ~ limitations under the License.
   -->
 
-<resources>
-    <color name="window_bg">#fff9e9</color>
-
-    <color name="text_widget_main_color">#ffffff</color>
-    <color name="text_subtitle">#ff745f36</color>
-    <color name="text_big_title">#ff332408</color>
-    <color name="text_big_title_shadow">#e5c39849</color>
-</resources>
+<Button xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/ab_btn_done"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@drawable/ab_item_bg"
+        android:drawableLeft="@drawable/ic_action_done"
+        android:drawablePadding="8dp"
+        android:text="@string/done"
+        android:textStyle="bold"
+        style="@style/ActionBar.Button"/>
