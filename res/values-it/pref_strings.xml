@@ -17,6 +17,12 @@
 
 <resources>
 
+    <!-- Settings for Widget Customization -->
+    <string name="pref_header_customization">Personalizzazione</string>
+    <string name="pref_title_customize_widgets">Personalizza widget</string>
+    <string name="pref_title_ui_toggle_weather_icon">Icona del meteo</string>
+    <string name="pref_title_ui_toggle_temperature_info">\"Info\" sulla temperatura</string>
+
     <!-- Settings for Data & Sync -->
     <string name="pref_header_data_sync">Dati &amp; aggiornamento</string>
     <string name="pref_title_sync_frequency">Frequenza di aggiornamento</string>
@@ -42,6 +48,8 @@
     <string name="pref_title_info_authors">Informazioni su Italiansubs</string>
     <string name="pref_title_info_license">Licenze di terze parti</string>
     <string name="pref_title_feedback">Invia feedback</string>
+    <string name="pref_title_changelog">Storico modifiche</string>
+    <string name="pref_msg_changelog">Ma anche no, troooppo scazzo! Magari un\'altra volta, coso…</string>
     <string name="feedback_send_chooser_title">Invia email di feedback usando:</string>
 
     <!-- Settings for Advanced -->

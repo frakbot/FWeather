@@ -23,8 +23,18 @@
     <string name="pref_key_sync_frequency" translatable="false">sync_frequency</string>
     <string name="pref_key_sync_force" translatable="false">sync_force</string>
     <string name="pref_key_feedback" translatable="false">feedback</string>
+    <string name="pref_key_customize_widgets" translatable="false">customize_widgets</string>
+    <string name="pref_key_ui_toggle_weather_icon" translatable="false">ui_toggle_weather_icon</string>
+    <string name="pref_key_ui_toggle_temperature_info" translatable="false">ui_toggle_temperature_info</string>
     <string name="pref_key_authors" translatable="false">authors</string>
+    <string name="pref_key_changelog" translatable="false">changelog</string>
     <string name="pref_key_analytics" translatable="false">analytics</string>
+
+    <!-- Settings for Widget Customization -->
+    <string name="pref_header_customization">Customization</string>
+    <string name="pref_title_customize_widgets">Customize widgets</string>
+    <string name="pref_title_ui_toggle_weather_icon">Weather icon</string>
+    <string name="pref_title_ui_toggle_temperature_info">Temperature \"info\"</string>
 
     <!-- Settings for Data & Sync -->
     <string name="pref_header_data_sync">Data &amp; sync</string>
@@ -62,6 +72,8 @@
     <string name="pref_title_info_authors">About FWeather</string>
     <string name="pref_title_info_license">Third party licenses</string>
     <string name="pref_title_feedback">Send feedback</string>
+    <string name="pref_title_changelog">Changelog</string>
+    <string name="pref_msg_changelog">Yeah, no. Draaag!. Maybe some other time, man…</string>
     <string name="feedback_send_chooser_title">Send the feedback email using:</string>
 
     <!-- Settings for Advanced -->

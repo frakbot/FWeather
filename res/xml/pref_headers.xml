@@ -20,6 +20,10 @@
     <header
             android:fragment="net.frakbot.FWeather.activity.SettingsActivity$DataSyncPreferenceFragment"
             android:title="@string/pref_header_data_sync"/>
+
+    <header
+            android:fragment="net.frakbot.FWeather.activity.SettingsActivity$DataSyncPreferenceFragment"
+            android:title="@string/pref_header_data_sync"/>
     <header
             android:fragment="net.frakbot.FWeather.activity.SettingsActivity$InformationPreferenceFragment"
             android:title="@string/pref_header_info"/>
