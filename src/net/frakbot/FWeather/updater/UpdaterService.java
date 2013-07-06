@@ -401,6 +401,11 @@ public class UpdaterService extends IntentService {
             json = ((new WeatherHttpClient()).getLocationWeatherJsonData(location));
         }
 
+        if (!TextUtils.isEmpty(json)) {
+            Log.e(TAG, "No weather available, can't update");
+            return null;
+        }
+
         try {
             weather = JSONWeatherParser.getWeather(json);
         }
