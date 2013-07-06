@@ -1,0 +1,100 @@
+<!--
+  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <!-- Strings related to Settings -->
+
+    <!-- Preference keys -->
+    <!-- Always keep these values in sync with the ones in
+    	 net.frakbot.FWeather.global.Const.Preferences . -->
+    <string name="pref_key_sync_frequency" translatable="false">sync_frequency</string>
+    <string name="pref_key_sync_force" translatable="false">sync_force</string>
+    <string name="pref_key_feedback" translatable="false">feedback</string>
+    <string name="pref_key_customize_widgets" translatable="false">customize_widgets</string>
+    <string name="pref_key_ui_toggle_weather_icon" translatable="false">ui_toggle_weather_icon</string>
+    <string name="pref_key_ui_toggle_temperature_info" translatable="false">ui_toggle_temperature_info</string>
+    <string name="pref_key_authors" translatable="false">authors</string>
+    <string name="pref_key_changelog" translatable="false">changelog</string>
+    <string name="pref_key_analytics" translatable="false">analytics</string>
+
+    <!-- Settings for Widget Customization -->
+    <string name="pref_header_customization">Customization</string>
+    <string name="pref_title_customize_widgets">Customize widgets</string>
+    <string name="pref_title_ui_toggle_weather_icon">Weather icon</string>
+    <string name="pref_title_ui_toggle_temperature_info">Temperature \"info\"</string>
+
+    <!-- Settings for Data & Sync -->
+    <string name="pref_header_data_sync">Data &amp; sync</string>
+    <string name="pref_title_sync_frequency">Sync frequency</string>
+    <string name="pref_title_sync_force">Refresh weather now</string>
+    <string name="toast_force_update">OK, OK, no need to be such a bloody pain in the ass. Doing it now. Happy?</string>
+
+    <string-array name="pref_sync_frequency_titles">
+        <item>1 minute</item>
+        <item>5 minutes</item>
+        <item>10 minutes</item>
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array>
+
+    <string-array name="pref_sync_frequency_values" translatable="false">
+        <item>60</item>
+        <item>300</item>
+        <item>600</item>
+        <item>900</item>
+        <item>1800</item>
+        <item>3600</item>
+        <item>10800</item>
+        <item>21600</item>
+        <item>-1</item>
+    </string-array>
+    <string name="pref_sync_frequency_default">300</string>
+
+    <!-- Settings for Info -->
+    <string name="pref_header_info">Information</string>
+    <string name="pref_title_info_authors">About FWeather</string>
+    <string name="pref_title_info_license">Third party licenses</string>
+    <string name="pref_title_feedback">Send feedback</string>
+    <string name="pref_title_changelog">Changelog</string>
+    <string name="pref_msg_changelog">Yeah, no. Draaag! Maybe some other time, man…</string>
+    <string name="feedback_send_chooser_title">Send the feedback email using:</string>
+
+    <!-- Settings for Advanced -->
+    <string name="pref_header_advanced">Advanced</string>
+    <string name="pref_title_analytics">Analytics</string>
+    <string name="analytics_disable_warning">This app uses Google Analytics to determine the most used features in a completely anonymous way, and allow the devs to focus their development issues where needed. We\'d ask you to leave it enabled, if possible.</string>
+    <string name="analytics_disabled">Google Analytics has been disabled.</string>
+    <string name="analytics_enabled_thanks">Google Analytics has been enabled. Thanks!</string>
+
+    <!-- ABOUT DIALOG -->
+    <string name="app_name_and_version" translatable="false">
+        <![CDATA[<b>FWeather</b>&nbsp;<font color=\"#888888\"><br/>v%1$s</font>]]></string>
+    <string name="about_body">Get your fucking weather right</string>
+    <string name="about_developers"><![CDATA[Developed by <b>Frakbot</b> (Sebastiano Poggi and Francesco Pontillo).<p/>Based on the <b>Authentic Weather</b> concept by Tobias van Scheider.]]></string>
+    <string name="donate_frakbot">Donate to\nFrakbot</string>
+    <string name="authentic_weather" translatable="false">Authentic\nWeather</string>
+
+    <!-- Action Bar items -->
+    <string name="done">DONE</string>
+
+    <!-- Switch values -->
+    <string name="on">ON</string>
+    <string name="off">OFF</string>
+</resources>

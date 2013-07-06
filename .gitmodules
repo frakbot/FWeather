@@ -1,0 +1,6 @@
+[submodule "submods/abs"]
+	path = submods/abs
+	url = git@github.com:rock3r/ActionBarSherlock-updlibs.git
+[submodule "submods/android-switch-backport"]
+	path = submods/android-switch-backport
+	url = https://github.com/BoD/android-switch-backport

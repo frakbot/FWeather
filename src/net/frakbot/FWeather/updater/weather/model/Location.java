@@ -9,7 +9,7 @@
  * survivingwithandroid@gmail.com
  *
  */
-package net.frakbot.FWeather.model;
+package net.frakbot.FWeather.updater.weather.model;
 
 import java.io.Serializable;
 

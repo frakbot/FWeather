@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <!--
   ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
   ~
@@ -15,6 +16,15 @@
   ~ limitations under the License.
   -->
 
-<resources>
-    <dimen name="widget_margin">0dp</dimen>
-</resources>
+<net.frakbot.FWeather.widget.FontTextView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="36dp"
+        android:gravity="center"
+        android:text="@string/pref_msg_changelog"
+        android:textSize="28sp"
+        android:textStyle="italic"
+        android:textColor="@color/text_subtitle"
+        app:customFont="Roboto-Light.ttf"/>
