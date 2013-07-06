@@ -64,6 +64,8 @@ public class Const {
      * @author Francesco Pontillo
      */
     public class Preferences {
+        public static final String PREFERENCE = "preference";
+        public static final String CHANGE = "change";
         public static final String SYNC_FREQUENCY = "sync_frequency";
         public static final String FEEDBACK = "feedback";
         public static final String ANALYTICS = "analytics";

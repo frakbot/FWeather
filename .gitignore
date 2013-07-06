@@ -2,4 +2,4 @@
 /gen/
 *.iws
 api_keys.xml
-analytics.xml
+res/values/analytics.xml

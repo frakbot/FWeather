@@ -275,6 +275,15 @@
       </item>
     </group>
   </component>
+  <component name="ProjectCodeStyleSettingsManager">
+    <option name="PER_PROJECT_SETTINGS">
+      <value>
+        <XML>
+          <option name="XML_LEGACY_SETTINGS_IMPORTED" value="true" />
+        </XML>
+      </value>
+    </option>
+  </component>
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FWeather.iml" filepath="$PROJECT_DIR$/FWeather.iml" />
@@ -303,6 +312,13 @@
     <mapping directory="$PROJECT_DIR$/submods/android-switch-backport" vcs="Git" />
   </component>
   <component name="libraryTable">
+    <library name="libGoogleAnalyticsV2">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/libGoogleAnalyticsV2.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
     <library name="Maven: backport-util-concurrent:backport-util-concurrent:3.1">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/backport-util-concurrent/backport-util-concurrent/3.1/backport-util-concurrent-3.1.jar!/" />
@@ -334,6 +350,17 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/com/google/android/android/4.0.1.2/android-4.0.1.2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.google.android:support-v4:r7">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/google/android/support-v4/r7/support-v4-r7.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/google/android/support-v4/r7/support-v4-r7-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/google/android/support-v4/r7/support-v4-r7-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: commons-codec:commons-codec:1.3">

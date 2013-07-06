@@ -27,8 +27,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Window;
+import com.google.analytics.tracking.android.EasyTracker;
 import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.global.Const;
+import net.frakbot.FWeather.util.TrackerHelper;
 
 /**
  * Implementation of android.preference.DialogPreference that
@@ -49,6 +51,18 @@ public class AuthorsDialog extends SherlockFragmentActivity {
 	TextView aboutAuthorsView;
 	Button donateFrakbotBtn;
 	Button authenticWeatherBtn;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        TrackerHelper.activityStart(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        TrackerHelper.activityStop(this);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
