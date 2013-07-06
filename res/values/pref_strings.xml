@@ -73,12 +73,12 @@
     <string name="pref_title_info_license">Third party licenses</string>
     <string name="pref_title_feedback">Send feedback</string>
     <string name="pref_title_changelog">Changelog</string>
-    <string name="pref_msg_changelog">Yeah, no. Draaag!. Maybe some other time, man…</string>
+    <string name="pref_msg_changelog">Yeah, no. Draaag! Maybe some other time, man…</string>
     <string name="feedback_send_chooser_title">Send the feedback email using:</string>
 
     <!-- Settings for Advanced -->
     <string name="pref_header_advanced">Advanced</string>
-    <string name="pref_title_analytics">Enable Analytics</string>
+    <string name="pref_title_analytics">Analytics</string>
     <string name="analytics_disable_warning">This app uses Google Analytics to determine the most used features in a completely anonymous way, and allow the devs to focus their development issues where needed. We\'d ask you to leave it enabled, if possible.</string>
     <string name="analytics_disabled">Google Analytics has been disabled.</string>
     <string name="analytics_enabled_thanks">Google Analytics has been enabled. Thanks!</string>
@@ -93,4 +93,8 @@
 
     <!-- Action Bar items -->
     <string name="done">DONE</string>
+
+    <!-- Switch values -->
+    <string name="on">ON</string>
+    <string name="off">OFF</string>
 </resources>

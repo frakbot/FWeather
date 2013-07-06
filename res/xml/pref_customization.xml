@@ -21,8 +21,15 @@
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <org.jraf.android.backport.switchwidget.SwitchPreference
-            android:key="@string/pref_key_analytics"
-            android:title="@string/pref_title_analytics"
+            android:key="@string/pref_key_ui_toggle_weather_icon"
+            android:title="@string/pref_title_ui_toggle_weather_icon"
+            android:defaultValue="true"
+            app:switchTextOff="@string/off"
+            app:switchTextOn="@string/on"/>
+
+    <org.jraf.android.backport.switchwidget.SwitchPreference
+            android:key="@string/pref_key_ui_toggle_temperature_info"
+            android:title="@string/pref_title_ui_toggle_temperature_info"
             android:defaultValue="true"
             app:switchTextOff="@string/off"
             app:switchTextOn="@string/on"/>

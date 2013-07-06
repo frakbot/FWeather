@@ -18,8 +18,8 @@
 
     <!-- These settings headers are only used on tablets. -->
     <header
-            android:fragment="net.frakbot.FWeather.activity.SettingsActivity$DataSyncPreferenceFragment"
-            android:title="@string/pref_header_data_sync"/>
+            android:fragment="net.frakbot.FWeather.activity.SettingsActivity$CustomizationPreferenceFragment"
+            android:title="@string/pref_header_customization"/>
 
     <header
             android:fragment="net.frakbot.FWeather.activity.SettingsActivity$DataSyncPreferenceFragment"

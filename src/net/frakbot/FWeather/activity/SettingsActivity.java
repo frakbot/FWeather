@@ -33,6 +33,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+import org.jraf.android.backport.switchwidget.SwitchPreference;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockPreferenceActivity;
 import com.actionbarsherlock.view.MenuItem;
@@ -190,8 +191,14 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
         PreferenceScreen screen = getPreferenceManager().createPreferenceScreen(this);
         setPreferenceScreen(screen);
 
-        // Add 'data and sync' preferences, and a corresponding header.
+        // Add 'customization' preferences, and a corresponding header.
         PreferenceCategory fakeHeader = new PreferenceCategory(this);
+        fakeHeader.setTitle(R.string.pref_header_customization);
+        screen.addPreference(fakeHeader);
+        addPreferencesFromResource(R.xml.pref_customization);
+
+        // Add 'data and sync' preferences, and a corresponding header.
+        fakeHeader = new PreferenceCategory(this);
         fakeHeader.setTitle(R.string.pref_header_data_sync);
         screen.addPreference(fakeHeader);
         addPreferencesFromResource(R.xml.pref_data_sync);
@@ -202,7 +209,7 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
         fakeHeader.setTitle(R.string.pref_header_advanced);
         screen.addPreference(fakeHeader);
         addPreferencesFromResource(R.xml.pref_advanced);
-        setupAnalyticsOnChangeListener((CheckBoxPreference) findPreference(getString(R.string.pref_key_analytics)));
+        setupAnalyticsOnChangeListener((SwitchPreference) findPreference(getString(R.string.pref_key_analytics)));
 
         // Add 'info' preferences, and a corresponding header.
         fakeHeader = new PreferenceCategory(this);
@@ -210,6 +217,7 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
         screen.addPreference(fakeHeader);
         addPreferencesFromResource(R.xml.pref_info);
         setupFeedbackOnClickListener(findPreference(getString(R.string.pref_key_feedback)));
+        setupChangelogOnClickListener(findPreference(getString(R.string.pref_key_changelog)));
 
         // Bind the summaries of EditText/List/Dialog/Ringtone preferences to
         // their values. When their values change, their summaries are updated
@@ -319,6 +327,7 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
      *
      * @return Returns the generated system info.
      */
+    @SuppressWarnings("StringBufferReplaceableByString")
     private String generateFeedbackBody() {
         StringBuilder sb = new StringBuilder("\n\n" +
                                              "-----------\n" +
@@ -356,11 +365,38 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
     }
 
     /**
+     * Sets up the Changelog preference click listener.
+     *
+     * @param preference The Changelog preference.
+     */
+    private void setupChangelogOnClickListener(Preference preference) {
+        preference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                AlertDialog.Builder b = new AlertDialog.Builder(SettingsActivity.this/*,
+                                                                R.style.Theme_FWeather_Settings_Dialog*/);
+                b.setTitle(R.string.pref_title_changelog)
+                 .setView(getLayoutInflater().inflate(R.layout.dialog_changelog, null))
+                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                     @Override
+                     public void onClick(DialogInterface dialog, int which) {
+                         dialog.dismiss();
+                     }
+                 });
+
+                b.show();
+
+                return true;
+            }
+        });
+    }
+
+    /**
      * Sets up the Analytics preference listener.
      *
      * @param preference The Analytics preference.
      */
-    private void setupAnalyticsOnChangeListener(CheckBoxPreference preference) {
+    private void setupAnalyticsOnChangeListener(SwitchPreference preference) {
         preference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
             @Override
             public boolean onPreferenceChange(final Preference preference, Object newValue) {
@@ -479,6 +515,19 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
     }
 
     /**
+     * This fragment shows customization preferences only. It is used when the
+     * activity is showing a two-pane settings UI.
+     */
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    public class CustomizationPreferenceFragment extends BackupPreferenceFragment {
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.pref_customization);
+        }
+    }
+
+    /**
      * This fragment shows advanced settings only. It is used when the activity
      * is showing a two-pane settings UI.
      */
@@ -490,7 +539,7 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.pref_advanced);
 
-            setupAnalyticsOnChangeListener((CheckBoxPreference) findPreference(getString(R.string.pref_key_analytics)));
+            setupAnalyticsOnChangeListener((SwitchPreference) findPreference(getString(R.string.pref_key_analytics)));
         }
     }
 
@@ -507,6 +556,7 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
             addPreferencesFromResource(R.xml.pref_info);
 
             setupFeedbackOnClickListener(findPreference(getString(R.string.pref_key_feedback)));
+            setupChangelogOnClickListener(findPreference(getString(R.string.pref_key_changelog)));
         }
     }
 

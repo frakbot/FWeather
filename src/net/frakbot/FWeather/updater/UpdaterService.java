@@ -22,16 +22,19 @@ import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.location.*;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.text.Html;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
 import android.widget.RemoteViews;
 import android.widget.Toast;
 import net.frakbot.FWeather.R;
@@ -157,8 +160,24 @@ public class UpdaterService extends IntentService {
      */
     private void updateViews(RemoteViews views, Weather weather) {
         views.setTextViewText(R.id.txt_weather, getWeatherString(weather));
-        views.setTextViewText(R.id.txt_temp, getTempString(weather));
-        views.setImageViewResource(R.id.img_weathericon, getWeatherImageId(weather));
+
+        final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        if (preferences.getBoolean(getString(R.string.pref_key_ui_toggle_temperature_info), true)) {
+            views.setViewVisibility(R.id.txt_temp, View.VISIBLE);
+            views.setTextViewText(R.id.txt_temp, getTempString(weather));
+        }
+        else {
+            views.setViewVisibility(R.id.txt_temp, View.GONE);
+        }
+
+        if (preferences.getBoolean(getString(R.string.pref_key_ui_toggle_weather_icon), true)) {
+            views.setViewVisibility(R.id.img_weathericon, View.VISIBLE);
+            views.setImageViewResource(R.id.img_weathericon, getWeatherImageId(weather));
+        }
+        else {
+            views.setViewVisibility(R.id.img_weathericon, View.GONE);
+        }
     }
 
     /**

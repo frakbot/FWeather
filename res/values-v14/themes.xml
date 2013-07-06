@@ -17,11 +17,17 @@
 
 <resources>
     <style name="Theme.FWeather" parent="android:Theme.DeviceDefault.Light.DarkActionBar">
+        <item name="switchStyle">@style/Widget.Holo.CompoundButton.Switch</item>
+        <item name="switchPreferenceStyle">@style/Preference.SwitchPreference</item>
     </style>
 
     <style name="Theme.FWeather.Settings.Dialog" parent="android:Theme.DeviceDefault.Light.Dialog">
+        <item name="switchStyle">@style/Widget.Holo.CompoundButton.Switch</item>
+        <item name="switchPreferenceStyle">@style/Preference.SwitchPreference</item>
     </style>
 
     <style name="Theme.FWeather.Settings.DialogWhenLarge" parent="android:Theme.DeviceDefault.Light.DialogWhenLarge">
+        <item name="switchStyle">@style/Widget.Holo.CompoundButton.Switch</item>
+        <item name="switchPreferenceStyle">@style/Preference.SwitchPreference</item>
     </style>
 </resources>

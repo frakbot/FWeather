@@ -54,7 +54,7 @@
 
     <!-- Settings for Advanced -->
     <string name="pref_header_advanced">Avanzate</string>
-    <string name="pref_title_analytics">Abilita Analytics</string>
+    <string name="pref_title_analytics">Analytics</string>
     <string name="analytics_disable_warning">Questa app usa Google Analytics per determinare le funzioni più usate dagli utenti in modo completamente anonimo, e consentire agli sviluppatori di indirizzare lo sviluppo in modo mirato. Ti chiediamo, se possibile, di lasciarlo abilitato.</string>
     <string name="analytics_disabled">Google Analytics è stato disabilitato.</string>
     <string name="analytics_enabled_thanks">Google Analytics è stato abilitato. Grazie!</string>
@@ -66,5 +66,9 @@
 
     <!-- Action Bar items -->
     <string name="done">FATTO</string>
+
+    <!-- Switch values -->
+    <string name="on">ON</string>
+    <string name="off">OFF</string>
 
 </resources>

@@ -25,7 +25,7 @@ import net.frakbot.FWeather.BuildConfig;
  */
 public class Const {
 
-    public static final String APP_NAME = "FWeather";
+    public static final String APP_NAME = "net/frakbot/FWeather";
 
     public static final boolean VERBOSE = BuildConfig.DEBUG;
     public static final boolean DEBUG = VERBOSE /* TODO add a preference to toggle it */;

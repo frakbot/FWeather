@@ -41,6 +41,7 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="actionbarsherlock" />
+        <module name="android-switch-backport" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -66,12 +67,14 @@
   </component>
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
     <file url="file://$PROJECT_DIR$/submods/abs/actionbarsherlock" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/submods/android-switch-backport/library" charset="UTF-8" />
   </component>
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
   </component>
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="android" url="file://$PROJECT_DIR$/submods/abs/actionbarsherlock" />
+    <file type="android" url="file://$PROJECT_DIR$/submods/android-switch-backport/library" />
   </component>
   <component name="IdProvider" IDEtalkID="76449A1F1C98EF004617C0BBCA3D247C" />
   <component name="InspectionProjectProfileManager">
@@ -143,6 +146,7 @@
       <list>
         <option value="$PROJECT_DIR$/submods/sunrisesunsetlib-java/pom.xml" />
         <option value="$PROJECT_DIR$/submods/abs/actionbarsherlock/pom.xml" />
+        <option value="$PROJECT_DIR$/submods/android-switch-backport/library/pom.xml" />
       </list>
     </option>
   </component>
@@ -274,8 +278,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FWeather.iml" filepath="$PROJECT_DIR$/FWeather.iml" />
-      <module fileurl="file://$PROJECT_DIR$/submods/abs/actionbarsherlock/actionbarsherlock.iml" filepath="$PROJECT_DIR$/submods/abs/actionbarsherlock/actionbarsherlock.iml" />
       <module fileurl="file://$PROJECT_DIR$/submods/abs/actionbarsherlock/actionbarsherlock.iml" filepath="$PROJECT_DIR$/submods/abs/actionbarsherlock/actionbarsherlock.iml" group="Dependencies" />
+      <module fileurl="file://$PROJECT_DIR$/submods/abs/actionbarsherlock/actionbarsherlock.iml" filepath="$PROJECT_DIR$/submods/abs/actionbarsherlock/actionbarsherlock.iml" group="Dependencies" />
+      <module fileurl="file://$PROJECT_DIR$/submods/android-switch-backport/library/android-switch-backport.iml" filepath="$PROJECT_DIR$/submods/android-switch-backport/library/android-switch-backport.iml" group="Dependencies" />
     </modules>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-name="Android 4.2.2 Platform" project-jdk-type="Android SDK">
@@ -295,6 +300,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/submods/abs" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/submods/android-switch-backport" vcs="Git" />
   </component>
   <component name="libraryTable">
     <library name="Maven: backport-util-concurrent:backport-util-concurrent:3.1">
@@ -317,6 +323,17 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/classworlds/classworlds/1.1-alpha-2/classworlds-1.1-alpha-2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.google.android:android:2.1.2">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/google/android/android/2.1.2/android-2.1.2.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/google/android/android/2.1.2/android-2.1.2-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/google/android/android/2.1.2/android-2.1.2-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: com.google.android:android:4.0.1.2">
