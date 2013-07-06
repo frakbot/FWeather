@@ -23,6 +23,11 @@ public class TrackerHelper {
         EasyTracker.getInstance().activityStop(context);
     }
 
+    public static void sendException(Context context, String description, boolean fatal) {
+        EasyTracker.getInstance().setContext(context);
+        EasyTracker.getTracker().sendException(description, fatal);
+    }
+
     public static void preferenceChange(Context context, String preferenceKey, Long value) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean track = prefs.getBoolean(Const.Preferences.ANALYTICS, false);

@@ -38,9 +38,11 @@ import android.view.View;
 import android.widget.RemoteViews;
 import android.widget.Toast;
 import net.frakbot.FWeather.R;
+import net.frakbot.FWeather.activity.SettingsActivity;
 import net.frakbot.FWeather.updater.weather.JSONWeatherParser;
 import net.frakbot.FWeather.updater.weather.WeatherHttpClient;
 import net.frakbot.FWeather.updater.weather.model.Weather;
+import net.frakbot.FWeather.util.TrackerHelper;
 import org.json.JSONException;
 
 import java.io.IOException;
@@ -119,7 +121,7 @@ public class UpdaterService extends IntentService {
             // Get the widget layout and update it
             RemoteViews views = new RemoteViews(getPackageName(),
                                                 getWidgetLayout(appWidgetManager, appWidgetId));
-            updateViews(views, weather);
+            updateViews(views, weather, appWidgetIds);
 
             // Tell the AppWidgetManager to perform an update on the current app widget
             appWidgetManager.updateAppWidget(appWidgetId, views);
@@ -158,7 +160,7 @@ public class UpdaterService extends IntentService {
      * @param views   The RemoteViews to use
      * @param weather The weather to update with
      */
-    private void updateViews(RemoteViews views, Weather weather) {
+    private void updateViews(RemoteViews views, Weather weather, int[] widgetIds) {
         views.setTextViewText(R.id.txt_weather, getWeatherString(weather));
 
         final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -178,6 +180,25 @@ public class UpdaterService extends IntentService {
         else {
             views.setViewVisibility(R.id.img_weathericon, View.GONE);
         }
+
+        if (preferences.getBoolean(getString(R.string.pref_key_ui_toggle_buttons), true)) {
+            views.setViewVisibility(R.id.btn_info, View.VISIBLE);
+            views.setViewVisibility(R.id.btn_refresh, View.VISIBLE);
+        }
+        else {
+            views.setViewVisibility(R.id.btn_info, View.GONE);
+            views.setViewVisibility(R.id.btn_refresh, View.GONE);
+        }
+
+        // Initalize OnClick listeners
+        views.setOnClickPendingIntent(R.id.btn_info,
+                                      PendingIntent.getActivity(this, 0, new Intent(this, SettingsActivity.class), 0));
+
+        Intent i = new Intent(this, UpdaterService.class);
+        i.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+        i.putExtra(UpdaterService.EXTRA_WIDGET_IDS, widgetIds);
+        i.putExtra(UpdaterService.EXTRA_USER_FORCE_UPDATE, true);
+        views.setOnClickPendingIntent(R.id.btn_refresh, PendingIntent.getService(this, 0, i, 0));
     }
 
     /**
@@ -383,6 +404,7 @@ public class UpdaterService extends IntentService {
         final Location location = getLocation();
 
         if (location == null) {
+            TrackerHelper.sendException(this, "No location found", false);
             Log.e(TAG, "No location available, can't update");
             return null;
         }
@@ -401,8 +423,9 @@ public class UpdaterService extends IntentService {
             json = ((new WeatherHttpClient()).getLocationWeatherJsonData(location));
         }
 
-        if (!TextUtils.isEmpty(json)) {
+        if (TextUtils.isEmpty(json)) {
             Log.e(TAG, "No weather available, can't update");
+            TrackerHelper.sendException(this, "No weather data", false);
             return null;
         }
 
@@ -411,6 +434,7 @@ public class UpdaterService extends IntentService {
         }
         catch (JSONException e) {
             Log.e(TAG, "Weather data is not valid, can't update");
+            TrackerHelper.sendException(this, "Invalid weather JSON", false);
             return null;
         }
 

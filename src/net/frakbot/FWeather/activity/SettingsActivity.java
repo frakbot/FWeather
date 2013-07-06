@@ -33,15 +33,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-import org.jraf.android.backport.switchwidget.SwitchPreference;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockPreferenceActivity;
-import com.actionbarsherlock.view.MenuItem;
 import net.frakbot.FWeather.FWeatherWidgetProvider;
-import com.google.analytics.tracking.android.EasyTracker;
 import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.global.Const;
 import net.frakbot.FWeather.updater.UpdaterService;
+import net.frakbot.FWeather.util.TrackerHelper;
+import org.jraf.android.backport.switchwidget.SwitchPreference;
 
 import java.util.List;
 
@@ -74,15 +73,25 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
     private int mNewWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID;
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        TrackerHelper.activityStart(this);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Intent intent = getIntent();
+        if (intent != null
+            && AppWidgetManager.ACTION_APPWIDGET_CONFIGURE.equals(intent.getAction())) {
+
+            mNewWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
+                                              AppWidgetManager.INVALID_APPWIDGET_ID);
+
+            // See http://code.google.com/p/android/issues/detail?id=2539
+            setResult(RESULT_CANCELED, new Intent()
+                .putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, mNewWidgetId));
+        }
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
-        TrackerHelper.activityStop(this);
+    protected void onStart() {
+        super.onStart();
+        TrackerHelper.activityStart(this);
     }
 
     @Override
@@ -137,6 +146,7 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
         // Update the widgets after the configuration is closed
         Log.d("SettingsActivity", "Closing the settings Activity; updating widgets");
         requestWidgetsUpdate(true, true);
+        TrackerHelper.activityStop(this);
     }
 
     @SuppressWarnings("deprecation")
@@ -158,16 +168,6 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         new BackupManager(this).dataChanged();
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            finish(); // TODO: DashClock-like "done" button in the left part of ActionBar
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     /**

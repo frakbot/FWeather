@@ -6,10 +6,10 @@
     </facet>
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
-    <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gen" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/submods" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -24,6 +24,7 @@
       </library>
     </orderEntry>
     <orderEntry type="module" module-name="actionbarsherlock" />
+    <orderEntry type="module" module-name="android-switch-backport" />
   </component>
 </module>
 

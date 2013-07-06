@@ -48,5 +48,7 @@
     <string name="temp_wtf"><![CDATA[Cazzo, sul serio, al momento è la tua chance migliore, io non ne ho idea.]]></string>
 
     <!-- Widget accessibility -->
-    <string name="cdesc_weathericon">Meteo attuale</string>
+    <string name="cdesc_weathericon"><![CDATA[Meteo attuale]]></string>
+    <string name="cdesc_infobtn"><![CDATA[Info & impostazioni]]></string>
+    <string name="cdesc_refresh"><![CDATA[Aggiorna]]></string>
 </resources>

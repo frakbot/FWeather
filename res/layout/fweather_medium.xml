@@ -15,16 +15,19 @@
   ~ limitations under the License.
   -->
 
-<FrameLayout
+<RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/widget_margin">
+        android:padding="@dimen/widget_margin"
+        android:gravity="center">
 
-    <!--suppress AndroidLintUselessParent -->
+    <include layout="@layout/include_widgetbuttons" />
+
     <LinearLayout
+            android:id="@+id/content"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="left|center_vertical">
 
@@ -54,4 +57,4 @@
 
     </LinearLayout>
 
-</FrameLayout>
+</RelativeLayout>
