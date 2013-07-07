@@ -26,29 +26,6 @@
     <!-- Service labels -->
     <string name="updater_service">FWeather updater service</string>
 
-    <!-- Widget loading messages -->
-    <string name="loading_main"><![CDATA[Let me look out of a fucking window.]]></string>
-    <string name="loading_small"><![CDATA[Get close to one so that I can tell you the weather.]]></string>
-
-    <!-- Widget weather conditions -->
-    <string name="weather_sunny"><![CDATA[Fucking <font color="#ff0160">love</font> is in the air.]]></string>
-    <string name="weather_rainy"><![CDATA[It\'s fucking <font color="#0076e9">raining.</font> Shit.]]></string>
-    <string name="weather_cloudy"><![CDATA[Just fucking <font color="#999999">grey.</font>]]></string>
-    <string name="weather_thunderstorm"><![CDATA[Hell\'s fucking <font color="#fff883">thunder fury.</font>]]></string>
-    <string name="weather_haze"><![CDATA[<font color="#beafd2">Can\'t see</font> a damn thing.]]></string>
-    <string name="weather_mostly_cloudy"><![CDATA[Not fucking raining. <font color="#fb6e5e">Yet.</font>]]></string>
-    <string name="weather_drizzle"><![CDATA[Slight raining, like a fucking <font color="#ffa6d1">pussy.</font>]]></string>
-    <string name="weather_snowy"><![CDATA[Here\'s <font color="#ff3836">Santa</font> fucking Claus.]]></string>
-    <string name="weather_extreme"><![CDATA[<font color="#ff6f14">Run</font> for your fucking life.]]></string>
-    <string name="weather_wtf"><![CDATA[<font color="#cbff64">WTF,</font> can\'t you just look outside?]]></string>
-
-    <!-- Widget temperature conditions -->
-    <string name="temp_freezing"><![CDATA[<font color="#d28aff">WTF.</font> Fucking north pole.]]></string>
-    <string name="temp_cold"><![CDATA[<font color="#cde2ff">Cold</font> like a fucking fridge.]]></string>
-    <string name="temp_hot"><![CDATA[<font color="#f25e5e">Hot</font> as in a fucking oven.]]></string>
-    <string name="temp_warm"><![CDATA[Enjoy the fucking birds <font color="#00d500">singing</font> and shit.]]></string>
-    <string name="temp_wtf"><![CDATA[No, seriously, that\'s your best chance right now, I have no fucking idea.]]></string>
-
     <!-- Widget accessibility -->
     <string name="cdesc_weathericon"><![CDATA[Current weather]]></string>
     <string name="cdesc_infobtn"><![CDATA[Info & settings]]></string>
