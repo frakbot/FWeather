@@ -16,7 +16,6 @@
 
 package net.frakbot.FWeather.util;
 
-import android.app.IntentService;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.IntentSender;
@@ -43,11 +42,7 @@ import com.google.android.gms.location.LocationRequest;
  *
  * @author Francesco Pontillo
  */
-public class LocationHelper implements
-        GooglePlayServicesClient.ConnectionCallbacks,
-        GooglePlayServicesClient.OnConnectionFailedListener,
-        android.location.LocationListener,
-        com.google.android.gms.location.LocationListener {
+public class LocationHelper {
 
     private static final String TAG = LocationHelper.class.getSimpleName();
 
@@ -63,6 +58,8 @@ public class LocationHelper implements
 
     private static PendingIntent mPendingIntent;
     private static Location lastKnownSurroundings; // EITS for the win
+    private static LocationClientListener mLocationClientListener;
+    private static LocationManagerListener mLocationManagerListener;
 
     static {
         isInitialized = false;
@@ -89,6 +86,36 @@ public class LocationHelper implements
     }
 
     /**
+     * Bootstraps the appropriate location modules
+     */
+    private void bootstrapLocationHelper() {
+        if (hasPlayServices) {
+            // Setup the listener
+            mLocationClientListener = new LocationClientListener();
+
+            mLocationClient = new LocationClient(mContext, mLocationClientListener, mLocationClientListener);
+            mLocationClient.connect();
+        } else {
+            mLocationManager = (LocationManager) mContext.getSystemService(Context.LOCATION_SERVICE);
+
+            final Criteria criteria = getDefaultCriteria();
+            final String provider = mLocationManager.getBestProvider(criteria, true);
+
+            if (TextUtils.isEmpty(provider)) {
+                Log.w(TAG, "No available provider, unable to bootstrap location");
+                return;
+            }
+
+            // Setup the listener
+            mLocationManagerListener = new LocationManagerListener();
+
+            mLocationManager.requestLocationUpdates(provider, 0, 0, mLocationManagerListener, Looper.myLooper());
+        }
+
+        // At this point, either mLocationClient or mLocationManager are doing their initialization stuff
+    }
+
+    /**
      * Checks if the LocationHelper was initialized.
      * @return true if initialized, false otherwise
      */
@@ -105,7 +132,8 @@ public class LocationHelper implements
      * @return              the last known Location
      * @see "http://www.youtube.com/watch?v=2UNj5Oqs29g"
      */
-    public static Location getLastKnownSurroundings(PendingIntent pendingIntent) {
+    public static Location getLastKnownSurroundings(PendingIntent pendingIntent)
+            throws LocationNotReadyYetException {
         // Checks if the LocationHelper has been initialized
         checkForInit();
 
@@ -113,48 +141,11 @@ public class LocationHelper implements
         if (!isConnected) {
             // Re-start the pending intent when the connection is established
             mPendingIntent = pendingIntent;
-        }
-        // If the last known location is null
-        else if (lastKnownSurroundings == null && pendingIntent != null) {
-            if (hasPlayServices) {
-                // If we have play services, request a single update to mLocationClient
-                LocationRequest locationRequest = LocationRequest.create();
-                locationRequest.setNumUpdates(1);
-                // The pendingIntent will be started when the location is retrieved for the first time
-                mLocationClient.requestLocationUpdates(locationRequest, pendingIntent);
-            } else {
-                // Otherwise, request a single update to mLocationManager
-                final Criteria criteria = LocationHelper.getDefaultCriteria();
-                mLocationManager.requestSingleUpdate(criteria, pendingIntent);
-            }
+            throw new LocationNotReadyYetException();
         }
 
         // Return the last known surroundings
         return lastKnownSurroundings;
-    }
-
-    /**
-     * Bootstraps the appropriate location modules
-     */
-    private void bootstrapLocationHelper() {
-        if (hasPlayServices) {
-            mLocationClient = new LocationClient(mContext, this, this);
-            mLocationClient.connect();
-        } else {
-            mLocationManager = (LocationManager) mContext.getSystemService(Context.LOCATION_SERVICE);
-
-            final Criteria criteria = getDefaultCriteria();
-            final String provider = mLocationManager.getBestProvider(criteria, true);
-
-            if (TextUtils.isEmpty(provider)) {
-                Log.w(TAG, "No available provider, unable to bootstrap location");
-                return;
-            }
-
-            mLocationManager.requestLocationUpdates(provider, 0, 0, this, Looper.myLooper());
-        }
-
-        // At this point, either mLocationClient or mLocationManager are doing their initialization stuff
     }
 
     /**
@@ -178,23 +169,87 @@ public class LocationHelper implements
         return criteria;
     }
 
+    public static class LocationNotReadyYetException extends Exception {
+
+    }
+
+    private class LocationClientListener implements
+            com.google.android.gms.location.LocationListener,
+            GooglePlayServicesClient.ConnectionCallbacks,
+            GooglePlayServicesClient.OnConnectionFailedListener {
+
+        @Override
+        public void onConnected(Bundle bundle) {
+            // The LocationClient has connected
+            Log.d(TAG, "LocationClient has connected.");
+
+            LocationRequest request = LocationRequest.create();
+            mLocationClient.requestLocationUpdates(request, this);
+
+            onGenericConnected();
+
+            Location currentLocation = mLocationClient.getLastLocation();
+            if (currentLocation != null)
+                updateLocation(currentLocation);
+        }
+
+        @Override
+        public void onLocationChanged(Location location) {
+            updateLocation(location);
+        }
+
+        @Override
+        public void onDisconnected() {
+            // Nobody cares
+            onGenericDisconnected();
+        }
+
+        @Override
+        public void onConnectionFailed(ConnectionResult connectionResult) {
+            // Nobody cares
+            onGenericDisconnected();
+        }
+    }
+
+    private class LocationManagerListener implements android.location.LocationListener {
+        @Override
+        public void onLocationChanged(Location location) {
+            updateLocation(location);
+        }
+
+        @Override
+        public void onStatusChanged(String provider, int status, Bundle extras) {
+
+        }
+
+        @Override
+        public void onProviderEnabled(String provider) {
+
+        }
+
+        @Override
+        public void onProviderDisabled(String provider) {
+
+        }
+    }
+
     /**
      * Callback method called every time there is a location update.
      * @param location the new Location
      */
-    @Override
-    public void onLocationChanged(Location location) {
+    private void updateLocation(Location location) {
+        // Update the location
+        Log.d(TAG, "Location has been updated!");
+        lastKnownSurroundings = location;
+
         // The LocationManager does not have a connection callback,
         // so we have to rely on listening to location changes
-        if (!hasPlayServices && mPendingIntent != null) {
+        if (!hasPlayServices && !isConnected) {
             // The LocationManager has connected
             Log.d(TAG, "LocationManager has connected.");
             onGenericConnected();
         }
-
-        // Update the location
-        Log.d(TAG, "Location has been updated!");
-        lastKnownSurroundings = location;
+        tryUpdateWidgets();
     }
 
     /**
@@ -202,6 +257,12 @@ public class LocationHelper implements
      */
     private void onGenericConnected() {
         isConnected = true;
+    }
+
+    /**
+     * Tries to update the widgets by calling the updater IntentService
+     */
+    private void tryUpdateWidgets() {
         // If there is a pending intent
         if (mPendingIntent != null) {
             // Start it
@@ -220,43 +281,4 @@ public class LocationHelper implements
         isConnected = false;
     }
 
-    // NOBODY-CARES-kinda-stuff
-
-    @Override
-    public void onConnected(Bundle bundle) {
-        // The LocationClient has connected
-        Log.d(TAG, "LocationClient has connected.");
-
-        LocationRequest request = LocationRequest.create();
-        mLocationClient.requestLocationUpdates(request, this);
-
-        onGenericConnected();
-    }
-
-    @Override
-    public void onDisconnected() {
-        // Nobody cares
-        onGenericDisconnected();
-    }
-
-    @Override
-    public void onConnectionFailed(ConnectionResult connectionResult) {
-        // Nobody cares
-        onGenericDisconnected();
-    }
-
-    @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) {
-        // Nobody cares
-    }
-
-    @Override
-    public void onProviderEnabled(String provider) {
-        // Nobody cares
-    }
-
-    @Override
-    public void onProviderDisabled(String provider) {
-        // Nobody cares
-    }
 }

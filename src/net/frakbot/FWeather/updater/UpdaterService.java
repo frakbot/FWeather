@@ -23,7 +23,10 @@ import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.location.*;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
@@ -35,12 +38,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.RemoteViews;
 import android.widget.Toast;
-
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesClient;
-import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.location.LocationClient;
-import com.google.android.gms.location.LocationRequest;
 import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.activity.SettingsActivity;
 import net.frakbot.FWeather.updater.weather.JSONWeatherParser;
@@ -62,9 +60,6 @@ public class UpdaterService extends IntentService {
 
     public static final String TAG = UpdaterService.class.getSimpleName();
     private WidgetUiHelper mWidgetUiHelper;
-
-    private LocationManager mLocationManager;
-    private LocationClient mLocationClient;
 
     public static final String EXTRA_USER_FORCE_UPDATE = "the_motherfocker_wants_us_to_do_stuff";
     public static final String EXTRA_SILENT_FORCE_UPDATE = "a_ninja_is_making_me_do_it";
@@ -117,9 +112,14 @@ public class UpdaterService extends IntentService {
         assert appWidgetManager != null;
 
         // Update the weather info
-        Weather weather = getWeather();
-
-        final int N = appWidgetIds.length;
+        Weather weather = null;
+        try {
+            weather = getWeather();
+        } catch (LocationHelper.LocationNotReadyYetException justWaitException) {
+            // If the location is not ready yet, leave the View unchanged
+            Log.d(TAG, "The LocationHelper is not reayd yet, the updater will be called again soon.");
+            return;
+        }
 
         // Perform this loop procedure for each App Widget that belongs to this provider
         for (int appWidgetId : appWidgetIds) {
@@ -228,7 +228,7 @@ public class UpdaterService extends IntentService {
      * @return Returns the weather info, if available, or null
      *         if there was any error during the download.
      */
-    private Weather getWeather() {
+    private Weather getWeather() throws LocationHelper.LocationNotReadyYetException {
         if (!checkNetwork()) {
             Log.e(TAG, "Can't update weather, no network connectivity available");
             return null;
@@ -284,8 +284,8 @@ public class UpdaterService extends IntentService {
      *
      * @return Returns the current location
      */
-    private Location getLocation() {
-        final Intent intent = new Intent(this, UpdaterService.class);
+    private Location getLocation() throws LocationHelper.LocationNotReadyYetException {
+        final Intent intent = WidgetUiHelper.getUpdaterIntent(this, false, false);
         final PendingIntent pendingIntent = PendingIntent.getService(this, 42, intent, 0);
         return LocationHelper.getLastKnownSurroundings(pendingIntent);
     }

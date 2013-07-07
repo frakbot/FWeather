@@ -16,12 +16,16 @@
 
 package net.frakbot.FWeather.updater;
 
+import android.appwidget.AppWidgetManager;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
 import android.text.Html;
 import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
+import net.frakbot.FWeather.FWeatherWidgetProvider;
 import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.updater.weather.model.Weather;
 import net.frakbot.FWeather.widget.FontTextView;
@@ -40,6 +44,35 @@ public class WidgetUiHelper {
 
     public WidgetUiHelper(Context c) {
         mContext = c;
+    }
+
+    /**
+     * Builds an update Intent of all the widgets we currently have. It can optionally
+     * also be silent (no UI).
+     * The Intent is not started, you will have to do it yourself.
+     *
+     * @param forced True if this is a forced update request, false otherwise
+     * @param silent True if this is a silent forced update request, false otherwise
+     */
+    public static Intent getUpdaterIntent(Context context, boolean forced, boolean silent) {
+        Intent i = new Intent(context, UpdaterService.class);
+        AppWidgetManager mgr = AppWidgetManager.getInstance(context);
+        int[] ids = mgr.getAppWidgetIds(new ComponentName(context, FWeatherWidgetProvider.class));
+
+        i.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+        i.putExtra(UpdaterService.EXTRA_WIDGET_IDS, ids);
+        if (forced) {
+            if (silent) {
+                // Code-originated forced update (config changes, etc)
+                i.putExtra(UpdaterService.EXTRA_SILENT_FORCE_UPDATE, true);
+            }
+            else {
+                // User-forced updated
+                i.putExtra(UpdaterService.EXTRA_USER_FORCE_UPDATE, true);
+            }
+        }
+
+        return i;
     }
 
     /**
