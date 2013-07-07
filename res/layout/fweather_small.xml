@@ -35,7 +35,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:scaleType="centerInside"
-            android:src="@drawable/clear_day"
+            android:src="@drawable/weather_clear_day"
             android:contentDescription="@string/cdesc_weathericon"/>
 
         <TextView

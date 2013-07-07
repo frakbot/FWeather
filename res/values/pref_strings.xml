@@ -27,6 +27,7 @@
     <string name="pref_key_ui_toggle_buttons" translatable="false">ui_toggle_buttons</string>
     <string name="pref_key_ui_toggle_weather_icon" translatable="false">ui_toggle_weather_icon</string>
     <string name="pref_key_ui_toggle_temperature_info" translatable="false">ui_toggle_temperature_info</string>
+    <string name="pref_key_ui_darkmode" translatable="false">ui_darkmode</string>
     <string name="pref_key_authors" translatable="false">authors</string>
     <string name="pref_key_changelog" translatable="false">changelog</string>
     <string name="pref_key_analytics" translatable="false">analytics</string>
@@ -37,6 +38,8 @@
     <string name="pref_title_ui_toggle_buttons">Buttons on widget</string>
     <string name="pref_title_ui_toggle_weather_icon">Weather icon</string>
     <string name="pref_title_ui_toggle_temperature_info">Temperature \"info\"</string>
+    <string name="pref_title_ui_darkmode">Dark mode</string>
+    <string name="pref_summary_ui_darkmode">Adapts colors for bright backgrounds</string>
 
     <!-- Settings for Data & Sync -->
     <string name="pref_header_data_sync">Data &amp; sync</string>

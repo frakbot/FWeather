@@ -23,6 +23,8 @@
     <string name="pref_title_ui_toggle_buttons">Pulsanti sul widget</string>
     <string name="pref_title_ui_toggle_weather_icon">Icona del meteo</string>
     <string name="pref_title_ui_toggle_temperature_info">\"Info\" sulla temperatura</string>
+    <string name="pref_title_ui_darkmode">Modalità scura</string>
+    <string name="pref_summary_ui_darkmode">Adatta i colori per sfondi chiari</string>
 
     <!-- Settings for Data & Sync -->
     <string name="pref_header_data_sync">Dati &amp; aggiornamento</string>

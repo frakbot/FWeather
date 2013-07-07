@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+
+    <!-- Widget loading messages -->
+    <string name="loading_main"><![CDATA[Fammi guardare da una cazzo di finestra.]]></string>
+    <string name="loading_small"><![CDATA[Avvicinati così posso dirti il meteo.]]></string>
+
+    <!-- Widget weather conditions -->
+    <string name="weather_sunny"><![CDATA[C\'è dell\'<font color="%%COLOR%%">amore</font> del cazzo nell\'aria.]]></string>
+    <string name="weather_rainy"><![CDATA[Sta <font color="%%COLOR%%">piovendo,</font> ora. Merda.]]></string>
+    <string name="weather_cloudy"><![CDATA[È tutto di un <font color="%%COLOR%%">grigio</font> di merda.]]></string>
+    <string name="weather_thunderstorm"><![CDATA[I <font color="%%COLOR%%">fulmini dell\'Ade</font> del cazzo.]]></string>
+    <string name="weather_haze"><![CDATA[<font color="%%COLOR%%">Non vedo</font> uno stracazzo.]]></string>
+    <string name="weather_mostly_cloudy"><![CDATA[Non piove, cazzo. <font color="%%COLOR%%">Per ora.</font>]]></string>
+    <string name="weather_drizzle"><![CDATA[Pioviggina, come una <font color="%%COLOR%%">fighetta.</font>]]></string>
+    <string name="weather_snowy"><![CDATA[Arriva il <font color="%%COLOR%%">Babbo Natale</font> del cazzo.]]></string>
+    <string name="weather_extreme"><![CDATA[<font color="%%COLOR%%">Corri</font> per salvarti la vita.]]></string>
+    <string name="weather_wtf"><![CDATA[<font color="%%COLOR%%">Che cazzo,</font> non sai guardare da solo?]]></string>
+
+    <!-- Widget temperature conditions -->
+    <string name="temp_freezing"><![CDATA[<font color="%%COLOR%%">Porca troia.</font> E\' tipo il polo nord.]]></string>
+    <string name="temp_cold"><![CDATA[Fa <font color="%%COLOR%%">freddo</font> come in un cazzo di frigo.]]></string>
+    <string name="temp_hot"><![CDATA[È <font color="%%COLOR%%">caldo</font> come un forno del cazzo.]]></string>
+    <string name="temp_warm"><![CDATA[Goditi i cazzo di uccellini che <font color="%%COLOR%%">cantano</font> e cagate simili.]]></string>
+    <string name="temp_wtf"><![CDATA[Cazzo, sul serio, al momento è la tua chance migliore, io <font color="%%COLOR%%">non ne ho idea.</font>]]></string>
+
+</resources>
