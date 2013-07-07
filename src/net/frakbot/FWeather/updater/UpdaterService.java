@@ -35,11 +35,18 @@ import android.util.Log;
 import android.view.View;
 import android.widget.RemoteViews;
 import android.widget.Toast;
+
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesClient;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.location.LocationClient;
+import com.google.android.gms.location.LocationRequest;
 import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.activity.SettingsActivity;
 import net.frakbot.FWeather.updater.weather.JSONWeatherParser;
 import net.frakbot.FWeather.updater.weather.WeatherHttpClient;
 import net.frakbot.FWeather.updater.weather.model.Weather;
+import net.frakbot.FWeather.util.LocationHelper;
 import net.frakbot.FWeather.util.TrackerHelper;
 import org.json.JSONException;
 
@@ -48,14 +55,8 @@ import java.util.List;
 
 /**
  * Updater service for the widgets.
- * <p/>
- * Author: Sebastiano Poggi
- * Created on: 6/30/13 Time: 11:57 AM
- * File version: 1.0
- * <p/>
- * Changelog:
- * Version 1.0
- * * Initial revision
+ *
+ * @author Sebastiano Poggi, Francesco Pontillo
  */
 public class UpdaterService extends IntentService {
 
@@ -63,6 +64,7 @@ public class UpdaterService extends IntentService {
     private WidgetUiHelper mWidgetUiHelper;
 
     private LocationManager mLocationManager;
+    private LocationClient mLocationClient;
 
     public static final String EXTRA_USER_FORCE_UPDATE = "the_motherfocker_wants_us_to_do_stuff";
     public static final String EXTRA_SILENT_FORCE_UPDATE = "a_ninja_is_making_me_do_it";
@@ -76,16 +78,20 @@ public class UpdaterService extends IntentService {
     @Override
     public void onCreate() {
         super.onCreate();
+        Log.d(TAG, "onCreate");
 
         Log.i(TAG, "Initializing the UpdaterService");
         mWidgetUiHelper = new WidgetUiHelper(this);
         mHandler = new Handler();
-        mLocationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-        bootstrapLocationProvider();
+
+        // Initialize the amazing LocationHelper
+        // (the method is idempotent)
+        LocationHelper.init(this);
     }
 
     @Override
     protected void onHandleIntent(Intent intent) {
+        Log.d(TAG, "onHandleIntent");
         int[] appWidgetIds = intent.getIntArrayExtra(EXTRA_WIDGET_IDS);
         if (appWidgetIds == null || appWidgetIds.length == 0) {
             Log.d(TAG, "Intent with no widgets ID received, ignoring\n\t> " + intent);
@@ -217,33 +223,6 @@ public class UpdaterService extends IntentService {
     }
 
     /**
-     * Requests a location update, that will call this service again
-     * as soon as the location is ready.
-     */
-    private void bootstrapLocationProvider() {
-        final Criteria criteria = new Criteria();
-        criteria.setCostAllowed(false);
-        criteria.setAccuracy(Criteria.ACCURACY_LOW);
-        criteria.setPowerRequirement(Criteria.POWER_LOW);
-        final String provider = mLocationManager.getBestProvider(criteria, true);
-
-        if (TextUtils.isEmpty(provider)) {
-            Log.w(TAG, "No available provider, unable to bootstrap location");
-            return;
-        }
-
-        final Location lastLocation = mLocationManager.getLastKnownLocation(provider);
-        if (lastLocation == null ||
-            System.currentTimeMillis() - lastLocation.getTime() > 7200000) {
-
-            Log.d(TAG, "Bootstrapping the location provider");
-            final Intent intent = new Intent(this, UpdaterService.class);
-            mLocationManager.requestSingleUpdate(provider,
-                                                 PendingIntent.getService(this, 42, intent, 0));
-        }
-    }
-
-    /**
      * Gets the current weather at the user's location
      *
      * @return Returns the weather info, if available, or null
@@ -301,6 +280,17 @@ public class UpdaterService extends IntentService {
     }
 
     /**
+     * Gets the current location.
+     *
+     * @return Returns the current location
+     */
+    private Location getLocation() {
+        final Intent intent = new Intent(this, UpdaterService.class);
+        final PendingIntent pendingIntent = PendingIntent.getService(this, 42, intent, 0);
+        return LocationHelper.getLastKnownSurroundings(pendingIntent);
+    }
+
+    /**
      * Gets the city name (where available), suffixed with the
      * country code.
      *
@@ -334,23 +324,6 @@ public class UpdaterService extends IntentService {
     }
 
     /**
-     * Gets the current location.
-     *
-     * @return Returns the current location
-     */
-    private Location getLocation() {
-        final Criteria criteria = new Criteria();
-        criteria.setAccuracy(Criteria.ACCURACY_LOW);
-        criteria.setPowerRequirement(Criteria.POWER_LOW);
-        final String provider = mLocationManager.getBestProvider(criteria, true);
-        if (TextUtils.isEmpty(provider)) {
-            Log.w(TAG, "No available provider, unable to determine location");
-            return null;
-        }
-        return mLocationManager.getLastKnownLocation(provider);
-    }
-
-    /**
      * Checks if there is any network connection active (or activating).
      *
      * @return Returns true if there is an active connection, false otherwise
@@ -361,4 +334,5 @@ public class UpdaterService extends IntentService {
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
         return activeNetwork != null && activeNetwork.isConnectedOrConnecting();
     }
+
 }
