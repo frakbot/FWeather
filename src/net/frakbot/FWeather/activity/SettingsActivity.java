@@ -39,6 +39,7 @@ import net.frakbot.FWeather.FWeatherWidgetProvider;
 import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.global.Const;
 import net.frakbot.FWeather.updater.UpdaterService;
+import net.frakbot.FWeather.updater.WidgetUiHelper;
 import net.frakbot.FWeather.util.TrackerHelper;
 import org.jraf.android.backport.switchwidget.SwitchPreference;
 
@@ -256,22 +257,7 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
      * @param silent True if this is a silent forced update request, false otherwise
      */
     private void requestWidgetsUpdate(boolean forced, boolean silent) {
-        Intent i = new Intent(this, UpdaterService.class);
-        AppWidgetManager mgr = AppWidgetManager.getInstance(this);
-        int[] ids = mgr.getAppWidgetIds(new ComponentName(this, FWeatherWidgetProvider.class));
-
-        i.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
-        i.putExtra(UpdaterService.EXTRA_WIDGET_IDS, ids);
-        if (forced) {
-            if (silent) {
-                // Code-originated forced update (config changes, etc)
-                i.putExtra(UpdaterService.EXTRA_SILENT_FORCE_UPDATE, true);
-            }
-            else {
-                // User-forced updated
-                i.putExtra(UpdaterService.EXTRA_USER_FORCE_UPDATE, true);
-            }
-        }
+        Intent i = WidgetUiHelper.getUpdaterIntent(this, forced, silent);
 
         startService(i);
     }

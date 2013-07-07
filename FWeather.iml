@@ -25,6 +25,7 @@
     </orderEntry>
     <orderEntry type="module" module-name="actionbarsherlock" />
     <orderEntry type="module" module-name="android-switch-backport" />
+    <orderEntry type="module" module-name="google-play-services_lib" />
   </component>
 </module>
 
