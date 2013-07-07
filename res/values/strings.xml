@@ -32,7 +32,7 @@
 
     <!-- Widget weather conditions -->
     <string name="weather_sunny"><![CDATA[Fucking <font color="#ff0160">love</font> is in the air.]]></string>
-    <string name="weather_rainy"><![CDATA[It\'s fucking <font color="#0076e9">raining.</font> Now.]]></string>
+    <string name="weather_rainy"><![CDATA[It\'s fucking <font color="#0076e9">raining.</font> Shit.]]></string>
     <string name="weather_cloudy"><![CDATA[Just fucking <font color="#999999">grey.</font>]]></string>
     <string name="weather_thunderstorm"><![CDATA[Hell\'s fucking <font color="#fff883">thunder fury.</font>]]></string>
     <string name="weather_haze"><![CDATA[<font color="#beafd2">Can\'t see</font> a damn thing.]]></string>

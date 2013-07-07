@@ -30,7 +30,7 @@
 
     <!-- Widget weather conditions -->
     <string name="weather_sunny"><![CDATA[C\'è dell\'<font color="#ff0160">amore</font> del cazzo nell\'aria.]]></string>
-    <string name="weather_rainy"><![CDATA[Sta <font color="#0076e9">piovendo,</font> ora. Merda.]]></string>
+    <string name="weather_rainy"><![CDATA[Sta <font color="#0076e9">piovendo</font>, ora. Merda.]]></string>
     <string name="weather_cloudy"><![CDATA[È tutto di un <font color="#999999">grigio</font> di merda.]]></string>
     <string name="weather_thunderstorm"><![CDATA[I <font color="#fff883">fulmini dell\'Ade</font> del cazzo.]]></string>
     <string name="weather_haze"><![CDATA[<font color="#beafd2">Non vedo</font> uno stracazzo.]]></string>
