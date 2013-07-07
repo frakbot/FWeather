@@ -315,13 +315,6 @@
     <mapping directory="$PROJECT_DIR$/submods/android-switch-backport" vcs="Git" />
   </component>
   <component name="libraryTable">
-    <library name="google-play-services">
-      <CLASSES>
-        <root url="jar://$PROJECT_DIR$/submods/google-play-services_lib/libs/google-play-services.jar!/" />
-      </CLASSES>
-      <JAVADOC />
-      <SOURCES />
-    </library>
     <library name="libGoogleAnalyticsV2">
       <CLASSES>
         <root url="jar://$PROJECT_DIR$/libs/libGoogleAnalyticsV2.jar!/" />

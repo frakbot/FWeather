@@ -23,7 +23,9 @@ import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.location.*;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
@@ -35,12 +37,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.RemoteViews;
 import android.widget.Toast;
-
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesClient;
-import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.google.android.gms.location.LocationClient;
-import com.google.android.gms.location.LocationRequest;
 import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.activity.SettingsActivity;
 import net.frakbot.FWeather.updater.weather.JSONWeatherParser;
@@ -62,9 +58,6 @@ public class UpdaterService extends IntentService {
 
     public static final String TAG = UpdaterService.class.getSimpleName();
     private WidgetUiHelper mWidgetUiHelper;
-
-    private LocationManager mLocationManager;
-    private LocationClient mLocationClient;
 
     public static final String EXTRA_USER_FORCE_UPDATE = "the_motherfocker_wants_us_to_do_stuff";
     public static final String EXTRA_SILENT_FORCE_UPDATE = "a_ninja_is_making_me_do_it";
@@ -119,8 +112,6 @@ public class UpdaterService extends IntentService {
         // Update the weather info
         Weather weather = getWeather();
 
-        final int N = appWidgetIds.length;
-
         // Perform this loop procedure for each App Widget that belongs to this provider
         for (int appWidgetId : appWidgetIds) {
             Log.i(TAG, "Updating the widget views for widget #" + appWidgetId);
@@ -139,7 +130,7 @@ public class UpdaterService extends IntentService {
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private int getWidgetLayout(AppWidgetManager appWidgetManager, int widgetId) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             Bundle myOptions = appWidgetManager.getAppWidgetOptions(widgetId);
 
             // Get the value of OPTION_APPWIDGET_HOST_CATEGORY
