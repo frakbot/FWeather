@@ -48,7 +48,7 @@
 
     <!-- Settings for Info -->
     <string name="pref_header_info">Informazioni</string>
-    <string name="pref_title_info_authors">Informazioni su Italiansubs</string>
+    <string name="pref_title_info_authors">Informazioni su FWeather</string>
     <string name="pref_title_info_license">Licenze di terze parti</string>
     <string name="pref_title_feedback">Invia feedback</string>
     <string name="pref_title_changelog">Storico modifiche</string>
