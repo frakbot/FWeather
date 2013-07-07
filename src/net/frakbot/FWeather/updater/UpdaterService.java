@@ -139,7 +139,7 @@ public class UpdaterService extends IntentService {
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private int getWidgetLayout(AppWidgetManager appWidgetManager, int widgetId) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             Bundle myOptions = appWidgetManager.getAppWidgetOptions(widgetId);
 
             // Get the value of OPTION_APPWIDGET_HOST_CATEGORY

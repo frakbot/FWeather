@@ -26,15 +26,6 @@
     <orderEntry type="module" module-name="actionbarsherlock" />
     <orderEntry type="module" module-name="android-switch-backport" />
     <orderEntry type="module" module-name="google-play-services_lib" />
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/submods/google-play-services_lib/libs/google-play-services.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
   </component>
 </module>
 
