@@ -24,29 +24,6 @@
     <!-- Service labels -->
     <string name="updater_service">Servizio aggiornamento di FWeather</string>
 
-    <!-- Widget loading messages -->
-    <string name="loading_main"><![CDATA[Fammi guardare da una cazzo di finestra.]]></string>
-    <string name="loading_small"><![CDATA[Avvicinati così posso dirti il meteo.]]></string>
-
-    <!-- Widget weather conditions -->
-    <string name="weather_sunny"><![CDATA[C\'è dell\'<font color="#ff0160">amore</font> del cazzo nell\'aria.]]></string>
-    <string name="weather_rainy"><![CDATA[Sta <font color="#0076e9">piovendo,</font> ora. Merda.]]></string>
-    <string name="weather_cloudy"><![CDATA[È tutto di un <font color="#999999">grigio</font> di merda.]]></string>
-    <string name="weather_thunderstorm"><![CDATA[I <font color="#fff883">fulmini dell\'Ade</font> del cazzo.]]></string>
-    <string name="weather_haze"><![CDATA[<font color="#beafd2">Non vedo</font> uno stracazzo.]]></string>
-    <string name="weather_mostly_cloudy"><![CDATA[Non piove, cazzo. <font color="#fb6e5e">Per ora.</font>]]></string>
-    <string name="weather_drizzle"><![CDATA[Pioviggina, come una <font color="#ffa6d1">fighetta.</font>]]></string>
-    <string name="weather_snowy"><![CDATA[Arriva il <font color="#ff3836">Babbo Natale</font> del cazzo.]]></string>
-    <string name="weather_extreme"><![CDATA[<font color="#ff6f14">Corri</font> per salvarti la vita.]]></string>
-    <string name="weather_wtf"><![CDATA[<font color="#cbff64">Che cazzo,</font> non sai guardare da solo?]]></string>
-
-    <!-- Widget temperature conditions -->
-    <string name="temp_freezing"><![CDATA[<font color="#d28aff">Porca troia.</font> E\' tipo il polo nord.]]></string>
-    <string name="temp_cold"><![CDATA[Fa <font color="#cde2ff">freddo</font> come in un cazzo di frigo.]]></string>
-    <string name="temp_hot"><![CDATA[È <font color="#f25e5e">caldo</font> come un forno del cazzo.]]></string>
-    <string name="temp_warm"><![CDATA[Goditi i cazzo di uccellini che <font color="#00d500">cantano</font> e cagate simili.]]></string>
-    <string name="temp_wtf"><![CDATA[Cazzo, sul serio, al momento è la tua chance migliore, io non ne ho idea.]]></string>
-
     <!-- Widget accessibility -->
     <string name="cdesc_weathericon"><![CDATA[Meteo attuale]]></string>
     <string name="cdesc_infobtn"><![CDATA[Info & impostazioni]]></string>

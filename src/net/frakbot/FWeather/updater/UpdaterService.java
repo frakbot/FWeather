@@ -30,8 +30,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
-import android.text.Html;
-import android.text.Spanned;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -62,6 +60,7 @@ import java.util.List;
 public class UpdaterService extends IntentService {
 
     public static final String TAG = UpdaterService.class.getSimpleName();
+    private WidgetUiHelper mWidgetUiHelper;
 
     private LocationManager mLocationManager;
 
@@ -79,6 +78,7 @@ public class UpdaterService extends IntentService {
         super.onCreate();
 
         Log.i(TAG, "Initializing the UpdaterService");
+        mWidgetUiHelper = new WidgetUiHelper(this);
         mHandler = new Handler();
         mLocationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         bootstrapLocationProvider();
@@ -100,7 +100,8 @@ public class UpdaterService extends IntentService {
                 public void run() {
                     // We need this because the IntentService thread is too fast and dies too soon,
                     // resulting in the toast being on screen for an unpercievable time
-                    Toast.makeText(UpdaterService.this, R.string.toast_force_update, Toast.LENGTH_LONG).show();
+                    WidgetUiHelper.makeToast(UpdaterService.this, R.string.toast_force_update, Toast.LENGTH_LONG)
+                                  .show();
                 }
             });
         }
@@ -161,27 +162,40 @@ public class UpdaterService extends IntentService {
      * @param weather The weather to update with
      */
     private void updateViews(RemoteViews views, Weather weather, int[] widgetIds) {
-        views.setTextViewText(R.id.txt_weather, getWeatherString(weather));
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        final boolean darkMode = prefs.getBoolean(getString(R.string.pref_key_ui_darkmode), false);
 
-        final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        // Determine the main text color for the widget
+        int textColor;
+        if (!darkMode) {
+            textColor = getResources().getColor(R.color.text_widget_main_color);
+        }
+        else {
+            textColor = getResources().getColor(R.color.text_widget_main_color_dark);
+        }
 
-        if (preferences.getBoolean(getString(R.string.pref_key_ui_toggle_temperature_info), true)) {
+        // Show/hide elements, and update them only if needed
+        views.setTextViewText(R.id.txt_weather, mWidgetUiHelper.getWeatherString(weather, darkMode));
+        views.setTextColor(R.id.txt_weather, textColor);
+
+        if (prefs.getBoolean(getString(R.string.pref_key_ui_toggle_temperature_info), true)) {
             views.setViewVisibility(R.id.txt_temp, View.VISIBLE);
-            views.setTextViewText(R.id.txt_temp, getTempString(weather));
+            views.setTextViewText(R.id.txt_temp, mWidgetUiHelper.getTempString(weather, darkMode));
+            views.setTextColor(R.id.txt_temp, textColor);
         }
         else {
             views.setViewVisibility(R.id.txt_temp, View.GONE);
         }
 
-        if (preferences.getBoolean(getString(R.string.pref_key_ui_toggle_weather_icon), true)) {
+        if (prefs.getBoolean(getString(R.string.pref_key_ui_toggle_weather_icon), true)) {
             views.setViewVisibility(R.id.img_weathericon, View.VISIBLE);
-            views.setImageViewResource(R.id.img_weathericon, getWeatherImageId(weather));
+            views.setImageViewResource(R.id.img_weathericon, mWidgetUiHelper.getWeatherImageId(weather, darkMode));
         }
         else {
             views.setViewVisibility(R.id.img_weathericon, View.GONE);
         }
 
-        if (preferences.getBoolean(getString(R.string.pref_key_ui_toggle_buttons), true)) {
+        if (prefs.getBoolean(getString(R.string.pref_key_ui_toggle_buttons), true)) {
             views.setViewVisibility(R.id.btn_info, View.VISIBLE);
             views.setViewVisibility(R.id.btn_refresh, View.VISIBLE);
         }
@@ -191,172 +205,15 @@ public class UpdaterService extends IntentService {
         }
 
         // Initalize OnClick listeners
+        Intent i = new Intent(this, SettingsActivity.class);
         views.setOnClickPendingIntent(R.id.btn_info,
-                                      PendingIntent.getActivity(this, 0, new Intent(this, SettingsActivity.class), 0));
+                                      PendingIntent.getActivity(this, 0, i, 0));
 
-        Intent i = new Intent(this, UpdaterService.class);
+        i = new Intent(this, UpdaterService.class);
         i.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
         i.putExtra(UpdaterService.EXTRA_WIDGET_IDS, widgetIds);
         i.putExtra(UpdaterService.EXTRA_USER_FORCE_UPDATE, true);
         views.setOnClickPendingIntent(R.id.btn_refresh, PendingIntent.getService(this, 0, i, 0));
-    }
-
-    /**
-     * Gets the string representing the weather.
-     *
-     * @param weather The weather to get the string for
-     *
-     * @return Returns the corresponding weather string
-     */
-    private Spanned getWeatherString(Weather weather) {
-        final int weatherId;
-        if (weather != null) {
-            weatherId = weather.mCurrentCondition.getWeatherId();
-        }
-        else {
-            weatherId = -1;
-        }
-
-        // Codes list: http://bugs.openweathermap.org/projects/api/wiki/Weather_Condition_Codes
-        if (weatherId >= 200 && weatherId <= 299) {
-            // Thunderstorm
-            return Html.fromHtml(getString(R.string.weather_thunderstorm));
-        }
-        else if (weatherId >= 300 && weatherId <= 399) {
-            // Drizzle
-            return Html.fromHtml(getString(R.string.weather_drizzle));
-        }
-        else if (weatherId >= 500 && weatherId <= 599) {
-            // Rain
-            return Html.fromHtml(getString(R.string.weather_rainy));
-        }
-        else if (weatherId >= 600 && weatherId <= 699) {
-            // Snow
-            return Html.fromHtml(getString(R.string.weather_snowy));
-        }
-        else if (weatherId >= 700 && weatherId <= 799) {
-            // Atmosphere (mist, smoke, etc)
-            return Html.fromHtml(getString(R.string.weather_haze));
-        }
-        else if (weatherId == 800 || weatherId == 801) {
-            // Sunny or mostly sunny
-            return Html.fromHtml(getString(R.string.weather_sunny));
-        }
-        else if (weatherId == 802 || weatherId == 803) {
-            // Mostly cloudy
-            return Html.fromHtml(getString(R.string.weather_mostly_cloudy));
-        }
-        else if (weatherId >= 804 && weatherId <= 899) {
-            // Cloudy
-            return Html.fromHtml(getString(R.string.weather_cloudy));
-        }
-        else if (weatherId >= 900 && weatherId <= 999) {
-            // Extreme weather
-            return Html.fromHtml(getString(R.string.weather_extreme));
-        }
-        else {
-            return Html.fromHtml(getString(R.string.weather_wtf));
-        }
-    }
-
-    /**
-     * Gets the ID of the image representing the weather.
-     *
-     * @param weather The weather to get the image for
-     *
-     * @return Returns the corresponding weather image ID
-     */
-    private int getWeatherImageId(Weather weather) {
-        final int weatherId;
-        if (weather != null) {
-            weatherId = weather.mCurrentCondition.getWeatherId();
-        }
-        else {
-            weatherId = -1;
-        }
-
-        // Codes list: http://bugs.openweathermap.org/projects/api/wiki/Weather_Condition_Codes
-        if (weatherId >= 200 && weatherId <= 299) {
-            // Thunderstorm
-            return R.drawable.thunderstorm;
-        }
-        else if (weatherId >= 300 && weatherId <= 399) {
-            // Drizzle
-            return R.drawable.drizzle;
-        }
-        else if (weatherId >= 500 && weatherId <= 599) {
-            // Rain
-            return R.drawable.drizzle;
-        }
-        else if (weatherId >= 600 && weatherId <= 699) {
-            // Snow
-            return R.drawable.snow;
-        }
-        else if (weatherId >= 700 && weatherId <= 799) {
-            // Atmosphere (mist, smoke, etc)
-            return R.drawable.haze;
-        }
-        else if (weatherId == 800 || weatherId == 801) {
-            // Sunny or mostly sunny
-            return isDay(weather) ? R.drawable.clear_day : R.drawable.clear_night;
-        }
-        else if (weatherId == 802 || weatherId == 803) {
-            // Mostly cloudy
-            return isDay(weather) ? R.drawable.mostly_cloudy_day : R.drawable.mostly_cloudy_night;
-        }
-        else if (weatherId >= 804 && weatherId <= 899) {
-            // Cloudy
-            return R.drawable.cloudy;
-        }
-        else if (weatherId >= 900 && weatherId <= 999) {
-            // Extreme weather
-            return R.drawable.extreme;
-        }
-        else {
-            return R.drawable.wtf;
-        }
-    }
-
-    /**
-     * Determines if it's day or night as reported by the weather provider.
-     *
-     * @return Returns true if it's day, false if it's night.
-     */
-    private boolean isDay(Weather weather) {
-        long sunrise = weather.mLocation.getSunrise();
-        long sunset = weather.mLocation.getSunset();
-        final long currTime = System.currentTimeMillis() / 1000;
-        return currTime > sunrise && currTime < sunset;
-    }
-
-    /**
-     * Gets the temperature string for the weather.
-     *
-     * @param weather The weather to get the temperature string for
-     *
-     * @return Returns the temperature string
-     */
-    private CharSequence getTempString(Weather weather) {
-        final float temp;
-        if (weather != null) {
-            temp = weather.mTemperature.getTemp();
-        }
-        else {
-            return Html.fromHtml(getString(R.string.temp_wtf));
-        }
-
-        if (temp < 0f) {
-            return Html.fromHtml(getString(R.string.temp_freezing));
-        }
-        else if (temp < 15f) {
-            return Html.fromHtml(getString(R.string.temp_cold));
-        }
-        else if (temp < 28f) {
-            return Html.fromHtml(getString(R.string.temp_warm));
-        }
-        else {
-            return Html.fromHtml(getString(R.string.temp_hot));
-        }
     }
 
     /**
