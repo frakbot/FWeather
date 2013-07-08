@@ -25,18 +25,45 @@ import android.content.pm.ApplicationInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import net.frakbot.FWeather.global.Const;
 import net.frakbot.FWeather.updater.UpdaterService;
+import net.frakbot.FWeather.updater.WidgetUiHelper;
 
 public class FWeatherWidgetProvider extends AppWidgetProvider {
 
+    private static final String TAG = FWeatherWidgetProvider.class.getSimpleName();
+
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         final ApplicationInfo info = context.getApplicationInfo();
-        final String tag = info != null ? info.name : "FWeather";
+        final String tag = info != null ? info.name : TAG;
         Log.i(tag, "Update started");
 
+        startUpdate(context, appWidgetIds);
+    }
+
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        super.onReceive(context, intent);
+
+        if (!intent.getAction().equals(Const.Intents.ACTION_UPDATE_FRAKKING_WIDGET))
+            return;
+
+        final ApplicationInfo info = context.getApplicationInfo();
+        final String tag = info != null ? info.name : TAG;
+        Log.i(tag, "Update action received!");
+
+        startUpdate(context, WidgetUiHelper.getWidgetIds(context));
+    }
+
+    /**
+     * Immediately requests an update by starting the service.
+     * @param context       The Context
+     * @param appWidgetIds  The App Widget IDs to update
+     */
+    private void startUpdate(Context context, int[] appWidgetIds) {
         final Intent updaterIntent =
-            new Intent(context, UpdaterService.class)
-                .putExtra(UpdaterService.EXTRA_WIDGET_IDS, appWidgetIds);
+                new Intent(context, UpdaterService.class)
+                        .putExtra(UpdaterService.EXTRA_WIDGET_IDS, appWidgetIds);
 
         context.startService(updaterIntent);
     }
@@ -52,8 +79,8 @@ public class FWeatherWidgetProvider extends AppWidgetProvider {
 
             Log.i(tag, "Widget options changed, updating it");
             final Intent updaterIntent =
-                new Intent(context, UpdaterService.class)
-                    .putExtra(UpdaterService.EXTRA_WIDGET_IDS, new int[] {appWidgetId});
+                    new Intent(context, UpdaterService.class)
+                            .putExtra(UpdaterService.EXTRA_WIDGET_IDS, new int[] {appWidgetId});
 
             context.startService(updaterIntent);
         }

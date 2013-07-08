@@ -44,6 +44,7 @@ public class Const {
      */
     public class Intents {
         public static final String SYNC_RATE_PREFERENCE_CHANGED_ACTION = "net.frakbot.FWeather.SYNC_RATE_PREFERENCE_CHANGED_ACTION";
+        public static final String ACTION_UPDATE_FRAKKING_WIDGET = "net.frakbot.FWeather.action.ACTION_UPDATE_FRAKKING_WIDGET";
     }
 
     public class Frags {

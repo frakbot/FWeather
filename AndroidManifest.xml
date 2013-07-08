@@ -46,6 +46,7 @@
         <receiver android:name=".FWeatherWidgetProvider">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="net.frakbot.FWeather.action.ACTION_UPDATE_FRAKKING_WIDGET" />
             </intent-filter>
             <meta-data
                     android:name="android.appwidget.provider"

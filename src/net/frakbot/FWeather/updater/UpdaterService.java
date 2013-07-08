@@ -44,6 +44,7 @@ import net.frakbot.FWeather.activity.SettingsActivity;
 import net.frakbot.FWeather.updater.weather.JSONWeatherParser;
 import net.frakbot.FWeather.updater.weather.WeatherHttpClient;
 import net.frakbot.FWeather.updater.weather.model.Weather;
+import net.frakbot.FWeather.util.AlarmHelper;
 import net.frakbot.FWeather.util.LocationHelper;
 import net.frakbot.FWeather.util.TrackerHelper;
 import org.json.JSONException;
@@ -133,6 +134,9 @@ public class UpdaterService extends IntentService {
             // Tell the AppWidgetManager to perform an update on the current app widget
             appWidgetManager.updateAppWidget(appWidgetId, views);
         }
+
+        // Reschedule the alarm
+        AlarmHelper.rescheduleAlarm(this);
 
         Log.i(TAG, "All widgets updated successfully");
     }

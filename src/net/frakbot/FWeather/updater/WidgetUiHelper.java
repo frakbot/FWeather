@@ -47,6 +47,18 @@ public class WidgetUiHelper {
     }
 
     /**
+     * Gets the instances of the FWeather widget.
+     * @param context   the Context
+     * @return          Array of int containing all of the widget ids
+     */
+    public static int[] getWidgetIds(Context context) {
+        AppWidgetManager mgr = AppWidgetManager.getInstance(context);
+        int[] ids = mgr.getAppWidgetIds(new ComponentName(context, FWeatherWidgetProvider.class));
+
+        return ids;
+    }
+
+    /**
      * Builds an update Intent of all the widgets we currently have. It can optionally
      * also be silent (no UI).
      * The Intent is not started, you will have to do it yourself.
@@ -56,8 +68,7 @@ public class WidgetUiHelper {
      */
     public static Intent getUpdaterIntent(Context context, boolean forced, boolean silent) {
         Intent i = new Intent(context, UpdaterService.class);
-        AppWidgetManager mgr = AppWidgetManager.getInstance(context);
-        int[] ids = mgr.getAppWidgetIds(new ComponentName(context, FWeatherWidgetProvider.class));
+        int[] ids = getWidgetIds(context);
 
         i.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
         i.putExtra(UpdaterService.EXTRA_WIDGET_IDS, ids);
