@@ -1,6 +1,11 @@
 Changelog
 =========
 
+### Version 1.1-beta2 ###
+Released on ?? (unreleased)
+
+- FIX: widget buttons would end up under the widget text when the weather icon was hidden
+
 ### Version 1.1-beta1 ###
 Released on 8th July 2013
 
