@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <solid android:color="@color/window_bg"/>
+        </shape>
+    </item>
+
+    <item>
+        <bitmap
+                android:src="@drawable/fweather_icon_content_light"
+                android:gravity="center"/>
+    </item>
+</layer-list>

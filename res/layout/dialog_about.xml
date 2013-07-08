@@ -1,0 +1,88 @@
+<!--
+  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/about_bg">
+
+    <net.frakbot.FWeather.widget.FontTextView
+            android:id="@+id/app_name_and_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="8dp"
+            android:drawableLeft="@drawable/ic_launcher"
+            android:drawablePadding="8dp"
+            android:gravity="center_vertical"
+            android:textSize="24sp"
+            style="@style/BigTitle"/>
+
+    <net.frakbot.FWeather.widget.FontTextView
+            android:id="@+id/about_tagline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/app_name_and_version"
+            android:layout_alignLeft="@id/app_name_and_version"
+            android:paddingLeft="54dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="16dp"
+            android:text="@string/about_body"
+            android:textSize="16sp"
+            android:textColor="@color/text_subtitle"/>
+
+    <TextView
+            android:id="@+id/about_authors"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/about_tagline"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:paddingBottom="16dp"
+            android:paddingTop="13dp"
+            android:textSize="16sp"
+            android:text="@string/about_developers"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/about_authors"
+            android:layout_alignLeft="@id/about_authors"
+            android:layout_alignRight="@id/about_authors"
+            android:paddingBottom="16dp"
+            android:orientation="horizontal">
+
+        <Button
+                android:id="@+id/btn_donate_frakbot"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="15sp"
+                android:text="@string/donate_frakbot"/>
+
+        <Button
+                android:id="@+id/btn_authentic_weather"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="15sp"
+                android:text="@string/authentic_weather"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
