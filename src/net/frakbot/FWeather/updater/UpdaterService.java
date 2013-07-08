@@ -26,7 +26,6 @@ import android.content.SharedPreferences;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
-import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
@@ -38,7 +37,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.RemoteViews;
 import android.widget.Toast;
-import com.google.android.gms.location.LocationClient;
 import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.activity.SettingsActivity;
 import net.frakbot.FWeather.updater.weather.JSONWeatherParser;
@@ -202,7 +200,7 @@ public class UpdaterService extends IntentService {
             views.setImageViewResource(R.id.img_weathericon, mWidgetUiHelper.getWeatherImageId(weather, darkMode));
         }
         else {
-            views.setViewVisibility(R.id.img_weathericon, View.GONE);
+            views.setViewVisibility(R.id.img_weathericon, View.INVISIBLE);
         }
 
         if (prefs.getBoolean(getString(R.string.pref_key_ui_toggle_buttons), true)) {

@@ -34,5 +34,6 @@
     <dimen name="spacing_double">16dp</dimen>
     <dimen name="spacing_single">8dp</dimen>
     <dimen name="widget_margin">8dp</dimen>
+    <dimen name="spacing_triple">24dp</dimen>
 
 </resources>
