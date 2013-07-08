@@ -15,25 +15,28 @@
   ~ limitations under the License.
   -->
 
-<RelativeLayout
+<FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="@dimen/widget_margin"
         android:gravity="center">
 
-    <include layout="@layout/include_widgetbuttons" />
-
-    <LinearLayout
+    <RelativeLayout
             android:id="@+id/content"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|left"
+            tools:ignore="UselessParent">
+
+        <include layout="@layout/include_widgetbuttons"/>
 
         <ImageView
             android:id="@+id/img_weathericon"
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:layout_alignParentTop="true"
             android:scaleType="centerInside"
             android:src="@drawable/weather_clear_day"
             android:contentDescription="@string/cdesc_weathericon"/>
@@ -42,18 +45,20 @@
             android:id="@+id/txt_weather"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/img_weathericon"
             android:bufferType="spannable"
-            android:text="@string/weather_sunny"
+            android:text="Here goes the weather"
             style="@style/MainText.Small"/>
 
         <TextView
             android:id="@+id/txt_temp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_weather"
             android:bufferType="spannable"
-            android:text="@string/temp_hot"
+            android:text="Here goes the temperature"
             style="@style/SmallText.Small"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
-</RelativeLayout>
+</FrameLayout>

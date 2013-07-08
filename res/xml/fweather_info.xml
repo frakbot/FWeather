@@ -22,7 +22,7 @@
                     android:minResizeHeight="100dp"
                     android:updatePeriodMillis="7200000"
                     android:previewImage="@drawable/fweather_preview"
-                    android:initialLayout="@layout/loading_large"
+                    android:initialLayout="@layout/loading_small"
                     android:resizeMode="vertical"
                     android:widgetCategory="home_screen|keyguard"
                     android:initialKeyguardLayout="@layout/loading_small"
