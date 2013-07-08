@@ -40,6 +40,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="actionbarsherlock" />
+        <module name="android-switch-backport" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -146,11 +148,6 @@
         <option value="$PROJECT_DIR$/submods/abs/actionbarsherlock/pom.xml" />
         <option value="$PROJECT_DIR$/submods/android-switch-backport/library/pom.xml" />
       </list>
-    </option>
-    <option name="ignoredFiles">
-      <set>
-        <option value="$PROJECT_DIR$/submods/android-switch-backport/library/pom.xml" />
-      </set>
     </option>
   </component>
   <component name="ModuleEditorState">
