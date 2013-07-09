@@ -31,6 +31,7 @@
     <string name="pref_key_authors" translatable="false">authors</string>
     <string name="pref_key_changelog" translatable="false">changelog</string>
     <string name="pref_key_analytics" translatable="false">analytics</string>
+    <string name="pref_key_debug" translatable="false">debug</string>
 
     <!-- Settings for Widget Customization -->
     <string name="pref_header_customization">Customization</string>
@@ -87,6 +88,8 @@
     <string name="analytics_disable_warning">This app uses Google Analytics to determine the most used features in a completely anonymous way, and allow the devs to focus their development issues where needed. We\'d ask you to leave it enabled, if possible.</string>
     <string name="analytics_disabled">Google Analytics has been disabled.</string>
     <string name="analytics_enabled_thanks">Google Analytics has been enabled. Thanks!</string>
+    <string name="pref_title_debug">Debug</string>
+    <string name="pref_summary_debug">Enable ONLY when reporting issues!</string>
 
     <!-- ABOUT DIALOG -->
     <string name="app_name_and_version" translatable="false">

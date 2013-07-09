@@ -71,6 +71,7 @@ public class Const {
         public static final String UI_TOGGLE_WEATHER_ICON = "ui_toggle_weather_icon";
         public static final String UI_TOGGLE_TEMPERATURE_INFO = "ui_toggle_temperature_info";
         public static final String UI_DARKMODE = "ui_darkmode";
+        public static final String DEBUG = "debug";
     }
     
     /**

@@ -17,8 +17,10 @@
 package net.frakbot.FWeather.util;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
 import net.frakbot.FWeather.BuildConfig;
@@ -43,8 +45,46 @@ public class FLog {
      */
     public static boolean DEBUG = false;
     public static boolean VERBOSE = false;
+    private boolean mInitialized = false;
 
     private FLog() {
+    }
+
+    /**
+     * Initialize the logging system.
+     *
+     * @param context The context used to initialize FLog
+     */
+    public void initLog(Context context) {
+        if (mInitialized) {
+            FLog.d("FLog", "Trying to re-initialize FLog, ignoring");
+        }
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        prefs.registerOnSharedPreferenceChangeListener(new SharedPreferences.OnSharedPreferenceChangeListener() {
+            @Override
+            public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+                if (Const.Preferences.DEBUG.equals(key)) {
+                    FLog.d("FLogPrefWatch", "Debug mode preference change detected.");
+
+                    boolean val = sharedPreferences.getBoolean(key, false);
+                    FLog.v("FLogPrefWatch", "New DEBUG value: " + val);
+
+                    if (val) {
+                        if (VERBOSE) {
+                            Log.i("FLogPrefWatch", "Ignoring DEBUG change, we're already in VERBOSE level");
+                            return;
+                        }
+                        else if (DEBUG) {
+                            Log.i("FLogPrefWatch", "Ignoring DEBUG change, we're already in DEBUG level");
+                            return;
+                        }
+                    }
+
+                    setLogLevel(val ? LogLevel.DEBUG : LogLevel.INFO);
+                }
+            }
+        });
     }
 
     /**

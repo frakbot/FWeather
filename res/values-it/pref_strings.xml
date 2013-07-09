@@ -61,6 +61,8 @@
     <string name="analytics_disable_warning">Questa app usa Google Analytics per determinare le funzioni più usate dagli utenti in modo completamente anonimo, e consentire agli sviluppatori di indirizzare lo sviluppo in modo mirato. Ti chiediamo, se possibile, di lasciarlo abilitato.</string>
     <string name="analytics_disabled">Google Analytics è stato disabilitato.</string>
     <string name="analytics_enabled_thanks">Google Analytics è stato abilitato. Grazie!</string>
+    <string name="pref_title_debug">Debug</string>
+    <string name="pref_summary_debug">Attivalo SOLO quando segnali problemi!</string>
 
     <!-- ABOUT DIALOG -->
     <string name="about_body">Beccati il tuo stracazzo di meteo</string>
