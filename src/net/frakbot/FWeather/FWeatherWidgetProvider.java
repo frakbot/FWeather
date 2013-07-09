@@ -24,10 +24,10 @@ import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import net.frakbot.FWeather.global.Const;
 import net.frakbot.FWeather.updater.UpdaterService;
 import net.frakbot.FWeather.updater.WidgetUiHelper;
+import net.frakbot.FWeather.util.FLog;
 
 public class FWeatherWidgetProvider extends AppWidgetProvider {
 
@@ -36,7 +36,7 @@ public class FWeatherWidgetProvider extends AppWidgetProvider {
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         final ApplicationInfo info = context.getApplicationInfo();
         final String tag = info != null ? info.name : TAG;
-        Log.i(tag, "Update started");
+        FLog.i(context, tag, "Update started");
 
         startUpdate(context, appWidgetIds);
     }
@@ -50,7 +50,7 @@ public class FWeatherWidgetProvider extends AppWidgetProvider {
 
         final ApplicationInfo info = context.getApplicationInfo();
         final String tag = info != null ? info.name : TAG;
-        Log.i(tag, "Update action received!");
+        FLog.i(context, tag, "Update action received!");
 
         startUpdate(context, WidgetUiHelper.getWidgetIds(context));
     }
@@ -77,7 +77,7 @@ public class FWeatherWidgetProvider extends AppWidgetProvider {
             final ApplicationInfo info = context.getApplicationInfo();
             final String tag = info != null ? info.name : "FWeather";
 
-            Log.i(tag, "Widget options changed, updating it");
+            FLog.i(context, tag, "Widget options changed, updating it");
             final Intent updaterIntent =
                     new Intent(context, UpdaterService.class)
                             .putExtra(UpdaterService.EXTRA_WIDGET_IDS, new int[] {appWidgetId});

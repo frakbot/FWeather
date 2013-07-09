@@ -22,7 +22,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import net.frakbot.FWeather.global.Const;
 
 import java.util.Calendar;
@@ -42,22 +41,26 @@ public class AlarmHelper {
      * @param context The given Context
      */
     public static void rescheduleAlarm(Context context) {
+        // Get the update rate from preferences
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String valuePreference = prefs.getString(Const.Preferences.SYNC_FREQUENCY, "-1");
+        int value = Integer.decode(valuePreference);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.add(Calendar.SECOND, value);
+
+        FLog.d(context, TAG, "Rescheduling FWeather update in " + Integer.toString(value) + " seconds...");
+
         // Delete all previous alarms
         deleteAlarms(context);
 
         // Get the AlarmManager instance
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis());
-        // Get value from preferences
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        String valuePreference = prefs.getString(Const.Preferences.SYNC_FREQUENCY, "-1");
-        int value = Integer.decode(valuePreference);
-        calendar.add(Calendar.SECOND, value);
+
         // Schedule the alarm (not repeating)
         alarmManager.set(AlarmManager.RTC, calendar.getTimeInMillis(), getUpdateIntent(context));
 
-        Log.d(TAG, "FWeather update scheduled in " + Integer.toString(value) + " seconds");
+        FLog.d(context, TAG, "FWeather update scheduled in " + Integer.toString(value) + " seconds");
     }
 
     /**

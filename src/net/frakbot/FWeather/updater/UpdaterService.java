@@ -36,8 +36,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.View;
 import android.widget.RemoteViews;
 import android.widget.Toast;
@@ -47,11 +45,14 @@ import net.frakbot.FWeather.updater.weather.JSONWeatherParser;
 import net.frakbot.FWeather.updater.weather.WeatherHttpClient;
 import net.frakbot.FWeather.updater.weather.model.Weather;
 import net.frakbot.FWeather.util.AlarmHelper;
+import net.frakbot.FWeather.util.FLog;
 import net.frakbot.FWeather.util.LocationHelper;
 import net.frakbot.FWeather.util.TrackerHelper;
 import org.json.JSONException;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.List;
 import java.util.Locale;
 
@@ -79,9 +80,9 @@ public class UpdaterService extends IntentService {
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.d(TAG, "onCreate");
+        FLog.d(this, TAG, "onCreate");
 
-        Log.i(TAG, "Initializing the UpdaterService");
+        FLog.i(this, TAG, "Initializing the UpdaterService");
         mWidgetUiHelper = new WidgetUiHelper(this);
         mHandler = new Handler();
 
@@ -92,15 +93,15 @@ public class UpdaterService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
-        Log.d(TAG, "onHandleIntent");
+        FLog.d(this, TAG, "onHandleIntent");
         int[] appWidgetIds = intent.getIntArrayExtra(EXTRA_WIDGET_IDS);
         if (appWidgetIds == null || appWidgetIds.length == 0) {
-            Log.d(TAG, "Intent with no widgets ID received, ignoring\n\t> " + intent);
+            FLog.d(this, TAG, "Intent with no widgets ID received, ignoring\n\t> " + intent);
             return;
         }
 
         if (intent.getBooleanExtra(EXTRA_USER_FORCE_UPDATE, false)) {
-            Log.i(TAG, "User has requested a forced update");
+            FLog.i(this, TAG, "User has requested a forced update");
             // TODO: custom Toast layout? Would be nice.
             mHandler.post(new Runnable() {
                 @Override
@@ -113,7 +114,7 @@ public class UpdaterService extends IntentService {
             });
         }
 
-        Log.i(TAG, "Starting widgets update");
+        FLog.i(this, TAG, "Starting widgets update");
         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this);
         assert appWidgetManager != null;
 
@@ -123,7 +124,7 @@ public class UpdaterService extends IntentService {
             weather = getWeather();
         } catch (LocationHelper.LocationNotReadyYetException justWaitException) {
             // If the location is not ready yet, leave the View unchanged
-            Log.d(TAG, "The LocationHelper is not reayd yet, the updater will be called again soon.");
+            FLog.d(this, TAG, "The LocationHelper is not reayd yet, the updater will be called again soon.");
             return;
         }
 
@@ -134,7 +135,7 @@ public class UpdaterService extends IntentService {
 
         // Perform this loop procedure for each App Widget that belongs to this provider
         for (int appWidgetId : appWidgetIds) {
-            Log.i(TAG, "Updating the widget views for widget #" + appWidgetId);
+            FLog.i(this, TAG, "Updating the widget views for widget #" + appWidgetId);
 
             // Get the widget layout and update it
             RemoteViews views = new RemoteViews(getPackageName(),
@@ -153,7 +154,7 @@ public class UpdaterService extends IntentService {
         // Reschedule the alarm
         AlarmHelper.rescheduleAlarm(this);
 
-        Log.i(TAG, "All widgets updated successfully");
+        FLog.i(this, TAG, "All widgets updated successfully");
     }
 
     /**
@@ -258,7 +259,7 @@ public class UpdaterService extends IntentService {
             views.setImageViewResource(R.id.img_weathericon, mWidgetUiHelper.getWeatherImageId(weather, darkMode));
         }
         else {
-            views.setViewVisibility(R.id.img_weathericon, View.GONE);
+            views.setViewVisibility(R.id.img_weathericon, View.INVISIBLE);
         }
 
         if (prefs.getBoolean(getString(R.string.pref_key_ui_toggle_buttons), true)) {
@@ -290,18 +291,18 @@ public class UpdaterService extends IntentService {
      */
     private Weather getWeather() throws LocationHelper.LocationNotReadyYetException {
         if (!checkNetwork()) {
-            Log.e(TAG, "Can't update weather, no network connectivity available");
+            FLog.e(this, TAG, "Can't update weather, no network connectivity available");
             return null;
         }
 
-        Log.i(TAG, "Starting weather update");
+        FLog.i(this, TAG, "Starting weather update");
 
         // Get the current location
         final Location location = getLocation();
 
         if (location == null) {
             TrackerHelper.sendException(this, "No location found", false);
-            Log.e(TAG, "No location available, can't update");
+            FLog.e(this, TAG, "No location available, can't update");
             return null;
         }
 
@@ -312,15 +313,14 @@ public class UpdaterService extends IntentService {
         String json;
 
         if (!TextUtils.isEmpty(cityName)) {
-            json = ((new WeatherHttpClient()).getCityWeatherJsonData(cityName));
-        }
-        else {
+            json = ((new WeatherHttpClient(this)).getCityWeatherJsonData(cityName));
+        } else {
             // No city name available. Use latlon values instead
-            json = ((new WeatherHttpClient()).getLocationWeatherJsonData(location));
+            json = ((new WeatherHttpClient(this)).getLocationWeatherJsonData(location));
         }
 
         if (TextUtils.isEmpty(json)) {
-            Log.e(TAG, "No weather available, can't update");
+            FLog.e(this, TAG, "No weather available, can't update");
             TrackerHelper.sendException(this, "No weather data", false);
             return null;
         }
@@ -329,13 +329,13 @@ public class UpdaterService extends IntentService {
             weather = JSONWeatherParser.getWeather(json);
         }
         catch (JSONException e) {
-            Log.e(TAG, "Weather data is not valid, can't update");
+            FLog.e(this, TAG, "Weather data is not valid, can't update");
             TrackerHelper.sendException(this, "Invalid weather JSON", false);
             return null;
         }
 
-        Log.i(TAG, "Weather update done");
-        Log.v(TAG, "Got weather:\n\t> " + weather);
+        FLog.i(this, TAG, "Weather update done");
+        FLog.v(this, TAG, "Got weather:\n\t> " + weather);
         return weather;
     }
 
@@ -380,7 +380,18 @@ public class UpdaterService extends IntentService {
                 }
             }
         }
-        return cityName;
+
+        String encodedCityName = null;
+
+        try {
+            encodedCityName = URLEncoder.encode(cityName, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            FLog.d(this, TAG, "Could not encode city name, assume no city available.");
+        } catch (NullPointerException enp) {
+            FLog.d(this, TAG, "Could not encode city name, assume no city available.");
+        }
+
+        return encodedCityName;
     }
 
     /**

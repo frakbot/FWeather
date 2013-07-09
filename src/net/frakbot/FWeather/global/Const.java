@@ -16,8 +16,6 @@
 
 package net.frakbot.FWeather.global;
 
-import net.frakbot.FWeather.BuildConfig;
-
 /**
  * Contains several global constants.
  * @author Sebastiano Poggi, Francesco Pontillo
@@ -25,11 +23,7 @@ import net.frakbot.FWeather.BuildConfig;
  */
 public class Const {
 
-    public static final String APP_NAME = "net/frakbot/FWeather";
-
-    public static final boolean VERBOSE = BuildConfig.DEBUG;
-    public static final boolean DEBUG = VERBOSE /* TODO add a preference to toggle it */;
-    public static final boolean INFO = VERBOSE /* TODO add a preference to toggle it */;
+    public static final String APP_NAME = "FWeather";
     
     /**
      * Holds a series of utility strings, mostly used as Bundle keys.
@@ -68,8 +62,16 @@ public class Const {
         public static final String PREFERENCE = "preference";
         public static final String CHANGE = "change";
         public static final String SYNC_FREQUENCY = "sync_frequency";
+        public static final String SYNC_FORCE = "sync_force";
         public static final String FEEDBACK = "feedback";
         public static final String ANALYTICS = "analytics";
+        public static final String AUTHORS = "authors";
+        public static final String CHANGELOG = "changelog";
+        public static final String UI_TOGGLE_BUTTONS = "ui_toggle_buttons";
+        public static final String UI_TOGGLE_WEATHER_ICON = "ui_toggle_weather_icon";
+        public static final String UI_TOGGLE_TEMPERATURE_INFO = "ui_toggle_temperature_info";
+        public static final String UI_DARKMODE = "ui_darkmode";
+        public static final String DEBUG = "debug";
     }
     
     /**

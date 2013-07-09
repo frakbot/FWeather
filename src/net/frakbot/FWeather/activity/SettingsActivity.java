@@ -22,24 +22,25 @@ import android.app.AlertDialog;
 import android.app.ApplicationErrorReport;
 import android.app.backup.BackupManager;
 import android.appwidget.AppWidgetManager;
-import android.content.*;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.*;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockPreferenceActivity;
-import net.frakbot.FWeather.FWeatherWidgetProvider;
 import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.global.Const;
-import net.frakbot.FWeather.updater.UpdaterService;
 import net.frakbot.FWeather.updater.WidgetUiHelper;
+import net.frakbot.FWeather.util.FLog;
 import net.frakbot.FWeather.util.TrackerHelper;
 import org.jraf.android.backport.switchwidget.SwitchPreference;
 
@@ -145,7 +146,7 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
         super.onStop();
 
         // Update the widgets after the configuration is closed
-        Log.d("SettingsActivity", "Closing the settings Activity; updating widgets");
+        FLog.d(this, "SettingsActivity", "Closing the settings Activity; updating widgets");
         requestWidgetsUpdate(true, true);
         TrackerHelper.activityStop(this);
     }
@@ -232,7 +233,7 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
         preference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                Log.i(SettingsActivity.class.getSimpleName(), "Forcing weather update (user request)");
+                FLog.i(SettingsActivity.this, SettingsActivity.class.getSimpleName(), "Forcing weather update (user request)");
                 requestWidgetsUpdate(true);
 
                 return true;
@@ -273,7 +274,7 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
 
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                Log.i(SettingsActivity.class.getSimpleName(), "Sending feedback");
+                FLog.i(SettingsActivity.this, SettingsActivity.class.getSimpleName(), "Sending feedback");
 
                 if (isInstalledFromPlayStore()) {
                     Intent intent = new Intent(Intent.ACTION_APP_ERROR);
@@ -461,7 +462,7 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
                     });
                     dialog.show();
 
-                    Log.i(SettingsActivity.class.getSimpleName(), "Disabled Google Analytics");
+                    FLog.i(SettingsActivity.this, SettingsActivity.class.getSimpleName(), "Disabled Google Analytics");
 
                     return true;
                 }
@@ -469,7 +470,7 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
                     Toast.makeText(SettingsActivity.this, R.string.analytics_enabled_thanks, Toast.LENGTH_SHORT)
                          .show();
 
-                    Log.i(SettingsActivity.class.getSimpleName(), "Enabled Google Analytics");
+                    FLog.i(SettingsActivity.this, SettingsActivity.class.getSimpleName(), "Enabled Google Analytics");
                     return true;
                 }
             }

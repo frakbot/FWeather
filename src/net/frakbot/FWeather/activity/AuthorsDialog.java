@@ -21,13 +21,12 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.text.Html;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.Window;
-import com.google.analytics.tracking.android.EasyTracker;
 import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.global.Const;
 import net.frakbot.FWeather.util.TrackerHelper;
@@ -37,7 +36,7 @@ import net.frakbot.FWeather.util.TrackerHelper;
  * handles the logout by asking the user first.
  * @author Francesco Pontillo
  */
-public class AuthorsDialog extends SherlockFragmentActivity {
+public class AuthorsDialog extends FragmentActivity {
 
     private static final String TAG = AuthorsDialog.class.getSimpleName();
 
