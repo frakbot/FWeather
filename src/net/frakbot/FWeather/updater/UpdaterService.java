@@ -23,10 +23,12 @@ import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.AssetManager;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
-import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
@@ -34,11 +36,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.RemoteViews;
 import android.widget.Toast;
-import com.google.android.gms.location.LocationClient;
 import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.activity.SettingsActivity;
 import net.frakbot.FWeather.updater.weather.JSONWeatherParser;
@@ -51,6 +53,7 @@ import org.json.JSONException;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Updater service for the widgets.
@@ -61,6 +64,8 @@ public class UpdaterService extends IntentService {
 
     public static final String TAG = UpdaterService.class.getSimpleName();
     private WidgetUiHelper mWidgetUiHelper;
+
+    private static final String DESIRED_LANGUAGE_PREF = "ui_override_language";
 
     public static final String EXTRA_USER_FORCE_UPDATE = "the_motherfocker_wants_us_to_do_stuff";
     public static final String EXTRA_SILENT_FORCE_UPDATE = "a_ninja_is_making_me_do_it";
@@ -122,6 +127,11 @@ public class UpdaterService extends IntentService {
             return;
         }
 
+        Locale defaultLocale = null, selectedLocale;
+        if ((selectedLocale = getUserSelectedLocale()) != null) {
+            defaultLocale = switchLocale(selectedLocale);
+        }
+
         // Perform this loop procedure for each App Widget that belongs to this provider
         for (int appWidgetId : appWidgetIds) {
             Log.i(TAG, "Updating the widget views for widget #" + appWidgetId);
@@ -135,10 +145,56 @@ public class UpdaterService extends IntentService {
             appWidgetManager.updateAppWidget(appWidgetId, views);
         }
 
+        // If the we switched the locale, let's restore the default one
+        if (selectedLocale != null) {
+            switchLocale(defaultLocale);
+        }
+
         // Reschedule the alarm
         AlarmHelper.rescheduleAlarm(this);
 
         Log.i(TAG, "All widgets updated successfully");
+    }
+
+    /**
+     * Change the Locale used for further (even implicit) calls to <code>getResources()</code>
+     * @param selectedLocale The new locale to use
+     * @return the Locale used before the switch. It should be restored after use.
+     */
+    private Locale switchLocale(Locale selectedLocale) {
+        Resources standardResources = getResources();
+        AssetManager assets = standardResources.getAssets();
+        DisplayMetrics metrics = standardResources.getDisplayMetrics();
+        Configuration config = new Configuration(standardResources.getConfiguration());
+
+        // Backup the current default locale, in order to restore it after the update
+        Locale currentLocale = config.locale;
+        config.locale = selectedLocale;
+
+        // no need to assign this to a variable: the app will use these resources until they are changed again
+        new Resources(assets, metrics, config);
+
+        return currentLocale;
+    }
+
+    /**
+     * Check the current default language against the language selected by the user in the preferences screen
+     * @return the Locale related to the language choosen by the user or <code>null</code> if the user
+     * didn't choose any other locale
+     */
+    private Locale getUserSelectedLocale() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String desiredLanguage = prefs.getString(DESIRED_LANGUAGE_PREF, null);
+
+        Configuration defaultConfiguration = new Configuration(getResources().getConfiguration());
+        String defaultLanguage = defaultConfiguration.locale.getLanguage();
+
+        if (desiredLanguage == null || desiredLanguage.equals(defaultLanguage)) {
+            // No need to change locale
+            return null;
+        }
+
+        return new Locale(desiredLanguage);
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)

@@ -288,6 +288,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FWeather.iml" filepath="$PROJECT_DIR$/FWeather.iml" />
       <module fileurl="file://$PROJECT_DIR$/submods/abs/actionbarsherlock/actionbarsherlock.iml" filepath="$PROJECT_DIR$/submods/abs/actionbarsherlock/actionbarsherlock.iml" group="Dependencies" />
+      <module fileurl="file://$PROJECT_DIR$/submods/abs/actionbarsherlock/actionbarsherlock.iml" filepath="$PROJECT_DIR$/submods/abs/actionbarsherlock/actionbarsherlock.iml" group="Dependencies" />
+      <module fileurl="file://$PROJECT_DIR$/submods/android-switch-backport/library/android-switch-backport.iml" filepath="$PROJECT_DIR$/submods/android-switch-backport/library/android-switch-backport.iml" group="Dependencies" />
       <module fileurl="file://$PROJECT_DIR$/submods/android-switch-backport/library/android-switch-backport.iml" filepath="$PROJECT_DIR$/submods/android-switch-backport/library/android-switch-backport.iml" group="Dependencies" />
       <module fileurl="file://$PROJECT_DIR$/submods/google-play-services_lib/google-play-services_lib.iml" filepath="$PROJECT_DIR$/submods/google-play-services_lib/google-play-services_lib.iml" group="Dependencies" />
     </modules>
@@ -361,6 +363,17 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/com/google/android/android/4.0.1.2/android-4.0.1.2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.google.android:support-v4:r7">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/google/android/support-v4/r7/support-v4-r7.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/google/android/support-v4/r7/support-v4-r7-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/google/android/support-v4/r7/support-v4-r7-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: commons-codec:commons-codec:1.3">
