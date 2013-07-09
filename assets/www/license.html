@@ -14,34 +14,32 @@
     </style>
 </head>
 
-<body class="ng-scope">
-<div class="ng-scope">
+<body>
+<div>
 <h1>Third party licenses</h1>
 
-<p>This app uses some awesome open-source libraries to let its magic happens.<br>
+<p>This app uses some awesome open-source libraries to let its magic happen.<br>
     Here's a list of those libraries, their authors and licenses.<br>
     A huge <b>thank you</b> goes out to all the teams behind these libraries!</p>
 
 <ul>
-    <!-- ngRepeat: lib in libraries | orderBy:'name' -->
-    <li ng-repeat="lib in libraries | orderBy:'name'" class="ng-scope ng-binding">
-        <b><a href="#abs" class="ng-binding">ActionBarSherlock</a></b> by Jake Wharton
+    <li>
+        <b><a href="#abs">ActionBarSherlock</a></b> by Jake Wharton
     </li>
-    <li ng-repeat="lib in libraries | orderBy:'name'" class="ng-scope ng-binding">
-        <b><a href="#weatherapp" class="ng-binding">WeatherApp</a></b> by Surviving With Android
+    <li>
+        <b><a href="#weatherapp">WeatherApp</a></b> by Surviving With Android
     </li>
-    <li ng-repeat="lib in libraries | orderBy:'name'" class="ng-scope ng-binding">
-        <b><a href="#switchbackport" class="ng-binding">Android Switch Backport</a></b> by Benoit 'BoD' Lubek
+    <li>
+        <b><a href="#switchbackport">Android Switch Backport</a></b> by Benoit 'BoD' Lubek
     </li>
 </ul>
 
 <hr>
 
-<!-- ngRepeat: lib in libraries | orderBy:name -->
-<div ng-repeat="lib in libraries | orderBy:name" class="ng-scope">
-<a name="abs"><h3 class="ng-binding">ActionBarSherlock</h3></a>
+<div>
+<a name="abs"><h3>ActionBarSherlock</h3></a>
 
-<div ng-include="" src="'licenses/' + lib.page + '.html'" class="license"><span class="ng-scope">
+<div class="license"><span>
 Copyright 2012 Jake Wharton
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -260,10 +258,10 @@ limitations under the License.
    See the License for the specific language governing permissions and
    limitations under the License.</span></div>
 </div>
-<div ng-repeat="lib in libraries | orderBy:name" class="ng-scope">
-<a name="weatherapp"><h3 class="ng-binding">WeatherApp</h3></a>
+<div>
+<a name="weatherapp"><h3>WeatherApp</h3></a>
 
-<div ng-include="" src="'licenses/' + lib.page + '.html'" class="license"><span class="ng-scope">
+<div class="license"><span>
 Copyright (C) 2013 Surviving with Android (http://www.survivingwithandroid.com)
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -482,10 +480,10 @@ limitations under the License.
    See the License for the specific language governing permissions and
    limitations under the License.</span></div>
 </div>
-<div ng-repeat="lib in libraries | orderBy:name" class="ng-scope">
-<a name="switchbackport"><h3 class="ng-binding">Android Switch Backport</h3></a>
+<div>
+<a name="switchbackport"><h3>Android Switch Backport</h3></a>
 
-<div ng-include="" src="'licenses/' + lib.page + '.html'" class="license"><span class="ng-scope">
+<div class="license"><span>
 
 Copyright 2012 Benoit 'BoD' Lubek (BoD@JRAF.org).  All Rights Reserved.
 Copyright (C) 2012 Intrications (intrications.com)
