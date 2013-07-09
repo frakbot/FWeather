@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import com.google.analytics.tracking.android.EasyTracker;
 import net.frakbot.FWeather.global.Const;
 
@@ -34,9 +33,9 @@ public class TrackerHelper {
         if (track) {
             EasyTracker.getTracker().sendEvent(
                     Const.Preferences.PREFERENCE, Const.Preferences.CHANGE, preferenceKey, value);
-            Log.d(TAG, "Tracked preference changed event");
+            FLog.d(context, TAG, "Tracked preference changed event");
         } else {
-            Log.d(TAG, "Could not track preference changed event, analytics is disabled by user");
+            FLog.d(context, TAG, "Could not track preference changed event, analytics is disabled by user");
         }
     }
 }
