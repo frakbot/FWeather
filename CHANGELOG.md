@@ -5,6 +5,8 @@ Changelog
 Released on ?? (unreleased)
 
 - FIX: widget buttons would end up under the widget text when the weather icon was hidden
+- FIX: some use cases require using the ACCESS_FINE_LOCATION permission which was not requested by the app (WiFi/Google location off, GPS on)
+- FIX: opening the Authors dialog on Android 2.3 would crash the app
 
 ### Version 1.1-beta1 ###
 Released on 8th July 2013
