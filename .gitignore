@@ -3,3 +3,4 @@
 *.iws
 api_keys.xml
 res/values/analytics.xml
+submods/google-play-services_lib/gen/
