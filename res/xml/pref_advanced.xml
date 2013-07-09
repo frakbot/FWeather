@@ -32,7 +32,7 @@
             android:key="@string/pref_key_debug"
             android:title="@string/pref_title_debug"
             android:summary="@string/pref_summary_debug"
-            android:defaultValue="true"
+            android:defaultValue="false"
             app:switchTextOff="@string/off"
             app:switchTextOn="@string/on"/>
 
