@@ -26,7 +26,7 @@ import android.os.Build;
 import android.os.Bundle;
 import net.frakbot.FWeather.global.Const;
 import net.frakbot.FWeather.updater.UpdaterService;
-import net.frakbot.FWeather.updater.WidgetUiHelper;
+import net.frakbot.FWeather.util.WidgetHelper;
 import net.frakbot.FWeather.util.FLog;
 
 public class FWeatherWidgetProvider extends AppWidgetProvider {
@@ -52,7 +52,7 @@ public class FWeatherWidgetProvider extends AppWidgetProvider {
         final String tag = info != null ? info.name : TAG;
         FLog.i(context, tag, "Update action received!");
 
-        startUpdate(context, WidgetUiHelper.getWidgetIds(context));
+        startUpdate(context, WidgetHelper.getWidgetIds(context));
     }
 
     /**

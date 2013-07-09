@@ -101,7 +101,7 @@ public class LocationHelper {
             final String provider = mLocationManager.getBestProvider(criteria, true);
 
             if (TextUtils.isEmpty(provider)) {
-                FLog.w(mContext, TAG, "No available provider, unable to bootstrap location");
+                FLog.w(mContext, TAG, "No provider available, unable to bootstrap location");
                 return;
             }
 

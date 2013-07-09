@@ -20,7 +20,6 @@ import android.app.Application;
 import android.util.Log;
 import net.frakbot.FWeather.global.Const;
 import net.frakbot.FWeather.util.FLog;
-import net.frakbot.FWeather.util.LogLevel;
 
 /**
  * Application handler
@@ -42,7 +41,9 @@ public class FWeatherApplication extends Application {
         Log.i(Const.APP_NAME, "App starting...");
 
         FLog.initLog(this);
-        FLog.setLogLevel(LogLevel.INFO);
+
+        //noinspection ConstantConditions
+        FLog.setLogLevel(/*BuildConfig.DEBUG ? LogLevel.VERBOSE :*/ null);
 
         FLog.d("Application", "FLog up and running");
 

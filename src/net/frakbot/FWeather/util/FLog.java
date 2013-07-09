@@ -23,10 +23,8 @@ import android.content.pm.PackageManager;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
-import net.frakbot.FWeather.BuildConfig;
 import net.frakbot.FWeather.global.Const;
 
-import java.io.IOException;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
@@ -37,7 +35,12 @@ import java.util.concurrent.atomic.AtomicBoolean;
 @SuppressWarnings("UnusedDeclaration")
 public class FLog {
 
+    /** Log tag max length, as defined by Android */
+    public static final int TAG_MAX_LENGTH = 23;
+    private static final String SCRIPT_SETPROP = "setprop %1$s %2$s";
     private static String TAG_PREFIX = null;
+
+    private static LogLevel sForcedLevel = null;
 
     /*
      *  You can change the default level by setting a system property:
@@ -64,7 +67,20 @@ public class FLog {
     private static final Object sLock = new Object();
 
     @SuppressWarnings("FieldCanBeLocal")
-    private static SharedPreferences.OnSharedPreferenceChangeListener sDebugChangeListener = null;
+    private static SharedPreferences.OnSharedPreferenceChangeListener sDebugChangeListener =
+        new SharedPreferences.OnSharedPreferenceChangeListener() {
+            @Override
+            public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+                if (Const.Preferences.DEBUG.equals(key)) {
+                    FLog.d("FLogPrefWatch", "Debug mode preference change detected.");
+
+                    boolean forceDebug = sharedPreferences.getBoolean(key, false);
+                    FLog.v("FLogPrefWatch", "New DEBUG value: " + forceDebug);
+
+                    setLogLevel(forceDebug ? LogLevel.DEBUG : null);
+                }
+            }
+        };
 
     private FLog() {
     }
@@ -82,30 +98,6 @@ public class FLog {
 
         synchronized (sLock) {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            sDebugChangeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
-                @Override
-                public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-                    if (Const.Preferences.DEBUG.equals(key)) {
-                        FLog.d("FLogPrefWatch", "Debug mode preference change detected.");
-
-                        boolean val = sharedPreferences.getBoolean(key, false);
-                        FLog.v("FLogPrefWatch", "New DEBUG value: " + val);
-
-                        if (val) {
-                            if (VERBOSE) {
-                                Log.i("FLogPrefWatch", "Ignoring DEBUG change, we're already in VERBOSE level");
-                                return;
-                            }
-                            else if (DEBUG) {
-                                Log.i("FLogPrefWatch", "Ignoring DEBUG change, we're already in DEBUG level");
-                                return;
-                            }
-                        }
-
-                        setLogLevel(val ? LogLevel.DEBUG : LogLevel.INFO);
-                    }
-                }
-            };
             prefs.registerOnSharedPreferenceChangeListener(sDebugChangeListener);
 
             // Initialize the log tag (we could remove all Context-requesting log methods...)
@@ -130,7 +122,6 @@ public class FLog {
             if (sDebugChangeListener != null) {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 prefs.unregisterOnSharedPreferenceChangeListener(sDebugChangeListener);
-                sDebugChangeListener = null;
             }
 
             TAG_PREFIX = null;
@@ -509,68 +500,38 @@ public class FLog {
     /** Updates the logging levels, by checking the system properties. */
     @SuppressWarnings({"ConstantConditions", "PointlessBooleanExpression"})
     public static void recheckLogLevels() {
-        VERBOSE = BuildConfig.DEBUG || Log.isLoggable(Const.APP_NAME, Log.VERBOSE);
-        DEBUG = BuildConfig.DEBUG || Log.isLoggable(Const.APP_NAME, Log.DEBUG);
+        String tmpTag = Const.APP_NAME;
+        if (tmpTag.length() > TAG_MAX_LENGTH) {
+            tmpTag = tmpTag.substring(0, TAG_MAX_LENGTH);
+            Log.w("FLog", "(recheck) The app name is too long, it's been trimmed: " + tmpTag);
+        }
+
+        VERBOSE = sForcedLevel == null ?
+                  Log.isLoggable(tmpTag, Log.VERBOSE) :
+                  sForcedLevel.toInt() == LogLevel.VERBOSE.toInt();
+
+        DEBUG = sForcedLevel == null ?
+                Log.isLoggable(tmpTag, Log.DEBUG) :
+                sForcedLevel.toInt() <= LogLevel.DEBUG.toInt();
     }
 
     /**
      * Changes the log level for the app.
      *
-     * @param level The new logging level.
+     * @param level The forced logging level, or null to disable forcing.
      *
      * @return Returns true if the logging level has been changed,
      *         false otherwise.
      */
     public static boolean setLogLevel(LogLevel level) {
-        if (!setProp(String.format("log.tag.%s", Const.APP_NAME), level.toString())) {
-            return false;
+        synchronized (sLock) {
+            sForcedLevel = level;
+
+            recheckLogLevels();
         }
 
-        recheckLogLevels();
-
-        // Double check if the value was set, just in case
-        if (level == LogLevel.DEBUG && !DEBUG) {
-            FLog.w("FLog", "Seems like the logging level wasn't actually set to DEBUG");
-            return false;
-        }
-        else if (level == LogLevel.VERBOSE && (!VERBOSE || !DEBUG)) {
-            FLog.w("FLog", "Seems like the logging level wasn't actually set to VERBOSE");
-            return false;
-        }
-
-        FLog.i("FLog", "Log level now changed to " + level);
-
-        return true;
-    }
-
-    /**
-     * Sets a property value by calling the <code>setprop</code> program.
-     * <p/>
-     * You can also set properties from a connected computer issuing:
-     * <pre>adb shell setprop {propName} {value}</pre>
-     *
-     * @param propName The name of the property to write.
-     * @param propVal  The value of the property to set.
-     *
-     * @return Returns true if the operation was successfull, or false
-     *         if there was any error.
-     */
-    private static boolean setProp(String propName, String propVal) {
-        try {
-            Process proc = Runtime.getRuntime().exec(new String[]{"/system/bin/setprop", propName, propVal});
-            if (proc.waitFor() != 0) {
-                FLog.e("FLog", "Couldn't write property " + propName + ".");
-                return false;
-            }
-        }
-        catch (IOException e) {
-            FLog.e("FLog", "Couldn't write property " + propName + ".", e);
-            return false;
-        }
-        catch (InterruptedException e) {
-            FLog.w("FLog", "Interrupted while waiting for setprop to exit.");
-            return false;
-        }
+        //noinspection ConstantConditions
+        FLog.i("FLog", "Log level now forced to " + (level != null ? level.toString() : "[not forced]"));
 
         return true;
     }
