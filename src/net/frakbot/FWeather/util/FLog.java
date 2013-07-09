@@ -27,12 +27,14 @@ import net.frakbot.FWeather.BuildConfig;
 import net.frakbot.FWeather.global.Const;
 
 import java.io.IOException;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * Log class for handling custom logic.
  *
- * @author Francesco Pontillo
+ * @author Francesco Pontillo, Sebastiano Poggi
  */
+@SuppressWarnings("UnusedDeclaration")
 public class FLog {
 
     private static String TAG_PREFIX = null;
@@ -43,9 +45,26 @@ public class FLog {
      *  Where level is either VERBOSE, DEBUG, INFO, WARN, ERROR, ASSERT, or SUPPRESS.
      *  SUPPRESS will turn off all logging for your tag.
      */
-    public static boolean DEBUG = false;
-    public static boolean VERBOSE = false;
-    private boolean mInitialized = false;
+    private static boolean DEBUG = false;
+    private static boolean VERBOSE = false;
+
+    /**
+     * Return code that indicates that the FLog class hasn't been
+     * initialized yet.
+     */
+    public static final int ERROR_NOT_INITIALIZED = Integer.MIN_VALUE;
+
+    /**
+     * Return code that indicates that the log has been filtered out
+     * because of the current log level preferences.
+     */
+    public static final int ERROR_FILTERED = Integer.MIN_VALUE + 1;
+
+    private static final AtomicBoolean sInitialized = new AtomicBoolean(false);
+    private static final Object sLock = new Object();
+
+    @SuppressWarnings("FieldCanBeLocal")
+    private static SharedPreferences.OnSharedPreferenceChangeListener sDebugChangeListener = null;
 
     private FLog() {
     }
@@ -55,36 +74,68 @@ public class FLog {
      *
      * @param context The context used to initialize FLog
      */
-    public void initLog(Context context) {
-        if (mInitialized) {
+    public static void initLog(Context context) {
+        if (sInitialized.get()) {
             FLog.d("FLog", "Trying to re-initialize FLog, ignoring");
+            return;
         }
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        prefs.registerOnSharedPreferenceChangeListener(new SharedPreferences.OnSharedPreferenceChangeListener() {
-            @Override
-            public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-                if (Const.Preferences.DEBUG.equals(key)) {
-                    FLog.d("FLogPrefWatch", "Debug mode preference change detected.");
+        synchronized (sLock) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            sDebugChangeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
+                @Override
+                public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+                    if (Const.Preferences.DEBUG.equals(key)) {
+                        FLog.d("FLogPrefWatch", "Debug mode preference change detected.");
 
-                    boolean val = sharedPreferences.getBoolean(key, false);
-                    FLog.v("FLogPrefWatch", "New DEBUG value: " + val);
+                        boolean val = sharedPreferences.getBoolean(key, false);
+                        FLog.v("FLogPrefWatch", "New DEBUG value: " + val);
 
-                    if (val) {
-                        if (VERBOSE) {
-                            Log.i("FLogPrefWatch", "Ignoring DEBUG change, we're already in VERBOSE level");
-                            return;
+                        if (val) {
+                            if (VERBOSE) {
+                                Log.i("FLogPrefWatch", "Ignoring DEBUG change, we're already in VERBOSE level");
+                                return;
+                            }
+                            else if (DEBUG) {
+                                Log.i("FLogPrefWatch", "Ignoring DEBUG change, we're already in DEBUG level");
+                                return;
+                            }
                         }
-                        else if (DEBUG) {
-                            Log.i("FLogPrefWatch", "Ignoring DEBUG change, we're already in DEBUG level");
-                            return;
-                        }
+
+                        setLogLevel(val ? LogLevel.DEBUG : LogLevel.INFO);
                     }
-
-                    setLogLevel(val ? LogLevel.DEBUG : LogLevel.INFO);
                 }
+            };
+            prefs.registerOnSharedPreferenceChangeListener(sDebugChangeListener);
+
+            // Initialize the log tag (we could remove all Context-requesting log methods...)
+            getTag(context, "FLogInit");
+
+            sInitialized.set(true);
+        }
+    }
+
+    /**
+     * Uninitialize the logging system, disposing all unneeded resources.
+     *
+     * @param context The context used to uninitialize FLog
+     */
+    public static void uninitLog(Context context) {
+        if (!sInitialized.get()) {
+            FLog.d("FLog", "Trying to uninitialize an uninitialized FLog, ignoring");
+            return;
+        }
+
+        synchronized (sLock) {
+            if (sDebugChangeListener != null) {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                prefs.unregisterOnSharedPreferenceChangeListener(sDebugChangeListener);
+                sDebugChangeListener = null;
             }
-        });
+
+            TAG_PREFIX = null;
+            sInitialized.set(false);
+        }
     }
 
     /**
@@ -96,7 +147,8 @@ public class FLog {
      * @param msg     The message you would like logged.
      */
     public static int v(Context context, String tag, String msg) {
-        return Log.v(getTag(context, tag), msg);
+        if (!sInitialized.get()) return printNotInitializedError();
+        return VERBOSE ? Log.v(getTag(context, tag), msg) : ERROR_FILTERED;
     }
 
     /**
@@ -107,7 +159,8 @@ public class FLog {
      * @param msg The message you would like logged.
      */
     public static int v(String tag, String msg) {
-        return Log.v(getTag(null, tag), msg);
+        if (!sInitialized.get()) return printNotInitializedError();
+        return VERBOSE ? Log.v(getTag(null, tag), msg) : ERROR_FILTERED;
     }
 
     /**
@@ -120,7 +173,8 @@ public class FLog {
      * @param tr      An exception to log
      */
     public static int v(Context context, String tag, String msg, Throwable tr) {
-        return Log.v(getTag(context, tag), msg, tr);
+        if (!sInitialized.get()) return printNotInitializedError();
+        return VERBOSE ? Log.v(getTag(context, tag), msg, tr) : ERROR_FILTERED;
     }
 
     /**
@@ -132,7 +186,8 @@ public class FLog {
      * @param tr  An exception to log
      */
     public static int v(String tag, String msg, Throwable tr) {
-        return Log.v(getTag(null, tag), msg, tr);
+        if (!sInitialized.get()) return printNotInitializedError();
+        return VERBOSE ? Log.v(getTag(null, tag), msg, tr) : ERROR_FILTERED;
     }
 
     /**
@@ -144,7 +199,8 @@ public class FLog {
      * @param msg     The message you would like logged.
      */
     public static int d(Context context, String tag, String msg) {
-        return Log.d(getTag(context, tag), msg);
+        if (!sInitialized.get()) return printNotInitializedError();
+        return DEBUG ? Log.d(getTag(context, tag), msg) : ERROR_FILTERED;
     }
 
     /**
@@ -155,7 +211,8 @@ public class FLog {
      * @param msg The message you would like logged.
      */
     public static int d(String tag, String msg) {
-        return Log.d(getTag(null, tag), msg);
+        if (!sInitialized.get()) return printNotInitializedError();
+        return DEBUG ? Log.d(getTag(null, tag), msg) : ERROR_FILTERED;
     }
 
     /**
@@ -168,7 +225,8 @@ public class FLog {
      * @param tr      An exception to log
      */
     public static int d(Context context, String tag, String msg, Throwable tr) {
-        return Log.d(getTag(context, tag), msg, tr);
+        if (!sInitialized.get()) return printNotInitializedError();
+        return DEBUG ? Log.d(getTag(context, tag), msg, tr) : ERROR_FILTERED;
     }
 
     /**
@@ -180,7 +238,8 @@ public class FLog {
      * @param tr  An exception to log
      */
     public static int d(String tag, String msg, Throwable tr) {
-        return Log.d(getTag(null, tag), msg, tr);
+        if (!sInitialized.get()) return printNotInitializedError();
+        return DEBUG ? Log.d(getTag(null, tag), msg, tr) : ERROR_FILTERED;
     }
 
     /**
@@ -192,6 +251,7 @@ public class FLog {
      * @param msg     The message you would like logged.
      */
     public static int i(Context context, String tag, String msg) {
+        if (!sInitialized.get()) return printNotInitializedError();
         return Log.i(getTag(context, tag), msg);
     }
 
@@ -203,6 +263,7 @@ public class FLog {
      * @param msg The message you would like logged.
      */
     public static int i(String tag, String msg) {
+        if (!sInitialized.get()) return printNotInitializedError();
         return Log.i(getTag(null, tag), msg);
     }
 
@@ -216,6 +277,7 @@ public class FLog {
      * @param tr      An exception to log
      */
     public static int i(Context context, String tag, String msg, Throwable tr) {
+        if (!sInitialized.get()) return printNotInitializedError();
         return Log.i(getTag(context, tag), msg, tr);
     }
 
@@ -228,6 +290,7 @@ public class FLog {
      * @param tr  An exception to log
      */
     public static int i(String tag, String msg, Throwable tr) {
+        if (!sInitialized.get()) return printNotInitializedError();
         return Log.i(getTag(null, tag), msg, tr);
     }
 
@@ -240,6 +303,7 @@ public class FLog {
      * @param msg     The message you would like logged.
      */
     public static int w(Context context, String tag, String msg) {
+        if (!sInitialized.get()) return printNotInitializedError();
         return Log.w(getTag(context, tag), msg);
     }
 
@@ -251,6 +315,7 @@ public class FLog {
      * @param msg The message you would like logged.
      */
     public static int w(String tag, String msg) {
+        if (!sInitialized.get()) return printNotInitializedError();
         return Log.w(getTag(null, tag), msg);
     }
 
@@ -264,6 +329,7 @@ public class FLog {
      * @param tr      An exception to log
      */
     public static int w(Context context, String tag, String msg, Throwable tr) {
+        if (!sInitialized.get()) return printNotInitializedError();
         return Log.w(getTag(context, tag), msg, tr);
     }
 
@@ -276,6 +342,7 @@ public class FLog {
      * @param tr  An exception to log
      */
     public static int w(String tag, String msg, Throwable tr) {
+        if (!sInitialized.get()) return printNotInitializedError();
         return Log.w(getTag(null, tag), msg, tr);
     }
 
@@ -288,6 +355,7 @@ public class FLog {
      * @param tr      An exception to log
      */
     public static int w(Context context, String tag, Throwable tr) {
+        if (!sInitialized.get()) return printNotInitializedError();
         return Log.w(getTag(context, tag), tr);
     }
 
@@ -299,6 +367,7 @@ public class FLog {
      * @param tr  An exception to log
      */
     public static int w(String tag, Throwable tr) {
+        if (!sInitialized.get()) return printNotInitializedError();
         return Log.w(getTag(null, tag), tr);
     }
 
@@ -311,6 +380,7 @@ public class FLog {
      * @param msg     The message you would like logged.
      */
     public static int e(Context context, String tag, String msg) {
+        if (!sInitialized.get()) return printNotInitializedError();
         return Log.e(getTag(context, tag), msg);
     }
 
@@ -322,6 +392,7 @@ public class FLog {
      * @param msg The message you would like logged.
      */
     public static int e(String tag, String msg) {
+        if (!sInitialized.get()) return printNotInitializedError();
         return Log.e(getTag(null, tag), msg);
     }
 
@@ -335,6 +406,7 @@ public class FLog {
      * @param tr      An exception to log
      */
     public static int e(Context context, String tag, String msg, Throwable tr) {
+        if (!sInitialized.get()) return printNotInitializedError();
         return Log.e(getTag(context, tag), msg, tr);
     }
 
@@ -347,6 +419,7 @@ public class FLog {
      * @param tr  An exception to log
      */
     public static int e(String tag, String msg, Throwable tr) {
+        if (!sInitialized.get()) return printNotInitializedError();
         return Log.e(getTag(null, tag), msg, tr);
     }
 
@@ -362,6 +435,7 @@ public class FLog {
      * @param msg     The message you would like logged.
      */
     public static int wtf(Context context, String tag, String msg) {
+        if (!sInitialized.get()) return printNotInitializedError();
         return Log.wtf(getTag(context, tag), msg);
     }
 
@@ -376,6 +450,7 @@ public class FLog {
      * @param msg The message you would like logged.
      */
     public static int wtf(String tag, String msg) {
+        if (!sInitialized.get()) return printNotInitializedError();
         return Log.wtf(getTag(null, tag), msg);
     }
 
@@ -388,6 +463,7 @@ public class FLog {
      * @param tr      An exception to log.
      */
     public static int wtf(Context context, String tag, Throwable tr) {
+        if (!sInitialized.get()) return printNotInitializedError();
         return Log.wtf(getTag(context, tag), tr);
     }
 
@@ -399,6 +475,7 @@ public class FLog {
      * @param tr  An exception to log.
      */
     public static int wtf(String tag, Throwable tr) {
+        if (!sInitialized.get()) return printNotInitializedError();
         return Log.wtf(getTag(null, tag), tr);
     }
 
@@ -412,6 +489,7 @@ public class FLog {
      * @param tr      An exception to log.  May be null.
      */
     public static int wtf(Context context, String tag, String msg, Throwable tr) {
+        if (!sInitialized.get()) return printNotInitializedError();
         return Log.wtf(getTag(context, tag), msg, tr);
     }
 
@@ -424,6 +502,7 @@ public class FLog {
      * @param tr  An exception to log.  May be null.
      */
     public static int wtf(String tag, String msg, Throwable tr) {
+        if (!sInitialized.get()) return printNotInitializedError();
         return Log.wtf(getTag(null, tag), msg, tr);
     }
 
@@ -438,6 +517,7 @@ public class FLog {
      * Changes the log level for the app.
      *
      * @param level The new logging level.
+     *
      * @return Returns true if the logging level has been changed,
      *         false otherwise.
      */
@@ -458,6 +538,8 @@ public class FLog {
             return false;
         }
 
+        FLog.i("FLog", "Log level now changed to " + level);
+
         return true;
     }
 
@@ -475,7 +557,7 @@ public class FLog {
      */
     private static boolean setProp(String propName, String propVal) {
         try {
-            Process proc = Runtime.getRuntime().exec(new String[] {"/system/bin/setprop", propName, propVal});
+            Process proc = Runtime.getRuntime().exec(new String[]{"/system/bin/setprop", propName, propVal});
             if (proc.waitFor() != 0) {
                 FLog.e("FLog", "Couldn't write property " + propName + ".");
                 return false;
@@ -508,34 +590,48 @@ public class FLog {
      *         version of it if the base log tag has not been initialized yet
      */
     private static String getTag(Context context, String tagSuffix) {
-        if (TAG_PREFIX != null) {
-            // The TAG_PREFIX has been initialized, we're good to go!
+        synchronized (sLock) {
+            if (TAG_PREFIX != null) {
+                // The TAG_PREFIX has been initialized, we're good to go!
+                return TAG_PREFIX + (!TextUtils.isEmpty(tagSuffix) ? "-" + tagSuffix : "");
+            }
+
+            if (context == null) {
+                // This is the case where we still haven't inizialized TAG_PREFIX, and
+                // we're still not able to. Fall back onto the hardcoded APP_NAME (no version).
+                return Const.APP_NAME + (!TextUtils.isEmpty(tagSuffix) ? "-" + tagSuffix : "");
+            }
+
+            // Get the app name and version
+            PackageManager pm;
+            String packageName;
+            int versionCode;
+            pm = context.getPackageManager();
+            packageName = context.getPackageName();
+
+            try {
+                PackageInfo info = pm.getPackageInfo(packageName, 0);
+                versionCode = info.versionCode;
+
+                TAG_PREFIX = String.format("%s-v%d", Const.APP_NAME, versionCode);
+            }
+            catch (PackageManager.NameNotFoundException e) {
+                // Unable to retrieve app info, solely rely on the hardcoded app name
+                return Const.APP_NAME + (!TextUtils.isEmpty(tagSuffix) ? "-" + tagSuffix : "");
+            }
+
             return TAG_PREFIX + (!TextUtils.isEmpty(tagSuffix) ? "-" + tagSuffix : "");
         }
+    }
 
-        if (context == null) {
-            // This is the case where we still haven't inizialized TAG_PREFIX, and
-            // we're still not able to. Fall back onto the hardcoded APP_NAME (no version).
-            return Const.APP_NAME + (!TextUtils.isEmpty(tagSuffix) ? "-" + tagSuffix : "");
-        }
-
-        // Get the app name and version
-        PackageManager pm;
-        String packageName;
-        String versionName;
-        pm = context.getPackageManager();
-        packageName = context.getPackageName();
-
-        try {
-            PackageInfo info = pm.getPackageInfo(packageName, 0);
-            versionName = info.versionName;
-        }
-        catch (PackageManager.NameNotFoundException e) {
-            versionName = "N/A";
-        }
-
-        TAG_PREFIX = String.format("%s-%s", Const.APP_NAME, versionName);
-
-        return TAG_PREFIX + (!TextUtils.isEmpty(tagSuffix) ? "-" + tagSuffix : "");
+    /**
+     * Prints an error message in the logcat stating that FLog
+     * hasn't yet been initialized.
+     *
+     * @return Always returns {@link #ERROR_NOT_INITIALIZED}
+     */
+    private static int printNotInitializedError() {
+        Log.w(getTag(null, "FLog"), "FLog not initialized yet! Get you shit together, man");
+        return ERROR_NOT_INITIALIZED;
     }
 }
