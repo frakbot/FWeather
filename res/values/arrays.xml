@@ -2,11 +2,13 @@
 <resources>
 
     <string-array name="pref_key_ui_override_language_entries">
+        <item>Auto (system language)</item>
         <item>English</item>
         <item>Italian</item>
     </string-array>
 
     <string-array name="pref_key_ui_override_language_values">
+        <item>auto</item>
         <item>en</item>
         <item>it</item>
     </string-array>

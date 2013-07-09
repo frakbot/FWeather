@@ -186,12 +186,13 @@ public class UpdaterService extends IntentService {
      */
     private Locale getUserSelectedLocale() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String desiredLanguage = prefs.getString(DESIRED_LANGUAGE_PREF, null);
+        String defaultValue = getResources().getStringArray(R.array.pref_key_ui_override_language_values)[0];
+        String desiredLanguage = prefs.getString(DESIRED_LANGUAGE_PREF, defaultValue);
 
         Configuration defaultConfiguration = new Configuration(getResources().getConfiguration());
         String defaultLanguage = defaultConfiguration.locale.getLanguage();
 
-        if (desiredLanguage == null || desiredLanguage.equals(defaultLanguage)) {
+        if (desiredLanguage == null || desiredLanguage.equals(defaultLanguage) || desiredLanguage.equals(defaultValue)) {
             // No need to change locale
             return null;
         }
