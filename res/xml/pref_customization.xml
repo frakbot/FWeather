@@ -50,6 +50,7 @@
             app:switchTextOn="@string/on"/>
 
     <ListPreference
+            android:defaultValue="auto"
             android:key="@string/pref_key_ui_override_language"
             android:title="@string/pref_title_ui_override_language"
             android:entries="@array/pref_key_ui_override_language_entries"

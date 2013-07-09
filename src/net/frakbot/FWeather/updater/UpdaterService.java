@@ -42,6 +42,7 @@ import android.widget.RemoteViews;
 import android.widget.Toast;
 import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.activity.SettingsActivity;
+import net.frakbot.FWeather.global.Const;
 import net.frakbot.FWeather.updater.weather.JSONWeatherParser;
 import net.frakbot.FWeather.updater.weather.WeatherHttpClient;
 import net.frakbot.FWeather.updater.weather.model.Weather;
@@ -63,8 +64,6 @@ public class UpdaterService extends IntentService {
 
     public static final String TAG = UpdaterService.class.getSimpleName();
     private WidgetUiHelper mWidgetUiHelper;
-
-    private static final String DESIRED_LANGUAGE_PREF = "ui_override_language";
 
     public static final String EXTRA_USER_FORCE_UPDATE = "the_motherfocker_wants_us_to_do_stuff";
     public static final String EXTRA_SILENT_FORCE_UPDATE = "a_ninja_is_making_me_do_it";
@@ -186,7 +185,7 @@ public class UpdaterService extends IntentService {
     private Locale getUserSelectedLocale() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         String defaultValue = getResources().getStringArray(R.array.pref_key_ui_override_language_values)[0];
-        String desiredLanguage = prefs.getString(DESIRED_LANGUAGE_PREF, defaultValue);
+        String desiredLanguage = prefs.getString(Const.Preferences.UI_OVERRIDE_LANGUAGE, defaultValue);
 
         Configuration defaultConfiguration = new Configuration(getResources().getConfiguration());
         String defaultLanguage = defaultConfiguration.locale.getLanguage();

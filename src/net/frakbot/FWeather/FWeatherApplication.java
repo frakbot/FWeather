@@ -17,6 +17,7 @@
 package net.frakbot.FWeather;
 
 import android.app.Application;
+import android.preference.PreferenceManager;
 import net.frakbot.FWeather.util.FLog;
 
 /**
@@ -43,6 +44,11 @@ public class FWeatherApplication extends Application {
 
         // This will fail if you didn't define your own API key string!
         mApiKey = getString(R.string.weather_api_key);
+
+        // Set the default preference values stored in the xml files
+        PreferenceManager.setDefaultValues(this, R.xml.pref_advanced, false);
+        PreferenceManager.setDefaultValues(this, R.xml.pref_customization, false);
+        PreferenceManager.setDefaultValues(this, R.xml.pref_data_sync, false);
     }
 
     /**

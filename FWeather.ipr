@@ -40,8 +40,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="actionbarsherlock" />
-        <module name="android-switch-backport" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -148,6 +146,11 @@
         <option value="$PROJECT_DIR$/submods/abs/actionbarsherlock/pom.xml" />
         <option value="$PROJECT_DIR$/submods/android-switch-backport/library/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/submods/android-switch-backport/library/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ModuleEditorState">
@@ -288,8 +291,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FWeather.iml" filepath="$PROJECT_DIR$/FWeather.iml" />
       <module fileurl="file://$PROJECT_DIR$/submods/abs/actionbarsherlock/actionbarsherlock.iml" filepath="$PROJECT_DIR$/submods/abs/actionbarsherlock/actionbarsherlock.iml" group="Dependencies" />
-      <module fileurl="file://$PROJECT_DIR$/submods/abs/actionbarsherlock/actionbarsherlock.iml" filepath="$PROJECT_DIR$/submods/abs/actionbarsherlock/actionbarsherlock.iml" group="Dependencies" />
-      <module fileurl="file://$PROJECT_DIR$/submods/android-switch-backport/library/android-switch-backport.iml" filepath="$PROJECT_DIR$/submods/android-switch-backport/library/android-switch-backport.iml" group="Dependencies" />
       <module fileurl="file://$PROJECT_DIR$/submods/android-switch-backport/library/android-switch-backport.iml" filepath="$PROJECT_DIR$/submods/android-switch-backport/library/android-switch-backport.iml" group="Dependencies" />
       <module fileurl="file://$PROJECT_DIR$/submods/google-play-services_lib/google-play-services_lib.iml" filepath="$PROJECT_DIR$/submods/google-play-services_lib/google-play-services_lib.iml" group="Dependencies" />
     </modules>
