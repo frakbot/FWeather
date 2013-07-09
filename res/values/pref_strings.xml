@@ -28,6 +28,7 @@
     <string name="pref_key_ui_toggle_weather_icon" translatable="false">ui_toggle_weather_icon</string>
     <string name="pref_key_ui_toggle_temperature_info" translatable="false">ui_toggle_temperature_info</string>
     <string name="pref_key_ui_darkmode" translatable="false">ui_darkmode</string>
+    <string name="pref_key_ui_override_language" translatable="false">ui_override_language</string>
     <string name="pref_key_authors" translatable="false">authors</string>
     <string name="pref_key_changelog" translatable="false">changelog</string>
     <string name="pref_key_analytics" translatable="false">analytics</string>
@@ -40,6 +41,7 @@
     <string name="pref_title_ui_toggle_weather_icon">Weather icon</string>
     <string name="pref_title_ui_toggle_temperature_info">Temperature \"info\"</string>
     <string name="pref_title_ui_darkmode">Dark mode</string>
+    <string name="pref_title_ui_override_language">Override widget language</string>
     <string name="pref_summary_ui_darkmode">Adapts colors for bright backgrounds</string>
 
     <!-- Settings for Data & Sync -->

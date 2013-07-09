@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="pref_key_ui_override_language_entries">
+        <item>Auto (lingua di sistema)</item>
+        <item>Inglese</item>
+        <item>Italiano</item>
+    </string-array>
+
+</resources>
