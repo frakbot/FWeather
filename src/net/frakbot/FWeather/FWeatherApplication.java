@@ -17,6 +17,10 @@
 package net.frakbot.FWeather;
 
 import android.app.Application;
+import android.util.Log;
+import net.frakbot.FWeather.global.Const;
+import net.frakbot.FWeather.util.FLog;
+import net.frakbot.FWeather.util.LogLevel;
 
 /**
  * Application handler
@@ -35,12 +39,26 @@ public class FWeatherApplication extends Application {
 
     @Override
     public void onCreate() {
+        Log.i(Const.APP_NAME, "App starting...");
+
+        FLog.initLog(this);
+
+        //noinspection ConstantConditions
+        FLog.setLogLevel(BuildConfig.DEBUG ? LogLevel.VERBOSE : null);
+
+        FLog.d("Application", "FLog up and running");
+
         super.onCreate();
 
         // This will fail if you didn't define your own API key string!
         mApiKey = getString(R.string.weather_api_key);
     }
 
+    /**
+     * Returns the OpenWeatherMap API key.
+     *
+     * @return Returns the OpenWeatherMap API key
+     */
     public static String getApiKey() {
         return mApiKey;
     }

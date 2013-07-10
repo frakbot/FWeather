@@ -25,7 +25,6 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Looper;
 import android.text.TextUtils;
-import android.util.Log;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -102,7 +101,7 @@ public class LocationHelper {
             final String provider = mLocationManager.getBestProvider(criteria, true);
 
             if (TextUtils.isEmpty(provider)) {
-                Log.w(TAG, "No available provider, unable to bootstrap location");
+                FLog.w(mContext, TAG, "No provider available, unable to bootstrap location");
                 return;
             }
 
@@ -181,7 +180,7 @@ public class LocationHelper {
         @Override
         public void onConnected(Bundle bundle) {
             // The LocationClient has connected
-            Log.d(TAG, "LocationClient has connected.");
+            FLog.d(mContext, TAG, "LocationClient has connected.");
 
             LocationRequest request = LocationRequest.create();
             mLocationClient.requestLocationUpdates(request, this);
@@ -239,14 +238,14 @@ public class LocationHelper {
      */
     private void updateLocation(Location location) {
         // Update the location
-        Log.d(TAG, "Location has been updated!");
+        FLog.d(mContext, TAG, "Location has been updated!");
         lastKnownSurroundings = location;
 
         // The LocationManager does not have a connection callback,
         // so we have to rely on listening to location changes
         if (!hasPlayServices && !isConnected) {
             // The LocationManager has connected
-            Log.d(TAG, "LocationManager has connected.");
+            FLog.d(mContext, TAG, "LocationManager has connected.");
             onGenericConnected();
         }
         tryUpdateWidgets();
@@ -269,7 +268,7 @@ public class LocationHelper {
             try {
                 mContext.startIntentSender(mPendingIntent.getIntentSender(), null, 0, 0, 0);
             } catch (IntentSender.SendIntentException e) {
-                Log.e(TAG, "Could not launch Intent.", e);
+                FLog.e(mContext, TAG, "Could not launch Intent.", e);
             }
         }
     }

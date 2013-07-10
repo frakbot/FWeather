@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package net.frakbot.FWeather.updater;
+package net.frakbot.FWeather.util;
 
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
@@ -27,6 +27,7 @@ import android.view.View;
 import android.widget.Toast;
 import net.frakbot.FWeather.FWeatherWidgetProvider;
 import net.frakbot.FWeather.R;
+import net.frakbot.FWeather.updater.UpdaterService;
 import net.frakbot.FWeather.updater.weather.model.Weather;
 import net.frakbot.FWeather.widget.FontTextView;
 
@@ -36,14 +37,25 @@ import net.frakbot.FWeather.widget.FontTextView;
  * <p/>
  * <b>WARNING!</b> Unavoidable spaghetti lies in here.
  */
-public class WidgetUiHelper {
+public class WidgetHelper {
 
     private static final String PLACEHOLDER_COLOR = "%%COLOR%%";
 
     private Context mContext;
 
-    public WidgetUiHelper(Context c) {
+    public WidgetHelper(Context c) {
         mContext = c;
+    }
+
+    /**
+     * Gets the instances of the FWeather widget.
+     * @param context   the Context
+     * @return          Array of int containing all of the widget ids
+     */
+    public static int[] getWidgetIds(Context context) {
+        AppWidgetManager mgr = AppWidgetManager.getInstance(context);
+
+        return mgr.getAppWidgetIds(new ComponentName(context, FWeatherWidgetProvider.class));
     }
 
     /**
@@ -56,8 +68,7 @@ public class WidgetUiHelper {
      */
     public static Intent getUpdaterIntent(Context context, boolean forced, boolean silent) {
         Intent i = new Intent(context, UpdaterService.class);
-        AppWidgetManager mgr = AppWidgetManager.getInstance(context);
-        int[] ids = mgr.getAppWidgetIds(new ComponentName(context, FWeatherWidgetProvider.class));
+        int[] ids = getWidgetIds(context);
 
         i.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
         i.putExtra(UpdaterService.EXTRA_WIDGET_IDS, ids);
