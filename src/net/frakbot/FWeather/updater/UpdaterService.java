@@ -63,7 +63,7 @@ import java.util.Locale;
 public class UpdaterService extends IntentService {
 
     public static final String TAG = UpdaterService.class.getSimpleName();
-    private WidgetUiHelper mWidgetUiHelper;
+    private WidgetHelper mWidgetHelper;
 
     public static final String EXTRA_USER_FORCE_UPDATE = "the_motherfocker_wants_us_to_do_stuff";
     public static final String EXTRA_SILENT_FORCE_UPDATE = "a_ninja_is_making_me_do_it";
@@ -82,7 +82,7 @@ public class UpdaterService extends IntentService {
         FLog.d(this, TAG, "onCreate");
 
         FLog.i(this, TAG, "Initializing the UpdaterService");
-        mWidgetUiHelper = new WidgetUiHelper(this);
+        mWidgetHelper = new WidgetHelper(this);
         mHandler = new Handler();
 
         // Initialize the amazing LocationHelper
@@ -93,6 +93,10 @@ public class UpdaterService extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         FLog.d(this, TAG, "onHandleIntent");
+
+        // First thing, recheck the log filtering levels
+        FLog.recheckLogLevels();
+
         int[] appWidgetIds = intent.getIntArrayExtra(EXTRA_WIDGET_IDS);
         if (appWidgetIds == null || appWidgetIds.length == 0) {
             FLog.d(this, TAG, "Intent with no widgets ID received, ignoring\n\t> " + intent);
@@ -107,7 +111,7 @@ public class UpdaterService extends IntentService {
                 public void run() {
                     // We need this because the IntentService thread is too fast and dies too soon,
                     // resulting in the toast being on screen for an unpercievable time
-                    WidgetUiHelper.makeToast(UpdaterService.this, R.string.toast_force_update, Toast.LENGTH_LONG)
+                    WidgetHelper.makeToast(UpdaterService.this, R.string.toast_force_update, Toast.LENGTH_LONG)
                                   .show();
                 }
             });
@@ -123,7 +127,7 @@ public class UpdaterService extends IntentService {
             weather = WeatherHelper.getWeather(this);
         } catch (LocationHelper.LocationNotReadyYetException justWaitException) {
             // If the location is not ready yet, leave the View unchanged
-            FLog.d(this, TAG, "The LocationHelper is not reayd yet, the updater will be called again soon.");
+            FLog.d(this, TAG, "The LocationHelper is not ready yet, the updater will be called again soon.");
             return;
         }
 
@@ -242,12 +246,12 @@ public class UpdaterService extends IntentService {
         }
 
         // Show/hide elements, and update them only if needed
-        views.setTextViewText(R.id.txt_weather, mWidgetUiHelper.getWeatherString(weather, darkMode));
+        views.setTextViewText(R.id.txt_weather, mWidgetHelper.getWeatherString(weather, darkMode));
         views.setTextColor(R.id.txt_weather, textColor);
 
         if (prefs.getBoolean(getString(R.string.pref_key_ui_toggle_temperature_info), true)) {
             views.setViewVisibility(R.id.txt_temp, View.VISIBLE);
-            views.setTextViewText(R.id.txt_temp, mWidgetUiHelper.getTempString(weather, darkMode));
+            views.setTextViewText(R.id.txt_temp, mWidgetHelper.getTempString(weather, darkMode));
             views.setTextColor(R.id.txt_temp, textColor);
         }
         else {
@@ -256,7 +260,7 @@ public class UpdaterService extends IntentService {
 
         if (prefs.getBoolean(getString(R.string.pref_key_ui_toggle_weather_icon), true)) {
             views.setViewVisibility(R.id.img_weathericon, View.VISIBLE);
-            views.setImageViewResource(R.id.img_weathericon, mWidgetUiHelper.getWeatherImageId(weather, darkMode));
+            views.setImageViewResource(R.id.img_weathericon, mWidgetHelper.getWeatherImageId(weather, darkMode));
         }
         else {
             views.setViewVisibility(R.id.img_weathericon, View.INVISIBLE);

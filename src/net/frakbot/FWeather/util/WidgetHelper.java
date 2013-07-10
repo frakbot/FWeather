@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package net.frakbot.FWeather.updater;
+package net.frakbot.FWeather.util;
 
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
@@ -27,6 +27,7 @@ import android.view.View;
 import android.widget.Toast;
 import net.frakbot.FWeather.FWeatherWidgetProvider;
 import net.frakbot.FWeather.R;
+import net.frakbot.FWeather.updater.UpdaterService;
 import net.frakbot.FWeather.updater.weather.model.Weather;
 import net.frakbot.FWeather.widget.FontTextView;
 
@@ -36,13 +37,13 @@ import net.frakbot.FWeather.widget.FontTextView;
  * <p/>
  * <b>WARNING!</b> Unavoidable spaghetti lies in here.
  */
-public class WidgetUiHelper {
+public class WidgetHelper {
 
     private static final String PLACEHOLDER_COLOR = "%%COLOR%%";
 
     private Context mContext;
 
-    public WidgetUiHelper(Context c) {
+    public WidgetHelper(Context c) {
         mContext = c;
     }
 
@@ -53,9 +54,8 @@ public class WidgetUiHelper {
      */
     public static int[] getWidgetIds(Context context) {
         AppWidgetManager mgr = AppWidgetManager.getInstance(context);
-        int[] ids = mgr.getAppWidgetIds(new ComponentName(context, FWeatherWidgetProvider.class));
 
-        return ids;
+        return mgr.getAppWidgetIds(new ComponentName(context, FWeatherWidgetProvider.class));
     }
 
     /**
