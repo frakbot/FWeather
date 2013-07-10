@@ -2,7 +2,7 @@ Changelog
 =========
 
 ### Version 1.1-beta2 ###
-Released on ?? (unreleased)
+Released on 10th July 2013
 
 - NEW: added the "Debug" setting
 - NEW: completely rewritten logging system, should allow users to produce more meaningful log reports

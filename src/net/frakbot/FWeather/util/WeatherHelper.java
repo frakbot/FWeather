@@ -25,7 +25,6 @@ import android.location.Location;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
-import net.frakbot.FWeather.updater.WidgetUiHelper;
 import net.frakbot.FWeather.updater.weather.JSONWeatherParser;
 import net.frakbot.FWeather.updater.weather.WeatherHttpClient;
 import net.frakbot.FWeather.updater.weather.model.Weather;
@@ -117,7 +116,7 @@ public class WeatherHelper {
      * @return Returns the current location
      */
     public static Location getLocation(Context context) throws LocationHelper.LocationNotReadyYetException {
-        final Intent intent = WidgetUiHelper.getUpdaterIntent(context, false, false);
+        final Intent intent = WidgetHelper.getUpdaterIntent(context, false, false);
         final PendingIntent pendingIntent = PendingIntent.getService(context, 42, intent, 0);
         return LocationHelper.getLastKnownSurroundings(pendingIntent);
     }
