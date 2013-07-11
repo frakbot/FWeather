@@ -22,6 +22,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.Html;
 import android.text.Spanned;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
@@ -327,6 +328,7 @@ public class WidgetHelper {
         Toast t = new Toast(c);
         t.setView(view);
         t.setDuration(duration);
+        t.setGravity(Gravity.BOTTOM, 0, c.getResources().getDimensionPixelSize(R.dimen.toast_yoffset));
         return t;
     }
 }
