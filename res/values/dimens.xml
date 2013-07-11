@@ -35,5 +35,6 @@
     <dimen name="spacing_single">8dp</dimen>
     <dimen name="widget_margin">8dp</dimen>
     <dimen name="spacing_triple">24dp</dimen>
+    <dimen name="toast_yoffset">100dp</dimen>
 
 </resources>

@@ -16,10 +16,10 @@
   -->
 
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
-                    android:minWidth="300dp"
-                    android:minHeight="200dp"
-                    android:minResizeWidth="200dp"
-                    android:minResizeHeight="100dp"
+                    android:minWidth="294dp"
+                    android:minHeight="220dp"
+                    android:minResizeWidth="250dp"
+                    android:minResizeHeight="120dp"
                     android:updatePeriodMillis="0"
                     android:previewImage="@drawable/fweather_preview"
                     android:initialLayout="@layout/loading_small"

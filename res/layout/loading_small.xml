@@ -30,33 +30,30 @@
             android:gravity="center_vertical|left"
             tools:ignore="UselessParent">
 
-        <include layout="@layout/include_widgetbuttons" />
-
         <ProgressBar
-                android:id="@+id/img_weathericon"
+                android:id="@+id/prg_loading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 style="?android:progressBarStyle"/>
 
         <TextView
-            android:id="@+id/txt_weather"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/img_weathericon"
-            android:text="@string/loading_main"
-            android:bufferType="spannable"
-            style="@style/MainText.Small"/>
+                android:id="@+id/txt_weather"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/prg_loading"
+                android:text="@string/loading_main"
+                android:bufferType="spannable"
+                style="@style/MainText.Small"/>
 
         <TextView
-            android:id="@+id/txt_temp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txt_weather"
-            android:text="@string/loading_small"
-            android:bufferType="spannable"
-            style="@style/SmallText.Small"/>
-
+                android:id="@+id/txt_temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_weather"
+                android:text="@string/loading_small"
+                android:bufferType="spannable"
+                style="@style/SmallText.Small"/>
 
     </RelativeLayout>
 
