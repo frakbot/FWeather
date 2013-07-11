@@ -16,7 +16,6 @@
 
 package net.frakbot.FWeather.activity;
 
-import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.app.ApplicationErrorReport;
@@ -39,9 +38,9 @@ import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockPreferenceActivity;
 import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.global.Const;
-import net.frakbot.FWeather.util.WidgetHelper;
 import net.frakbot.FWeather.util.FLog;
 import net.frakbot.FWeather.util.TrackerHelper;
+import net.frakbot.FWeather.util.WidgetHelper;
 import org.jraf.android.backport.switchwidget.SwitchPreference;
 
 import java.util.List;
@@ -137,8 +136,8 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
         super.onPause();
 
         // Unregister the SharedPreferences listener (me, duh)
-        getPreferenceManager().getSharedPreferences()
-            .unregisterOnSharedPreferenceChangeListener(this);
+        PreferenceManager.getDefaultSharedPreferences(this)
+                         .unregisterOnSharedPreferenceChangeListener(this);
     }
 
     @Override
@@ -157,9 +156,8 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
         super.onResume();
 
         // Register a SharedPreferences listener (me, duh)
-        getPreferenceManager()
-            .getSharedPreferences()
-            .registerOnSharedPreferenceChangeListener(this);
+        PreferenceManager.getDefaultSharedPreferences(this)
+                         .registerOnSharedPreferenceChangeListener(this);
     }
 
     /**
@@ -270,7 +268,7 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
      *
      * @param preference The feedback preference
      */
-    private void setupFeedbackOnClickListener(Preference preference) {
+    public void setupFeedbackOnClickListener(Preference preference) {
         preference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
 
             @Override
@@ -355,12 +353,12 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
      * @param newValue      The new value
      */
     private void handlePreferenceChange(Preference preference, Object newValue) {
-        Long value = Long.valueOf(0);
+        Long value = (long) 0;
         if (preference.getKey().equals(Const.Preferences.ANALYTICS)) {
             if (newValue == Boolean.FALSE)
-                value = Long.valueOf(0);
+                value = (long) 0;
             else
-                value = Long.valueOf(1);
+                value = (long) 1;
         } else if (preference.getKey().equals(Const.Preferences.SYNC_FREQUENCY)) {
             value = Long.valueOf((String)newValue);
         }
@@ -412,7 +410,7 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
      *
      * @param preference The Changelog preference.
      */
-    private void setupChangelogOnClickListener(Preference preference) {
+    public void setupChangelogOnClickListener(Preference preference) {
         preference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
@@ -439,7 +437,7 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
      *
      * @param preference The Analytics preference.
      */
-    private void setupAnalyticsOnChangeListener(SwitchPreference preference) {
+    public void setupAnalyticsOnChangeListener(SwitchPreference preference) {
         preference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
             @Override
             public boolean onPreferenceChange(final Preference preference, Object newValue) {
@@ -527,7 +525,7 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
      *
      * @see #sBindPreferenceSummaryToValueListener
      */
-    private void bindPreferenceSummaryToValue(Preference preference) {
+    public void bindPreferenceSummaryToValue(Preference preference) {
         // Set the listener to watch for value changes.
         preference
             .setOnPreferenceChangeListener(sBindPreferenceSummaryToValueListener);
@@ -541,72 +539,6 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
     }
 
     /**
-     * This fragment shows data and sync preferences only. It is used when the
-     * activity is showing a two-pane settings UI.
-     */
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    public static class DataSyncPreferenceFragment extends BackupPreferenceFragment {
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            addPreferencesFromResource(R.xml.pref_data_sync);
-
-            // Bind the summaries of EditText/List/Dialog/Ringtone preferences
-            // to their values. When their values change, their summaries are
-            // updated to reflect the new value, per the Android Design
-            // guidelines.
-            ((SettingsActivity) getActivity()).bindPreferenceSummaryToValue(
-                findPreference(getString(R.string.pref_key_sync_frequency)));
-        }
-    }
-
-    /**
-     * This fragment shows customization preferences only. It is used when the
-     * activity is showing a two-pane settings UI.
-     */
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    public class CustomizationPreferenceFragment extends BackupPreferenceFragment {
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            addPreferencesFromResource(R.xml.pref_customization);
-        }
-    }
-
-    /**
-     * This fragment shows advanced settings only. It is used when the activity
-     * is showing a two-pane settings UI.
-     */
-    @SuppressLint("ValidFragment")
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    public class AdvancedPreferenceFragment extends BackupPreferenceFragment {
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            addPreferencesFromResource(R.xml.pref_advanced);
-
-            setupAnalyticsOnChangeListener((SwitchPreference) findPreference(getString(R.string.pref_key_analytics)));
-        }
-    }
-
-    /**
-     * This fragment shows information only. It is used when the
-     * activity is showing a two-pane settings UI.
-     */
-    @SuppressLint("ValidFragment")
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    public class InformationPreferenceFragment extends BackupPreferenceFragment {
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            addPreferencesFromResource(R.xml.pref_info);
-
-            setupFeedbackOnClickListener(findPreference(getString(R.string.pref_key_feedback)));
-            setupChangelogOnClickListener(findPreference(getString(R.string.pref_key_changelog)));
-        }
-    }
-
-    /**
      * Broadcasts an action that causes the update of the updater alarm.
      * If the preference changes, the update rate of the application data
      * will change too, and a new update will be requested.
@@ -614,37 +546,6 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
     private void sendSyncPreferenceChangedBroadcast() {
         Intent i = new Intent(Const.Intents.SYNC_RATE_PREFERENCE_CHANGED_ACTION);
         sendBroadcast(i);
-    }
-
-    /**
-     * PreferenceFragment extension that takes care of registering/unregistering against
-     * SharedPreferences changes and notifying any changes to the underlying BackupManager.
-     *
-     * @author Francesco Pontillo
-     */
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    public static class BackupPreferenceFragment extends PreferenceFragment implements
-                                                                            OnSharedPreferenceChangeListener {
-
-        @Override
-        public void onResume() {
-            super.onResume();
-            getPreferenceManager().getSharedPreferences()
-                .registerOnSharedPreferenceChangeListener(this);
-        }
-
-        @Override
-        public void onPause() {
-            super.onPause();
-            getPreferenceManager().getSharedPreferences()
-                .unregisterOnSharedPreferenceChangeListener(this);
-        }
-
-        @Override
-        public void onSharedPreferenceChanged(
-            SharedPreferences sharedPreferences, String s) {
-            new BackupManager(getActivity()).dataChanged();
-        }
     }
 
 }
