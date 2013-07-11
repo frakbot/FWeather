@@ -34,7 +34,7 @@
     <string name="toast_force_update">Ok, ok, non c\'è bisogno di essere così scassaminchia. Ora lo faccio. Felice?</string>
 
     <string-array name="pref_sync_frequency_titles">
-        <item>1 minuto</item>
+        <!--item>1 minuto</item-->
         <item>5 minuti</item>
         <item>10 minuti</item>
         <item>15 minuti</item>

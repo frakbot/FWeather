@@ -1,6 +1,11 @@
 Changelog
 =========
 
+### Version 1.1.3 ###
+Released on 11th July 2013
+
+- FIX: removed <5 minutes refresh timings (were only meant for debugging)
+
 ### Version 1.1-beta2 ###
 Released on 10th July 2013
 

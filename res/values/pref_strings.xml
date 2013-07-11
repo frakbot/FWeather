@@ -51,7 +51,7 @@
     <string name="toast_force_update">OK, OK, no need to be such a bloody pain in the ass. Doing it now. Happy?</string>
 
     <string-array name="pref_sync_frequency_titles">
-        <item>1 minute</item>
+        <!--item>1 minute</item-->
         <item>5 minutes</item>
         <item>10 minutes</item>
         <item>15 minutes</item>
@@ -63,7 +63,7 @@
     </string-array>
 
     <string-array name="pref_sync_frequency_values" translatable="false">
-        <item>60</item>
+        <!--item>60</item-->
         <item>300</item>
         <item>600</item>
         <item>900</item>
