@@ -28,6 +28,7 @@
     <string name="pref_key_ui_toggle_weather_icon" translatable="false">ui_toggle_weather_icon</string>
     <string name="pref_key_ui_toggle_temperature_info" translatable="false">ui_toggle_temperature_info</string>
     <string name="pref_key_ui_darkmode" translatable="false">ui_darkmode</string>
+    <string name="pref_key_ui_override_language" translatable="false">ui_override_language</string>
     <string name="pref_key_authors" translatable="false">authors</string>
     <string name="pref_key_changelog" translatable="false">changelog</string>
     <string name="pref_key_analytics" translatable="false">analytics</string>
@@ -40,6 +41,7 @@
     <string name="pref_title_ui_toggle_weather_icon">Weather icon</string>
     <string name="pref_title_ui_toggle_temperature_info">Temperature \"info\"</string>
     <string name="pref_title_ui_darkmode">Dark mode</string>
+    <string name="pref_title_ui_override_language">Language</string>
     <string name="pref_summary_ui_darkmode">Adapts colors for bright backgrounds</string>
 
     <!-- Settings for Data & Sync -->
@@ -49,7 +51,7 @@
     <string name="toast_force_update">OK, OK, no need to be such a bloody pain in the ass. Doing it now. Happy?</string>
 
     <string-array name="pref_sync_frequency_titles">
-        <item>1 minute</item>
+        <!--item>1 minute</item-->
         <item>5 minutes</item>
         <item>10 minutes</item>
         <item>15 minutes</item>
@@ -61,7 +63,7 @@
     </string-array>
 
     <string-array name="pref_sync_frequency_values" translatable="false">
-        <item>60</item>
+        <!--item>60</item-->
         <item>300</item>
         <item>600</item>
         <item>900</item>

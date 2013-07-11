@@ -57,5 +57,5 @@
     <color name="temp_hot_dark">#ffb14545</color>
     <color name="temp_warm_dark">#ff009300</color>
     <color name="temp_wtf_dark">#ff265baf</color>
-    <color name="toast_bg">#20000000</color>
+    <color name="toast_bg">#30000000</color>
 </resources>

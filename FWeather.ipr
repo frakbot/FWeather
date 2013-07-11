@@ -40,8 +40,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="actionbarsherlock" />
-        <module name="android-switch-backport" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -151,6 +149,11 @@
         <option value="$PROJECT_DIR$/submods/abs/actionbarsherlock/pom.xml" />
         <option value="$PROJECT_DIR$/submods/android-switch-backport/library/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/submods/android-switch-backport/library/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ModuleEditorState">
@@ -384,6 +387,17 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/com/google/android/android/4.0.1.2/android-4.0.1.2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.google.android:support-v4:r7">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/google/android/support-v4/r7/support-v4-r7.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/google/android/support-v4/r7/support-v4-r7-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/google/android/support-v4/r7/support-v4-r7-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: commons-codec:commons-codec:1.3">

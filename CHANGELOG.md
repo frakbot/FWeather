@@ -1,8 +1,17 @@
 Changelog
 =========
 
+### Version 1.1.3 ###
+Released on 11th July 2013
+
+- NEW: weather is now cached to reduce "???" messages while searching for a location
+- NEW: you can now force the widget texts language (auto, English or Italian, for now)
+- FIX: removed 1 minute refresh interval (was only meant for debugging)
+- FIX: removed buttons from loading layouts, they couldn't do anything anyway
+- FIX: removed minor bug when switching from loading layout to "real" layout (could have caused issues to poorly written launchers)
+
 ### Version 1.1-beta2 ###
-Released on ?? (unreleased)
+Released on 10th July 2013
 
 - NEW: added the "Debug" setting
 - NEW: completely rewritten logging system, should allow users to produce more meaningful log reports

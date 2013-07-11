@@ -85,4 +85,5 @@ public class FWeatherWidgetProvider extends AppWidgetProvider {
             context.startService(updaterIntent);
         }
     }
+
 }

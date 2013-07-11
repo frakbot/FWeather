@@ -20,34 +20,26 @@ import android.annotation.TargetApi;
 import android.app.IntentService;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.location.Address;
-import android.location.Geocoder;
-import android.location.Location;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+import android.content.res.AssetManager;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
-import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.RemoteViews;
 import android.widget.Toast;
 import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.activity.SettingsActivity;
-import net.frakbot.FWeather.updater.weather.JSONWeatherParser;
-import net.frakbot.FWeather.updater.weather.WeatherHttpClient;
+import net.frakbot.FWeather.global.Const;
 import net.frakbot.FWeather.updater.weather.model.Weather;
 import net.frakbot.FWeather.util.*;
-import org.json.JSONException;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.List;
+import java.util.Locale;
 
 /**
  * Updater service for the widgets.
@@ -62,6 +54,7 @@ public class UpdaterService extends IntentService {
     public static final String EXTRA_USER_FORCE_UPDATE = "the_motherfocker_wants_us_to_do_stuff";
     public static final String EXTRA_SILENT_FORCE_UPDATE = "a_ninja_is_making_me_do_it";
     public static final String EXTRA_WIDGET_IDS = "widget_ids";
+
     private Handler mHandler;
 
     public UpdaterService() {
@@ -97,7 +90,6 @@ public class UpdaterService extends IntentService {
 
         if (intent.getBooleanExtra(EXTRA_USER_FORCE_UPDATE, false)) {
             FLog.i(this, TAG, "User has requested a forced update");
-            // TODO: custom Toast layout? Would be nice.
             mHandler.post(new Runnable() {
                 @Override
                 public void run() {
@@ -113,14 +105,19 @@ public class UpdaterService extends IntentService {
         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this);
         assert appWidgetManager != null;
 
-        // Update the weather info
+        // Get the latest weather info (new or cached)
         Weather weather = null;
         try {
-            weather = getWeather();
+            weather = WeatherHelper.getWeather(this);
         } catch (LocationHelper.LocationNotReadyYetException justWaitException) {
             // If the location is not ready yet, leave the View unchanged
             FLog.d(this, TAG, "The LocationHelper is not ready yet, the updater will be called again soon.");
             return;
+        }
+
+        Locale defaultLocale = null, selectedLocale;
+        if ((selectedLocale = getUserSelectedLocale()) != null) {
+            defaultLocale = switchLocale(selectedLocale);
         }
 
         // Perform this loop procedure for each App Widget that belongs to this provider
@@ -136,10 +133,57 @@ public class UpdaterService extends IntentService {
             appWidgetManager.updateAppWidget(appWidgetId, views);
         }
 
+        // If the we switched the locale, let's restore the default one
+        if (selectedLocale != null) {
+            switchLocale(defaultLocale);
+        }
+
         // Reschedule the alarm
         AlarmHelper.rescheduleAlarm(this);
 
         FLog.i(this, TAG, "All widgets updated successfully");
+    }
+
+    /**
+     * Change the Locale used for further (even implicit) calls to <code>getResources()</code>
+     * @param selectedLocale The new locale to use
+     * @return the Locale used before the switch. It should be restored after use.
+     */
+    private Locale switchLocale(Locale selectedLocale) {
+        Resources standardResources = getResources();
+        AssetManager assets = standardResources.getAssets();
+        DisplayMetrics metrics = standardResources.getDisplayMetrics();
+        Configuration config = new Configuration(standardResources.getConfiguration());
+
+        // Backup the current default locale, in order to restore it after the update
+        Locale currentLocale = config.locale;
+        config.locale = selectedLocale;
+
+        // no need to assign this to a variable: the app will use these resources until they are changed again
+        new Resources(assets, metrics, config);
+
+        return currentLocale;
+    }
+
+    /**
+     * Check the current default language against the language selected by the user in the preferences screen
+     * @return the Locale related to the language choosen by the user or <code>null</code> if the user
+     * didn't choose any other locale
+     */
+    private Locale getUserSelectedLocale() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String defaultValue = getResources().getStringArray(R.array.pref_key_ui_override_language_values)[0];
+        String desiredLanguage = prefs.getString(Const.Preferences.UI_OVERRIDE_LANGUAGE, defaultValue);
+
+        Configuration defaultConfiguration = new Configuration(getResources().getConfiguration());
+        String defaultLanguage = defaultConfiguration.locale.getLanguage();
+
+        if (desiredLanguage == null || desiredLanguage.equals(defaultLanguage) || desiredLanguage.equals(defaultValue)) {
+            // No need to change locale
+            return null;
+        }
+
+        return new Locale(desiredLanguage);
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
@@ -225,129 +269,6 @@ public class UpdaterService extends IntentService {
         i.putExtra(UpdaterService.EXTRA_WIDGET_IDS, widgetIds);
         i.putExtra(UpdaterService.EXTRA_USER_FORCE_UPDATE, true);
         views.setOnClickPendingIntent(R.id.btn_refresh, PendingIntent.getService(this, 0, i, 0));
-    }
-
-    /**
-     * Gets the current weather at the user's location
-     *
-     * @return Returns the weather info, if available, or null
-     *         if there was any error during the download.
-     */
-    private Weather getWeather() throws LocationHelper.LocationNotReadyYetException {
-        if (!checkNetwork()) {
-            FLog.e(this, TAG, "Can't update weather, no network connectivity available");
-            return null;
-        }
-
-        FLog.i(this, TAG, "Starting weather update");
-
-        // Get the current location
-        final Location location = getLocation();
-
-        if (location == null) {
-            TrackerHelper.sendException(this, "No location found", false);
-            FLog.e(this, TAG, "No location available, can't update");
-            return null;
-        }
-
-        // Get the city name, if possible
-        String cityName = getCityName(location);
-
-        Weather weather;
-        String json;
-
-        if (!TextUtils.isEmpty(cityName)) {
-            json = ((new WeatherHttpClient(this)).getCityWeatherJsonData(cityName));
-        } else {
-            // No city name available. Use latlon values instead
-            json = ((new WeatherHttpClient(this)).getLocationWeatherJsonData(location));
-        }
-
-        if (TextUtils.isEmpty(json)) {
-            FLog.e(this, TAG, "No weather available, can't update");
-            TrackerHelper.sendException(this, "No weather data", false);
-            return null;
-        }
-
-        try {
-            weather = JSONWeatherParser.getWeather(json);
-        }
-        catch (JSONException e) {
-            FLog.e(this, TAG, "Weather data is not valid, can't update");
-            TrackerHelper.sendException(this, "Invalid weather JSON", false);
-            return null;
-        }
-
-        FLog.i(this, TAG, "Weather update done");
-        FLog.v(this, TAG, "Got weather:\n\t> " + weather);
-        return weather;
-    }
-
-    /**
-     * Gets the current location.
-     *
-     * @return Returns the current location
-     */
-    private Location getLocation() throws LocationHelper.LocationNotReadyYetException {
-        final Intent intent = WidgetHelper.getUpdaterIntent(this, false, false);
-        final PendingIntent pendingIntent = PendingIntent.getService(this, 42, intent, 0);
-        return LocationHelper.getLastKnownSurroundings(pendingIntent);
-    }
-
-    /**
-     * Gets the city name (where available), suffixed with the
-     * country code.
-     *
-     * @param location The Location to get the name for.
-     *
-     * @return Returns the city name and country (eg. "London,UK")
-     *         if available, null otherwiseù
-     */
-    private String getCityName(Location location) {
-        String cityName = null;
-        if (Geocoder.isPresent()) {
-            Geocoder geocoder = new Geocoder(this);
-            List<Address> addresses = null;
-            try {
-                addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-            }
-            catch (IOException ignored) {
-            }
-
-            if (addresses != null && !addresses.isEmpty()) {
-                final Address address = addresses.get(0);
-                final String city = address.getLocality();
-                if (!TextUtils.isEmpty(city)) {
-                    // We only set the city name if we actually have it
-                    // (to avoid the country code avoiding returning null)
-                    cityName = city + "," + address.getCountryCode();
-                }
-            }
-        }
-
-        String encodedCityName = null;
-
-        try {
-            encodedCityName = URLEncoder.encode(cityName, "UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            FLog.d(this, TAG, "Could not encode city name, assume no city available.");
-        } catch (NullPointerException enp) {
-            FLog.d(this, TAG, "Could not encode city name, assume no city available.");
-        }
-
-        return encodedCityName;
-    }
-
-    /**
-     * Checks if there is any network connection active (or activating).
-     *
-     * @return Returns true if there is an active connection, false otherwise
-     */
-    private boolean checkNetwork() {
-        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-
-        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-        return activeNetwork != null && activeNetwork.isConnectedOrConnecting();
     }
 
 }
