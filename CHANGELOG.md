@@ -1,6 +1,11 @@
 Changelog
 =========
 
+### Version 1.1.4 ###
+Released on 11th July 2013
+
+- FIX: crash on the Settings Activity on xlarge screens (multicolumn layout)
+
 ### Version 1.1.3 ###
 Released on 11th July 2013
 

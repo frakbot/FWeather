@@ -18,17 +18,19 @@
 
     <!-- These settings headers are only used on tablets. -->
     <header
-            android:fragment="net.frakbot.FWeather.activity.SettingsActivity$CustomizationPreferenceFragment"
+            android:fragment="net.frakbot.FWeather.fragments.CustomizationPreferencesFragment"
             android:title="@string/pref_header_customization"/>
 
     <header
-            android:fragment="net.frakbot.FWeather.activity.SettingsActivity$DataSyncPreferenceFragment"
+            android:fragment="net.frakbot.FWeather.fragments.DataSyncPreferencesFragment"
             android:title="@string/pref_header_data_sync"/>
+
     <header
-            android:fragment="net.frakbot.FWeather.activity.SettingsActivity$InformationPreferenceFragment"
-            android:title="@string/pref_header_info"/>
-    <header
-            android:fragment="net.frakbot.FWeather.activity.SettingsActivity$AdvancedPreferenceFragment"
+            android:fragment="net.frakbot.FWeather.fragments.AdvancedPreferencesFragment"
             android:title="@string/pref_header_advanced"/>
+
+    <header
+            android:fragment="net.frakbot.FWeather.fragments.InformationPreferencesFragment"
+            android:title="@string/pref_header_info"/>
 
 </preference-headers>
