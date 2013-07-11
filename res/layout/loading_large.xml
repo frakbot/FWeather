@@ -31,7 +31,7 @@
             tools:ignore="UselessParent">
 
         <ProgressBar
-                android:id="@+id/img_weathericon"
+                android:id="@+id/prg_loading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
@@ -41,7 +41,7 @@
                 android:id="@+id/txt_weather"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/img_weathericon"
+                android:layout_below="@+id/prg_loading"
                 android:text="@string/loading_main"
                 android:bufferType="spannable"
                 style="@style/MainText.Medium"/>

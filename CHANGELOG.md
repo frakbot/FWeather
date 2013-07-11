@@ -7,6 +7,7 @@ Released on 11th July 2013
 - NEW: weather is now cached to reduce "???" messages while searching for a location
 - FIX: removed 1 minute refresh interval (was only meant for debugging)
 - FIX: removed buttons from loading layouts, they couldn't do anything anyway
+- FIX: removed minor bug when switching from loading layout to "real" layout (could have caused issues to poorly written launchers)
 
 ### Version 1.1-beta2 ###
 Released on 10th July 2013
