@@ -22,6 +22,7 @@ import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.content.res.Configuration;
@@ -43,6 +44,7 @@ import android.widget.Toast;
 import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.activity.SettingsActivity;
 import net.frakbot.FWeather.global.Const;
+import net.frakbot.FWeather.receiver.ConnectivityBroadcastReceiver;
 import net.frakbot.FWeather.updater.weather.JSONWeatherParser;
 import net.frakbot.FWeather.updater.weather.WeatherHttpClient;
 import net.frakbot.FWeather.updater.weather.model.Weather;
@@ -57,6 +59,7 @@ import java.util.Locale;
 
 /**
  * Updater service for the widgets.
+ * TODO: deregister all location providers when no widgets are available
  *
  * @author Sebastiano Poggi, Francesco Pontillo
  */
@@ -68,7 +71,6 @@ public class UpdaterService extends IntentService {
     public static final String EXTRA_USER_FORCE_UPDATE = "the_motherfocker_wants_us_to_do_stuff";
     public static final String EXTRA_SILENT_FORCE_UPDATE = "a_ninja_is_making_me_do_it";
     public static final String EXTRA_WIDGET_IDS = "widget_ids";
-
 
     private Handler mHandler;
 
@@ -93,6 +95,9 @@ public class UpdaterService extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         FLog.d(this, TAG, "onHandleIntent");
+
+        // Deregister the connection listener, if any
+        ConnectionHelper.unregisterConnectivityListener(this.getApplicationContext());
 
         // First thing, recheck the log filtering levels
         FLog.recheckLogLevels();
@@ -129,6 +134,14 @@ public class UpdaterService extends IntentService {
             // If the location is not ready yet, leave the View unchanged
             FLog.d(this, TAG, "The LocationHelper is not ready yet, the updater will be called again soon.");
             return;
+        } catch (IOException e) {
+            // Caught if there are connection issues
+            // Get the latest cached weather information
+            FLog.e(this, TAG, "Error while fetching the weather, using a cached value", e);
+            weather = WeatherHelper.getLatestWeather();
+            // Register a connection listener
+            FLog.d(this, TAG, "Registering a connection listener");
+            ConnectionHelper.registerConnectivityListener(this.getApplicationContext());
         }
 
         Locale defaultLocale = null, selectedLocale;
