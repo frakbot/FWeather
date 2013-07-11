@@ -20,22 +20,15 @@ import android.annotation.TargetApi;
 import android.app.IntentService;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.location.Address;
-import android.location.Geocoder;
-import android.location.Location;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
-import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.RemoteViews;
@@ -43,16 +36,9 @@ import android.widget.Toast;
 import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.activity.SettingsActivity;
 import net.frakbot.FWeather.global.Const;
-import net.frakbot.FWeather.updater.weather.JSONWeatherParser;
-import net.frakbot.FWeather.updater.weather.WeatherHttpClient;
 import net.frakbot.FWeather.updater.weather.model.Weather;
 import net.frakbot.FWeather.util.*;
-import org.json.JSONException;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.List;
 import java.util.Locale;
 
 /**
@@ -68,7 +54,6 @@ public class UpdaterService extends IntentService {
     public static final String EXTRA_USER_FORCE_UPDATE = "the_motherfocker_wants_us_to_do_stuff";
     public static final String EXTRA_SILENT_FORCE_UPDATE = "a_ninja_is_making_me_do_it";
     public static final String EXTRA_WIDGET_IDS = "widget_ids";
-
 
     private Handler mHandler;
 
@@ -105,7 +90,6 @@ public class UpdaterService extends IntentService {
 
         if (intent.getBooleanExtra(EXTRA_USER_FORCE_UPDATE, false)) {
             FLog.i(this, TAG, "User has requested a forced update");
-            // TODO: custom Toast layout? Would be nice.
             mHandler.post(new Runnable() {
                 @Override
                 public void run() {

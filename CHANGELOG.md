@@ -4,7 +4,9 @@ Changelog
 ### Version 1.1.3 ###
 Released on 11th July 2013
 
-- FIX: removed <5 minutes refresh timings (were only meant for debugging)
+- NEW: weather is now cached to reduce "???" messages while searching for a location
+- FIX: removed 1 minute refresh interval (was only meant for debugging)
+- FIX: removed buttons from loading layouts, they couldn't do anything anyway
 
 ### Version 1.1-beta2 ###
 Released on 10th July 2013
