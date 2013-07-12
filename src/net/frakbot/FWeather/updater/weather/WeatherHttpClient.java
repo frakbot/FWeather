@@ -60,7 +60,7 @@ public class WeatherHttpClient {
      * @return Returns the weather JSON data, or null if there was any
      *         error
      */
-    public String getCityWeatherJsonData(String cityName) {
+    public String getCityWeatherJsonData(String cityName) throws IOException {
         HttpURLConnection con = null;
         InputStream is = null;
 
@@ -84,14 +84,13 @@ public class WeatherHttpClient {
 
             return buffer.toString();
         }
-        catch (Throwable t) {
-            FLog.e(mContext, "FWeatherHttp", "Error while fetching the weather", t);
+        catch (IOException e) {
+            FLog.e(mContext, "FWeatherHttp", "Error while fetching the weather", e);
+            throw e;
         }
         finally {
             cleanup(con, is);
         }
-
-        return null;
     }
 
     /**
@@ -102,7 +101,7 @@ public class WeatherHttpClient {
      * @return Returns the weather JSON data, or null if there was any
      *         error
      */
-    public String getLocationWeatherJsonData(Location location) {
+    public String getLocationWeatherJsonData(Location location) throws IOException {
         HttpURLConnection con = null;
         InputStream is = null;
 
@@ -127,15 +126,12 @@ public class WeatherHttpClient {
             FLog.d(mContext, "FWeatherHttp", "Location weather update done. Length: " + buffer.length());
 
             return buffer.toString();
-        }
-        catch (Throwable t) {
-            FLog.e(mContext, "FWeatherHttp", "Error while fetching the weather", t);
-        }
-        finally {
+        } catch (IOException e) {
+            FLog.e(mContext, "FWeatherHttp", "Error while fetching the weather", e);
+            throw e;
+        } finally {
             cleanup(con, is);
         }
-
-        return null;
     }
 
     /**
