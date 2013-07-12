@@ -42,6 +42,8 @@
         <item>1 ora</item>
         <item>3 ore</item>
         <item>6 ore</item>
+        <item>12 ore</item>
+        <item>24 ore</item>
         <item>Mai</item>
     </string-array>
 
