@@ -20,8 +20,8 @@ import android.annotation.TargetApi;
 import android.app.IntentService;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
+import android.appwidget.AppWidgetProviderInfo;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.content.res.Configuration;
@@ -37,12 +37,10 @@ import android.widget.Toast;
 import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.activity.SettingsActivity;
 import net.frakbot.FWeather.global.Const;
-import net.frakbot.FWeather.receiver.ConnectivityBroadcastReceiver;
-import net.frakbot.FWeather.updater.weather.JSONWeatherParser;
-import net.frakbot.FWeather.updater.weather.WeatherHttpClient;
 import net.frakbot.FWeather.updater.weather.model.Weather;
 import net.frakbot.FWeather.util.*;
 
+import java.io.IOException;
 import java.util.Locale;
 
 /**
@@ -104,7 +102,7 @@ public class UpdaterService extends IntentService {
                     // We need this because the IntentService thread is too fast and dies too soon,
                     // resulting in the toast being on screen for an unpercievable time
                     WidgetHelper.makeToast(UpdaterService.this, R.string.toast_force_update, Toast.LENGTH_LONG)
-                                  .show();
+                                .show();
                 }
             });
         }
@@ -117,11 +115,13 @@ public class UpdaterService extends IntentService {
         Weather weather = null;
         try {
             weather = WeatherHelper.getWeather(this);
-        } catch (LocationHelper.LocationNotReadyYetException justWaitException) {
+        }
+        catch (LocationHelper.LocationNotReadyYetException justWaitException) {
             // If the location is not ready yet, leave the View unchanged
             FLog.d(this, TAG, "The LocationHelper is not ready yet, the updater will be called again soon.");
             return;
-        } catch (IOException e) {
+        }
+        catch (IOException e) {
             // Caught if there are connection issues
             // Get the latest cached weather information
             FLog.e(this, TAG, "Error while fetching the weather, using a cached value", e);
@@ -144,6 +144,7 @@ public class UpdaterService extends IntentService {
             RemoteViews views = new RemoteViews(getPackageName(),
                                                 getWidgetLayout(appWidgetManager, appWidgetId));
             updateViews(views, weather, appWidgetIds);
+            setupViewsForKeyguard(views, appWidgetManager, appWidgetId);
 
             // Tell the AppWidgetManager to perform an update on the current app widget
             appWidgetManager.updateAppWidget(appWidgetId, views);
@@ -162,7 +163,9 @@ public class UpdaterService extends IntentService {
 
     /**
      * Change the Locale used for further (even implicit) calls to <code>getResources()</code>
+     *
      * @param selectedLocale The new locale to use
+     *
      * @return the Locale used before the switch. It should be restored after use.
      */
     private Locale switchLocale(Locale selectedLocale) {
@@ -183,6 +186,7 @@ public class UpdaterService extends IntentService {
 
     /**
      * Check the current default language against the language selected by the user in the preferences screen
+     *
      * @return the Locale related to the language choosen by the user or <code>null</code> if the user
      * didn't choose any other locale
      */
@@ -194,7 +198,8 @@ public class UpdaterService extends IntentService {
         Configuration defaultConfiguration = new Configuration(getResources().getConfiguration());
         String defaultLanguage = defaultConfiguration.locale.getLanguage();
 
-        if (desiredLanguage == null || desiredLanguage.equals(defaultLanguage) || desiredLanguage.equals(defaultValue)) {
+        if (desiredLanguage == null || desiredLanguage.equals(defaultLanguage) || desiredLanguage.equals(
+            defaultValue)) {
             // No need to change locale
             return null;
         }
@@ -285,6 +290,31 @@ public class UpdaterService extends IntentService {
         i.putExtra(UpdaterService.EXTRA_WIDGET_IDS, widgetIds);
         i.putExtra(UpdaterService.EXTRA_USER_FORCE_UPDATE, true);
         views.setOnClickPendingIntent(R.id.btn_refresh, PendingIntent.getService(this, 0, i, 0));
+    }
+
+    /**
+     * Sets up the widget views to adapt to it being on the lockscreen.
+     * This method doesn't do anything on Android 4.1.x and earlier, since
+     * there were no lockscreen widgets.
+     *
+     * @param views            The widget RemoteViews
+     * @param appWidgetManager The widget manager used to detect whether the widget
+     *                         is on the lockscreen
+     * @param widgetId         The ID of the widget
+     */
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+    private void setupViewsForKeyguard(RemoteViews views, AppWidgetManager appWidgetManager, int widgetId) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            Bundle myOptions = appWidgetManager.getAppWidgetOptions(widgetId);
+
+            final int category = myOptions.getInt(AppWidgetManager.OPTION_APPWIDGET_HOST_CATEGORY,
+                                                  AppWidgetProviderInfo.WIDGET_CATEGORY_HOME_SCREEN);
+
+            if (category == AppWidgetProviderInfo.WIDGET_CATEGORY_KEYGUARD) {
+                FLog.v(TAG, "Hiding the refresh button: widget " + widgetId + " is on the keyguard");
+                views.setViewVisibility(R.id.btn_refresh, View.GONE);
+            }
+        }
     }
 
 }
