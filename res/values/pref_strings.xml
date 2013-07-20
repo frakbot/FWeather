@@ -77,7 +77,7 @@
         <item>86400</item>
         <item>-1</item>
     </string-array>
-    <string name="pref_sync_frequency_default">3600</string>
+    <string name="pref_sync_frequency_default" translatable="false">3600</string>
 
     <!-- Settings for Info -->
     <string name="pref_header_info">Information</string>
