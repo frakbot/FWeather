@@ -51,7 +51,8 @@ public class WeatherHelper {
      * @return Returns the weather info, if available, or null
      *         if there was any error during the download.
      */
-    public static Weather getWeather(Context context) throws LocationHelper.LocationNotReadyYetException {
+    public static Weather getWeather(Context context) throws LocationHelper.LocationNotReadyYetException, IOException {
+        /*
         if (!checkNetwork(context)) {
             FLog.e(context, TAG, "Can't update weather, no network connectivity available");
             if (mCachedWeather != null) {
@@ -59,6 +60,7 @@ public class WeatherHelper {
             }
             return mCachedWeather;
         }
+        */
 
         FLog.i(context, TAG, "Starting weather update");
 
@@ -177,6 +179,18 @@ public class WeatherHelper {
 
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
         return activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+    }
+
+    /**
+     * Returns the latest known weather information.
+     * @return The cached {@link Weather}
+     */
+    public static Weather getLatestWeather() {
+        return mCachedWeather;
+    }
+
+    private static void registerConnectionReceiver(Context context) {
+
     }
 
 }

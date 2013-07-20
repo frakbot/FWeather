@@ -4,6 +4,7 @@
     <string-array name="pref_key_ui_override_language_entries">
         <item>Auto (lingua di sistema)</item>
         <item>Inglese</item>
+        <item>Tedesco</item>
         <item>Italiano</item>
     </string-array>
 

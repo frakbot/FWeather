@@ -4,12 +4,14 @@
     <string-array name="pref_key_ui_override_language_entries">
         <item>Auto (system language)</item>
         <item>English</item>
+        <item>German</item>
         <item>Italian</item>
     </string-array>
 
-    <string-array name="pref_key_ui_override_language_values">
+    <string-array name="pref_key_ui_override_language_values" translatable="false">
         <item>auto</item>
         <item>en</item>
+        <item>de</item>
         <item>it</item>
     </string-array>
 
