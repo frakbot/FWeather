@@ -4,7 +4,7 @@ Changelog
 ### Version 1.2.1 ###
 Released on 20th July 2013
 
-- NEW: added German language (still missing a couple strings)
+- NEW: added German language (still missing a couple strings) -- thanks, Aaron Gerlach!
 
 ### Version 1.1.4 ###
 Released on 11th July 2013
