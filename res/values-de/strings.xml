@@ -16,6 +16,10 @@
   -->
 
 <resources>
+
+    <!-- Translator name (used in the About box) -->
+    <string name="translator_name">Aaron Gerlach</string>
+
     <!-- Activity labels -->
     <string name="activity_settings">FWeather-Einstellungen</string>
     <string name="activity_credits">Urheber</string>

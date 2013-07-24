@@ -4,6 +4,7 @@ Changelog
 ### Version 1.2.2 ###
 Released on 24th July 2013
 
+- NEW: added translator name in the About box
 - FIX: updated German language -- thanks, Aaron Gerlach!
 - FIX: clarified that the language forcing only influences the widget itself
 

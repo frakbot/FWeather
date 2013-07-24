@@ -16,6 +16,10 @@
   -->
 
 <resources>
+
+    <!-- Translator name (used in the About box) -->
+    <string name="translator_name">Frakbot</string>
+
     <!-- Activity labels -->
     <string name="activity_settings">Impostazioni FWeather</string>
     <string name="activity_credits">Autori</string>

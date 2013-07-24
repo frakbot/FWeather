@@ -69,7 +69,8 @@
 
     <!-- ABOUT DIALOG -->
     <string name="about_body">Beccati il tuo stracazzo di meteo</string>
-    <string name="about_developers"><![CDATA[Sviluppata da <b>Frakbot</b> (Sebastiano Poggi e Francesco Pontillo).<br>Basata sul concept <b>Authentic Weather</b> di Tobias van Scheider.]]></string>
+    <!-- Note to translators: remember to set your name in the strings.xml file, in the translator_name string -->
+    <string name="about_developers"><![CDATA[Sviluppata da <b>Frakbot</b> (Sebastiano Poggi e Francesco Pontillo).<br>Basata sul concept <i>Authentic Weather</i> di <b>Tobias van Scheider</b>.<p/>Tradotto con dell\'amore del cazzo da <b>%s</b>.]]></string>
     <string name="donate_frakbot">Dona a\nFrakbot</string>
 
     <!-- Action Bar items -->

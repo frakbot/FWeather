@@ -101,7 +101,8 @@
     <string name="app_name_and_version" translatable="false">
         <![CDATA[<b>FWeather</b>&nbsp;<font color=\"#888888\"><br/>v%1$s</font>]]></string>
     <string name="about_body">Get your fucking weather right</string>
-    <string name="about_developers"><![CDATA[Developed by <b>Frakbot</b> (Sebastiano Poggi and Francesco Pontillo).<p/>Based on the <b>Authentic Weather</b> concept by Tobias van Scheider.]]></string>
+    <!-- Note to translators: remember to set your name in the strings.xml file, in the translator_name string -->
+    <string name="about_developers"><![CDATA[Developed by <b>Frakbot</b> (Sebastiano Poggi and Francesco Pontillo).<p/>Based on the <i>Authentic Weather</i> concept by <b>Tobias van Scheider</b>.<p/>Translated with fucking love by <b>%s</b>.]]></string>
     <string name="donate_frakbot">Donate to\nFrakbot</string>
     <string name="authentic_weather" translatable="false">Authentic\nWeather</string>
 
