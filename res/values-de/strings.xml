@@ -19,7 +19,7 @@
     <!-- Activity labels -->
     <string name="activity_settings">FWeather-Einstellungen</string>
     <string name="activity_credits">Urheber</string>
-    <string name="activity_licenses">Drittpersonen-Lizenzen</string>
+    <string name="activity_licenses">Drittanbieter-Lizenzen</string>
 
     <!-- Service labels -->
     <string name="updater_service">FWeather Update Service</string>
@@ -27,5 +27,5 @@
     <!-- Widget accessibility -->
     <string name="cdesc_weathericon"><![CDATA[Aktuelles Wetter]]></string>
     <string name="cdesc_infobtn"><![CDATA[Info & Einstellungen]]></string>
-    <string name="cdesc_refresh"><![CDATA[Erneuern]]></string>
+    <string name="cdesc_refresh"><![CDATA[Aktualisieren]]></string>
 </resources>

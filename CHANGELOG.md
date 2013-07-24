@@ -1,6 +1,12 @@
 Changelog
 =========
 
+### Version 1.2.2 ###
+Released on 24th July 2013
+
+- FIX: updated German language -- thanks, Aaron Gerlach!
+- FIX: clarified that the language forcing only influences the widget itself
+
 ### Version 1.2.1 ###
 Released on 20th July 2013
 

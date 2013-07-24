@@ -41,7 +41,7 @@
     <string name="pref_title_ui_toggle_weather_icon">Weather icon</string>
     <string name="pref_title_ui_toggle_temperature_info">Temperature \"info\"</string>
     <string name="pref_title_ui_darkmode">Dark mode</string>
-    <string name="pref_title_ui_override_language">Language</string>
+    <string name="pref_title_ui_override_language">Widget language</string>
     <string name="pref_summary_ui_darkmode">Adapts colors for bright backgrounds</string>
 
     <!-- Settings for Data & Sync -->
