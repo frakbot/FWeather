@@ -68,7 +68,7 @@
     <!-- ABOUT DIALOG -->
     <string name="about_body">Bekomm Dein verdammtes Wetter in einem besonderen Format!</string>
     <!-- Note to translators: remember to set your name in the strings.xml file, in the translator_name string -->
-    <string name="about_developers"><![CDATA[Entwickelt von <b>Frakbot</b> (Sebastiano Poggi und Francesco Pontillo).<p/>Basiert auf dem <i>Authentic Weather</i>-Konzept von <b>Tobias Van Scheider</b>.]]></string>
+    <string name="about_developers"><![CDATA[Entwickelt von <b>Frakbot</b> (Sebastiano Poggi und Francesco Pontillo).<p/>Basiert auf dem <i>Authentic Weather</i>-Konzept von <b>Tobias Van Scheider</b>.<p/>Übersetzt mit verfickter Liebe von <b>%s</b>.]]></string>
     <string name="donate_frakbot">Frakbot\netwas spenden</string>
 
     <!-- Action Bar items -->
