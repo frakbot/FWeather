@@ -22,9 +22,9 @@
     <string name="pref_title_customize_widgets">Widgets anpassen</string>
     <string name="pref_title_ui_toggle_buttons">Buttons auf  Widget</string>
     <string name="pref_title_ui_toggle_weather_icon">Wetter-Icon</string>
-    <string name="pref_title_ui_toggle_temperature_info">Temperatur \"info\"</string>
+    <string name="pref_title_ui_toggle_temperature_info">Erweiterte Temperatur \"info\"</string>
     <string name="pref_title_ui_darkmode">Dunkler Modus</string>
-    <string name="pref_title_ui_override_language">Sprache des widgets</string>
+    <string name="pref_title_ui_override_language">Sprache des Widgets</string>
     <string name="pref_summary_ui_darkmode">Passt Farben für hellen Hintergrund an</string>
 
     <!-- Settings for Data & Sync -->
@@ -50,7 +50,7 @@
     <!-- Settings for Info -->
     <string name="pref_header_info">Information</string>
     <string name="pref_title_info_authors">Über FWeather</string>
-    <string name="pref_title_info_license">Lizenzen v. Drittpersonen</string>
+    <string name="pref_title_info_license">Lizenzen von  Drittanbietern (engl.)</string>
     <string name="pref_title_feedback">Feedback senden</string>
     <string name="pref_title_changelog">Changelog</string>
     <string name="pref_msg_changelog">Ja, nein. Verdammt! Vielleicht wann anders, mann…</string>
@@ -58,7 +58,7 @@
 
     <!-- Settings for Advanced -->
     <string name="pref_header_advanced">Erweitert</string>
-    <string name="pref_title_analytics">Analyse</string>
+    <string name="pref_title_analytics">Analysen</string>
     <string name="analytics_disable_warning">Diese App benutzt Google Analytics, um die meistbenutzten Features auf eine komplett anonyme Art und Weise festzulegen und damit den Entwicklern ermöglicht, die Software zu verbessern. Wir bitten dich, die Funktion an zu lassen, wenn möglich.</string>
     <string name="analytics_disabled">Google Analytics wurde deaktiviert.</string>
     <string name="analytics_enabled_thanks">Google Analytics wurde aktiviert. Danke!</string>
@@ -66,7 +66,7 @@
     <string name="pref_summary_debug">NUR aktivieren, um Probleme zu senden!</string>
 
     <!-- ABOUT DIALOG -->
-    <string name="about_body">Bekomm Dein verdammtes Wetter in einem besonderen Format!</string>
+    <string name="about_body">Bekomm Dein verdammtes Wetter auf eine besondere Art!</string>
     <!-- Note to translators: remember to set your name in the strings.xml file, in the translator_name string -->
     <string name="about_developers"><![CDATA[Entwickelt von <b>Frakbot</b> (Sebastiano Poggi und Francesco Pontillo).<p/>Basiert auf dem <i>Authentic Weather</i>-Konzept von <b>Tobias Van Scheider</b>.<p/>Übersetzt mit verfickter Liebe von <b>%s</b>.]]></string>
     <string name="donate_frakbot">Frakbot\netwas spenden</string>
