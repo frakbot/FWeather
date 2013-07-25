@@ -18,6 +18,9 @@
 <resources>
     <string name="app_name" translatable="false">FWeather widget</string>
 
+    <!-- Translator name (used in the About box) -->
+    <string name="translator_name">Frakbot</string>
+
     <!-- Activity labels -->
     <string name="activity_settings">FWeather settings</string>
     <string name="activity_credits">Authors</string>

@@ -24,14 +24,14 @@
     <string name="pref_title_ui_toggle_weather_icon">Wetter-Icon</string>
     <string name="pref_title_ui_toggle_temperature_info">Temperatur \"info\"</string>
     <string name="pref_title_ui_darkmode">Dunkler Modus</string>
-    <string name="pref_title_ui_override_language">Sprache</string>
+    <string name="pref_title_ui_override_language">Sprache des widgets</string>
     <string name="pref_summary_ui_darkmode">Passt Farben für hellen Hintergrund an</string>
 
     <!-- Settings for Data & Sync -->
     <string name="pref_header_data_sync">Daten &amp; Sync</string>
     <string name="pref_title_sync_frequency">Häufigkeit Sync</string>
     <string name="pref_title_sync_force">Wetter aktualisieren</string>
-    <string name="toast_force_update">OK, OK, nicht wieder so ein blutiger Schmerz im Arsch. Ich mach\'s ja schon, glücklich?</string>
+    <string name="toast_force_update">OK, OK, ich mach ja schon, mein Gott. Hetz mich nicht.</string>
 
     <string-array name="pref_sync_frequency_titles">
         <!--item>1 Minute</item-->
@@ -61,13 +61,14 @@
     <string name="pref_title_analytics">Analyse</string>
     <string name="analytics_disable_warning">Diese App benutzt Google Analytics, um die meistbenutzten Features auf eine komplett anonyme Art und Weise festzulegen und damit den Entwicklern ermöglicht, die Software zu verbessern. Wir bitten dich, die Funktion an zu lassen, wenn möglich.</string>
     <string name="analytics_disabled">Google Analytics wurde deaktiviert.</string>
-    <string name="analytics_enabled_thanks">Google Analytics has wurde aktiviert. Danke!</string>
+    <string name="analytics_enabled_thanks">Google Analytics wurde aktiviert. Danke!</string>
     <string name="pref_title_debug">Debuggen</string>
     <string name="pref_summary_debug">NUR aktivieren, um Probleme zu senden!</string>
 
     <!-- ABOUT DIALOG -->
-    <string name="about_body">Bekomm Dein verdammtes Wetter richtig</string>
-    <string name="about_developers"><![CDATA[Entwickelt von <b>Frakbot</b> (Sebastiano Poggi und Francesco Pontillo).<p/>Basiert auf dem <b>Authentic Weather</b>-Konzept von Tobias Van Scheider.]]></string>
+    <string name="about_body">Bekomm Dein verdammtes Wetter in einem besonderen Format!</string>
+    <!-- Note to translators: remember to set your name in the strings.xml file, in the translator_name string -->
+    <string name="about_developers"><![CDATA[Entwickelt von <b>Frakbot</b> (Sebastiano Poggi und Francesco Pontillo).<p/>Basiert auf dem <i>Authentic Weather</i>-Konzept von <b>Tobias Van Scheider</b>.<p/>Übersetzt mit verfickter Liebe von <b>%s</b>.]]></string>
     <string name="donate_frakbot">Frakbot\netwas spenden</string>
 
     <!-- Action Bar items -->

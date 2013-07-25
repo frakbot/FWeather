@@ -16,20 +16,10 @@
   -->
 
 <resources>
-
-    <!-- Translator name (used in the About box) -->
-    <string name="translator_name">Frakbot</string>
-
-    <!-- Activity labels -->
-    <string name="activity_settings">Impostazioni FWeather</string>
-    <string name="activity_credits">Autori</string>
-    <string name="activity_licenses">Licenze di terze parti</string>
-
-    <!-- Service labels -->
-    <string name="updater_service">Servizio aggiornamento di FWeather</string>
-
-    <!-- Widget accessibility -->
-    <string name="cdesc_weathericon"><![CDATA[Meteo attuale]]></string>
-    <string name="cdesc_infobtn"><![CDATA[Info & impostazioni]]></string>
-    <string name="cdesc_refresh"><![CDATA[Aggiorna]]></string>
+    <string-array name="pref_key_ui_override_language_entries">
+        <item>Autom. (System-Sprache)</item>
+        <item>Englisch</item>
+        <item>Deutsch</item>
+        <item>Italienisch</item>
+    </string-array>
 </resources>

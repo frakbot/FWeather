@@ -34,6 +34,7 @@ import net.frakbot.FWeather.util.TrackerHelper;
 /**
  * Implementation of android.preference.DialogPreference that
  * handles the logout by asking the user first.
+ *
  * @author Francesco Pontillo
  */
 public class AuthorsDialog extends FragmentActivity {
@@ -41,15 +42,15 @@ public class AuthorsDialog extends FragmentActivity {
     private static final String TAG = AuthorsDialog.class.getSimpleName();
 
     private static final String VERSION_UNAVAILABLE = "N/A";
-	
-	PackageManager pm;
-	String packageName;
-	String versionName;
-	
-	TextView nameAndVersionView;
-	TextView aboutAuthorsView;
-	Button donateFrakbotBtn;
-	Button authenticWeatherBtn;
+
+    PackageManager pm;
+    String packageName;
+    String versionName;
+
+    TextView nameAndVersionView;
+    TextView aboutAuthorsView;
+    Button donateFrakbotBtn;
+    Button authenticWeatherBtn;
 
     @Override
     protected void onStart() {
@@ -90,10 +91,10 @@ public class AuthorsDialog extends FragmentActivity {
         donateFrakbotBtn = (Button) findViewById(R.id.btn_donate_frakbot);
         authenticWeatherBtn = (Button) findViewById(R.id.btn_authentic_weather);
 
-        nameAndVersionView.setText(Html.fromHtml(
-            getString(R.string.app_name_and_version, versionName)));
-        aboutAuthorsView.setText(Html.fromHtml(
-            getString(R.string.about_developers)));
+        nameAndVersionView.setText(
+            Html.fromHtml(getString(R.string.app_name_and_version, versionName)));
+        aboutAuthorsView.setText(
+            Html.fromHtml(getString(R.string.about_developers, getString(R.string.translator_name))));
 
         // Setup the donation buttons
         donateFrakbotBtn.setOnClickListener(new View.OnClickListener() {

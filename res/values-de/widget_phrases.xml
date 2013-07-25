@@ -25,17 +25,17 @@
     <string name="weather_rainy"><![CDATA[Es <font color="%%COLOR%%">regnet</font>, verdammt.]]></string>
     <string name="weather_cloudy"><![CDATA[Nur verficktes <font color="%%COLOR%%">grau.</font>]]></string>
     <string name="weather_thunderstorm"><![CDATA[Ein scheiß <font color="%%COLOR%%">Sturm</font> wütet]]></string>
-    <string name="weather_haze"><![CDATA[Ich kann <font color="%%COLOR%%">nicht einen verschissenen Meter</font>gucken.]]></string>
-    <string name="weather_mostly_cloudy"><![CDATA[Kein verdammter Regen.<font color="%%COLOR%%">Bis jetzt.</font>]]></string>
-    <string name="weather_drizzle"><![CDATA[Kaum Regen, wie ne kleine Scheiß <font color="%%COLOR%%">Pussy.</font>]]></string>
+    <string name="weather_haze"><![CDATA[Ich kann <font color="%%COLOR%%">nicht einen verschissenen Meter</font> gucken.]]></string>
+    <string name="weather_mostly_cloudy"><![CDATA[Bisher kein verdammter Regen. <font color="%%COLOR%%">Bisher.</font>]]></string>
+    <string name="weather_drizzle"><![CDATA[Kaum Regen, wie so ne kleine Scheiß <font color="%%COLOR%%">Pussy.</font>]]></string>
     <string name="weather_snowy"><![CDATA[<font color="%%COLOR%%">Santa</font> fucking Claus kommt.]]></string>
     <string name="weather_extreme"><![CDATA[<font color="%%COLOR%%">Renn</font> um dein verdammtes Leben.]]></string>
-    <string name="weather_wtf"><![CDATA[<font color="%%COLOR%%">WTF,</font>kannst du nicht einfach rausgucken?]]></string>
+    <string name="weather_wtf"><![CDATA[<font color="%%COLOR%%">WTF,</font> kannst du nicht einfach rausgucken?]]></string>
 
     <!-- Widget temperature conditions -->
     <string name="temp_freezing"><![CDATA[<font color="%%COLOR%%">WTF.</font> Verfickter Nordpol.]]></string>
     <string name="temp_cold"><![CDATA[<font color="%%COLOR%%">Kalt</font> wie ein beschissener Kühlschrank.]]></string>
     <string name="temp_hot"><![CDATA[<font color="%%COLOR%%">Heiß</font> wie ein scheiß Ofen.]]></string>
     <string name="temp_warm"><![CDATA[Freu dich über die behinderten <font color="%%COLOR%%">singenden Vögel</font> und so ein Scheiß.]]></string>
-    <string name="temp_wtf"><![CDATA[Nein, ernsthaft, das ist deine einzige Chance, ich habe <font color="%%COLOR%%">keine verfickte Idee mehr.</font>]]></string>
+    <string name="temp_wtf"><![CDATA[Nein, ernsthaft, das ist deine einzige Chance, ich habe <font color="%%COLOR%%">keine verfickte Ahnung.</font>]]></string>
 </resources>
