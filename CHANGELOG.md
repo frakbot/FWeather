@@ -5,7 +5,7 @@ Changelog
 Released on 25th July 2013
 
 - NEW: built against Android 4.3 SDK (API level 18)
-- NEW: declares explicitly that it can't be installed on devices that don't support app widgets (just in case)
+- NEW: declares explicitly that it should only be installed on devices that support app widgets
 - FIX: updated German language -- thanks, Aaron Gerlach!
 
 ### Version 1.2.2 ###

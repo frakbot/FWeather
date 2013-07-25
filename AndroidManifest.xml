@@ -13,7 +13,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
 
-    <uses-feature android:name="android.software.app_widgets" android:required="true" />
+    <uses-feature android:name="android.software.app_widgets" android:required="false" />
 
     <application
             android:icon="@drawable/ic_launcher"
