@@ -2,7 +2,7 @@
 <resources>
 
     <string-array name="pref_key_ui_override_language_entries">
-        <item>自动(系统语言) (auto)</item>
+        <item>自动(系统语言)</item>
         <item>英语 (en)</item>
         <item>德语 (de)</item>
         <item>意大利语 (it)</item>
