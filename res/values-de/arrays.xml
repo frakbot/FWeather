@@ -21,6 +21,6 @@
         <item>Englisch (en)</item>
         <item>Deutsch (de)</item>
         <item>Italienisch (it)</item>
-        <!--item>Chinese (simplified) (zh)</item-->
+        <item>Chinesisch (vereinfacht)</item>
     </string-array>
 </resources>
