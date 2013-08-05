@@ -59,7 +59,7 @@
     <!-- Settings for Advanced -->
     <string name="pref_header_advanced">更多“尼玛”的设定</string>
     <string name="pref_title_analytics">分析</string>
-    <string name="analytics_disable_warning">尼玛天气是一款基于谷歌分析之上的软件，并且是完全匿名的哟！开启这个选项会为广大开发者提供信息.请在可能的情况下一直保持打开，多谢！</string>
+    <string name="analytics_disable_warning">FWeather是一款基于谷歌分析之上的软件，并且是完全匿名的哟！开启这个选项会为广大开发者提供信息.请在可能的情况下一直保持打开，多谢！</string>
     <string name="analytics_disabled">谷歌分析被关闭了，你怎么能这样做！？</string>
     <string name="analytics_enabled_thanks">谷歌翻译被打开了，哈哈哈，屌爆了！</string>
     <string name="pref_title_debug">调试（确定不是调戏？）</string>
@@ -68,13 +68,13 @@
     <!-- ABOUT DIALOG -->
     <string name="about_body">关于“尼玛”天气</string>
     <!-- Note to translators: remember to set your name in the strings.xml file, in the translator_name string -->
-    <string name="about_developers"><![CDATA[Developed by <b>Frakbot</b> (Sebastiano Poggi and Francesco Pontillo).<p/>Based on the <i>Authentic Weather</i> concept by <b>Tobias van Scheider</b>.<p/>Translated with fucking love by <b>%s</b>.]]></string>
-    <string name="donate_frakbot">各位日行一善，赞助一下制作人：\nFrakbot</string>
+    <string name="about_developers"><![CDATA[制作人： <b>Frakbot</b> (Sebastiano Poggi and Francesco Pontillo).<p/>参考 <i>Authentic Weather</i> 制作者： <b>Tobias van Scheider</b>.<p/>热情汉化人 <b>%s</b>.]]></string>
+    <string name="donate_frakbot">赞助\nFrakbot</string>
 
     <!-- Action Bar items -->
     <string name="done">“射”定好了</string>
 
     <!-- Switch values -->
-    <string name="on">打开了哟！</string>
-    <string name="off">关上了哦！</string>
+    <string name="on">开启</string>
+    <string name="off">关闭</string>
 </resources>

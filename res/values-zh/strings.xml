@@ -18,18 +18,18 @@
 <resources>
 
     <!-- Translator name (used in the About box) -->
-    <string name="translator_name">吃椰子上瘾（我的新浪微博账户哦）</string>
+    <string name="translator_name">hansi</string>
 
     <!-- Activity labels -->
-    <string name="activity_settings">设定“尼玛”天气</string>
+    <string name="activity_settings">设制FWeather</string>
     <string name="activity_credits">作者</string>
     <string name="activity_licenses">第三方许可</string>
 
     <!-- Service labels -->
-    <string name="updater_service">升级尼玛天气，升级不会那么频繁啦。</string>
+    <string name="updater_service">FWeather 升级</string>
 
     <!-- Widget accessibility -->
-    <string name="cdesc_weathericon"><![CDATA[Current weather]]></string>
-    <string name="cdesc_infobtn"><![CDATA[Info & settings]]></string>
-    <string name="cdesc_refresh"><![CDATA[Refresh]]></string>
+    <string name="cdesc_weathericon"><![CDATA[目前天气]]></string>
+    <string name="cdesc_infobtn"><![CDATA[信息及设定]]></string>
+    <string name="cdesc_refresh"><![CDATA[刷新]]></string>
 </resources>
