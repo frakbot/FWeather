@@ -1,6 +1,11 @@
 Changelog
 =========
 
+### Version 1.3.0 ###
+Released on ???
+
+- NEW: Chinese translation -- thanks, Hansi Liu!
+
 ### Version 1.2.3 ###
 Released on 25th July 2013
 

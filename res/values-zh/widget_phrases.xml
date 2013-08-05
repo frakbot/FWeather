@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <!-- Widget loading messages -->
+    <string name="loading_main"><![CDATA[先候着，等着老子往窗外看看]]></string>
+    <string name="loading_small"><![CDATA[再近点，离窗户这么远老子怎么知道尼玛是什么鬼天气]]></string>
+
+    <!-- Widget weather conditions -->
+    <string name="weather_sunny"><![CDATA[天晴了 <font color="%%COLOR%%">你感觉到了吗</font> 到处一片河蟹的气息。]]></string>
+    <string name="weather_rainy"><![CDATA[没事儿下个尼玛的<font color="%%COLOR%%">雨！</font> Now.]]></string>
+    <string name="weather_cloudy"><![CDATA[又是一个尼玛的 <font color="%%COLOR%%">阴天！</font>]]></string>
+    <string name="weather_thunderstorm"><![CDATA[尼玛！竟然是 ：<font color="%%COLOR%%">雷暴！</font>]]></string>
+    <string name="weather_haze"><![CDATA[<font color="%%COLOR%%">什么尼玛</font> 都看不见！]]></string>
+    <string name="weather_mostly_cloudy"><![CDATA[尼玛！竟然 ：<font color="%%COLOR%%">还没下雨！</font>]]></string>
+    <string name="weather_drizzle"><![CDATA[尼玛！<font color="%%COLOR%%">就么点雨还下个尼玛！</font>]]></string>
+    <string name="weather_snowy"><![CDATA[尼玛！ <font color="%%COLOR%%">竟然是</font> 剩蛋老人！]]></string>
+    <string name="weather_extreme"><![CDATA[<font color="%%COLOR%%">还看手机？</font> 快尼玛逃命吧！]]></string>
+    <string name="weather_wtf"><![CDATA[<font color="%%COLOR%%">尼玛,</font> 你就不能TM自己看看外面啊！]]></string>
+
+    <!-- Widget temperature conditions -->
+    <string name="temp_freezing"><![CDATA[<font color="%%COLOR%%">我勒个去</font> 尼玛我是在北极吗！]]></string>
+    <string name="temp_cold"><![CDATA[<font color="%%COLOR%%">真尼玛冷</font> 那个谁把冰箱门关上]]></string>
+    <string name="temp_hot"><![CDATA[<font color="%%COLOR%%">热成球了</font> 跟尼玛在烤箱里一样！]]></string>
+    <string name="temp_warm"><![CDATA[好尼玛暖和啊<font color="%%COLOR%%">可以听听鸟叫</font> 顺便看看鸟屎]]></string>
+    <string name="temp_wtf"><![CDATA[你的机会来了 <font color="%%COLOR%%">我尼玛的一点主意都没有。</font>]]></string>
+</resources>
