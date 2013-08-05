@@ -36,14 +36,18 @@ public class ConnectionHelper {
     public static void registerConnectivityListener(Context context) {
         if (!isRegistered) {
             context.registerReceiver(mReceiver,
-                    new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+                                     new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
             isRegistered = true;
         }
     }
 
     public static void unregisterConnectivityListener(Context context) {
         if (mReceiver != null && isRegistered) {
-            context.unregisterReceiver(mReceiver);
+            try {
+                context.unregisterReceiver(mReceiver);
+            }
+            catch (Exception ignored) {
+            }
             isRegistered = false;
         }
     }
