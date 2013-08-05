@@ -3,9 +3,10 @@
 
     <string-array name="pref_key_ui_override_language_entries">
         <item>Auto (system language)</item>
-        <item>English</item>
-        <item>German</item>
-        <item>Italian</item>
+        <item>English (en)</item>
+        <item>German (de)</item>
+        <item>Italian (it)</item>
+        <item>Chinese (simplified) (zh)</item>
     </string-array>
 
     <string-array name="pref_key_ui_override_language_values" translatable="false">
@@ -13,6 +14,7 @@
         <item>en</item>
         <item>de</item>
         <item>it</item>
+        <item>zh</item>
     </string-array>
 
 </resources>

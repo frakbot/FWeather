@@ -16,11 +16,20 @@
   -->
 
 <resources>
-    <string-array name="pref_key_ui_override_language_entries">
-        <item>Autom. (System-Sprache)</item>
-        <item>Englisch (en)</item>
-        <item>Deutsch (de)</item>
-        <item>Italienisch (it)</item>
-        <item>Chinesisch (vereinfacht) (zh)</item>
-    </string-array>
+
+    <!-- Translator name (used in the About box) -->
+    <string name="translator_name">hansi</string>
+
+    <!-- Activity labels -->
+    <string name="activity_settings">设制FWeather</string>
+    <string name="activity_credits">作者</string>
+    <string name="activity_licenses">第三方许可</string>
+
+    <!-- Service labels -->
+    <string name="updater_service">FWeather 升级</string>
+
+    <!-- Widget accessibility -->
+    <string name="cdesc_weathericon"><![CDATA[目前天气]]></string>
+    <string name="cdesc_infobtn"><![CDATA[信息及设定]]></string>
+    <string name="cdesc_refresh"><![CDATA[刷新]]></string>
 </resources>
