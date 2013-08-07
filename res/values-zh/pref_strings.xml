@@ -17,10 +17,14 @@
 <resources>
     <!-- Strings related to Settings -->
 
+    <!-- Preference keys -->
+    <!-- Always keep these values in sync with the ones in
+    	 net.frakbot.FWeather.global.Const.Preferences . -->
+
     <!-- Settings for Widget Customization -->
     <string name="pref_header_customization">设定</string>
     <string name="pref_title_customize_widgets">定制小部件</string>
-    <string name="pref_title_ui_toggle_buttons">在小部件上显示按钮</string>
+    <string name="pref_title_ui_toggle_buttons">显示按钮</string>
     <string name="pref_title_ui_toggle_weather_icon">天气插图</string>
     <string name="pref_title_ui_toggle_temperature_info">温度 \"信息\"</string>
     <string name="pref_title_ui_darkmode">黑体模式</string>
@@ -59,20 +63,20 @@
     <!-- Settings for Advanced -->
     <string name="pref_header_advanced">更多“尼玛”的设定</string>
     <string name="pref_title_analytics">分析</string>
-    <string name="analytics_disable_warning">FWeather是一款基于谷歌分析之上的软件，并且是完全匿名的哟！开启这个选项会为广大开发者提供信息.请在可能的情况下一直保持打开，多谢！</string>
+    <string name="analytics_disable_warning"> FWeather是一款基于谷歌分析之上的软件，并且是完全匿名的哟！开启这个选项会为广大开发者提供信息.请在可能的情况下一直保持打开，多谢！</string>
     <string name="analytics_disabled">谷歌分析被关闭了，你怎么能这样做！？</string>
-    <string name="analytics_enabled_thanks">谷歌翻译被打开了，哈哈哈，屌爆了！</string>
-    <string name="pref_title_debug">调试（确定不是调戏？）</string>
+    <string name="analytics_enabled_thanks">谷歌分析被打开了，哈哈哈，屌爆了！</string>
+    <string name="pref_title_debug">调试(戏)</string>
     <string name="pref_summary_debug">请只在反馈问题的时候打开，别老摸来摸去的！</string>
 
     <!-- ABOUT DIALOG -->
     <string name="about_body">关于“尼玛”天气</string>
     <!-- Note to translators: remember to set your name in the strings.xml file, in the translator_name string -->
-    <string name="about_developers"><![CDATA[制作人： <b>Frakbot</b> (Sebastiano Poggi and Francesco Pontillo).<p/>参考 <i>Authentic Weather</i> 制作者： <b>Tobias van Scheider</b>.<p/>热情汉化人 <b>%s</b>.]]></string>
+    <string name="about_developers"><![CDATA[制作人： <b>Frakbot</b> (Sebastiano Poggi and Francesco Pontillo).<p/>参考 <i>Authentic Weather</i> 作者：<b>Tobias van Scheider</b>.<p/>热情汉化人 <b>%s</b>.]]></string>
     <string name="donate_frakbot">赞助\nFrakbot</string>
 
     <!-- Action Bar items -->
-    <string name="done">“射”定好了</string>
+    <string name="done">“射”定结束</string>
 
     <!-- Switch values -->
     <string name="on">开启</string>
