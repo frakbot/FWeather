@@ -1,6 +1,12 @@
 Changelog
 =========
 
+### Version 1.3.1 ###
+Released on 7th August 2013
+
+- FIX: reduced widget text size for mdpi devices (which usually have crappy small screens)
+- FIX: updated Chinese translation -- thanks, Hansi Liu!
+
 ### Version 1.3.0 ###
 Released on 5th August 2013
 
