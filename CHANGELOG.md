@@ -1,6 +1,12 @@
 Changelog
 =========
 
+### Version 1.4.0 ###
+Released on ???
+
+- FIX: fix for crash when sending feedback, if the Play Store doesn't allow it
+- FIX: updated German translation -- thanks, Aaron Gerlach!
+
 ### Version 1.3.1 ###
 Released on 7th August 2013
 

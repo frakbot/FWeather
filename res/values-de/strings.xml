@@ -34,5 +34,5 @@
     <string name="cdesc_refresh"><![CDATA[Aktualisieren]]></string>
 
     <!-- Toasts -->
-    <!--string name="toast_feedback_mail_error">Unable to send feedback. Write an email to frakbot+fweather@gmail.com</string-->
+    <string name="toast_feedback_mail_error">Dein Feedback konnte leider nichg gesendet werden. Schreib eine E-Mail an frakbot+fweather@gmail.com</string>
 </resources>
