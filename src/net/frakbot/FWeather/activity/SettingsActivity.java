@@ -27,6 +27,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
@@ -65,6 +66,7 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
      * shown on tablets.
      */
     private static final boolean ALWAYS_SIMPLE_PREFS = false;
+    private static final String TAG = SettingsActivity.class.getSimpleName();
 
     /**
      * A preference value change listener that updates the preference's summary
@@ -232,7 +234,7 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
         preference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                FLog.i(SettingsActivity.this, SettingsActivity.class.getSimpleName(), "Forcing weather update (user request)");
+                FLog.i(SettingsActivity.this, TAG, "Forcing weather update (user request)");
                 requestWidgetsUpdate(true);
 
                 return true;
@@ -273,9 +275,9 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
 
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                FLog.i(SettingsActivity.this, SettingsActivity.class.getSimpleName(), "Sending feedback");
+                FLog.i(SettingsActivity.this, TAG, "Sending feedback");
 
-                if (isInstalledFromPlayStore()) {
+                if (isInstalledFromPlayStore() && canSendPlayStoreFeedback()) {
                     Intent intent = new Intent(Intent.ACTION_APP_ERROR);
 
                     // Use the native ApplicationErrorReport
@@ -288,21 +290,46 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
 
                     intent.putExtra(Intent.EXTRA_BUG_REPORT, report);
 
-                    startActivity(intent);
+                    FLog.i(TAG, "Starting feedback intent");
+                    try {
+                        startActivity(intent);
+                    }
+                    catch (Exception e) {
+                        FLog.w(SettingsActivity.this, "Unable to dispatch feedback Intent, falling back to email", e);
+                        sendFeedbackEmail();
+                    }
                 }
                 else {
                     // Use the fallback "share" mechanism
-                    // TODO: attach logcat
-                    Intent email = new Intent(Intent.ACTION_SEND);
-                    email.putExtra(Intent.EXTRA_EMAIL, new String[]{"frakbot@gmail.com"});
-                    email.putExtra(Intent.EXTRA_SUBJECT, "[FEEDBACK] " + getString(R.string.app_name));
-                    email.putExtra(Intent.EXTRA_TEXT, generateFeedbackBody());
-                    email.setType("message/rfc822");
-                    startActivity(Intent.createChooser(email, getString(R.string.feedback_send_chooser_title)));
+                    sendFeedbackEmail();
                 }
                 return true;
             }
         });
+    }
+
+    /**
+     * Sends a feedback email (fallback mechanism when the Android feedback mechanism
+     * doesn't work or isn't available).
+     */
+    private void sendFeedbackEmail() {
+        // TODO: attach logcat
+        Intent email = new Intent(Intent.ACTION_SEND);
+        email.putExtra(Intent.EXTRA_EMAIL, new String[] {"frakbot+fweather@gmail.com"});
+        email.putExtra(Intent.EXTRA_SUBJECT, "[FEEDBACK] " + getString(R.string.app_name));
+        email.putExtra(Intent.EXTRA_TEXT, generateFeedbackBody());
+        email.setType("message/rfc822");
+
+        try {
+            FLog.i(TAG, "Sending feedback email");
+            startActivity(Intent.createChooser(email, getString(R.string.feedback_send_chooser_title)));
+        }
+        catch (Exception e) {
+            Toast.makeText(this, getString(R.string.toast_feedback_mail_error),
+                           Toast.LENGTH_LONG)
+                 .show();
+            FLog.e(TAG, "Unable to send the feedback email", e);
+        }
     }
 
     /**
@@ -345,6 +372,22 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
         String installationSource = pm.getInstallerPackageName(getPackageName());
         return "com.android.vending".equals(installationSource) ||
                "com.google.android.feedback".equals(installationSource);   // This is for Titanium Backup compatibility
+    }
+
+    /**
+     * Determines if there is at least one component in the system that is able
+     * to actually send feedbacks (usually it's the Play Store, but we've seen
+     * this fail in at least one case).
+     *
+     * @return Returns true if the feedback Intent can be handled, false otherwise.
+     */
+    private boolean canSendPlayStoreFeedback() {
+        Intent intent = new Intent(Intent.ACTION_APP_ERROR);
+
+        PackageManager pm = getPackageManager();
+        List<ResolveInfo> list = pm.queryIntentActivities(intent, 0);
+
+        return list != null && list.size() > 0;
     }
 
     /**
@@ -461,7 +504,7 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
                     });
                     dialog.show();
 
-                    FLog.i(SettingsActivity.this, SettingsActivity.class.getSimpleName(), "Disabled Google Analytics");
+                    FLog.i(SettingsActivity.this, TAG, "Disabled Google Analytics");
 
                     return true;
                 }
@@ -469,7 +512,7 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
                     Toast.makeText(SettingsActivity.this, R.string.analytics_enabled_thanks, Toast.LENGTH_SHORT)
                          .show();
 
-                    FLog.i(SettingsActivity.this, SettingsActivity.class.getSimpleName(), "Enabled Google Analytics");
+                    FLog.i(SettingsActivity.this, TAG, "Enabled Google Analytics");
                     return true;
                 }
             }
