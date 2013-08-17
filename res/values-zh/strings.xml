@@ -34,5 +34,5 @@
     <string name="cdesc_refresh"><![CDATA[刷新]]></string>
 
     <!-- Toasts -->
-    <!--string name="toast_feedback_mail_error">Unable to send feedback. Write an email to frakbot+fweather@gmail.com</string-->
+    <string name="toast_feedback_mail_error">无法提交反馈信息. 联系作者: frakbot+fweather@gmail.com</string>
 </resources>
