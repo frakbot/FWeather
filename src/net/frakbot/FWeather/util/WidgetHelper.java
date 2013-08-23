@@ -20,6 +20,7 @@ import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.TypedArray;
 import android.text.Html;
 import android.text.Spanned;
 import android.view.Gravity;
@@ -288,6 +289,37 @@ public class WidgetHelper {
         else {
             return getColoredSpannedString(R.string.temp_hot, R.color.temp_hot,
                                            R.color.temp_hot_dark, darkMode);
+        }
+    }
+
+    /**
+     * Gets the right color for the widget background, depending on the user
+     * preferences and the dark mode state.
+     *
+     * @param bgOpacityPrefValue The value of the {@link net.frakbot.FWeather.R.string#pref_key_ui_bgopacity}
+     *                           preference
+     * @param darkMode True if the widget is in dark mode (and thus requires a bright BG), false otherwise
+     * @return Returns the color to be assigned to the widget BG
+     */
+    public int getWidgetBGColor(int bgOpacityPrefValue, boolean darkMode) {
+        TypedArray colors = mContext.getResources()
+                                    .obtainTypedArray(darkMode ? R.array.bg_colors_darkmode : R.array.bg_colors);
+
+        // We assume a fully transparent BG color as default
+        switch (bgOpacityPrefValue) {
+            case 0:
+                return colors.getColor(0, 0x00000000);
+            case 25:
+                return colors.getColor(1, 0x00000000);
+            case 50:
+                return colors.getColor(2, 0x00000000);
+            case 75:
+                return colors.getColor(3, 0x00000000);
+            case 100:
+                return colors.getColor(4, 0x00000000);
+            default:
+                FLog.w("WidgetHelper", "Invalid BG preference value detected: " + bgOpacityPrefValue);
+                return 0x00000000;
         }
     }
 

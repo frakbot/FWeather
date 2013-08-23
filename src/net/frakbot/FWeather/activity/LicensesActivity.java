@@ -16,6 +16,7 @@
 
 package net.frakbot.FWeather.activity;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Build.VERSION_CODES;
@@ -58,6 +59,7 @@ public class LicensesActivity extends SherlockFragmentActivity {
         TrackerHelper.activityStop(this);
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     @TargetApi(VERSION_CODES.JELLY_BEAN)
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

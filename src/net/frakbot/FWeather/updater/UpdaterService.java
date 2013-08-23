@@ -253,6 +253,9 @@ public class UpdaterService extends IntentService {
         // Show/hide elements, and update them only if needed
         views.setTextViewText(R.id.txt_weather, mWidgetHelper.getWeatherString(weather, darkMode));
         views.setTextColor(R.id.txt_weather, textColor);
+        int bgColorPrefValue = getWidgetBgColorPrefValue(prefs);
+        views.setInt(R.id.content, "setBackgroundColor",
+                     mWidgetHelper.getWidgetBGColor(bgColorPrefValue, darkMode));
 
         if (prefs.getBoolean(getString(R.string.pref_key_ui_toggle_temperature_info), true)) {
             views.setViewVisibility(R.id.txt_temp, View.VISIBLE);
@@ -290,6 +293,25 @@ public class UpdaterService extends IntentService {
         i.putExtra(UpdaterService.EXTRA_WIDGET_IDS, widgetIds);
         i.putExtra(UpdaterService.EXTRA_USER_FORCE_UPDATE, true);
         views.setOnClickPendingIntent(R.id.btn_refresh, PendingIntent.getService(this, 0, i, 0));
+    }
+
+    /**
+     * Gets the widget BG color opacity preference value, handling
+     * any format errors that could arise.
+     *
+     * @param prefs The SharedPreferences to retrieve the value from
+     *
+     * @return Returns the preference value, or a default value of 0 if there is
+     * any issue with the preference value retrieval.
+     */
+    private int getWidgetBgColorPrefValue(SharedPreferences prefs) {
+        try {
+            return Integer.parseInt(prefs.getString(getString(R.string.pref_key_ui_bgopacity), "%NOVAL%"));
+        }
+        catch (NumberFormatException e) {
+            FLog.w(TAG, "Invalid preference value for UI BG opacity, defaulting to 0", e);
+            return 0;
+        }
     }
 
     /**

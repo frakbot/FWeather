@@ -21,7 +21,7 @@
     <!-- Always keep these values in sync with the ones in
     	 net.frakbot.FWeather.global.Const.Preferences . -->
 
-    <!-- Settings for Widget Customization -->
+    <!-- Settings for Widget Customization (some come from DashClock) -->
     <string name="pref_header_customization">设定</string>
     <string name="pref_title_customize_widgets">定制小部件</string>
     <string name="pref_title_ui_toggle_buttons">显示按钮</string>
@@ -29,7 +29,16 @@
     <string name="pref_title_ui_toggle_temperature_info">温度 \"信息\"</string>
     <string name="pref_title_ui_darkmode">黑体模式</string>
     <string name="pref_title_ui_override_language">小部件语言</string>
+    <string name="pref_title_ui_bgopacity">小部件背景</string>
     <string name="pref_summary_ui_darkmode">为明亮的背景调整字体颜色</string>
+
+    <!--string-array name="pref_ui_bgopacity_titles">
+        <item>None</item>
+        <item>Light</item>
+        <item>Medium</item>
+        <item>Heavy</item>
+        <item>Opaque</item>
+    </string-array-->
 
     <!-- Settings for Data & Sync -->
     <string name="pref_header_data_sync">数据 &amp; 同步</string>

@@ -25,7 +25,16 @@
     <string name="pref_title_ui_toggle_temperature_info">\"Info\" sulla temperatura</string>
     <string name="pref_title_ui_darkmode">Modalità scura</string>
     <string name="pref_title_ui_override_language">Lingua del widget</string>
+    <string name="pref_title_ui_bgopacity">Sfondo del widget nella home</string>
     <string name="pref_summary_ui_darkmode">Adatta i colori per sfondi chiari</string>
+
+    <string-array name="pref_ui_bgopacity_titles">
+        <item>Trasparente</item>
+        <item>Leggero</item>
+        <item>Medio</item>
+        <item>Pesante</item>
+        <item>Opaco</item>
+    </string-array>
 
     <!-- Settings for Data & Sync -->
     <string name="pref_header_data_sync">Dati &amp; aggiornamento</string>

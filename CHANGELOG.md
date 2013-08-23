@@ -1,9 +1,11 @@
 Changelog
 =========
 
-### Version 1.4.0 ###
+### Version 2.0.0 ###
 Released on ???
 
+- NEW: added widget BG color preference
+- NEW: added Dashclock to OSS license info
 - FIX: fix for crash when sending feedback, if the Play Store doesn't allow it
 - FIX: updated German translation -- thanks, Aaron Gerlach!
 

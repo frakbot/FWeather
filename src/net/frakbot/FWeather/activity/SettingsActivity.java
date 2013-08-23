@@ -223,6 +223,7 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
         // to reflect the new value, per the Android Design guidelines.
         bindPreferenceSummaryToValue(findPreference(getString(R.string.pref_key_sync_frequency)));
         bindPreferenceSummaryToValue(findPreference(getString(R.string.pref_key_ui_override_language)));
+        bindPreferenceSummaryToValue(findPreference(getString(R.string.pref_key_ui_bgopacity)));
     }
 
     /**
