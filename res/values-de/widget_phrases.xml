@@ -31,6 +31,7 @@
     <string name="weather_snowy"><![CDATA[<font color="%%COLOR%%">Santa</font> fucking Claus kommt.]]></string>
     <string name="weather_extreme"><![CDATA[<font color="%%COLOR%%">Renn</font> um dein verdammtes Leben.]]></string>
     <string name="weather_wtf"><![CDATA[<font color="%%COLOR%%">WTF,</font> kannst du nicht einfach rausgucken?]]></string>
+    <!--string name="weather_no_location"><![CDATA[<font color="%%COLOR%%">Dafuq,</font> dude!]]></string-->
 
     <!-- Widget temperature conditions -->
     <string name="temp_freezing"><![CDATA[<font color="%%COLOR%%">WTF.</font> Verfickter Nordpol.]]></string>
@@ -38,4 +39,5 @@
     <string name="temp_hot"><![CDATA[<font color="%%COLOR%%">Heiß</font> wie ein scheiß Ofen.]]></string>
     <string name="temp_warm"><![CDATA[Freu dich über die behinderten <font color="%%COLOR%%">singenden Vögel</font> und so ein Scheiß.]]></string>
     <string name="temp_wtf"><![CDATA[Nein, ernsthaft, das ist deine einzige Chance, ich habe <font color="%%COLOR%%">keine verfickte Ahnung.</font>]]></string>
+    <!--string name="temp_no_location"><![CDATA[I don\'t have a fucking <font color="%%COLOR%%">crystal ball!</font> Enable the GPS or the Location Services.]]></string-->
 </resources>

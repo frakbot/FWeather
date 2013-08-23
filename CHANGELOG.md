@@ -6,6 +6,7 @@ Released on ???
 
 - NEW: added widget BG color preference
 - NEW: added Dashclock to OSS license info
+- NEW: differentiated error message for when no location is available
 - FIX: fix for crash when sending feedback, if the Play Store doesn't allow it
 - FIX: updated German translation -- thanks, Aaron Gerlach!
 

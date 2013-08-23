@@ -39,6 +39,7 @@ public class Weather {
     public byte[] mIconData;
 
     public class CurrentCondition {
+        public static final int WEATHER_ID_ERR_NO_LOCATION = 10000;
         private int mWeatherId;
         private String mCondition;
         private String mDescr;

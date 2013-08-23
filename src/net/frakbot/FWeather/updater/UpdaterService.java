@@ -83,7 +83,7 @@ public class UpdaterService extends IntentService {
         FLog.d(this, TAG, "onHandleIntent");
 
         // Deregister the connection listener, if any
-        ConnectionHelper.unregisterConnectivityListener(this.getApplicationContext());
+        ConnectionHelper.unregisterConnectivityListener(getApplicationContext());
 
         // First thing, recheck the log filtering levels
         FLog.recheckLogLevels();
@@ -112,7 +112,7 @@ public class UpdaterService extends IntentService {
         assert appWidgetManager != null;
 
         // Get the latest weather info (new or cached)
-        Weather weather = null;
+        Weather weather;
         try {
             weather = WeatherHelper.getWeather(this);
         }

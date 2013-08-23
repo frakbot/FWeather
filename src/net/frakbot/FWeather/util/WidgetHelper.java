@@ -151,6 +151,11 @@ public class WidgetHelper {
             return getColoredSpannedString(R.string.weather_extreme, R.color.weather_extreme,
                                            R.color.weather_extreme_dark, darkMode);
         }
+        else if (weatherId == 10000) {
+            // Error: no location available
+            return getColoredSpannedString(R.string.weather_no_location, R.color.weather_no_location,
+                                           R.color.weather_no_location_dark, darkMode);
+        }
         else {
             return getColoredSpannedString(R.string.weather_wtf, R.color.weather_wtf,
                                            R.color.weather_wtf_dark, darkMode);
@@ -238,6 +243,10 @@ public class WidgetHelper {
             // Extreme weather
             return !darkMode ? R.drawable.weather_extreme : R.drawable.weather_extreme_dark;
         }
+        else if (weatherId == 10000) {
+            // Error: no location available  (ATM has a generic error icon)
+            return !darkMode ? R.drawable.weather_wtf : R.drawable.weather_wtf_dark;
+        }
         else {
             // Unknown weather
             return !darkMode ? R.drawable.weather_wtf : R.drawable.weather_wtf_dark;
@@ -267,6 +276,13 @@ public class WidgetHelper {
     public CharSequence getTempString(Weather weather, boolean darkMode) {
         final float temp;
         if (weather != null) {
+            if (weather.mCurrentCondition != null &&
+                weather.mCurrentCondition.getWeatherId() == Weather.CurrentCondition.WEATHER_ID_ERR_NO_LOCATION) {
+
+                // Error: no location available
+                return getColoredSpannedString(R.string.temp_no_location, R.color.temp_no_location,
+                                               R.color.temp_no_location_dark, darkMode);
+            }
             temp = weather.mTemperature.getTemp();
         }
         else {

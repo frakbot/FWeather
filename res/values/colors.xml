@@ -18,6 +18,8 @@
 <resources>
     <color name="window_bg">#fff9e9</color>
 
+    <color name="toast_bg">#30000000</color>
+
     <color name="text_widget_main_color">#ffffff</color>
     <color name="text_widget_main_color_dark">#101010</color>
     <color name="text_subtitle">#ff745f36</color>
@@ -35,11 +37,13 @@
     <color name="weather_snowy">#ff3836</color>
     <color name="weather_extreme">#ff6f14</color>
     <color name="weather_wtf">#cbff64</color>
+    <color name="weather_no_location">#70ff93</color>
     <color name="temp_freezing">#d28aff</color>
     <color name="temp_cold">#cde2ff</color>
     <color name="temp_hot">#f25e5e</color>
     <color name="temp_warm">#00d500</color>
     <color name="temp_wtf">#3075e0</color>
+    <color name="temp_no_location">#61e0e0</color>
 
     <!-- WIDGET PHRASES COLORS - DARK MODE -->
     <color name="weather_sunny_dark">#ff97003a</color>
@@ -52,12 +56,13 @@
     <color name="weather_snowy_dark">#ffc32b2a</color>
     <color name="weather_extreme_dark">#ffb34e0e</color>
     <color name="weather_wtf_dark">#ff7d9e3d</color>
+    <color name="weather_no_location_dark">#275a34</color>
     <color name="temp_freezing_dark">#ff9d67be</color>
     <color name="temp_cold_dark">#ff93a1b6</color>
     <color name="temp_hot_dark">#ffb14545</color>
     <color name="temp_warm_dark">#ff009300</color>
     <color name="temp_wtf_dark">#ff265baf</color>
-    <color name="toast_bg">#30000000</color>
+    <color name="temp_no_location_dark">#296262</color>
 
     <!-- WIDGET BG COLORS -->
     <array name="bg_colors">      <!-- These are for darkMode=OFF, so it's BLACK bg -->

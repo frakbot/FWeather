@@ -32,6 +32,7 @@
     <string name="weather_snowy"><![CDATA[Arriva il <font color="%%COLOR%%">Babbo Natale</font> del cazzo.]]></string>
     <string name="weather_extreme"><![CDATA[<font color="%%COLOR%%">Corri</font> per salvarti la vita.]]></string>
     <string name="weather_wtf"><![CDATA[<font color="%%COLOR%%">Che cazzo,</font> non sai guardare da solo?]]></string>
+    <string name="weather_no_location"><![CDATA[<font color="%%COLOR%%">\'catroia,</font> ciccio!]]></string>
 
     <!-- Widget temperature conditions -->
     <string name="temp_freezing"><![CDATA[<font color="%%COLOR%%">Porca troia.</font> E\' tipo il polo nord.]]></string>
@@ -39,5 +40,6 @@
     <string name="temp_hot"><![CDATA[È <font color="%%COLOR%%">caldo</font> come un forno del cazzo.]]></string>
     <string name="temp_warm"><![CDATA[Goditi i cazzo di uccellini che <font color="%%COLOR%%">cantano</font> e cagate simili.]]></string>
     <string name="temp_wtf"><![CDATA[Cazzo, sul serio, al momento è la tua chance migliore, io <font color="%%COLOR%%">non ne ho idea.</font>]]></string>
+    <string name="temp_no_location"><![CDATA[Non ho una fottuta <font color="%%COLOR%%">sfera di cristallo!</font> Attiva il GPS o i Servizi di Posizione.]]></string>
 
 </resources>

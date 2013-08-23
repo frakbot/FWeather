@@ -67,10 +67,14 @@ public class WeatherHelper {
         // Get the current location
         final Location location = getLocation(context);
 
-        if (location == null) {
+        if (true || location == null) {
             TrackerHelper.sendException(context, "No location found", false);
             FLog.e(context, TAG, "No location available, can't update");
-            return null;
+
+            Weather errWeather = new Weather();
+            errWeather.mCurrentCondition = errWeather.new CurrentCondition();
+            errWeather.mCurrentCondition.setWeatherId(Weather.CurrentCondition.WEATHER_ID_ERR_NO_LOCATION);
+            return errWeather;
         }
 
         // Get the city name, if possible
