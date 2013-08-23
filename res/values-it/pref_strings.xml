@@ -76,6 +76,11 @@
     <string name="pref_title_debug">Debug</string>
     <string name="pref_summary_debug">Attivalo SOLO quando segnali problemi!</string>
 
+    <string name="pref_title_weather_location">Luogo</string>
+    <string name="pref_weather_location_query_hint">Trova un luogo</string>
+    <string name="pref_weather_location_automatic">Automatico</string>
+    <string name="pref_weather_location_automatic_description">Basato sulla tua posizione attuale.</string>
+
     <!-- ABOUT DIALOG -->
     <string name="about_body">Beccati il tuo stracazzo di meteo</string>
     <!-- Note to translators: remember to set your name in the strings.xml file, in the translator_name string -->

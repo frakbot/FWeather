@@ -418,8 +418,8 @@ public class YahooWeatherApiClient {
     }
 
     public static class LocationSearchResult {
-        String woeid;
-        String displayName;
-        String country;
+        public String woeid;
+        public String displayName;
+        public String country;
     }
 }
