@@ -19,20 +19,19 @@ package net.frakbot.FWeather.util;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.location.Address;
-import android.location.Geocoder;
+import android.content.SharedPreferences;
 import android.location.Location;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
+import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.updater.weather.CantGetWeatherException;
 import net.frakbot.FWeather.updater.weather.YahooWeatherApiClient;
 import net.frakbot.FWeather.updater.weather.model.WeatherData;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.List;
+import java.util.Arrays;
 
 import static net.frakbot.FWeather.updater.weather.YahooWeatherApiClient.getLocationInfo;
 
@@ -40,6 +39,7 @@ import static net.frakbot.FWeather.updater.weather.YahooWeatherApiClient.getLoca
  * Helper class for retrieving weather information.
  * <p/>
  * Parts from Roman Nurik's DashClock.
+ *
  * @author Francesco Pontillo and Sebastiano Poggi
  */
 public class WeatherHelper {
@@ -51,10 +51,12 @@ public class WeatherHelper {
      * Gets the current weather at the user's location
      *
      * @param context The current {@link Context}.
+     *
      * @return Returns the weather info, if available, or null
-     *         if there was any error during the download.
+     * if there was any error during the download.
      */
-    public static WeatherData getWeather(Context context) throws LocationHelper.LocationNotReadyYetException, IOException {
+    public static WeatherData getWeather(Context context)
+        throws LocationHelper.LocationNotReadyYetException, IOException {
         FLog.i(context, TAG, "Starting Yahoo! Weather update");
 
         // Get the current location
@@ -69,11 +71,31 @@ public class WeatherHelper {
             return errWeather;
         }
 
-        // TODO: manual location support
-        WeatherData weather = getWeatherDataForLocation(location);
+        // Use manual location if defined
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+
+        String manualLocationWoeid =
+            WeatherLocationPreference.getWoeidFromValue(
+                sp.getString(context.getString(R.string.pref_key_weather_location), null));
+
+
+        WeatherData weather;
+        if (!TextUtils.isEmpty(manualLocationWoeid)) {
+            YahooWeatherApiClient.LocationInfo locationInfo = new YahooWeatherApiClient.LocationInfo();
+            locationInfo.woeids = Arrays.asList(manualLocationWoeid);
+            weather = getWeatherDataForLocationInfo(locationInfo);
+        }
+        else {
+            weather = getWeatherDataForLocation(location);
+        }
 
         FLog.i(context, TAG, "Weather update done");
-        FLog.v(context, TAG, "Got weather:\n\t> " + weather);
+        if (weather != null) {
+            FLog.d(context, TAG, "Got weather:\n\t> " + weather);
+        }
+        else {
+            FLog.v(context, TAG, "No weather received");
+        }
 
         // Update the cached value
         mCachedWeather = weather;
@@ -86,6 +108,7 @@ public class WeatherHelper {
      * Gets the current location.
      *
      * @param context The current {@link Context}.
+     *
      * @return Returns the current location
      */
     public static Location getLocation(Context context) throws LocationHelper.LocationNotReadyYetException {
@@ -95,54 +118,10 @@ public class WeatherHelper {
     }
 
     /**
-     * Gets the city name (where available), suffixed with the
-     * country code.
-     *
-     * @param context The current {@link Context}.
-     * @param location The Location to get the name for.
-     *
-     * @return Returns the city name and country (eg. "London,UK")
-     *         if available, null otherwiseù
-     */
-    public static String getCityName(Context context, Location location) {
-        String cityName = null;
-        if (Geocoder.isPresent()) {
-            Geocoder geocoder = new Geocoder(context);
-            List<Address> addresses = null;
-            try {
-                addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-            }
-            catch (IOException ignored) {
-            }
-
-            if (addresses != null && !addresses.isEmpty()) {
-                final Address address = addresses.get(0);
-                final String city = address.getLocality();
-                if (!TextUtils.isEmpty(city)) {
-                    // We only set the city name if we actually have it
-                    // (to avoid the country code avoiding returning null)
-                    cityName = city + "," + address.getCountryCode();
-                }
-            }
-        }
-
-        String encodedCityName = null;
-
-        try {
-            encodedCityName = URLEncoder.encode(cityName, "UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            FLog.d(context, TAG, "Could not encode city name, assume no city available.");
-        } catch (NullPointerException enp) {
-            FLog.d(context, TAG, "Could not encode city name, assume no city available.");
-        }
-
-        return encodedCityName;
-    }
-
-    /**
      * Checks if there is any network connection active (or activating).
      *
      * @param context The current {@link Context}.
+     *
      * @return Returns true if there is an active connection, false otherwise
      */
     public static boolean checkNetwork(Context context) {
@@ -154,6 +133,7 @@ public class WeatherHelper {
 
     /**
      * Returns the latest known weather information.
+     *
      * @return The cached {@link WeatherData}
      */
     public static WeatherData getLatestWeather() {
@@ -164,8 +144,24 @@ public class WeatherHelper {
         try {
             FLog.d(TAG, "Using location: " + location.getLatitude() + "," + location.getLongitude());
             return YahooWeatherApiClient.getWeatherForLocationInfo(getLocationInfo(location));
-        } catch (CantGetWeatherException e) {
+        }
+        catch (CantGetWeatherException e) {
             FLog.e(TAG, "Unable to retrieve weather", e);
+            return null;
+        }
+    }
+
+    private static WeatherData getWeatherDataForLocationInfo(YahooWeatherApiClient.LocationInfo location) {
+        try {
+            FLog.d(TAG, "Using manual location. WOEIDs count: " + location.woeids.size());
+            return YahooWeatherApiClient.getWeatherForLocationInfo(location);
+        }
+        catch (CantGetWeatherException e) {
+            FLog.e(TAG, "Unable to retrieve weather", e);
+            return null;
+        }
+        catch (NullPointerException e) {
+            FLog.e(TAG, "Unable to retrieve weather: no WOEIDs!", e);
             return null;
         }
     }
