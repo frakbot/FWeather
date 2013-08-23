@@ -30,7 +30,7 @@ import android.widget.Toast;
 import net.frakbot.FWeather.FWeatherWidgetProvider;
 import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.updater.UpdaterService;
-import net.frakbot.FWeather.updater.weather.model.Weather;
+import net.frakbot.FWeather.updater.weather.model.WeatherData;
 import net.frakbot.FWeather.widget.FontTextView;
 
 /**
@@ -91,66 +91,95 @@ public class WidgetHelper {
     /**
      * Gets the string representing the weather.
      *
+     *
      * @param weather  The weather to get the string for
      * @param darkMode True if the widget is in dark mode, false otherwise
      *
      * @return Returns the corresponding weather string
      */
-    public Spanned getWeatherString(Weather weather, boolean darkMode) {
+    public Spanned getWeatherString(WeatherData weather, boolean darkMode) {
         final int weatherId;
         if (weather != null) {
-            weatherId = weather.mCurrentCondition.getWeatherId();
+            weatherId = weather.conditionCode;
         }
         else {
             weatherId = -1;
         }
 
-        // Codes list: http://bugs.openweathermap.org/projects/api/wiki/Weather_Condition_Codes
-        if (weatherId >= 200 && weatherId <= 299) {
-            // Thunderstorm
+        // Codes list: http://developer.yahoo.com/weather/
+        if (weatherId == 3 || weatherId == 4 || (weatherId >= 37 && weatherId <= 39) ||
+            weatherId == 45 || weatherId == 47) {// Thunderstorm
             return getColoredSpannedString(R.string.weather_thunderstorm, R.color.weather_thunderstorm,
                                            R.color.weather_thunderstorm_dark, darkMode);
         }
-        else if (weatherId >= 300 && weatherId <= 399) {
+        else if (weatherId == 8 || weatherId == 9) {
             // Drizzle
             return getColoredSpannedString(R.string.weather_drizzle, R.color.weather_drizzle,
                                            R.color.weather_drizzle_dark, darkMode);
         }
-        else if (weatherId >= 500 && weatherId <= 599) {
+        else if (weatherId == 10 || weatherId == 12 || weatherId == 40) {
             // Rain
             return getColoredSpannedString(R.string.weather_rainy, R.color.weather_rainy,
                                            R.color.weather_rainy_dark, darkMode);
         }
-        else if (weatherId >= 600 && weatherId <= 699) {
+        else if (weatherId == 17 || weatherId == 35) {
+            // Hail
+            return getColoredSpannedString(R.string.weather_hail, R.color.weather_hail,
+                                           R.color.weather_hail_dark, darkMode);
+        }
+        else if ((weatherId >= 13 && weatherId <= 16) || weatherId == 18 ||
+                 (weatherId >= 41 && weatherId <= 43) || weatherId == 46) {
             // Snow
             return getColoredSpannedString(R.string.weather_snowy, R.color.weather_snowy,
                                            R.color.weather_snowy_dark, darkMode);
         }
-        else if (weatherId >= 700 && weatherId <= 799) {
+        else if (weatherId >= 19 && weatherId <= 22) {
             // Atmosphere (mist, smoke, etc)
             return getColoredSpannedString(R.string.weather_haze, R.color.weather_haze,
                                            R.color.weather_haze_dark, darkMode);
         }
-        else if (weatherId == 800 || weatherId == 801) {
-            // Sunny or mostly sunny
+        else if (weatherId == 32 || weatherId == 34 ||
+                 weatherId == 31 || weatherId == 33) {
+            // Sunny or mostly sunny (day&night)
             return getColoredSpannedString(R.string.weather_sunny, R.color.weather_sunny,
                                            R.color.weather_sunny_dark, darkMode);
         }
-        else if (weatherId == 802 || weatherId == 803) {
-            // Mostly cloudy
-            return getColoredSpannedString(R.string.weather_mostly_cloudy, R.color.weather_mostly_cloudy,
-                                           R.color.weather_mostly_cloudy_dark, darkMode);
+        else if (weatherId == 30 || weatherId == 44 || weatherId == 29) {
+            // Partly cloudy (day&night)
+            return getColoredSpannedString(R.string.weather_partly_cloudy, R.color.weather_partly_cloudy,
+                                           R.color.weather_partly_cloudy_dark, darkMode);
         }
-        else if (weatherId >= 804 && weatherId <= 899) {
+        else if (weatherId >= 26 && weatherId <= 28) {
             // Cloudy
             return getColoredSpannedString(R.string.weather_cloudy, R.color.weather_cloudy,
                                            R.color.weather_cloudy_dark, darkMode);
         }
-        else if (weatherId >= 900 && weatherId <= 999) {
+        else if (weatherId == 23 || weatherId == 24) {
+            // Windy
+            return getColoredSpannedString(R.string.weather_windy, R.color.weather_windy,
+                                           R.color.weather_windy_dark, darkMode);
+        }
+        else if (weatherId == 25) {
+            // Cold
+            return getColoredSpannedString(R.string.weather_cold, R.color.weather_cold,
+                                           R.color.weather_cold_dark, darkMode);
+        }
+        else if (weatherId == 36) {
+            // Hot
+            return getColoredSpannedString(R.string.weather_hot, R.color.weather_hot,
+                                           R.color.weather_hot_dark, darkMode);
+        }
+        else if (weatherId >= 0 && weatherId <= 2) {
             // Extreme weather
             return getColoredSpannedString(R.string.weather_extreme, R.color.weather_extreme,
                                            R.color.weather_extreme_dark, darkMode);
         }
+        else if (weatherId == 3200) {
+            // Error: no weather available
+            return getColoredSpannedString(R.string.weather_no_weather, R.color.weather_no_weather,
+                                           R.color.weather_no_weather_dark, darkMode);
+        }
+
         else if (weatherId == 10000) {
             // Error: no location available
             return getColoredSpannedString(R.string.weather_no_location, R.color.weather_no_location,
@@ -182,66 +211,87 @@ public class WidgetHelper {
     /**
      * Gets the ID of the image representing the weather.
      *
+     *
      * @param weather  The weather to get the image for
      * @param darkMode True if the widget is in dark mode, false otherwise
      *
      * @return Returns the corresponding weather image ID
      */
-    public int getWeatherImageId(Weather weather, boolean darkMode) {
+    public int getWeatherImageId(WeatherData weather, boolean darkMode) {
         final int weatherId;
         if (weather != null) {
-            weatherId = weather.mCurrentCondition.getWeatherId();
+            weatherId = weather.conditionCode;
         }
         else {
             weatherId = -1;
         }
 
-        // Codes list: http://bugs.openweathermap.org/projects/api/wiki/Weather_Condition_Codes
-        if (weatherId >= 200 && weatherId <= 299) {
+        // Codes list: http://developer.yahoo.com/weather/
+        if (weatherId == 3 || weatherId == 4 || (weatherId >= 37 && weatherId <= 39) ||
+            weatherId == 45 || weatherId == 47) {
             // Thunderstorm
             return !darkMode ? R.drawable.weather_thunderstorm : R.drawable.weather_thunderstorm_dark;
         }
-        else if (weatherId >= 300 && weatherId <= 399) {
+        else if (weatherId == 8 || weatherId == 9) {
             // Drizzle
             return !darkMode ? R.drawable.weather_drizzle : R.drawable.weather_drizzle_dark;
         }
-        else if (weatherId >= 500 && weatherId <= 599) {
+        else if (weatherId == 10 || weatherId == 12 || weatherId == 40) {
             // Rain
-            return !darkMode ? R.drawable.weather_drizzle : R.drawable.weather_drizzle_dark;
+            return !darkMode ? R.drawable.weather_rain : R.drawable.weather_rain_dark;
         }
-        else if (weatherId >= 600 && weatherId <= 699) {
+        else if (weatherId == 17 || weatherId == 35) {
+            // Hail
+            return !darkMode ? R.drawable.weather_hail : R.drawable.weather_hail_dark;
+        }
+        else if ((weatherId >= 13 && weatherId <= 16) || weatherId == 18 ||
+                 (weatherId >= 41 && weatherId <= 43) || weatherId == 46) {
             // Snow
             return !darkMode ? R.drawable.weather_snow : R.drawable.weather_snow_dark;
         }
-        else if (weatherId >= 700 && weatherId <= 799) {
+        else if (weatherId >= 19 && weatherId <= 22) {
             // Atmosphere (mist, smoke, etc)
             return !darkMode ? R.drawable.weather_haze : R.drawable.weather_haze_dark;
         }
-        else if (weatherId == 800 || weatherId == 801) {
-            // Sunny or mostly sunny
-            if (isDay(weather)) {
-                return !darkMode ? R.drawable.weather_clear_day : R.drawable.weather_clear_day_dark;
-            }
-            else {
-                return !darkMode ? R.drawable.weather_clear_night : R.drawable.weather_clear_night_dark;
-            }
+        else if (weatherId == 32 || weatherId == 34) {
+            // Sunny or mostly sunny (day)
+            return !darkMode ? R.drawable.weather_clear_day : R.drawable.weather_clear_day_dark;
         }
-        else if (weatherId == 802 || weatherId == 803) {
-            // Mostly cloudy
-            if (isDay(weather)) {
-                return !darkMode ? R.drawable.weather_mostly_cloudy_day : R.drawable.weather_mostly_cloudy_day_dark;
-            }
-            else {
-                return !darkMode ? R.drawable.weather_mostly_cloudy_night : R.drawable.weather_mostly_cloudy_night_dark;
-            }
+        else if (weatherId == 31 || weatherId == 33) {
+            // Clear (night)
+            return !darkMode ? R.drawable.weather_clear_night : R.drawable.weather_clear_night_dark;
         }
-        else if (weatherId >= 804 && weatherId <= 899) {
+        else if (weatherId >= 26 && weatherId <= 28) {
             // Cloudy
             return !darkMode ? R.drawable.weather_cloudy : R.drawable.weather_cloudy_dark;
         }
-        else if (weatherId >= 900 && weatherId <= 999) {
+        else if (weatherId == 30 || weatherId == 44) {
+            // Partly cloudy (day)
+            return !darkMode ? R.drawable.weather_partly_cloudy_day : R.drawable.weather_partly_cloudy_day_dark;
+        }
+        else if (weatherId == 29) {
+            // Partly cloudy (night)
+            return !darkMode ? R.drawable.weather_partly_cloudy_night : R.drawable.weather_partly_cloudy_night_dark;
+        }
+        else if (weatherId == 23 || weatherId == 24) {
+            // Windy
+            return !darkMode ? R.drawable.weather_windy : R.drawable.weather_windy_dark;
+        }
+        else if (weatherId == 25) {
+            // Cold
+            return !darkMode ? R.drawable.weather_cold : R.drawable.weather_cold_dark;
+        }
+        else if (weatherId == 36) {
+            // Hot
+            return !darkMode ? R.drawable.weather_hot : R.drawable.weather_hot_dark;
+        }
+        else if (weatherId >= 0 && weatherId <= 2) {
             // Extreme weather
             return !darkMode ? R.drawable.weather_extreme : R.drawable.weather_extreme_dark;
+        }
+        else if (weatherId == 3200) {
+            // Error: no weather available (ATM has a generic error icon)
+            return !darkMode ? R.drawable.weather_wtf : R.drawable.weather_wtf_dark;
         }
         else if (weatherId == 10000) {
             // Error: no location available  (ATM has a generic error icon)
@@ -254,36 +304,24 @@ public class WidgetHelper {
     }
 
     /**
-     * Determines if it's day or night as reported by the weather provider.
-     *
-     * @return Returns true if it's day, false if it's night.
-     */
-    public boolean isDay(Weather weather) {
-        long sunrise = weather.mLocation.getSunrise();
-        long sunset = weather.mLocation.getSunset();
-        final long currTime = System.currentTimeMillis() / 1000;
-        return currTime > sunrise && currTime < sunset;
-    }
-
-    /**
      * Gets the temperature string for the weather.
+     *
      *
      * @param weather  The weather to get the temperature string for
      * @param darkMode True if the widget is in dark mode, false otherwise
      *
      * @return Returns the temperature string
      */
-    public CharSequence getTempString(Weather weather, boolean darkMode) {
+    public CharSequence getTempString(WeatherData weather, boolean darkMode) {
         final float temp;
         if (weather != null) {
-            if (weather.mCurrentCondition != null &&
-                weather.mCurrentCondition.getWeatherId() == Weather.CurrentCondition.WEATHER_ID_ERR_NO_LOCATION) {
+            if (weather.conditionCode == WeatherData.WEATHER_ID_ERR_NO_LOCATION) {
 
                 // Error: no location available
                 return getColoredSpannedString(R.string.temp_no_location, R.color.temp_no_location,
                                                R.color.temp_no_location_dark, darkMode);
             }
-            temp = weather.mTemperature.getTemp();
+            temp = weather.temperature;
         }
         else {
             return getColoredSpannedString(R.string.temp_wtf, R.color.temp_wtf,

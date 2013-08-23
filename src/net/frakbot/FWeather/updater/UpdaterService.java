@@ -37,7 +37,7 @@ import android.widget.Toast;
 import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.activity.SettingsActivity;
 import net.frakbot.FWeather.global.Const;
-import net.frakbot.FWeather.updater.weather.model.Weather;
+import net.frakbot.FWeather.updater.weather.model.WeatherData;
 import net.frakbot.FWeather.util.*;
 
 import java.io.IOException;
@@ -112,7 +112,7 @@ public class UpdaterService extends IntentService {
         assert appWidgetManager != null;
 
         // Get the latest weather info (new or cached)
-        Weather weather;
+        WeatherData weather;
         try {
             weather = WeatherHelper.getWeather(this);
         }
@@ -237,7 +237,7 @@ public class UpdaterService extends IntentService {
      * @param views   The RemoteViews to use
      * @param weather The weather to update with
      */
-    private void updateViews(RemoteViews views, Weather weather, int[] widgetIds) {
+    private void updateViews(RemoteViews views, WeatherData weather, int[] widgetIds) {
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         final boolean darkMode = prefs.getBoolean(getString(R.string.pref_key_ui_darkmode), false);
 

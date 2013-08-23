@@ -27,12 +27,17 @@
     <string name="weather_cloudy"><![CDATA[È tutto di un <font color="%%COLOR%%">grigio</font> di merda.]]></string>
     <string name="weather_thunderstorm"><![CDATA[I <font color="%%COLOR%%">fulmini dell\'Ade</font> del cazzo.]]></string>
     <string name="weather_haze"><![CDATA[<font color="%%COLOR%%">Non vedo</font> uno stracazzo.]]></string>
-    <string name="weather_mostly_cloudy"><![CDATA[Non piove, cazzo. <font color="%%COLOR%%">Per ora.</font>]]></string>
+    <string name="weather_partly_cloudy"><![CDATA[Non piove, cazzo. <font color="%%COLOR%%">Per ora.</font>]]></string>
     <string name="weather_drizzle"><![CDATA[Pioviggina, come una <font color="%%COLOR%%">fighetta.</font>]]></string>
     <string name="weather_snowy"><![CDATA[Arriva il <font color="%%COLOR%%">Babbo Natale</font> del cazzo.]]></string>
     <string name="weather_extreme"><![CDATA[<font color="%%COLOR%%">Corri</font> per salvarti la vita.]]></string>
+    <string name="weather_windy"><![CDATA[<font color="%%COLOR%%">Eolo</font> è strasimpa oggi, merda.]]></string>
+    <string name="weather_cold"><![CDATA[<font color="%%COLOR%%">L\'inverno sta arrivando</font>, cazzo.]]></string>
+    <string name="weather_hot"><![CDATA[Ave, fottutissimo <font color="%%COLOR%%">Satana!</font>]]></string>
+    <string name="weather_hail"><![CDATA[Piovono cazzo di <font color="%%COLOR%%">bombe</font> di ghiaccio]]></string>
     <string name="weather_wtf"><![CDATA[<font color="%%COLOR%%">Che cazzo,</font> non sai guardare da solo?]]></string>
     <string name="weather_no_location"><![CDATA[<font color="%%COLOR%%">\'catroia,</font> ciccio!]]></string>
+    <string name="weather_no_weather"><![CDATA[LOL merda tipo <font color="%%COLOR%%">non lo so</font>]]></string>
 
     <!-- Widget temperature conditions -->
     <string name="temp_freezing"><![CDATA[<font color="%%COLOR%%">Porca troia.</font> E\' tipo il polo nord.]]></string>
