@@ -4,6 +4,7 @@ Changelog
 ### Version 2.0.0 ###
 Released on ???
 
+- NEW: switched weather provider to Yahoo! Weather for better accuracy
 - NEW: added widget BG color preference
 - NEW: added Dashclock to OSS license info
 - NEW: differentiated error message for when no location is available

@@ -25,24 +25,27 @@ import android.location.Location;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
-import net.frakbot.FWeather.updater.weather.JSONWeatherParser;
-import net.frakbot.FWeather.updater.weather.WeatherHttpClient;
-import net.frakbot.FWeather.updater.weather.model.Weather;
-import org.json.JSONException;
+import net.frakbot.FWeather.updater.weather.CantGetWeatherException;
+import net.frakbot.FWeather.updater.weather.YahooWeatherApiClient;
+import net.frakbot.FWeather.updater.weather.model.WeatherData;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.List;
 
+import static net.frakbot.FWeather.updater.weather.YahooWeatherApiClient.getLocationInfo;
+
 /**
  * Helper class for retrieving weather information.
- * @author Francesco Pontillo
+ * <p/>
+ * Parts from Roman Nurik's DashClock.
+ * @author Francesco Pontillo and Sebastiano Poggi
  */
 public class WeatherHelper {
 
     private static final String TAG = WeatherHelper.class.getSimpleName();
-    private static Weather mCachedWeather = null;
+    private static WeatherData mCachedWeather = null;
 
     /**
      * Gets the current weather at the user's location
@@ -51,59 +54,23 @@ public class WeatherHelper {
      * @return Returns the weather info, if available, or null
      *         if there was any error during the download.
      */
-    public static Weather getWeather(Context context) throws LocationHelper.LocationNotReadyYetException, IOException {
-        /*
-        if (!checkNetwork(context)) {
-            FLog.e(context, TAG, "Can't update weather, no network connectivity available");
-            if (mCachedWeather != null) {
-                FLog.w(context, TAG, "Sending cached weather information");
-            }
-            return mCachedWeather;
-        }
-        */
-
-        FLog.i(context, TAG, "Starting weather update");
+    public static WeatherData getWeather(Context context) throws LocationHelper.LocationNotReadyYetException, IOException {
+        FLog.i(context, TAG, "Starting Yahoo! Weather update");
 
         // Get the current location
         final Location location = getLocation(context);
 
-        if (true || location == null) {
+        if (location == null) {
             TrackerHelper.sendException(context, "No location found", false);
             FLog.e(context, TAG, "No location available, can't update");
 
-            Weather errWeather = new Weather();
-            errWeather.mCurrentCondition = errWeather.new CurrentCondition();
-            errWeather.mCurrentCondition.setWeatherId(Weather.CurrentCondition.WEATHER_ID_ERR_NO_LOCATION);
+            WeatherData errWeather = new WeatherData();
+            errWeather.conditionCode = WeatherData.WEATHER_ID_ERR_NO_LOCATION;
             return errWeather;
         }
 
-        // Get the city name, if possible
-        String cityName = getCityName(context, location);
-
-        Weather weather;
-        String json;
-
-        if (!TextUtils.isEmpty(cityName)) {
-            json = ((new WeatherHttpClient(context)).getCityWeatherJsonData(cityName));
-        } else {
-            // No city name available. Use latlon values instead
-            json = ((new WeatherHttpClient(context)).getLocationWeatherJsonData(location));
-        }
-
-        if (TextUtils.isEmpty(json)) {
-            FLog.e(context, TAG, "No weather available, can't update");
-            TrackerHelper.sendException(context, "No weather data", false);
-            return null;
-        }
-
-        try {
-            weather = JSONWeatherParser.getWeather(json);
-        }
-        catch (JSONException e) {
-            FLog.e(context, TAG, "Weather data is not valid, can't update");
-            TrackerHelper.sendException(context, "Invalid weather JSON", false);
-            return null;
-        }
+        // TODO: manual location support
+        WeatherData weather = getWeatherDataForLocation(location);
 
         FLog.i(context, TAG, "Weather update done");
         FLog.v(context, TAG, "Got weather:\n\t> " + weather);
@@ -187,14 +154,20 @@ public class WeatherHelper {
 
     /**
      * Returns the latest known weather information.
-     * @return The cached {@link Weather}
+     * @return The cached {@link WeatherData}
      */
-    public static Weather getLatestWeather() {
+    public static WeatherData getLatestWeather() {
         return mCachedWeather;
     }
 
-    private static void registerConnectionReceiver(Context context) {
-
+    private static WeatherData getWeatherDataForLocation(Location location) {
+        try {
+            FLog.d(TAG, "Using location: " + location.getLatitude() + "," + location.getLongitude());
+            return YahooWeatherApiClient.getWeatherForLocationInfo(getLocationInfo(location));
+        } catch (CantGetWeatherException e) {
+            FLog.e(TAG, "Unable to retrieve weather", e);
+            return null;
+        }
     }
 
 }
