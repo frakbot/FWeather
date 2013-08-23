@@ -16,43 +16,51 @@
 
 package net.frakbot.FWeather.util;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.TypedArray;
-import android.os.Build;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.preference.Preference;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.AsyncTaskLoader;
-import android.support.v4.content.Loader;
-import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.util.AttributeSet;
-import android.view.*;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
-import com.actionbarsherlock.app.SherlockDialogFragment;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
 import net.frakbot.FWeather.R;
-import net.frakbot.FWeather.updater.weather.YahooWeatherApiClient;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static net.frakbot.FWeather.updater.weather.YahooWeatherApiClient.LocationSearchResult;
+import net.frakbot.FWeather.activity.LocationChooserDialog;
 
 /**
  * A preference that allows the user to choose a location, using the Yahoo! GeoPlanet API.
  */
 public class WeatherLocationPreference extends Preference {
+
+    private static final String TAG = WeatherLocationPreference.class.getSimpleName();
+
+    public static final String ACTION_SET_VALUE = "set_value";
+    public static final String ACTION_CANCELED = "canceled";
+    public static final String EXTRA_VALUE = "value";
+
+    private BroadcastReceiver mReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (!ACTION_SET_VALUE.equals(intent.getAction())) {
+                FLog.d(context, TAG, "Dialog canceled. Unregistering for broadcasts");
+
+                try {
+                    context.unregisterReceiver(mReceiver);
+                }
+                catch (Exception ignored) {
+                }
+                return;
+            }
+
+            if (!ACTION_SET_VALUE.equals(intent.getAction()) || !intent.hasExtra(EXTRA_VALUE)) {
+                FLog.i(TAG, "Ignoring intent: " + intent);
+                return;
+            }
+
+            setValue(intent.getStringExtra(EXTRA_VALUE));
+        }
+    };
+
     public WeatherLocationPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
@@ -67,6 +75,13 @@ public class WeatherLocationPreference extends Preference {
     }
 
     public void setValue(String value) {
+        FLog.d(getContext(), TAG, "Value received. Unregistering for broadcasts");
+        try {
+            getContext().unregisterReceiver(mReceiver);
+        }
+        catch (Exception ignored) {
+        }
+
         if (value == null) {
             value = "";
         }
@@ -96,31 +111,19 @@ public class WeatherLocationPreference extends Preference {
     }
 
     @Override
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     protected void onClick() {
         super.onClick();
 
-        LocationChooserDialogFragment fragment = LocationChooserDialogFragment.newInstance();
-        fragment.setPreference(this);
+        // We register the receiver just before opening the Activity.
+        // We will unregister it when we receive a result (any) from the Activity.
+        FLog.d(getContext(), TAG, "Registering for broadcasts");
+        IntentFilter filter = new IntentFilter(ACTION_SET_VALUE);
+        filter.addAction(ACTION_CANCELED);
+        getContext().registerReceiver(mReceiver, filter);
 
-        SherlockFragmentActivity activity = (SherlockFragmentActivity) getContext();
-        activity.getSupportFragmentManager().beginTransaction()
-                .add(fragment, getFragmentTag())
-                .commit();
-    }
-
-    @Override
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    protected void onAttachedToActivity() {
-        super.onAttachedToActivity();
-
-        SherlockFragmentActivity activity = (SherlockFragmentActivity) getContext();
-        LocationChooserDialogFragment fragment =
-            (LocationChooserDialogFragment) activity.getSupportFragmentManager().findFragmentByTag(getFragmentTag());
-        if (fragment != null) {
-            // re-bind preference to fragment
-            fragment.setPreference(this);
-        }
+        final Context context = getContext();
+        FLog.d(context, TAG, "Preference clicked, launching dialog");
+        context.startActivity(new Intent(context, LocationChooserDialog.class));
     }
 
     @Override
@@ -131,267 +134,5 @@ public class WeatherLocationPreference extends Preference {
     @Override
     protected void onSetInitialValue(boolean restoreValue, Object defaultValue) {
         setValue(restoreValue ? getPersistedString("") : (String) defaultValue);
-    }
-
-    public String getFragmentTag() {
-        return "location_chooser_" + getKey();
-    }
-
-    /**
-     * Dialog fragment that pops up when touching the preference.
-     */
-    public static class LocationChooserDialogFragment extends SherlockDialogFragment implements
-                                                                                     TextWatcher,
-                                                                                     LoaderManager
-                                                                                         .LoaderCallbacks<List<LocationSearchResult>> {
-        /**
-         * Time between search queries while typing.
-         */
-        private static final int QUERY_DELAY_MILLIS = 500;
-
-        private WeatherLocationPreference mPreference;
-
-        private SearchResultsListAdapter mSearchResultsAdapter;
-        private ListView mSearchResultsList;
-
-        public LocationChooserDialogFragment() {
-        }
-
-        public static LocationChooserDialogFragment newInstance() {
-            return new LocationChooserDialogFragment();
-        }
-
-        public void setPreference(WeatherLocationPreference preference) {
-            mPreference = preference;
-            tryBindList();
-        }
-
-        @Override
-        public void onAttach(Activity activity) {
-            super.onAttach(activity);
-            tryBindList();
-        }
-
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            // Force Holo Light since ?android:actionBarXX would use dark action bar
-            Context layoutContext = new ContextThemeWrapper(getActivity(),
-                                                            android.R.style.Theme_Holo_Light);
-
-            LayoutInflater layoutInflater = LayoutInflater.from(layoutContext);
-            View rootView = layoutInflater.inflate(R.layout.dialog_weather_location_chooser, null);
-            TextView searchView = (TextView) rootView.findViewById(R.id.location_query);
-            searchView.addTextChangedListener(this);
-
-            // Set up apps
-            mSearchResultsList = (ListView) rootView.findViewById(android.R.id.list);
-            mSearchResultsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> listView, View view,
-                                        int position, long itemId) {
-                    String value = mSearchResultsAdapter.getPrefValueAt(position);
-                    mPreference.setValue(value);
-                    dismiss();
-                }
-            });
-
-            tryBindList();
-
-            AlertDialog dialog = new AlertDialog.Builder(getActivity())
-                .setView(rootView)
-                .create();
-            dialog.getWindow().setSoftInputMode(
-                WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
-            return dialog;
-        }
-
-        private void tryBindList() {
-            if (mPreference == null) {
-                return;
-            }
-
-            if (isAdded() && mSearchResultsAdapter == null) {
-                mSearchResultsAdapter = new SearchResultsListAdapter();
-            }
-
-            if (mSearchResultsAdapter != null && mSearchResultsList != null) {
-                mSearchResultsList.setAdapter(mSearchResultsAdapter);
-            }
-        }
-
-        @Override
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        }
-
-        @Override
-        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            mQuery = charSequence.toString();
-            if (mRestartLoaderHandler.hasMessages(0)) {
-                return;
-            }
-
-            mRestartLoaderHandler.sendMessageDelayed(
-                mRestartLoaderHandler.obtainMessage(0),
-                QUERY_DELAY_MILLIS);
-        }
-
-        @Override
-        public void afterTextChanged(Editable editable) {
-        }
-
-        private String mQuery;
-
-        private Handler mRestartLoaderHandler = new Handler() {
-            @Override
-            public void handleMessage(Message msg) {
-                Bundle args = new Bundle();
-                args.putString("query", mQuery);
-                getLoaderManager().restartLoader(0, args, LocationChooserDialogFragment.this);
-            }
-        };
-
-        @Override
-        public Loader<List<LocationSearchResult>> onCreateLoader(int id, Bundle args) {
-            final String query = args.getString("query");
-            return new ResultsLoader(query, getActivity());
-        }
-
-        @Override
-        public void onLoadFinished(Loader<List<LocationSearchResult>> loader,
-                                   List<LocationSearchResult> results) {
-            mSearchResultsAdapter.changeArray(results);
-        }
-
-        @Override
-        public void onLoaderReset(Loader<List<LocationSearchResult>> loader) {
-            mSearchResultsAdapter.changeArray(null);
-        }
-
-        private class SearchResultsListAdapter extends BaseAdapter {
-            private List<LocationSearchResult> mResults;
-
-            private SearchResultsListAdapter() {
-                mResults = new ArrayList<LocationSearchResult>();
-            }
-
-            public void changeArray(List<LocationSearchResult> results) {
-                if (results == null) {
-                    results = new ArrayList<LocationSearchResult>();
-                }
-
-                mResults = results;
-                notifyDataSetChanged();
-            }
-
-            @Override
-            public int getCount() {
-                return Math.max(1, mResults.size());
-            }
-
-            @Override
-            public Object getItem(int position) {
-                if (position == 0 && mResults.size() == 0) {
-                    return null;
-                }
-
-                return mResults.get(position);
-            }
-
-            public String getPrefValueAt(int position) {
-                if (position == 0 && mResults.size() == 0) {
-                    return "";
-                }
-
-                LocationSearchResult result = mResults.get(position);
-                return result.woeid + "," + result.displayName;
-            }
-
-            @Override
-            public long getItemId(int position) {
-                if (position == 0 && mResults.size() == 0) {
-                    return -1;
-                }
-
-                return mResults.get(position).woeid.hashCode();
-            }
-
-            @Override
-            public View getView(int position, View convertView, ViewGroup container) {
-                if (convertView == null) {
-                    convertView = LayoutInflater.from(getActivity())
-                                                .inflate(R.layout.list_item_weather_location_result, container, false);
-                }
-
-                if (position == 0 && mResults.size() == 0) {
-                    ((TextView) convertView.findViewById(android.R.id.text1))
-                        .setText(R.string.pref_weather_location_automatic);
-                    ((TextView) convertView.findViewById(android.R.id.text2))
-                        .setText(R.string.pref_weather_location_automatic_description);
-                }
-                else {
-                    LocationSearchResult result = mResults.get(position);
-                    ((TextView) convertView.findViewById(android.R.id.text1))
-                        .setText(result.displayName);
-                    ((TextView) convertView.findViewById(android.R.id.text2))
-                        .setText(result.country);
-                }
-
-                return convertView;
-            }
-        }
-    }
-
-    /**
-     * Loader that fetches location search results from {@link YahooWeatherApiClient}.
-     */
-    private static class ResultsLoader extends AsyncTaskLoader<List<LocationSearchResult>> {
-        private String mQuery;
-        private List<LocationSearchResult> mResults;
-
-        public ResultsLoader(String query, Context context) {
-            super(context);
-            mQuery = query;
-        }
-
-        @Override
-        public List<LocationSearchResult> loadInBackground() {
-            return YahooWeatherApiClient.findLocationsAutocomplete(mQuery);
-        }
-
-        @Override
-        public void deliverResult(List<LocationSearchResult> apps) {
-            mResults = apps;
-
-            if (isStarted()) {
-                // If the Loader is currently started, we can immediately
-                // deliver its results.
-                super.deliverResult(apps);
-            }
-        }
-
-        @Override
-        protected void onStartLoading() {
-            if (mResults != null) {
-                deliverResult(mResults);
-            }
-
-            if (takeContentChanged() || mResults == null) {
-                // If the data has changed since the last time it was loaded
-                // or is not currently available, start a load.
-                forceLoad();
-            }
-        }
-
-        @Override
-        protected void onStopLoading() {
-            // Attempt to cancel the current load task if possible.
-            cancelLoad();
-        }
-
-        @Override
-        protected void onReset() {
-            super.onReset();
-            onStopLoading();
-        }
     }
 }
