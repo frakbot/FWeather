@@ -41,6 +41,7 @@ import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.global.Const;
 import net.frakbot.FWeather.util.FLog;
 import net.frakbot.FWeather.util.TrackerHelper;
+import net.frakbot.FWeather.util.WeatherLocationPreference;
 import net.frakbot.FWeather.util.WidgetHelper;
 import org.jraf.android.backport.switchwidget.SwitchPreference;
 
@@ -224,6 +225,7 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
         bindPreferenceSummaryToValue(findPreference(getString(R.string.pref_key_sync_frequency)));
         bindPreferenceSummaryToValue(findPreference(getString(R.string.pref_key_ui_override_language)));
         bindPreferenceSummaryToValue(findPreference(getString(R.string.pref_key_ui_bgopacity)));
+        bindPreferenceSummaryToValue(findPreference(getString(R.string.pref_key_weather_location)));
     }
 
     /**
@@ -365,8 +367,8 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
      * Determines if the app is installed from the Google Play Store.
      *
      * @return Returns true if the app is installed from the Google
-     *         Play Store, or false if it has been installed from other
-     *         sources (sideload, other app stores, etc)
+     * Play Store, or false if it has been installed from other
+     * sources (sideload, other app stores, etc)
      */
     private boolean isInstalledFromPlayStore() {
         PackageManager pm = getPackageManager();
@@ -393,18 +395,22 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
 
     /**
      * Handles the preference change by requesting the TrackerHelper to send an event.
-     * @param preference    The changed preference
-     * @param newValue      The new value
+     *
+     * @param preference The changed preference
+     * @param newValue   The new value
      */
     private void handlePreferenceChange(Preference preference, Object newValue) {
         Long value = (long) 0;
         if (preference.getKey().equals(Const.Preferences.ANALYTICS)) {
-            if (newValue == Boolean.FALSE)
+            if (newValue == Boolean.FALSE) {
                 value = (long) 0;
-            else
+            }
+            else {
                 value = (long) 1;
-        } else if (preference.getKey().equals(Const.Preferences.SYNC_FREQUENCY)) {
-            value = Long.valueOf((String)newValue);
+            }
+        }
+        else if (preference.getKey().equals(Const.Preferences.SYNC_FREQUENCY)) {
+            value = Long.valueOf((String) newValue);
         }
         TrackerHelper.preferenceChange(this, preference.getKey(), value);
     }
@@ -433,10 +439,11 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
                     int index = listPreference.findIndexOfValue(stringValue);
 
                     // Set the summary to reflect the new value.
-                    preference
-                            .setSummary(index >= 0 ? listPreference.getEntries()[index]
-                                    : null);
-
+                    preference.setSummary(index >= 0 ? listPreference.getEntries()[index] : null);
+                }
+                else if (preference instanceof WeatherLocationPreference) {
+                    preference.setSummary(
+                        WeatherLocationPreference.getDisplayValue(preference.getContext(), stringValue));
                 }
                 else {
                     // For all other preferences, set the summary to the value's

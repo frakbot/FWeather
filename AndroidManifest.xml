@@ -35,11 +35,15 @@
         </activity>
 
         <activity android:name=".activity.LicensesActivity"
-                  android:theme="@style/Theme.FWeather.Settings"
-                  android:label="@string/activity_licenses"/>
+                  android:label="@string/activity_licenses"
+                  android:theme="@style/Theme.FWeather.Settings"/>
 
         <activity android:name=".activity.AuthorsDialog"
                   android:label="@string/pref_title_info_authors"
+                  android:theme="@style/Theme.FWeather.Settings.Dialog"/>
+
+        <activity android:name=".activity.LocationChooserDialog"
+                  android:label="@string/pref_title_weather_location"
                   android:theme="@style/Theme.FWeather.Settings.Dialog"/>
 
         <service

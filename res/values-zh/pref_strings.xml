@@ -78,6 +78,11 @@
     <string name="pref_title_debug">调试(戏)</string>
     <string name="pref_summary_debug">请只在反馈问题的时候打开，别老摸来摸去的！</string>
 
+    <!--string name="pref_title_weather_location">Location</string-->
+    <!--string name="pref_weather_location_query_hint">Find a location</string-->
+    <!--string name="pref_weather_location_automatic">Automatic</string-->
+    <!--string name="pref_weather_location_automatic_description">Based on your current location.</string-->
+
     <!-- ABOUT DIALOG -->
     <string name="about_body">关于“尼玛”天气</string>
     <!-- Note to translators: remember to set your name in the strings.xml file, in the translator_name string -->

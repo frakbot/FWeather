@@ -413,13 +413,13 @@ public class YahooWeatherApiClient {
     public static class LocationInfo {
         // Sorted by decreasing precision
         // (point of interest, locality3, locality2, locality1, admin3, admin2, admin1, etc.)
-        List<String> woeids = new ArrayList<String>();
+        public List<String> woeids = new ArrayList<String>();
         String town;
     }
 
     public static class LocationSearchResult {
-        String woeid;
-        String displayName;
-        String country;
+        public String woeid;
+        public String displayName;
+        public String country;
     }
 }

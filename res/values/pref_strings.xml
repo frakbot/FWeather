@@ -32,6 +32,7 @@
     <string name="pref_key_ui_bgopacity" translatable="false">ui_bgopacity</string>
     <string name="pref_key_authors" translatable="false">authors</string>
     <string name="pref_key_changelog" translatable="false">changelog</string>
+    <string name="pref_key_weather_location" translatable="false">weather_location</string>
     <string name="pref_key_analytics" translatable="false">analytics</string>
     <string name="pref_key_debug" translatable="false">debug</string>
 
@@ -113,6 +114,11 @@
     <string name="analytics_enabled_thanks">Google Analytics has been enabled. Thanks!</string>
     <string name="pref_title_debug">Debug</string>
     <string name="pref_summary_debug">Enable ONLY when reporting issues!</string>
+
+    <string name="pref_title_weather_location">Location</string>
+    <string name="pref_weather_location_query_hint">Find a location</string>
+    <string name="pref_weather_location_automatic">Automatic</string>
+    <string name="pref_weather_location_automatic_description">Based on your current location.</string>
 
     <!-- ABOUT DIALOG -->
     <string name="app_name_and_version" translatable="false">
