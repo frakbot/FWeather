@@ -34,8 +34,8 @@
     <string name="weather_cold"><![CDATA[<font color="%%COLOR%%">Winter\'s coming</font>, fuck.]]></string>
     <string name="weather_hot"><![CDATA[Hail, fucking <font color="%%COLOR%%">Satan!</font>]]></string>
     <string name="weather_hail"><![CDATA[Ice fucking <font color="%%COLOR%%">bombs</font> a-fallin\']]></string>
-    <string name="weather_no_weather"><![CDATA[LOL fuck I totally <font color="%%COLOR%%">dunno</font>]]></string>
     <string name="weather_wtf"><![CDATA[<font color="%%COLOR%%">WTF,</font> can\'t you just look outside?]]></string>
+    <string name="weather_no_weather"><![CDATA[LOL fuck I totally <font color="%%COLOR%%">dunno</font>]]></string>
     <string name="weather_no_location"><![CDATA[<font color="%%COLOR%%">Dafuq,</font> dude!]]></string>
 
     <!-- Widget temperature conditions -->
@@ -45,4 +45,5 @@
     <string name="temp_warm"><![CDATA[Enjoy the fucking birds <font color="%%COLOR%%">singing</font> and shit.]]></string>
     <string name="temp_wtf"><![CDATA[No, seriously, that\'s your best chance right now, I have <font color="%%COLOR%%">no fucking idea.</font>]]></string>
     <string name="temp_no_location"><![CDATA[I don\'t have a fucking <font color="%%COLOR%%">crystal ball!</font> Enable the GPS or the Location Services.]]></string>
+
 </resources>

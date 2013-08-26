@@ -45,4 +45,5 @@
     <string name="temp_warm"><![CDATA[好尼玛暖和啊<font color="%%COLOR%%">抬头听鸟叫</font> 低头观鸟屎]]></string>
     <string name="temp_wtf"><![CDATA[你的机会来了 <font color="%%COLOR%%">我尼玛的一点主意都没有。</font>]]></string>
     <!--string name="temp_no_location"><![CDATA[I don\'t have a fucking <font color="%%COLOR%%">crystal ball!</font> Enable the GPS or the Location Services.]]></string-->
+
 </resources>
