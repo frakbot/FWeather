@@ -17,6 +17,7 @@
 package net.frakbot.FWeather;
 
 import android.app.Application;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.preference.PreferenceManager;
@@ -47,8 +48,16 @@ public class FWeatherApplication extends Application {
 
         FLog.initLog(this);
 
-        //noinspection ConstantConditions
-        FLog.setLogLevel(BuildConfig.DEBUG ? LogLevel.VERBOSE : null);
+        if (BuildConfig.DEBUG) {
+            FLog.i(Const.APP_NAME, "This is a DEBUG BUILD.");
+            FLog.setLogLevel(LogLevel.VERBOSE);
+        }
+        else {
+            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            boolean isUserDebug = prefs.getBoolean(Const.Preferences.DEBUG, false);
+            FLog.i(Const.APP_NAME, "User debug mode active: " + isUserDebug);
+            FLog.setLogLevel(isUserDebug ? LogLevel.DEBUG : null);
+        }
 
         FLog.d("Application", "FLog up and running");
 
