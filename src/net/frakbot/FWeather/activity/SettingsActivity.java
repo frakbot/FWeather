@@ -28,6 +28,7 @@ import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.*;
 import android.view.View;
 import android.widget.Button;
@@ -69,6 +70,7 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
      */
     private Preference.OnPreferenceChangeListener sBindPreferenceSummaryToValueListener = null;
     private int mNewWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID;
+    private Handler mHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +86,8 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
             setResult(RESULT_CANCELED, new Intent()
                 .putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, mNewWidgetId));
         }
+
+        mHandler = new Handler();
     }
 
     @Override
@@ -271,10 +275,17 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
         preference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
 
             @Override
-            public boolean onPreferenceClick(Preference preference) {
+            public boolean onPreferenceClick(final Preference preference) {
                 FLog.i(SettingsActivity.this, TAG, "Sending feedback");
 
                 startService(new Intent(SettingsActivity.this, FeedbackService.class));
+                preference.setEnabled(false);
+                mHandler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        preference.setEnabled(true);
+                    }
+                }, 5000);
                 return true;
             }
         });

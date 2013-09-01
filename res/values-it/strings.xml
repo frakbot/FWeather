@@ -27,6 +27,7 @@
 
     <!-- Service labels -->
     <string name="updater_service">Servizio aggiornamento di FWeather</string>
+    <string name="feedback_service">Servizio feedback di FWeather</string>
 
     <!-- Widget accessibility -->
     <string name="cdesc_weathericon"><![CDATA[Meteo attuale]]></string>

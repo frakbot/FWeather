@@ -52,7 +52,7 @@ package net.frakbot.FWeather.util;
 import android.annotation.TargetApi;
 import android.app.ApplicationErrorReport;
 import android.app.IntentService;
-import android.app.ProgressDialog;
+import android.app.Notification;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -60,6 +60,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Build;
+import android.support.v4.app.NotificationCompat;
 import android.widget.Toast;
 import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.global.Const;
@@ -79,39 +80,39 @@ import java.util.Locale;
 public class FeedbackService extends IntentService {
 
     private static final String TAG = FeedbackService.class.getSimpleName();
+    public static final int NOTIF_ID_FEEDBACK = 6543;
 
-    public FeedbackService(String name) {
-        super(name);
+    public FeedbackService() {
+        super("FWeather feedback service");
     }
 
     @Override
     protected void onHandleIntent(Intent intent) {
         FLog.d(TAG, "Handling 'send feedback' intent");
-        ProgressDialog progressDialog = new ProgressDialog(this);
+        NotificationCompat.Builder b = new NotificationCompat.Builder(this);
+        b.setProgress(100, 0, true)
+         .setOngoing(true)
+         .setPriority(Notification.PRIORITY_LOW)
+         .setContentTitle(getString(R.string.preparing_feedback))
+         .setTicker(getString(R.string.preparing_feedback));
 
-        progressDialog.setIndeterminate(true);
-        progressDialog.setMessage(getString(R.string.preparing_feedback));
-        progressDialog.setCancelable(false);
-        progressDialog.setCanceledOnTouchOutside(false);
-        progressDialog.show();
+        startForeground(NOTIF_ID_FEEDBACK, b.build());
 
         if (isInstalledFromPlayStore() && canSendPlayStoreFeedback()) {
-            sendNativeFeedback(progressDialog);
+            sendNativeFeedback();
         }
         else {
             // Use the fallback "share" mechanism
-            sendFeedbackEmail(progressDialog);
+            sendFeedbackEmail();
         }
     }
 
     /**
      * Sends a feedback using the Android/Play Store built-in feedback mechanism.
      * Falls back on email if anything goes wrong (on our side)
-     *
-     * @param progressDialog The progress dialog (to dismiss once done)
      */
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
-    private void sendNativeFeedback(ProgressDialog progressDialog) {
+    private void sendNativeFeedback() {
         Intent i = new Intent(Intent.ACTION_APP_ERROR);
 
         // Use the native ApplicationErrorReport
@@ -127,25 +128,24 @@ public class FeedbackService extends IntentService {
         report.runningServiceInfo.durationMillis = 42;   // LOL?
 
         i.putExtra(Intent.EXTRA_BUG_REPORT, report);
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
         FLog.i(TAG, "Starting feedback intent");
         try {
-            progressDialog.dismiss();
             startActivity(i);
+            stopForeground(true);
         }
         catch (Exception e) {
             FLog.w(this, "Unable to dispatch feedback Intent, falling back to email", e);
-            sendFeedbackEmail(progressDialog);
+            sendFeedbackEmail();
         }
     }
 
     /**
      * Sends a feedback email (fallback for when the Android feedback mechanism
      * doesn't work or isn't available).
-     *
-     * @param progressDialog The progress dialog (to dismiss once done)
      */
-    private void sendFeedbackEmail(ProgressDialog progressDialog) {
+    private void sendFeedbackEmail() {
         Intent email = new Intent(Intent.ACTION_SEND);
         email.putExtra(Intent.EXTRA_EMAIL, new String[]{"frakbot+fweather@gmail.com"});
         email.putExtra(Intent.EXTRA_SUBJECT, "[FEEDBACK] " + getString(R.string.app_name));
@@ -163,15 +163,15 @@ public class FeedbackService extends IntentService {
         try {
             FLog.i(TAG, "Sending feedback email");
 
-            progressDialog.dismiss();
-            startActivity(Intent.createChooser(email, getString(
-                R.string.feedback_send_chooser_title)));
+            startActivity(Intent.createChooser(email, getString(R.string.feedback_send_chooser_title))
+                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+            stopForeground(true);
         }
         catch (Exception e) {
-            progressDialog.dismiss();
             Toast.makeText(this, getString(R.string.toast_feedback_mail_error), Toast.LENGTH_LONG)
                  .show();
             FLog.e(TAG, "Unable to send the feedback email", e);
+            stopForeground(true);
         }
     }
 
@@ -198,8 +198,8 @@ public class FeedbackService extends IntentService {
         sb.append("Android version: ").append(Build.VERSION.CODENAME).append("\n");
         sb.append("Release: ").append(Build.VERSION.RELEASE).append("\n");
         sb.append("Incremental: ").append(Build.VERSION.INCREMENTAL).append("\n");
-        sb.append("Build: ").append(Build.FINGERPRINT);
-        sb.append("Kernel: ").append(getKernelVersion());
+        sb.append("Build: ").append(Build.FINGERPRINT).append("\n");
+        sb.append("Kernel: ").append(getKernelVersion()).append("\n");
 
         // App info
         sb.append("App version: ").append(getAppVersionNumber(this));
@@ -309,7 +309,7 @@ public class FeedbackService extends IntentService {
 
         try {
             // Create the temp logcat file
-            final DateFormat dateFormat = new SimpleDateFormat("YYYYMMDD_HHmmss", Locale.US);
+            final DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US);
             shareFile = new File(getCacheDir(), Const.APP_NAME + dateFormat.format(new Date()) + ".log");
             shareFile.createNewFile();
             shareFile.setReadable(true, false);
