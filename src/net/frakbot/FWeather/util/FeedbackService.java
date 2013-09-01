@@ -68,7 +68,6 @@ import net.frakbot.FWeather.global.Const;
 import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -81,6 +80,7 @@ public class FeedbackService extends IntentService {
 
     private static final String TAG = FeedbackService.class.getSimpleName();
     public static final int NOTIF_ID_FEEDBACK = 6543;
+    public static final String CACHE_PATH = "/data/local/tmp/";
 
     public FeedbackService() {
         super("FWeather feedback service");
@@ -120,12 +120,13 @@ public class FeedbackService extends IntentService {
         report.processName = getApplication().getPackageName();
         report.packageName = report.processName;
         report.time = System.currentTimeMillis();
-        report.type = ApplicationErrorReport.TYPE_RUNNING_SERVICE;
+        report.type = ApplicationErrorReport.TYPE_ANR;  // Fake ANR so that it shows up on the Play Store Dev Console
         report.systemApp = false;
 
-        report.runningServiceInfo = new ApplicationErrorReport.RunningServiceInfo();
-        report.runningServiceInfo.serviceDetails = "USER FEEDBACK";
-        report.runningServiceInfo.durationMillis = 42;   // LOL?
+        report.anrInfo = new ApplicationErrorReport.AnrInfo();
+        report.anrInfo.activity = "none";
+        report.anrInfo.cause = "USER FEEDBACK";
+        report.anrInfo.info = "USER FEEDBACK";
 
         i.putExtra(Intent.EXTRA_BUG_REPORT, report);
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -307,24 +308,40 @@ public class FeedbackService extends IntentService {
         // Do the housekeeping
         cleanupLogcatCache();
 
+        final File externalCacheDir = getExternalCacheDir();
+        if (externalCacheDir == null) {
+            FLog.w(TAG, "External storage not available. Can't attach logcat!");
+            return null;
+        }
+
         try {
             // Create the temp logcat file
             final DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US);
-            shareFile = new File(getCacheDir(), Const.APP_NAME + dateFormat.format(new Date()) + ".log");
+            shareFile = new File(externalCacheDir, Const.APP_NAME + "-" + dateFormat.format(new Date()) + ".log");
             shareFile.createNewFile();
-            shareFile.setReadable(true, false);
 
-            ArrayList<String> commandLine = new ArrayList<String>();
-            commandLine.add("logcat");
-            commandLine.add("-d");                                  // DUMP the whole log
-            commandLine.add("-f " + shareFile.getAbsolutePath());   // to shareFile
-            commandLine.add("-v threadtime");                       // in the threadtime format
-            commandLine.add("*:V");                                 // for all tags, starting at VERBOSE level
+            String commandLine = "logcat -d " +                     // DUMP the whole log
+                                 "-v threadtime " +                 // in the threadtime format
+                                 "*:V";                             // for all tags, starting at VERBOSE level
 
-            Process process = Runtime.getRuntime().exec(commandLine.toArray(new String[commandLine.size()]));
+            Process process = Runtime.getRuntime().exec(commandLine);
 
             process.waitFor();
-            FLog.d(TAG, "Logcat collected to " + shareFile.getAbsolutePath());
+            BufferedReader bufferedReader =
+                new BufferedReader(new InputStreamReader(process.getInputStream()));
+
+            FileWriter fw = new FileWriter(shareFile, false);
+            String line;
+            int linesCount = 0;
+            while ((line = bufferedReader.readLine()) != null) {
+                fw.write(line);
+                fw.write("\n");
+                linesCount++;
+            }
+            fw.flush();
+            fw.close();
+
+            FLog.d(TAG, "Logcat collected to " + shareFile.getAbsolutePath() + " (" + linesCount + " lines)");
         }
         catch (IOException e) {
             FLog.e(TAG, "Log collection failed", e);
@@ -343,13 +360,23 @@ public class FeedbackService extends IntentService {
      */
     private void cleanupLogcatCache() {
         FLog.d(TAG, "Cleaning up log files from cache dir");
-        final File cacheDir = getCacheDir();
+        final File cacheDir = getExternalCacheDir();
+        if (cacheDir == null) {
+            FLog.w(TAG, "External storage not available. Can't cleanup cache");
+            return;
+        }
+
         final File[] logFiles = cacheDir.listFiles(new FilenameFilter() {
             @Override
             public boolean accept(File dir, String filename) {
                 return filename.toLowerCase().endsWith(".log");
             }
         });
+
+        if (logFiles == null) {
+            FLog.d(TAG, "No log files to prune from cache");
+            return;
+        }
 
         int count = 0;
         for (File logFile : logFiles) {
