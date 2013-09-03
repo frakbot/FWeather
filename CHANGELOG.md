@@ -2,14 +2,18 @@ Changelog
 =========
 
 ### Version 2.0.0 ###
-Released on ???
+Released on 3rd September 2013
 
+- NEW: customizable weather location (current position, or manual)
 - NEW: switched weather provider to Yahoo! Weather for better accuracy
+- NEW: added a whole new set of weather statuses and messages
 - NEW: added widget BG color preference
-- NEW: added Dashclock to OSS license info
+- NEW: added Dashclock and Log Collector to OSS license info
 - NEW: differentiated error message for when no location is available
-- FIX: fix for crash when sending feedback, if the Play Store doesn't allow it
+- NEW: vastly improved feedback mechanism (requires READ_LOGS and WRITE_EXTERNAL_STORAGE permissions)
+- FIX: crash when sending feedback, if the Play Store doesn't allow it
 - FIX: updated German translation -- thanks, Aaron Gerlach!
+- FIX: various bugfixes
 
 ### Version 1.3.1 ###
 Released on 7th August 2013
