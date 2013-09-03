@@ -25,7 +25,16 @@
     <string name="pref_title_ui_toggle_temperature_info">\"Info\" sulla temperatura</string>
     <string name="pref_title_ui_darkmode">Modalità scura</string>
     <string name="pref_title_ui_override_language">Lingua del widget</string>
+    <string name="pref_title_ui_bgopacity">Sfondo del widget nella home</string>
     <string name="pref_summary_ui_darkmode">Adatta i colori per sfondi chiari</string>
+
+    <string-array name="pref_ui_bgopacity_titles">
+        <item>Trasparente</item>
+        <item>Leggero</item>
+        <item>Medio</item>
+        <item>Pesante</item>
+        <item>Opaco</item>
+    </string-array>
 
     <!-- Settings for Data & Sync -->
     <string name="pref_header_data_sync">Dati &amp; aggiornamento</string>
@@ -66,6 +75,11 @@
     <string name="analytics_enabled_thanks">Google Analytics è stato abilitato. Grazie!</string>
     <string name="pref_title_debug">Debug</string>
     <string name="pref_summary_debug">Attivalo SOLO quando segnali problemi!</string>
+
+    <string name="pref_title_weather_location">Luogo</string>
+    <string name="pref_weather_location_query_hint">Trova un luogo</string>
+    <string name="pref_weather_location_automatic">Automatico</string>
+    <string name="pref_weather_location_automatic_description">Basato sulla tua posizione attuale.</string>
 
     <!-- ABOUT DIALOG -->
     <string name="about_body">Beccati il tuo stracazzo di meteo</string>

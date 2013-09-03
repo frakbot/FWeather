@@ -18,7 +18,6 @@ package net.frakbot.FWeather.activity;
 
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
-import android.app.ApplicationErrorReport;
 import android.app.backup.BackupManager;
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
@@ -26,10 +25,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
-import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.*;
 import android.view.View;
 import android.widget.Button;
@@ -38,9 +37,7 @@ import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockPreferenceActivity;
 import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.global.Const;
-import net.frakbot.FWeather.util.FLog;
-import net.frakbot.FWeather.util.TrackerHelper;
-import net.frakbot.FWeather.util.WidgetHelper;
+import net.frakbot.FWeather.util.*;
 import org.jraf.android.backport.switchwidget.SwitchPreference;
 
 import java.util.List;
@@ -65,6 +62,7 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
      * shown on tablets.
      */
     private static final boolean ALWAYS_SIMPLE_PREFS = false;
+    private static final String TAG = SettingsActivity.class.getSimpleName();
 
     /**
      * A preference value change listener that updates the preference's summary
@@ -72,6 +70,7 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
      */
     private Preference.OnPreferenceChangeListener sBindPreferenceSummaryToValueListener = null;
     private int mNewWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID;
+    private Handler mHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +86,8 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
             setResult(RESULT_CANCELED, new Intent()
                 .putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, mNewWidgetId));
         }
+
+        mHandler = new Handler();
     }
 
     @Override
@@ -221,6 +222,8 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
         // to reflect the new value, per the Android Design guidelines.
         bindPreferenceSummaryToValue(findPreference(getString(R.string.pref_key_sync_frequency)));
         bindPreferenceSummaryToValue(findPreference(getString(R.string.pref_key_ui_override_language)));
+        bindPreferenceSummaryToValue(findPreference(getString(R.string.pref_key_ui_bgopacity)));
+        bindPreferenceSummaryToValue(findPreference(getString(R.string.pref_key_weather_location)));
     }
 
     /**
@@ -232,7 +235,7 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
         preference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                FLog.i(SettingsActivity.this, SettingsActivity.class.getSimpleName(), "Forcing weather update (user request)");
+                FLog.i(SettingsActivity.this, TAG, "Forcing weather update (user request)");
                 requestWidgetsUpdate(true);
 
                 return true;
@@ -272,95 +275,40 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
         preference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
 
             @Override
-            public boolean onPreferenceClick(Preference preference) {
-                FLog.i(SettingsActivity.this, SettingsActivity.class.getSimpleName(), "Sending feedback");
+            public boolean onPreferenceClick(final Preference preference) {
+                FLog.i(SettingsActivity.this, TAG, "Sending feedback");
 
-                if (isInstalledFromPlayStore()) {
-                    Intent intent = new Intent(Intent.ACTION_APP_ERROR);
-
-                    // Use the native ApplicationErrorReport
-                    ApplicationErrorReport report = new ApplicationErrorReport();
-                    report.processName = getApplication().getPackageName();
-                    report.packageName = report.processName;
-                    report.time = System.currentTimeMillis();
-                    report.type = ApplicationErrorReport.TYPE_NONE;
-                    report.systemApp = false;
-
-                    intent.putExtra(Intent.EXTRA_BUG_REPORT, report);
-
-                    startActivity(intent);
-                }
-                else {
-                    // Use the fallback "share" mechanism
-                    // TODO: attach logcat
-                    Intent email = new Intent(Intent.ACTION_SEND);
-                    email.putExtra(Intent.EXTRA_EMAIL, new String[]{"frakbot@gmail.com"});
-                    email.putExtra(Intent.EXTRA_SUBJECT, "[FEEDBACK] " + getString(R.string.app_name));
-                    email.putExtra(Intent.EXTRA_TEXT, generateFeedbackBody());
-                    email.setType("message/rfc822");
-                    startActivity(Intent.createChooser(email, getString(R.string.feedback_send_chooser_title)));
-                }
+                startService(new Intent(SettingsActivity.this, FeedbackService.class));
+                preference.setEnabled(false);
+                mHandler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        preference.setEnabled(true);
+                    }
+                }, 5000);
                 return true;
             }
         });
     }
 
     /**
-     * Builds a feedback email body with some basic system info.
-     *
-     * @return Returns the generated system info.
-     */
-    @SuppressWarnings("StringBufferReplaceableByString")
-    private String generateFeedbackBody() {
-        StringBuilder sb = new StringBuilder("\n\n" +
-                                             "-----------\n" +
-                                             "System info\n" +
-                                             "-----------\n\n");
-
-        // HW information
-        sb.append("Device model: ").append(Build.MODEL).append("\n");
-        sb.append("Manifacturer: ").append(Build.MANUFACTURER).append("\n");
-        sb.append("Brand: ").append(Build.BRAND).append("\n");
-        sb.append("CPU ABI: ").append(Build.CPU_ABI).append("\n");
-        sb.append("Product: ").append(Build.PRODUCT).append("\n").append("\n");
-
-        // SW information
-        sb.append("Android version: ").append(Build.VERSION.CODENAME).append("\n");
-        sb.append("Release: ").append(Build.VERSION.RELEASE).append("\n");
-        sb.append("Incremental: ").append(Build.VERSION.INCREMENTAL).append("\n");
-        sb.append("Build: ").append(Build.FINGERPRINT);
-
-        return sb.toString();
-    }
-
-    /**
-     * Determines if the app is installed from the Google Play Store.
-     *
-     * @return Returns true if the app is installed from the Google
-     *         Play Store, or false if it has been installed from other
-     *         sources (sideload, other app stores, etc)
-     */
-    private boolean isInstalledFromPlayStore() {
-        PackageManager pm = getPackageManager();
-        String installationSource = pm.getInstallerPackageName(getPackageName());
-        return "com.android.vending".equals(installationSource) ||
-               "com.google.android.feedback".equals(installationSource);   // This is for Titanium Backup compatibility
-    }
-
-    /**
      * Handles the preference change by requesting the TrackerHelper to send an event.
-     * @param preference    The changed preference
-     * @param newValue      The new value
+     *
+     * @param preference The changed preference
+     * @param newValue   The new value
      */
     private void handlePreferenceChange(Preference preference, Object newValue) {
         Long value = (long) 0;
         if (preference.getKey().equals(Const.Preferences.ANALYTICS)) {
-            if (newValue == Boolean.FALSE)
+            if (newValue == Boolean.FALSE) {
                 value = (long) 0;
-            else
+            }
+            else {
                 value = (long) 1;
-        } else if (preference.getKey().equals(Const.Preferences.SYNC_FREQUENCY)) {
-            value = Long.valueOf((String)newValue);
+            }
+        }
+        else if (preference.getKey().equals(Const.Preferences.SYNC_FREQUENCY)) {
+            value = Long.valueOf((String) newValue);
         }
         TrackerHelper.preferenceChange(this, preference.getKey(), value);
     }
@@ -389,10 +337,11 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
                     int index = listPreference.findIndexOfValue(stringValue);
 
                     // Set the summary to reflect the new value.
-                    preference
-                            .setSummary(index >= 0 ? listPreference.getEntries()[index]
-                                    : null);
-
+                    preference.setSummary(index >= 0 ? listPreference.getEntries()[index] : null);
+                }
+                else if (preference instanceof WeatherLocationPreference) {
+                    preference.setSummary(
+                        WeatherLocationPreference.getDisplayValue(preference.getContext(), stringValue));
                 }
                 else {
                     // For all other preferences, set the summary to the value's
@@ -461,7 +410,7 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
                     });
                     dialog.show();
 
-                    FLog.i(SettingsActivity.this, SettingsActivity.class.getSimpleName(), "Disabled Google Analytics");
+                    FLog.i(SettingsActivity.this, TAG, "Disabled Google Analytics");
 
                     return true;
                 }
@@ -469,7 +418,7 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
                     Toast.makeText(SettingsActivity.this, R.string.analytics_enabled_thanks, Toast.LENGTH_SHORT)
                          .show();
 
-                    FLog.i(SettingsActivity.this, SettingsActivity.class.getSimpleName(), "Enabled Google Analytics");
+                    FLog.i(SettingsActivity.this, TAG, "Enabled Google Analytics");
                     return true;
                 }
             }

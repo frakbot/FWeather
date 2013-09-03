@@ -29,12 +29,14 @@
     <string name="pref_key_ui_toggle_temperature_info" translatable="false">ui_toggle_temperature_info</string>
     <string name="pref_key_ui_darkmode" translatable="false">ui_darkmode</string>
     <string name="pref_key_ui_override_language" translatable="false">ui_override_language</string>
+    <string name="pref_key_ui_bgopacity" translatable="false">ui_bgopacity</string>
     <string name="pref_key_authors" translatable="false">authors</string>
     <string name="pref_key_changelog" translatable="false">changelog</string>
+    <string name="pref_key_weather_location" translatable="false">weather_location</string>
     <string name="pref_key_analytics" translatable="false">analytics</string>
     <string name="pref_key_debug" translatable="false">debug</string>
 
-    <!-- Settings for Widget Customization -->
+    <!-- Settings for Widget Customization (some come from DashClock) -->
     <string name="pref_header_customization">Customization</string>
     <string name="pref_title_customize_widgets">Customize widgets</string>
     <string name="pref_title_ui_toggle_buttons">Buttons on widget</string>
@@ -42,7 +44,24 @@
     <string name="pref_title_ui_toggle_temperature_info">Temperature \"info\"</string>
     <string name="pref_title_ui_darkmode">Dark mode</string>
     <string name="pref_title_ui_override_language">Widget language</string>
+    <string name="pref_title_ui_bgopacity">Home screen widget background</string>
     <string name="pref_summary_ui_darkmode">Adapts colors for bright backgrounds</string>
+
+    <string-array name="pref_ui_bgopacity_titles">
+        <item>None</item>
+        <item>Light</item>
+        <item>Medium</item>
+        <item>Heavy</item>
+        <item>Opaque</item>
+    </string-array>
+
+    <string-array name="pref_ui_bgopacity_values" translatable="false">
+        <item>0</item>
+        <item>25</item>
+        <item>50</item>
+        <item>75</item>
+        <item>100</item>
+    </string-array>
 
     <!-- Settings for Data & Sync -->
     <string name="pref_header_data_sync">Data &amp; sync</string>
@@ -65,7 +84,6 @@
     </string-array>
 
     <string-array name="pref_sync_frequency_values" translatable="false">
-        <!--item>60</item-->
         <item>300</item>
         <item>600</item>
         <item>900</item>
@@ -96,6 +114,11 @@
     <string name="analytics_enabled_thanks">Google Analytics has been enabled. Thanks!</string>
     <string name="pref_title_debug">Debug</string>
     <string name="pref_summary_debug">Enable ONLY when reporting issues!</string>
+
+    <string name="pref_title_weather_location">Location</string>
+    <string name="pref_weather_location_query_hint">Find a location</string>
+    <string name="pref_weather_location_automatic">Automatic</string>
+    <string name="pref_weather_location_automatic_description">Based on your current location.</string>
 
     <!-- ABOUT DIALOG -->
     <string name="app_name_and_version" translatable="false">

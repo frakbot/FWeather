@@ -17,8 +17,11 @@
 package net.frakbot.FWeather;
 
 import android.app.Application;
-import android.util.Log;
+import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import net.frakbot.FWeather.global.Const;
 import net.frakbot.FWeather.util.FLog;
 import net.frakbot.FWeather.util.LogLevel;
@@ -37,6 +40,7 @@ import net.frakbot.FWeather.util.LogLevel;
 public class FWeatherApplication extends Application {
 
     private static String mApiKey;
+    private static String mUserAgent;
 
     @Override
     public void onCreate() {
@@ -44,8 +48,16 @@ public class FWeatherApplication extends Application {
 
         FLog.initLog(this);
 
-        //noinspection ConstantConditions
-        FLog.setLogLevel(BuildConfig.DEBUG ? LogLevel.VERBOSE : null);
+        if (BuildConfig.DEBUG) {
+            FLog.i(Const.APP_NAME, "This is a DEBUG BUILD.");
+            FLog.setLogLevel(LogLevel.VERBOSE);
+        }
+        else {
+            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            boolean isUserDebug = prefs.getBoolean(Const.Preferences.DEBUG, false);
+            FLog.i(Const.APP_NAME, "User debug mode active: " + isUserDebug);
+            FLog.setLogLevel(isUserDebug ? LogLevel.DEBUG : null);
+        }
 
         FLog.d("Application", "FLog up and running");
 
@@ -54,6 +66,8 @@ public class FWeatherApplication extends Application {
         // This will fail if you didn't define your own API key string!
         mApiKey = getString(R.string.weather_api_key);
 
+        initUserAgent();
+
         // Set the default preference values stored in the xml files
         PreferenceManager.setDefaultValues(this, R.xml.pref_advanced, false);
         PreferenceManager.setDefaultValues(this, R.xml.pref_customization, false);
@@ -61,11 +75,42 @@ public class FWeatherApplication extends Application {
     }
 
     /**
-     * Returns the OpenWeatherMap API key.
+     * Initializes the User-Agent string for the app.
+     */
+    private void initUserAgent() {
+        // Get the app name and version
+        PackageManager pm;
+        String packageName;
+        String versionName;
+        pm = getPackageManager();
+        packageName = getPackageName();
+
+        try {
+            PackageInfo info = pm.getPackageInfo(packageName, 0);
+            versionName = info.versionName;
+
+            mUserAgent = String.format("%1$s/%2$s", Const.APP_NAME, versionName);
+        }
+        catch (PackageManager.NameNotFoundException e) {
+            // Unable to retrieve app info, solely rely on the hardcoded app name
+            mUserAgent = Const.APP_NAME;
+        }
+    }
+
+    /**
+     * Returns the Yahoo! Weather API key.
      *
-     * @return Returns the OpenWeatherMap API key
+     * @return Returns the Yahoo! Weather API key
      */
     public static String getApiKey() {
         return mApiKey;
+    }
+
+    /**
+     * Returns the User-Agent string to use for HTTP headers.
+     * @return Returns the User-Agent string
+     */
+    public static String getUserAgent() {
+        return mUserAgent;
     }
 }

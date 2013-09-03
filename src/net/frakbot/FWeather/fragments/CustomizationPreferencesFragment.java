@@ -20,6 +20,7 @@ import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
 import net.frakbot.FWeather.R;
+import net.frakbot.FWeather.activity.SettingsActivity;
 
 /**
  * This fragment shows customization preferences only. It is used when the
@@ -32,5 +33,10 @@ public class CustomizationPreferencesFragment extends BackupPreferenceFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.pref_customization);
+
+        if (getActivity() instanceof SettingsActivity) {
+            ((SettingsActivity)getActivity()).bindPreferenceSummaryToValue(
+                findPreference(getString(R.string.pref_key_ui_bgopacity)));
+        }
     }
 }

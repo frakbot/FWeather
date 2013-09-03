@@ -17,7 +17,7 @@
 <resources>
     <!-- Strings related to Settings -->
 
-    <!-- Settings for Widget Customization -->
+    <!-- Settings for Widget Customization (some come from DashClock) -->
     <string name="pref_header_customization">Anpassung</string>
     <string name="pref_title_customize_widgets">Widgets anpassen</string>
     <string name="pref_title_ui_toggle_buttons">Buttons auf  Widget</string>
@@ -25,7 +25,16 @@
     <string name="pref_title_ui_toggle_temperature_info">Erweiterte Temperatur \"info\"</string>
     <string name="pref_title_ui_darkmode">Dunkler Modus</string>
     <string name="pref_title_ui_override_language">Sprache des Widgets</string>
+    <string name="pref_title_ui_bgopacity">Widgethintergrund</string>
     <string name="pref_summary_ui_darkmode">Passt Farben für hellen Hintergrund an</string>
+
+    <!--string-array name="pref_ui_bgopacity_titles">
+        <item>None</item>
+        <item>Light</item>
+        <item>Medium</item>
+        <item>Heavy</item>
+        <item>Opaque</item>
+    </string-array-->
 
     <!-- Settings for Data & Sync -->
     <string name="pref_header_data_sync">Daten &amp; Sync</string>
@@ -64,6 +73,11 @@
     <string name="analytics_enabled_thanks">Google Analytics wurde aktiviert. Danke!</string>
     <string name="pref_title_debug">Debuggen</string>
     <string name="pref_summary_debug">NUR aktivieren, um Probleme zu senden!</string>
+
+    <string name="pref_title_weather_location">Ort</string>
+    <string name="pref_weather_location_query_hint">Ermittle den Ort</string>
+    <string name="pref_weather_location_automatic">Automatisch</string>
+    <string name="pref_weather_location_automatic_description">Genutzt wird Dein aktueller Standort.</string>
 
     <!-- ABOUT DIALOG -->
     <string name="about_body">Bekomm Dein verdammtes Wetter auf eine besondere Art!</string>

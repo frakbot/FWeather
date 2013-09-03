@@ -37,7 +37,7 @@ import android.widget.Toast;
 import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.activity.SettingsActivity;
 import net.frakbot.FWeather.global.Const;
-import net.frakbot.FWeather.updater.weather.model.Weather;
+import net.frakbot.FWeather.updater.weather.model.WeatherData;
 import net.frakbot.FWeather.util.*;
 
 import java.io.IOException;
@@ -83,7 +83,7 @@ public class UpdaterService extends IntentService {
         FLog.d(this, TAG, "onHandleIntent");
 
         // Deregister the connection listener, if any
-        ConnectionHelper.unregisterConnectivityListener(this.getApplicationContext());
+        ConnectionHelper.unregisterConnectivityListener(getApplicationContext());
 
         // First thing, recheck the log filtering levels
         FLog.recheckLogLevels();
@@ -112,7 +112,7 @@ public class UpdaterService extends IntentService {
         assert appWidgetManager != null;
 
         // Get the latest weather info (new or cached)
-        Weather weather = null;
+        WeatherData weather;
         try {
             weather = WeatherHelper.getWeather(this);
         }
@@ -237,7 +237,7 @@ public class UpdaterService extends IntentService {
      * @param views   The RemoteViews to use
      * @param weather The weather to update with
      */
-    private void updateViews(RemoteViews views, Weather weather, int[] widgetIds) {
+    private void updateViews(RemoteViews views, WeatherData weather, int[] widgetIds) {
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         final boolean darkMode = prefs.getBoolean(getString(R.string.pref_key_ui_darkmode), false);
 
@@ -253,6 +253,9 @@ public class UpdaterService extends IntentService {
         // Show/hide elements, and update them only if needed
         views.setTextViewText(R.id.txt_weather, mWidgetHelper.getWeatherString(weather, darkMode));
         views.setTextColor(R.id.txt_weather, textColor);
+        int bgColorPrefValue = getWidgetBgColorPrefValue(prefs);
+        views.setInt(R.id.content, "setBackgroundColor",
+                     mWidgetHelper.getWidgetBGColor(bgColorPrefValue, darkMode));
 
         if (prefs.getBoolean(getString(R.string.pref_key_ui_toggle_temperature_info), true)) {
             views.setViewVisibility(R.id.txt_temp, View.VISIBLE);
@@ -290,6 +293,25 @@ public class UpdaterService extends IntentService {
         i.putExtra(UpdaterService.EXTRA_WIDGET_IDS, widgetIds);
         i.putExtra(UpdaterService.EXTRA_USER_FORCE_UPDATE, true);
         views.setOnClickPendingIntent(R.id.btn_refresh, PendingIntent.getService(this, 0, i, 0));
+    }
+
+    /**
+     * Gets the widget BG color opacity preference value, handling
+     * any format errors that could arise.
+     *
+     * @param prefs The SharedPreferences to retrieve the value from
+     *
+     * @return Returns the preference value, or a default value of 0 if there is
+     * any issue with the preference value retrieval.
+     */
+    private int getWidgetBgColorPrefValue(SharedPreferences prefs) {
+        try {
+            return Integer.parseInt(prefs.getString(getString(R.string.pref_key_ui_bgopacity), "%NOVAL%"));
+        }
+        catch (NumberFormatException e) {
+            FLog.w(TAG, "Invalid preference value for UI BG opacity, defaulting to 0", e);
+            return 0;
+        }
     }
 
     /**

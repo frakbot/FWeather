@@ -18,10 +18,12 @@
 <resources>
     <color name="window_bg">#fff9e9</color>
 
+    <color name="toast_bg">#50000000</color>
+
     <color name="text_widget_main_color">#ffffff</color>
     <color name="text_widget_main_color_dark">#101010</color>
-    <color name="text_subtitle">#ff745f36</color>
-    <color name="text_big_title">#ff332408</color>
+    <color name="text_subtitle">#745f36</color>
+    <color name="text_big_title">#332408</color>
     <color name="text_big_title_shadow">#e5c39849</color>
 
     <!-- WIDGET PHRASES COLORS - LIGHT MODE -->
@@ -30,32 +32,61 @@
     <color name="weather_cloudy">#999999</color>
     <color name="weather_thunderstorm">#fff883</color>
     <color name="weather_haze">#beafd2</color>
-    <color name="weather_mostly_cloudy">#fb6e5e</color>
+    <color name="weather_partly_cloudy">#fb6e5e</color>
     <color name="weather_drizzle">#ffa6d1</color>
     <color name="weather_snowy">#ff3836</color>
     <color name="weather_extreme">#ff6f14</color>
+    <color name="weather_hail">#7fb6d7</color>
+    <color name="weather_windy">#aeaeae</color>
+    <color name="weather_cold">#90c2c9</color>
+    <color name="weather_hot">#d16b41</color>
     <color name="weather_wtf">#cbff64</color>
+    <color name="weather_no_location">#a7ff7b</color>
+    <color name="weather_no_weather">#70ff93</color>
     <color name="temp_freezing">#d28aff</color>
     <color name="temp_cold">#cde2ff</color>
     <color name="temp_hot">#f25e5e</color>
     <color name="temp_warm">#00d500</color>
     <color name="temp_wtf">#3075e0</color>
+    <color name="temp_no_location">#61e0e0</color>
 
     <!-- WIDGET PHRASES COLORS - DARK MODE -->
-    <color name="weather_sunny_dark">#ff97003a</color>
-    <color name="weather_rainy_dark">#ff00498f</color>
-    <color name="weather_cloudy_dark">#ff5d5d5d</color>
-    <color name="weather_thunderstorm_dark">#ff988c46</color>
-    <color name="weather_haze_dark">#ff857b93</color>
-    <color name="weather_mostly_cloudy_dark">#ff994339</color>
-    <color name="weather_drizzle_dark">#ffa56c87</color>
-    <color name="weather_snowy_dark">#ffc32b2a</color>
-    <color name="weather_extreme_dark">#ffb34e0e</color>
-    <color name="weather_wtf_dark">#ff7d9e3d</color>
-    <color name="temp_freezing_dark">#ff9d67be</color>
-    <color name="temp_cold_dark">#ff93a1b6</color>
-    <color name="temp_hot_dark">#ffb14545</color>
-    <color name="temp_warm_dark">#ff009300</color>
-    <color name="temp_wtf_dark">#ff265baf</color>
-    <color name="toast_bg">#30000000</color>
+    <color name="weather_sunny_dark">#97003a</color>
+    <color name="weather_rainy_dark">#00498f</color>
+    <color name="weather_cloudy_dark">#5d5d5d</color>
+    <color name="weather_thunderstorm_dark">#988c46</color>
+    <color name="weather_haze_dark">#857b93</color>
+    <color name="weather_partly_cloudy_dark">#994339</color>
+    <color name="weather_drizzle_dark">#a56c87</color>
+    <color name="weather_snowy_dark">#c32b2a</color>
+    <color name="weather_extreme_dark">#b34e0e</color>
+    <color name="weather_hail_dark">#49697c</color>
+    <color name="weather_windy_dark">#5d5d5d</color>
+    <color name="weather_cold_dark">#567377</color>
+    <color name="weather_hot_dark">#ff692929</color>
+    <color name="weather_wtf_dark">#7d9e3d</color>
+    <color name="weather_no_location_dark">#476c34</color>
+    <color name="weather_no_weather_dark">#275a34</color>
+    <color name="temp_freezing_dark">#9d67be</color>
+    <color name="temp_cold_dark">#93a1b6</color>
+    <color name="temp_hot_dark">#b14545</color>
+    <color name="temp_warm_dark">#009300</color>
+    <color name="temp_wtf_dark">#265baf</color>
+    <color name="temp_no_location_dark">#296262</color>
+
+    <!-- WIDGET BG COLORS -->
+    <array name="bg_colors">      <!-- These are for darkMode=OFF, so it's BLACK bg -->
+        <item>#00000000</item>    <!-- Fully transparent -->
+        <item>#40000000</item>    <!-- 25% alpha -->
+        <item>#80000000</item>    <!-- 50% alpha -->
+        <item>#C0000000</item>    <!-- 75% alpha -->
+        <item>#FF000000</item>    <!-- Fully opaque -->
+    </array>
+    <array name="bg_colors_darkmode">      <!-- These are for darkMode=ON, so it's WHITE bg -->
+        <item>#00FFFFFF</item>    <!-- Fully transparent -->
+        <item>#40FFFFFF</item>    <!-- 25% alpha -->
+        <item>#80FFFFFF</item>    <!-- 50% alpha -->
+        <item>#C0FFFFFF</item>    <!-- 75% alpha -->
+        <item>#FFFFFFFF</item>    <!-- Fully opaque -->
+    </array>
 </resources>

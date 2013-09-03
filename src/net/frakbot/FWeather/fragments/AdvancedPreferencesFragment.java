@@ -39,6 +39,9 @@ public class AdvancedPreferencesFragment extends BackupPreferenceFragment {
         if (getActivity() instanceof SettingsActivity) {
             ((SettingsActivity)getActivity()).setupAnalyticsOnChangeListener(
                 (SwitchPreference) findPreference(getString(R.string.pref_key_analytics)));
+
+            ((SettingsActivity)getActivity()).bindPreferenceSummaryToValue(
+                findPreference(getString(R.string.pref_key_weather_location)));
         }
     }
 }

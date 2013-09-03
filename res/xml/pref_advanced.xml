@@ -20,13 +20,16 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <net.frakbot.FWeather.util.WeatherLocationPreference
+            android:key="@string/pref_key_weather_location"
+            android:title="@string/pref_title_weather_location" />
+
     <org.jraf.android.backport.switchwidget.SwitchPreference
             android:key="@string/pref_key_analytics"
             android:title="@string/pref_title_analytics"
             android:defaultValue="true"
             app:switchTextOff="@string/off"
             app:switchTextOn="@string/on"/>
-
 
     <org.jraf.android.backport.switchwidget.SwitchPreference
             android:key="@string/pref_key_debug"
