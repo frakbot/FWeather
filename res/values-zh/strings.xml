@@ -36,4 +36,9 @@
     <!-- Toasts -->
     <string name="toast_feedback_mail_error">无法提交反馈信息. 联系作者: frakbot+fweather@gmail.com</string>
 
+    <!-- Messages -->
+    <!--string name="no_weather_data">No weather data available</string-->
+    <!--string name="preparing_feedback">Preparing feedback…</string-->
+    <!--string name="feedback_service">FWeather feedback service</string-->
+
 </resources>

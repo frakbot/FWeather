@@ -35,6 +35,7 @@
     <string name="cdesc_refresh"><![CDATA[Aggiorna]]></string>
 
     <!-- Toasts -->
+    <string name="no_weather_data">Nessun dato meteo disponibile</string>
     <string name="toast_feedback_mail_error">Impossibile inviare il feedback. Scrivi una mail a frakbot+fweather@gmail.com</string>
     <string name="preparing_feedback">Sto preparando il feedback…</string>
 </resources>

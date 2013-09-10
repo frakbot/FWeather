@@ -26,7 +26,7 @@
     <string name="weather_cloudy"><![CDATA[又是一个尼玛的 <font color="%%COLOR%%">阴天！</font>]]></string>
     <string name="weather_thunderstorm"><![CDATA[尼玛！竟然是！<font color="%%COLOR%%">雷暴！</font>]]></string>
     <string name="weather_haze"><![CDATA[<font color="%%COLOR%%">什么尼玛</font> 都看不见！]]></string>
-    <string name="weather_mostly_cloudy"><![CDATA[尼玛！竟然！<font color="%%COLOR%%">还没下雨！</font>]]></string>
+    <string name="weather_partly_cloudy"><![CDATA[尼玛！竟然！<font color="%%COLOR%%">还没下雨！</font>]]></string>
     <string name="weather_drizzle"><![CDATA[尼玛！就下这么<font color="%%COLOR%%">小雨！</font>]]></string>
     <string name="weather_snowy"><![CDATA[尼玛！<font color="%%COLOR%%">快看！</font> 剩蛋老人！]]></string>
     <string name="weather_extreme"><![CDATA[<font color="%%COLOR%%">还看手机？</font> 快尼玛逃命吧！]]></string>
@@ -35,6 +35,7 @@
     <!--string name="weather_hot"><![CDATA[Hail, fucking <font color="%%COLOR%%">Satan!</font>]]></string-->
     <!--string name="weather_hail"><![CDATA[Ice fucking <font color="%%COLOR%%">bombs</font> a-fallin\']]></string-->
     <string name="weather_wtf"><![CDATA[<font color="%%COLOR%%">尼玛,</font> 你就不能TM自己看看外面啊！]]></string>
+    <!--string name="weather_no_weather"><![CDATA[LOL fuck I totally <font color="%%COLOR%%">dunno</font>]]></string-->
     <string name="weather_no_location"><![CDATA[<font color="%%COLOR%%">我了个去!,</font> 哥们!]]></string>
 
     <!-- Widget temperature conditions -->
