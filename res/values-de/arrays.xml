@@ -16,6 +16,7 @@
   -->
 
 <resources>
+
     <string-array name="pref_key_ui_override_language_entries">
         <item>Autom. (System-Sprache)</item>
         <item>Englisch (en)</item>
@@ -23,4 +24,5 @@
         <item>Italienisch (it)</item>
         <item>Chinesisch (vereinfacht) (zh)</item>
     </string-array>
+
 </resources>

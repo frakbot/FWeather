@@ -26,7 +26,7 @@
     <string name="weather_cloudy"><![CDATA[Nur verficktes <font color="%%COLOR%%">grau.</font>]]></string>
     <string name="weather_thunderstorm"><![CDATA[Ein scheiß <font color="%%COLOR%%">Sturm</font> wütet.]]></string>
     <string name="weather_haze"><![CDATA[Ich kann <font color="%%COLOR%%">nicht einen verschissenen Meter</font> gucken.]]></string>
-    <string name="weather_partly_cloudy"><![CDATA[Bisher kein verdammter Regen. <font color="%%COLOR%%">Bisher.</font>]]></string>
+    <string name="weather_mostly_cloudy"><![CDATA[Bisher kein verdammter Regen. <font color="%%COLOR%%">Bisher.</font>]]></string>
     <string name="weather_drizzle"><![CDATA[Kaum Regen, wie so ne kleine Scheiß <font color="%%COLOR%%">Pussy.</font>]]></string>
     <string name="weather_snowy"><![CDATA[<font color="%%COLOR%%">Santa</font> fucking Claus kommt.]]></string>
     <string name="weather_extreme"><![CDATA[<font color="%%COLOR%%">Renn</font> um dein verdammtes Leben.]]></string>

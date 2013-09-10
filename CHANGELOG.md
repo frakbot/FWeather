@@ -1,6 +1,12 @@
 Changelog
 =========
 
+### Version 2.0.1 ###
+Released on ??? September 2013
+
+- FIX: updated Chinese translation -- thanks, Hansi Liu!
+- FIX: updated German translation
+
 ### Version 2.0.0 ###
 Released on 3rd September 2013
 

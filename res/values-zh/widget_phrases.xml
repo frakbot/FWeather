@@ -26,7 +26,7 @@
     <string name="weather_cloudy"><![CDATA[又是一个尼玛的 <font color="%%COLOR%%">阴天！</font>]]></string>
     <string name="weather_thunderstorm"><![CDATA[尼玛！竟然是！<font color="%%COLOR%%">雷暴！</font>]]></string>
     <string name="weather_haze"><![CDATA[<font color="%%COLOR%%">什么尼玛</font> 都看不见！]]></string>
-    <string name="weather_partly_cloudy"><![CDATA[尼玛！竟然！<font color="%%COLOR%%">还没下雨！</font>]]></string>
+    <string name="weather_mostly_cloudy"><![CDATA[尼玛！竟然！<font color="%%COLOR%%">还没下雨！</font>]]></string>
     <string name="weather_drizzle"><![CDATA[尼玛！就下这么<font color="%%COLOR%%">小雨！</font>]]></string>
     <string name="weather_snowy"><![CDATA[尼玛！<font color="%%COLOR%%">快看！</font> 剩蛋老人！]]></string>
     <string name="weather_extreme"><![CDATA[<font color="%%COLOR%%">还看手机？</font> 快尼玛逃命吧！]]></string>
@@ -35,8 +35,7 @@
     <!--string name="weather_hot"><![CDATA[Hail, fucking <font color="%%COLOR%%">Satan!</font>]]></string-->
     <!--string name="weather_hail"><![CDATA[Ice fucking <font color="%%COLOR%%">bombs</font> a-fallin\']]></string-->
     <string name="weather_wtf"><![CDATA[<font color="%%COLOR%%">尼玛,</font> 你就不能TM自己看看外面啊！]]></string>
-    <!--string name="weather_no_location"><![CDATA[<font color="%%COLOR%%">Dafuq,</font> dude!]]></string-->
-    <!--string name="weather_no_weather"><![CDATA[LOL fuck I totally <font color="%%COLOR%%">dunno</font>]]></string-->
+    <string name="weather_no_location"><![CDATA[<font color="%%COLOR%%">我了个去!,</font> 哥们!]]></string>
 
     <!-- Widget temperature conditions -->
     <string name="temp_freezing"><![CDATA[<font color="%%COLOR%%">我勒个去</font> 尼玛我是在北极吗！]]></string>
@@ -44,6 +43,5 @@
     <string name="temp_hot"><![CDATA[<font color="%%COLOR%%">热成球了</font> 跟尼玛在烤箱里一样！]]></string>
     <string name="temp_warm"><![CDATA[好尼玛暖和啊<font color="%%COLOR%%">抬头听鸟叫</font> 低头观鸟屎]]></string>
     <string name="temp_wtf"><![CDATA[你的机会来了 <font color="%%COLOR%%">我尼玛的一点主意都没有。</font>]]></string>
-    <!--string name="temp_no_location"><![CDATA[I don\'t have a fucking <font color="%%COLOR%%">crystal ball!</font> Enable the GPS or the Location Services.]]></string-->
-
+    <string name="temp_no_location"><![CDATA[我尼玛不是算命的 !<font color="%%COLOR%%">老子没这本事！</font>请打开GPS地址服务.]]></string>
 </resources>
