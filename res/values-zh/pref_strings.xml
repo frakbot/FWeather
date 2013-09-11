@@ -74,10 +74,10 @@
     <string name="pref_title_debug">调试(戏)</string>
     <string name="pref_summary_debug">请只在反馈问题的时候打开，别老摸来摸去的！</string>
 
-    <!string name="pref_title_weather_location">位置</string-->
-    <!string name="pref_weather_location_query_hint">手动定位</string-->
-    <!string name="pref_weather_location_automatic">自动定位</string-->
-    <!string name="pref_weather_location_automatic_description">使用当前位置</string-->
+    <!string name="pref_title_weather_location">位置</string>
+    <!string name="pref_weather_location_query_hint">手动定位</string>
+    <!string name="pref_weather_location_automatic">自动定位</string>
+    <!string name="pref_weather_location_automatic_description">使用当前位置</string>
 
     <!-- ABOUT DIALOG -->
     <string name="about_body">关于“尼玛”天气</string>
