@@ -35,4 +35,10 @@
 
     <!-- Toasts -->
     <string name="toast_feedback_mail_error">Dein Feedback konnte leider nicht gesendet werden. Schreib eine E-Mail an frakbot+fweather@gmail.com</string>
+
+    <!-- Messages -->
+    <string name="no_weather_data">Keine Wetterdaten verfügbar!</string>
+    <string name="preparing_feedback">Feedback vorbereiten…</string>
+    <string name="feedback_service">FWeather Feedback-Service</string>
+
 </resources>

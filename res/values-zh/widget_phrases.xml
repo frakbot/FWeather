@@ -30,20 +30,19 @@
     <string name="weather_drizzle"><![CDATA[尼玛！就下这么<font color="%%COLOR%%">小雨！</font>]]></string>
     <string name="weather_snowy"><![CDATA[尼玛！<font color="%%COLOR%%">快看！</font> 剩蛋老人！]]></string>
     <string name="weather_extreme"><![CDATA[<font color="%%COLOR%%">还看手机？</font> 快尼玛逃命吧！]]></string>
-    <!--string name="weather_windy"><![CDATA[<font color="%%COLOR%%">Aeolus</font> is fucking funny today]]></string-->
-    <!--string name="weather_cold"><![CDATA[<font color="%%COLOR%%">Winter\'s coming</font>, fuck.]]></string-->
-    <!--string name="weather_hot"><![CDATA[Hail, fucking <font color="%%COLOR%%">Satan!</font>]]></string-->
-    <!--string name="weather_hail"><![CDATA[Ice fucking <font color="%%COLOR%%">bombs</font> a-fallin\']]></string-->
+    <string name="weather_windy"><![CDATA[大<font color="%%COLOR%%">风！</font> 今天真尼玛有意思！]]></string>
+    <string name="weather_cold"><![CDATA[<font color="%%COLOR%%">冬天来了 coming</font>我了个去！]]></string>
+    <string name="weather_hot"><![CDATA[我去尼玛！ <font color="%%COLOR%%">热屎了！</font>]]></string>
+    <string name="weather_hail"><![CDATA[我勒个去！ <font color="%%COLOR%%">冰雹！</font> a-fallin\']]></string>
     <string name="weather_wtf"><![CDATA[<font color="%%COLOR%%">尼玛,</font> 你就不能TM自己看看外面啊！]]></string>
-    <!--string name="weather_no_location"><![CDATA[<font color="%%COLOR%%">Dafuq,</font> dude!]]></string-->
-    <!--string name="weather_no_weather"><![CDATA[LOL fuck I totally <font color="%%COLOR%%">dunno</font>]]></string-->
+    <string name="weather_no_weather"><![CDATA[么么哒<font color="%%COLOR%%">人家神马都不知道。</font>]]></string>
+    <string name="weather_no_location"><![CDATA[<font color="%%COLOR%%">我了个去!,</font> 哥们把定位打开!]]></string>
 
     <!-- Widget temperature conditions -->
     <string name="temp_freezing"><![CDATA[<font color="%%COLOR%%">我勒个去</font> 尼玛我是在北极吗！]]></string>
-    <string name="temp_cold"><![CDATA[<font color="%%COLOR%%">真尼玛冷</font> 那个谁把冰箱门关上]]></string>
+    <string name="temp_cold"><![CDATA[<font color="%%COLOR%%">真尼玛冷/font> 那个谁把冰箱门关上]]></string>
     <string name="temp_hot"><![CDATA[<font color="%%COLOR%%">热成球了</font> 跟尼玛在烤箱里一样！]]></string>
     <string name="temp_warm"><![CDATA[好尼玛暖和啊<font color="%%COLOR%%">抬头听鸟叫</font> 低头观鸟屎]]></string>
     <string name="temp_wtf"><![CDATA[你的机会来了 <font color="%%COLOR%%">我尼玛的一点主意都没有。</font>]]></string>
-    <!--string name="temp_no_location"><![CDATA[I don\'t have a fucking <font color="%%COLOR%%">crystal ball!</font> Enable the GPS or the Location Services.]]></string-->
-
+    <string name="temp_no_location"><![CDATA[我尼玛不是算命的 !<font color="%%COLOR%%">老子没这本事！</font>请打开GPS地址服务.]]></string>
 </resources>
