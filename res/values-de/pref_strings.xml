@@ -25,15 +25,15 @@
     <string name="pref_title_ui_toggle_temperature_info">Erweiterte Temperatur \"info\"</string>
     <string name="pref_title_ui_darkmode">Dunkler Modus</string>
     <string name="pref_title_ui_override_language">Sprache des Widgets</string>
-    <string name="pref_title_ui_bgopacity">Widgethintergrund</string>
+    <string name="pref_title_ui_bgopacity">Widget-Hintergrund</string>
     <string name="pref_summary_ui_darkmode">Passt Farben für hellen Hintergrund an</string>
 
     <string-array name="pref_ui_bgopacity_titles">
-        <item>Keine</item>
+        <item>Keiner</item>
         <item>Hell</item>
         <item>Mittel</item>
-        <item>Schwer</item>
-        <item>Opak</item>
+        <item>Dunkel</item>
+        <item>Matt</item>
     </string-array>
 
     <!-- Settings for Data & Sync -->
