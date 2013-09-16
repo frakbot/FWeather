@@ -32,6 +32,7 @@ import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.updater.UpdaterService;
 import net.frakbot.FWeather.updater.weather.model.WeatherData;
 import net.frakbot.FWeather.widget.FontTextView;
+import net.frakbot.util.log.FLog;
 
 /**
  * Helper class that deals with finding resources to assign to

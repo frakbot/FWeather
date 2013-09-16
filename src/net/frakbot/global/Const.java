@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package net.frakbot.FWeather.global;
+package net.frakbot.global;
 
 /**
  * Contains several global constants.

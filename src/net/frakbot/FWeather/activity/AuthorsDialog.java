@@ -28,7 +28,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 import net.frakbot.FWeather.R;
-import net.frakbot.FWeather.global.Const;
+import net.frakbot.global.Const;
 import net.frakbot.FWeather.util.TrackerHelper;
 
 /**

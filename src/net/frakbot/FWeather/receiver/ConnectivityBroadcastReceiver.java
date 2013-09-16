@@ -29,11 +29,10 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import net.frakbot.FWeather.updater.UpdaterService;
 import net.frakbot.FWeather.util.ConnectionHelper;
-import net.frakbot.FWeather.util.FLog;
 import net.frakbot.FWeather.util.WidgetHelper;
+import net.frakbot.util.log.FLog;
 
 /**
  * BroadcastReceiver listening for changes of connection:

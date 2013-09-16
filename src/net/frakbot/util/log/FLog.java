@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package net.frakbot.FWeather.util;
+package net.frakbot.util.log;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -23,7 +23,7 @@ import android.content.pm.PackageManager;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
-import net.frakbot.FWeather.global.Const;
+import net.frakbot.global.Const;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -569,16 +569,17 @@ public class FLog {
             int versionCode;
             pm = context.getPackageManager();
             packageName = context.getPackageName();
+            if (pm != null) {
+                try {
+                    PackageInfo info = pm.getPackageInfo(packageName, 0);
+                    versionCode = info.versionCode;
 
-            try {
-                PackageInfo info = pm.getPackageInfo(packageName, 0);
-                versionCode = info.versionCode;
-
-                TAG_PREFIX = String.format("%s-v%d", Const.APP_NAME, versionCode);
-            }
-            catch (PackageManager.NameNotFoundException e) {
-                // Unable to retrieve app info, solely rely on the hardcoded app name
-                return Const.APP_NAME + (!TextUtils.isEmpty(tagSuffix) ? "-" + tagSuffix : "");
+                    TAG_PREFIX = String.format("%s-v%d", Const.APP_NAME, versionCode);
+                }
+                catch (PackageManager.NameNotFoundException e) {
+                    // Unable to retrieve app info, solely rely on the hardcoded app name
+                    return Const.APP_NAME + (!TextUtils.isEmpty(tagSuffix) ? "-" + tagSuffix : "");
+                }
             }
 
             return TAG_PREFIX + (!TextUtils.isEmpty(tagSuffix) ? "-" + tagSuffix : "");

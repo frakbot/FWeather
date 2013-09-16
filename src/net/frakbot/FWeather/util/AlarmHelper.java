@@ -22,7 +22,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import net.frakbot.FWeather.global.Const;
+import net.frakbot.global.Const;
+import net.frakbot.util.log.FLog;
 
 import java.util.Calendar;
 

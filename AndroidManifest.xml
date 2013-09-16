@@ -52,10 +52,6 @@
                 android:name=".updater.UpdaterService"
                 android:label="@string/updater_service"/>
 
-        <service
-                android:name=".util.FeedbackService"
-                android:label="@string/feedback_service"/>
-
         <receiver android:name=".FWeatherWidgetProvider">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>

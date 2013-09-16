@@ -1,6 +1,14 @@
 Changelog
 =========
 
+### Version 2.1.0 ###
+Released on ??
+
+- NEW: Spanish translation
+- NEW: Romenian translation
+- NEW: even better feedback mechanism
+- FIX: crash on tablets when opening the Settings activity
+
 ### Version 2.0.1 ###
 Released on 11th September 2013
 

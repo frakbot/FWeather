@@ -29,6 +29,7 @@ import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.updater.weather.CantGetWeatherException;
 import net.frakbot.FWeather.updater.weather.YahooWeatherApiClient;
 import net.frakbot.FWeather.updater.weather.model.WeatherData;
+import net.frakbot.util.log.FLog;
 
 import java.io.IOException;
 import java.util.Arrays;

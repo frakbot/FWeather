@@ -22,9 +22,9 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.preference.PreferenceManager;
 import android.util.Log;
-import net.frakbot.FWeather.global.Const;
-import net.frakbot.FWeather.util.FLog;
-import net.frakbot.FWeather.util.LogLevel;
+import net.frakbot.util.log.LogLevel;
+import net.frakbot.global.Const;
+import net.frakbot.util.log.FLog;
 
 /**
  * Application handler

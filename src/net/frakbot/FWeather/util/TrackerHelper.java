@@ -5,7 +5,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import com.google.analytics.tracking.android.EasyTracker;
-import net.frakbot.FWeather.global.Const;
+import net.frakbot.global.Const;
+import net.frakbot.util.log.FLog;
 
 /**
  * Helper for the Google Analytics tracking.
