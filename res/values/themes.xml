@@ -25,7 +25,7 @@
         <item name="android:windowBackground">@drawable/settings_window_bg</item>
     </style>
 
-    <style name="Theme.FWeather.Settings.Dialog" parent="android:Theme.Dialog">
+    <style name="Theme.FWeather.Settings.Dialog" parent="@style/Theme.Sherlock.Light">
         <item name="switchStyle">@style/Widget.Holo.CompoundButton.Switch</item>
         <item name="switchPreferenceStyle">@style/Preference.SwitchPreference</item>
     </style>
