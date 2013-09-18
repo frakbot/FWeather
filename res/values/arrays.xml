@@ -5,6 +5,7 @@
         <item>Auto (system language)</item>
         <item>German (de)</item>
         <item>English (en)</item>
+        <item>Spanish (es)</item>
         <item>Italian (it)</item>
         <item>Romanian (ro)</item>
         <item>Chinese (simplified) (zh)</item>
@@ -14,6 +15,7 @@
         <item>auto</item>
         <item>de</item>
         <item>en</item>
+        <item>es</item>
         <item>it</item>
         <item>ro</item>
         <item>zh</item>

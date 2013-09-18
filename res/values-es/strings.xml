@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+
+    <!-- Translator name (used in the About box) -->
+    <string name="Anon">Frakbot</string>
+
+    <!-- Activity labels -->
+    <string name="activity_settings">Opciones de FWeather</string>
+    <string name="activity_credits">Autores</string>
+    <string name="activity_licenses">Licencias de terceros</string>
+
+    <!-- Service labels -->
+    <string name="updater_service">Servicio de actualización de FWeather</string>
+
+    <!-- Widget accessibility -->
+    <string name="cdesc_weathericon"><![CDATA[Clima actual]]></string>
+    <string name="cdesc_infobtn"><![CDATA[Información y opciones]]></string>
+    <string name="cdesc_refresh"><![CDATA[Actualizar]]></string>
+
+    <!-- Toasts -->
+    <string name="toast_feedback_mail_error">No se pudo enviar. Escribe un mail a frakbot+fweather@gmail.com</string>
+
+    <!-- Messages -->
+    <string name="no_weather_data">No hay datos del clima disponibles</string>
+    <string name="preparing_feedback">Preparando recomendaciones…</string>
+    <string name="feedback_service">Servicio de recomendaciones de FWeather</string>
+</resources>

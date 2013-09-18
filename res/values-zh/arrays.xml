@@ -21,8 +21,9 @@
         <item>自动(系统语言)</item>
         <item>德语(de)</item>
         <item>英语（en)</item>
+        <!-- TODO: item>Spanish (es)</item-->
         <item>意大利语(it)</item>
-        <!--item>Romanian (ro)</item-->
+        <!-- TODO: item>Romanian (ro)</item-->
         <item>简体中文(zh)</item>
     </string-array>
 
