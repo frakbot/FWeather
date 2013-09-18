@@ -6,7 +6,7 @@ Released on ??
 
 - NEW: Spanish translation
 - NEW: Romenian translation
-- NEW: even better feedback mechanism
+- NEW: even better feedback mechanism (waiting for confirmation)
 - FIX: crash on tablets when opening the Settings activity
 
 ### Version 2.0.1 ###
