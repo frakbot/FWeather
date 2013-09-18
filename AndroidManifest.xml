@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--suppress AndroidLintIconLocation -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="net.frakbot.FWeather"
           android:versionCode="12"
@@ -41,7 +42,7 @@
                   android:theme="@style/Theme.FWeather.Settings"/>
 
         <activity android:name=".activity.AuthorsDialog"
-                  android:label="@string/pref_title_info_authors"
+                  android:label="@string/activity_credits"
                   android:theme="@style/Theme.FWeather.Settings.Dialog"/>
 
         <activity android:name=".activity.LocationChooserDialog"

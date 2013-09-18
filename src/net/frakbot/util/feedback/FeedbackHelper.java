@@ -39,7 +39,8 @@ public class FeedbackHelper {
      * Google's own feedback mechanism, false otherwise.
      */
     public static boolean canSendAndroidFeedback(Context context) {
-        return canHandleIntent(context, BUG_REPORT_INTENT);
+        // TODO: re-enable Android feedback once it's confirmed it works (and how) on Google's side
+        return false; // canHandleIntent(context, BUG_REPORT_INTENT);
     }
 
     /**

@@ -18,7 +18,7 @@
 <resources>
 
     <!-- Translator name (used in the About box) -->
-    <string name="Anon">Frakbot</string>
+    <string name="translator_name">Anon</string>
 
     <!-- Activity labels -->
     <string name="activity_settings">Opciones de FWeather</string>
