@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="pref_key_ui_override_language_entries">
+        <item>Auto (limba sistemului)</item>
+        <item>Germană (de)</item>
+        <item>Engleză (en)</item>
+        <item>Italiană (it)</item>
+        <item>Română (ro)</item>
+        <item>Chineză (simplificată) (zh)</item>
+    </string-array>
+
+</resources>
