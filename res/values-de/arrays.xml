@@ -21,9 +21,9 @@
         <item>Autom. (System-Sprache)</item>
         <item>Deutsch (de)</item>
         <item>Englisch (en)</item>
-        <!-- TODO: item>Spanish (es)</item-->
+        <item>Spanisch (es)</item>
         <item>Italienisch (it)</item>
-        <!-- TODO: item>Romanian (ro)</item-->
+        <item>Rumänisch (ro)</item>
         <item>Chinesisch (vereinfacht) (zh)</item>
     </string-array>
 
