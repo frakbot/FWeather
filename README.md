@@ -25,6 +25,29 @@ You can download **FWeather** from the Google Play Store:
 
 Please note that we're also running a **public beta** through the Google Play Store. If you want to help us out and test new features, you can join the **testing community on Google+** here: https://plus.google.com/communities/110117001762069649703
 
+
+## Translating FWeather
+You can contribute to the FWeather translation in your own language. It's really easy, just follow [the intructions in our wiki](https://github.com/frakbot/FWeather/wiki/Translating-FWeather)!
+
+As of today, FWeather has been translated into the following languages:
+ * Chinese (Simplified) (by Hansi Liu)
+ * Deutsch (by Aaron Gerlach)
+ * English (by Frakbot)
+ * Italian (by Frakbot)
+
+The following languages will be available from v2.1:
+ * Romanian (by BruceLee)
+ * Spanish (by Anon)
+
+These languages are in the works and will come in future updates:
+ * Czech (by Pavel Tížek)
+
+## Contributing and requesting features
+Feel free to submit pull requests, we're more than open to your contributions!
+
+If you want to send us a generic feedback, [write us an email](mailto:frakbot+fweather@gmail.com).
+For bugs and feature requests, please [open an issue](https://github.com/frakbot/FWeather/issues) in the issue tracker.
+
 ## Credits
 This widget is partly based upon Surviving With Android's [WeatherApp](https://github.com/survivingwithandroid/Surviving-with-android/tree/master/WeatherApp) (released under the Apache 2 license), described in a [blog post](http://www.survivingwithandroid.com/2013/05/build-weather-app-json-http-android.html), and uses [OpenWeatherMap](http://openweathermap.org/)'s weather APIs.
 
