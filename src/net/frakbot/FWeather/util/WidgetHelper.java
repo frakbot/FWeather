@@ -20,6 +20,7 @@ import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.text.Html;
 import android.text.Spanned;
@@ -32,7 +33,8 @@ import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.updater.UpdaterService;
 import net.frakbot.FWeather.updater.weather.model.WeatherData;
 import net.frakbot.FWeather.widget.FontTextView;
-import net.frakbot.util.log.FLog;
+
+import java.util.Random;
 
 /**
  * Helper class that deals with finding resources to assign to
@@ -42,6 +44,7 @@ import net.frakbot.util.log.FLog;
  */
 public class WidgetHelper {
 
+    private static final String TAG = WidgetHelper.class.getSimpleName();
     private static final String PLACEHOLDER_COLOR = "%%COLOR%%";
 
     private Context mContext;
@@ -110,84 +113,84 @@ public class WidgetHelper {
         // Codes list: http://developer.yahoo.com/weather/
         if (weatherId == 3 || weatherId == 4 || (weatherId >= 37 && weatherId <= 39) ||
             weatherId == 45 || weatherId == 47) {// Thunderstorm
-            return getColoredSpannedString(R.string.weather_thunderstorm, R.color.weather_thunderstorm,
+            return getColoredSpannedString(R.array.weather_thunderstorm, R.color.weather_thunderstorm,
                                            R.color.weather_thunderstorm_dark, darkMode);
         }
         else if (weatherId == 8 || weatherId == 9) {
             // Drizzle
-            return getColoredSpannedString(R.string.weather_drizzle, R.color.weather_drizzle,
+            return getColoredSpannedString(R.array.weather_drizzle, R.color.weather_drizzle,
                                            R.color.weather_drizzle_dark, darkMode);
         }
         else if (weatherId == 10 || weatherId == 12 || weatherId == 40) {
             // Rain
-            return getColoredSpannedString(R.string.weather_rainy, R.color.weather_rainy,
+            return getColoredSpannedString(R.array.weather_rainy, R.color.weather_rainy,
                                            R.color.weather_rainy_dark, darkMode);
         }
         else if (weatherId == 17 || weatherId == 35) {
             // Hail
-            return getColoredSpannedString(R.string.weather_hail, R.color.weather_hail,
+            return getColoredSpannedString(R.array.weather_hail, R.color.weather_hail,
                                            R.color.weather_hail_dark, darkMode);
         }
         else if ((weatherId >= 13 && weatherId <= 16) || weatherId == 18 ||
                  (weatherId >= 41 && weatherId <= 43) || weatherId == 46) {
             // Snow
-            return getColoredSpannedString(R.string.weather_snowy, R.color.weather_snowy,
+            return getColoredSpannedString(R.array.weather_snowy, R.color.weather_snowy,
                                            R.color.weather_snowy_dark, darkMode);
         }
         else if (weatherId >= 19 && weatherId <= 22) {
             // Atmosphere (mist, smoke, etc)
-            return getColoredSpannedString(R.string.weather_haze, R.color.weather_haze,
+            return getColoredSpannedString(R.array.weather_haze, R.color.weather_haze,
                                            R.color.weather_haze_dark, darkMode);
         }
         else if (weatherId == 32 || weatherId == 34 ||
                  weatherId == 31 || weatherId == 33) {
             // Sunny or mostly sunny (day&night)
-            return getColoredSpannedString(R.string.weather_sunny, R.color.weather_sunny,
+            return getColoredSpannedString(R.array.weather_sunny, R.color.weather_sunny,
                                            R.color.weather_sunny_dark, darkMode);
         }
         else if (weatherId == 30 || weatherId == 44 || weatherId == 29) {
             // Partly cloudy (day&night)
-            return getColoredSpannedString(R.string.weather_partly_cloudy, R.color.weather_partly_cloudy,
+            return getColoredSpannedString(R.array.weather_partly_cloudy, R.color.weather_partly_cloudy,
                                            R.color.weather_partly_cloudy_dark, darkMode);
         }
         else if (weatherId >= 26 && weatherId <= 28) {
             // Cloudy
-            return getColoredSpannedString(R.string.weather_cloudy, R.color.weather_cloudy,
+            return getColoredSpannedString(R.array.weather_cloudy, R.color.weather_cloudy,
                                            R.color.weather_cloudy_dark, darkMode);
         }
         else if (weatherId == 23 || weatherId == 24) {
             // Windy
-            return getColoredSpannedString(R.string.weather_windy, R.color.weather_windy,
+            return getColoredSpannedString(R.array.weather_windy, R.color.weather_windy,
                                            R.color.weather_windy_dark, darkMode);
         }
         else if (weatherId == 25) {
             // Cold
-            return getColoredSpannedString(R.string.weather_cold, R.color.weather_cold,
+            return getColoredSpannedString(R.array.weather_cold, R.color.weather_cold,
                                            R.color.weather_cold_dark, darkMode);
         }
         else if (weatherId == 36) {
             // Hot
-            return getColoredSpannedString(R.string.weather_hot, R.color.weather_hot,
+            return getColoredSpannedString(R.array.weather_hot, R.color.weather_hot,
                                            R.color.weather_hot_dark, darkMode);
         }
         else if (weatherId >= 0 && weatherId <= 2) {
             // Extreme weather
-            return getColoredSpannedString(R.string.weather_extreme, R.color.weather_extreme,
+            return getColoredSpannedString(R.array.weather_extreme, R.color.weather_extreme,
                                            R.color.weather_extreme_dark, darkMode);
         }
         else if (weatherId == 3200) {
             // Error: no weather available
-            return getColoredSpannedString(R.string.weather_no_weather, R.color.weather_no_weather,
+            return getColoredSpannedString(R.array.weather_no_weather, R.color.weather_no_weather,
                                            R.color.weather_no_weather_dark, darkMode);
         }
 
         else if (weatherId == 10000) {
             // Error: no location available
-            return getColoredSpannedString(R.string.weather_no_location, R.color.weather_no_location,
+            return getColoredSpannedString(R.array.weather_no_location, R.color.weather_no_location,
                                            R.color.weather_no_location_dark, darkMode);
         }
         else {
-            return getColoredSpannedString(R.string.weather_wtf, R.color.weather_wtf,
+            return getColoredSpannedString(R.array.weather_wtf, R.color.weather_wtf,
                                            R.color.weather_wtf_dark, darkMode);
         }
     }
@@ -195,18 +198,23 @@ public class WidgetHelper {
     /**
      * Returns the specified spanned string with the correct highlighting color.
      *
-     * @param stringId     The Resource ID of the string
+     * @param arrayId      The Resource ID of the string-array
      * @param lightColorId The Resource ID of the highlight color in normal (light) mode
      * @param darkColorId  The Resource ID of the highlight color in dark mode
      * @param darkMode     True if the widget is in dark mode, false otherwise
      *
      * @return Returns the spanned, colored string
      */
-    public Spanned getColoredSpannedString(int stringId, int lightColorId, int darkColorId, boolean darkMode) {
+    public Spanned getColoredSpannedString(int arrayId, int lightColorId, int darkColorId, boolean darkMode) {
+
         int color = mContext.getResources().getColor(!darkMode ? lightColorId : darkColorId);
-        String string = mContext.getString(stringId)
-                                .replace(PLACEHOLDER_COLOR, String.format("#%06X", (0xFFFFFF & color)));
-        return Html.fromHtml(string);
+        String[] stringArray = mContext.getResources().getStringArray(arrayId);
+        Random r = new Random();
+        int rand = r.nextInt(stringArray.length-1);
+        stringArray[rand] = stringArray[rand].replace(PLACEHOLDER_COLOR, String.format("#%06X", (0xFFFFFF & color)));
+        // FLog.d(mContext, TAG, "getColoredSpannedString(): return: ");
+        // FLog.d(mContext, TAG, stringArray[rand]);
+        return Html.fromHtml(stringArray[rand]);
     }
 
     /**
@@ -319,30 +327,30 @@ public class WidgetHelper {
             if (weather.conditionCode == WeatherData.WEATHER_ID_ERR_NO_LOCATION) {
 
                 // Error: no location available
-                return getColoredSpannedString(R.string.temp_no_location, R.color.temp_no_location,
+                return getColoredSpannedString(R.array.temp_no_location, R.color.temp_no_location,
                                                R.color.temp_no_location_dark, darkMode);
             }
             temp = weather.temperature;
         }
         else {
-            return getColoredSpannedString(R.string.temp_wtf, R.color.temp_wtf,
+            return getColoredSpannedString(R.array.temp_wtf, R.color.temp_wtf,
                                            R.color.temp_wtf_dark, darkMode);
         }
 
         if (temp < 0f) {
-            return getColoredSpannedString(R.string.temp_freezing, R.color.temp_freezing,
+            return getColoredSpannedString(R.array.temp_freezing, R.color.temp_freezing,
                                            R.color.temp_freezing_dark, darkMode);
         }
         else if (temp < 15f) {
-            return getColoredSpannedString(R.string.temp_cold, R.color.temp_cold,
+            return getColoredSpannedString(R.array.temp_cold, R.color.temp_cold,
                                            R.color.temp_cold_dark, darkMode);
         }
         else if (temp < 28f) {
-            return getColoredSpannedString(R.string.temp_warm, R.color.temp_warm,
+            return getColoredSpannedString(R.array.temp_warm, R.color.temp_warm,
                                            R.color.temp_warm_dark, darkMode);
         }
         else {
-            return getColoredSpannedString(R.string.temp_hot, R.color.temp_hot,
+            return getColoredSpannedString(R.array.temp_hot, R.color.temp_hot,
                                            R.color.temp_hot_dark, darkMode);
         }
     }
