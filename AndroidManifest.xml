@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--suppress AndroidLintIconLocation -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="net.frakbot.FWeather"
-          android:versionCode="12"
-          android:versionName="2.0.1">
+          android:versionCode="13"
+          android:versionName="2.1.0">
 
     <uses-sdk
             android:minSdkVersion="10"
@@ -41,7 +42,7 @@
                   android:theme="@style/Theme.FWeather.Settings"/>
 
         <activity android:name=".activity.AuthorsDialog"
-                  android:label="@string/pref_title_info_authors"
+                  android:label="@string/activity_credits"
                   android:theme="@style/Theme.FWeather.Settings.Dialog"/>
 
         <activity android:name=".activity.LocationChooserDialog"
@@ -51,10 +52,6 @@
         <service
                 android:name=".updater.UpdaterService"
                 android:label="@string/updater_service"/>
-
-        <service
-                android:name=".util.FeedbackService"
-                android:label="@string/feedback_service"/>
 
         <receiver android:name=".FWeatherWidgetProvider">
             <intent-filter>

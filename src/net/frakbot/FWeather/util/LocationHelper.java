@@ -30,6 +30,7 @@ import com.google.android.gms.common.GooglePlayServicesClient;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.location.LocationClient;
 import com.google.android.gms.location.LocationRequest;
+import net.frakbot.util.log.FLog;
 
 /**
  * Location helper class, takes care of abstracting the location modules.

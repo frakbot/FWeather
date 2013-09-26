@@ -19,10 +19,12 @@
 
     <string-array name="pref_key_ui_override_language_entries">
         <item>自动(系统语言)</item>
-        <item>英语（en)</item>
         <item>德语(de)</item>
+        <item>英语（en)</item>
+        <!-- TODO: item>Spanish (es)</item-->
         <item>意大利语(it)</item>
-        <item>简体中文(zh_s)</item>
+        <!-- TODO: item>Romanian (ro)</item-->
+        <item>简体中文(zh)</item>
     </string-array>
 
 </resources>

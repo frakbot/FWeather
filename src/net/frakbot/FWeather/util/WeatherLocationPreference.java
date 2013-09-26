@@ -26,6 +26,7 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.activity.LocationChooserDialog;
+import net.frakbot.util.log.FLog;
 
 /**
  * A preference that allows the user to choose a location, using the Yahoo! GeoPlanet API.

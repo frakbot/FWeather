@@ -22,7 +22,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import net.frakbot.FWeather.global.Const;
+import net.frakbot.global.Const;
+import net.frakbot.util.log.FLog;
 
 import java.util.Calendar;
 
@@ -45,6 +46,13 @@ public class AlarmHelper {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String valuePreference = prefs.getString(Const.Preferences.SYNC_FREQUENCY, "-1");
         int value = Integer.decode(valuePreference);
+
+        if (value == -1) {
+            FLog.d(context, TAG, "Auto-sync is off. Removing all alarms.");
+            deleteAlarms(context);
+            return;
+        }
+
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
         calendar.add(Calendar.SECOND, value);

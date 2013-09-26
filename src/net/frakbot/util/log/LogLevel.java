@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package net.frakbot.FWeather.util;
+package net.frakbot.util.log;
 
-/** A set of logging levels used by {@link FLog} */
+/** A set of logging levels used by {@link net.frakbot.util.log.FLog} */
 public enum LogLevel {
     /**
      * No logging at all.

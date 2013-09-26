@@ -24,10 +24,10 @@ import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.os.Build;
 import android.os.Bundle;
-import net.frakbot.FWeather.global.Const;
 import net.frakbot.FWeather.updater.UpdaterService;
 import net.frakbot.FWeather.util.WidgetHelper;
-import net.frakbot.FWeather.util.FLog;
+import net.frakbot.global.Const;
+import net.frakbot.util.log.FLog;
 
 public class FWeatherWidgetProvider extends AppWidgetProvider {
 

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <!-- Widget loading messages -->
+    <string name="loading_main"><![CDATA[Dejame ver por la puta ventaa.]]></string>
+    <string name="loading_small"><![CDATA[Acercate a una así te puedo decir el clima.]]></string>
+
+    <!-- Widget weather conditions -->
+    <string name="weather_sunny"><![CDATA[El puto <font color="%%COLOR%%">amor</font> está en el aire.]]></string>
+    <string name="weather_rainy"><![CDATA[Mierda, <font color="%%COLOR%%">llueve</font>.]]></string>
+    <string name="weather_cloudy"><![CDATA[Muchas <font color="%%COLOR%%">nubes</font> de mierda.]]></string>
+    <string name="weather_thunderstorm"><![CDATA[Mierda que hay <font color="%%COLOR%%">truenos!</font>]]></string>
+    <string name="weather_haze"><![CDATA[No se ve una <font color="%%COLOR%%">mierda</font>.]]></string>
+    <string name="weather_partly_cloudy"><![CDATA[En cualquier momento llueve. <font color="%%COLOR%%">Mierda.</font>]]></string>
+    <string name="weather_drizzle"><![CDATA[Llueve despacio. Lluvia de <font color="%%COLOR%%">mierda.</font>]]></string>
+    <string name="weather_snowy"><![CDATA[Here\'s <font color="%%COLOR%%">Santa</font> fucking Claus.]]></string>
+    <string name="weather_extreme"><![CDATA[<font color="%%COLOR%%">Corre</font> por tu puta vida.]]></string>
+    <string name="weather_windy"><![CDATA[<font color="%%COLOR%%">Mierda</font> que hay viento!]]></string>
+    <string name="weather_cold"><![CDATA[Un <font color="%%COLOR%%">frío</font> de cagarse.]]></string>
+    <string name="weather_hot"><![CDATA[El calor del puto <font color="%%COLOR%%">Satán!</font>]]></string>
+    <string name="weather_hail"><![CDATA[Caen putas <font color="%%COLOR%%">bombas de hielo!</font>]]></string>
+    <string name="weather_wtf"><![CDATA[<font color="%%COLOR%%">Qué carajo, </font>no podés mirar afuera?]]></string>
+    <string name="weather_no_weather"><![CDATA[LOL no tengo la más puta <font color="%%COLOR%%">idea.</font>]]></string>
+    <string name="weather_no_location"><![CDATA[<font color="%%COLOR%%">Qué mierda,</font> hombre!]]></string>
+
+    <!-- Widget temperature conditions -->
+    <string name="temp_freezing"><![CDATA[<font color="%%COLOR%%">Mierda.</font> Puto Polo Norte.]]></string>
+    <string name="temp_cold"><![CDATA[<font color="%%COLOR%%">Frío</font> como una puta heladera.]]></string>
+    <string name="temp_hot"><![CDATA[<font color="%%COLOR%%">Calor</font> como en un puto horno.]]></string>
+    <string name="temp_warm"><![CDATA[Disfruta los pájaros <font color="%%COLOR%%">cantando</font> y esa mierda.]]></string>
+    <string name="temp_wtf"><![CDATA[No, en serio, sería lo mejor, no tengo <font color="%%COLOR%%">la más puta idea.</font>]]></string>
+    <string name="temp_no_location"><![CDATA[No tengo una puta <font color="%%COLOR%%">bola de cristal!</font> Activa el GPS en Location Services.]]></string>
+
+</resources>

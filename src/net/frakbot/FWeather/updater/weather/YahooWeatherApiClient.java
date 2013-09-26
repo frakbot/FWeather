@@ -22,7 +22,7 @@ import android.util.Pair;
 import net.frakbot.FWeather.FWeatherApplication;
 import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.updater.weather.model.WeatherData;
-import net.frakbot.FWeather.util.FLog;
+import net.frakbot.util.log.FLog;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;

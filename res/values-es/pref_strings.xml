@@ -1,0 +1,94 @@
+<!--
+  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <!-- Strings related to Settings -->
+
+    <!-- Settings for Widget Customization (some come from DashClock) -->
+    <string name="pref_header_customization">Personalización</string>
+    <string name="pref_title_customize_widgets">Personalizar widgets</string>
+    <string name="pref_title_ui_toggle_buttons">Botones del widget</string>
+    <string name="pref_title_ui_toggle_weather_icon">Icono del clima</string>
+    <string name="pref_title_ui_toggle_temperature_info">Temperatura \"info\"</string>
+    <string name="pref_title_ui_darkmode">Modo oscuro</string>
+    <string name="pref_title_ui_override_language">Idioma del widget</string>
+    <string name="pref_title_ui_bgopacity">Fondo del widget</string>
+    <string name="pref_summary_ui_darkmode">Adapta los colores para fondos claros</string>
+
+    <string-array name="pref_ui_bgopacity_titles">
+        <item>Ninguno</item>
+        <item>Poco</item>
+        <item>Medio</item>
+        <item>Mucho</item>
+        <item>Opaco</item>
+    </string-array>
+
+    <!-- Settings for Data & Sync -->
+    <string name="pref_header_data_sync">Datos y sincronización</string>
+    <string name="pref_title_sync_frequency">Frecuencia de sincronización</string>
+    <string name="pref_title_sync_force">Actualizar datos del tiempo</string>
+    <string name="toast_force_update">OK, OK, no hace falta que seas un dolor de culo. Haciéndolo ahora. Contento?</string>
+
+    <string-array name="pref_sync_frequency_titles">
+        <!--item>1 minuto</item-->
+        <item>5 minutos</item>
+        <item>10 minutos</item>
+        <item>15 minutos</item>
+        <item>30 minutos</item>
+        <item>1 hora</item>
+        <item>3 horas</item>
+        <item>6 horas</item>
+        <item>12 horas</item>
+        <item>24 horas</item>
+        <item>Nunca</item>
+    </string-array>
+
+    <!-- Settings for Info -->
+    <string name="pref_header_info">Información</string>
+    <string name="pref_title_info_authors">Sobre FWeather</string>
+    <string name="pref_title_info_license">Licencias de terceros</string>
+    <string name="pref_title_feedback">Enviar tu opinión</string>
+    <string name="pref_title_changelog">Cambios</string>
+    <string name="pref_msg_changelog">Sí, no. Draaag! Tal vez en otro momento, hombre…</string>
+    <string name="feedback_send_chooser_title">Enviar tu opinión por email usando:</string>
+
+    <!-- Settings for Advanced -->
+    <string name="pref_header_advanced">Avanzado</string>
+    <string name="pref_title_analytics">Analytics</string>
+    <string name="analytics_disable_warning">Esta app usa Google Analytics para determinar las características más usadas, de forma anónima, y nos ayuda a concentrar el desarrollo de la app en las áreas donde es necesario.</string>
+    <string name="analytics_disabled">Google Analytics está disabled.</string>
+    <string name="analytics_enabled_thanks">Google Analytics está activado.</string>
+    <string name="pref_title_debug">Desarrollo</string>
+    <string name="pref_summary_debug">Activar SÓLO para reportar errores!</string>
+
+    <string name="pref_title_weather_location">Ubicación</string>
+    <string name="pref_weather_location_query_hint">Buscar una ubicación</string>
+    <string name="pref_weather_location_automatic">Automático</string>
+    <string name="pref_weather_location_automatic_description">Basada en tu ubicación actual.</string>
+
+    <!-- ABOUT DIALOG -->
+    <!-- TODO: string name="about_body">Get your fucking weather right</string-->
+    <!-- Note to translators: remember to set your name in the strings.xml file, in the translator_name string -->
+    <!-- TODO: string name="about_developers"><![CDATA[Developed by <b>Frakbot</b> (Sebastiano Poggi and Francesco Pontillo).<p/>Based on the <i>Authentic Weather</i> concept by <b>Tobias van Scheider</b>.<p/>Translated with fucking love by <b>%s</b>.]]></string-->
+    <!-- TODO: string name="donate_frakbot">Donate to\nFrakbot</string-->
+
+    <!-- Action Bar items -->
+    <!-- TODO: string name="done">DONE</string-->
+
+    <!-- Switch values -->
+    <!-- TODO: string name="on">ON</string-->
+    <!-- TODO: string name="off">OFF</string-->
+</resources>

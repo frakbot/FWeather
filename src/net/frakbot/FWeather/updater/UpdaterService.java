@@ -36,9 +36,10 @@ import android.widget.RemoteViews;
 import android.widget.Toast;
 import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.activity.SettingsActivity;
-import net.frakbot.FWeather.global.Const;
 import net.frakbot.FWeather.updater.weather.model.WeatherData;
 import net.frakbot.FWeather.util.*;
+import net.frakbot.global.Const;
+import net.frakbot.util.log.FLog;
 
 import java.io.IOException;
 import java.util.Locale;

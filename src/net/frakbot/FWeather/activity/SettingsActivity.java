@@ -36,8 +36,12 @@ import android.widget.Toast;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockPreferenceActivity;
 import net.frakbot.FWeather.R;
-import net.frakbot.FWeather.global.Const;
-import net.frakbot.FWeather.util.*;
+import net.frakbot.FWeather.util.TrackerHelper;
+import net.frakbot.FWeather.util.WeatherLocationPreference;
+import net.frakbot.FWeather.util.WidgetHelper;
+import net.frakbot.global.Const;
+import net.frakbot.util.feedback.FeedbackHelper;
+import net.frakbot.util.log.FLog;
 import org.jraf.android.backport.switchwidget.SwitchPreference;
 
 import java.util.List;
@@ -106,7 +110,6 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
             setupActionBar(actionBar);
         }
 
-        buildListener();
         setupSimplePreferencesScreen();
     }
 
@@ -278,7 +281,7 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
             public boolean onPreferenceClick(final Preference preference) {
                 FLog.i(SettingsActivity.this, TAG, "Sending feedback");
 
-                startService(new Intent(SettingsActivity.this, FeedbackService.class));
+                FeedbackHelper.sendFeedback(SettingsActivity.this);
                 preference.setEnabled(false);
                 mHandler.postDelayed(new Runnable() {
                     @Override
@@ -315,6 +318,11 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
 
     /** Builds the listener for the preference changes. */
     private void buildListener() {
+        if (sBindPreferenceSummaryToValueListener != null) {
+            FLog.v(TAG, "buildListener() won't do anything because the listener already exists");
+            return;
+        }
+
         sBindPreferenceSummaryToValueListener = new Preference.OnPreferenceChangeListener() {
             @Override
             public boolean onPreferenceChange(Preference preference, Object value) {
@@ -475,6 +483,11 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
      * @see #sBindPreferenceSummaryToValueListener
      */
     public void bindPreferenceSummaryToValue(Preference preference) {
+        if (sBindPreferenceSummaryToValueListener == null) {
+            FLog.i(TAG, "Preference summary listener isn't initialized, creating it now");
+            buildListener();
+        }
+
         // Set the listener to watch for value changes.
         preference
             .setOnPreferenceChangeListener(sBindPreferenceSummaryToValueListener);

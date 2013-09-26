@@ -21,8 +21,8 @@ import android.widget.TextView;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.updater.weather.YahooWeatherApiClient;
-import net.frakbot.FWeather.util.FLog;
 import net.frakbot.FWeather.util.WeatherLocationPreference;
+import net.frakbot.util.log.FLog;
 
 import java.util.ArrayList;
 import java.util.List;
