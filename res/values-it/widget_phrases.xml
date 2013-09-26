@@ -22,29 +22,73 @@
     <string name="loading_small"><![CDATA[Avvicinati così posso dirti il meteo.]]></string>
 
     <!-- Widget weather conditions -->
-    <string name="weather_sunny"><![CDATA[C\'è dell\'<font color="%%COLOR%%">amore</font> del cazzo nell\'aria.]]></string>
-    <string name="weather_rainy"><![CDATA[Sta <font color="%%COLOR%%">piovendo,</font> ora. Merda.]]></string>
-    <string name="weather_cloudy"><![CDATA[È tutto di un <font color="%%COLOR%%">grigio</font> di merda.]]></string>
-    <string name="weather_thunderstorm"><![CDATA[I <font color="%%COLOR%%">fulmini dell\'Ade</font> del cazzo.]]></string>
-    <string name="weather_haze"><![CDATA[<font color="%%COLOR%%">Non vedo</font> uno stracazzo.]]></string>
-    <string name="weather_partly_cloudy"><![CDATA[Non piove, cazzo. <font color="%%COLOR%%">Per ora.</font>]]></string>
-    <string name="weather_drizzle"><![CDATA[Pioviggina, come una <font color="%%COLOR%%">fighetta.</font>]]></string>
-    <string name="weather_snowy"><![CDATA[Arriva il <font color="%%COLOR%%">Babbo Natale</font> del cazzo.]]></string>
-    <string name="weather_extreme"><![CDATA[<font color="%%COLOR%%">Corri</font> per salvarti la vita.]]></string>
-    <string name="weather_windy"><![CDATA[<font color="%%COLOR%%">Eolo</font> è strasimpa oggi, merda.]]></string>
-    <string name="weather_cold"><![CDATA[<font color="%%COLOR%%">L\'inverno sta arrivando</font>, cazzo.]]></string>
-    <string name="weather_hot"><![CDATA[Ave, fottutissimo <font color="%%COLOR%%">Satana!</font>]]></string>
-    <string name="weather_hail"><![CDATA[Piovono cazzo di <font color="%%COLOR%%">bombe</font> di ghiaccio]]></string>
-    <string name="weather_wtf"><![CDATA[<font color="%%COLOR%%">Che cazzo,</font> non sai guardare da solo?]]></string>
-    <string name="weather_no_location"><![CDATA[<font color="%%COLOR%%">\'catroia,</font> ciccio!]]></string>
-    <string name="weather_no_weather"><![CDATA[LOL merda tipo <font color="%%COLOR%%">non lo so</font>]]></string>
+    <string-array name="weather_sunny">
+      <item><![CDATA[C\'è dell\'<font color="%%COLOR%%">amore</font> del cazzo nell\'aria.]]></item>
+    </string-array>
+    <string-array name="weather_rainy">
+      <item><![CDATA[Sta <font color="%%COLOR%%">piovendo,</font> ora. Merda.]]></item>
+    </string-array>
+    <string-array name="weather_cloudy">
+      <item><![CDATA[È tutto di un <font color="%%COLOR%%">grigio</font> di merda.]]></item>
+    </string-array>
+    <string-array name="weather_thunderstorm">
+      <item><![CDATA[I <font color="%%COLOR%%">fulmini dell\'Ade</font> del cazzo.]]></item>
+    </string-array>
+    <string-array name="weather_haze">
+      <item><![CDATA[<font color="%%COLOR%%">Non vedo</font> uno stracazzo.]]></item>
+    </string-array>
+    <string-array name="weather_partly_cloudy">
+      <item><![CDATA[Non piove, cazzo. <font color="%%COLOR%%">Per ora.</font>]]></item>
+    </string-array>
+    <string-array name="weather_drizzle">
+      <item><![CDATA[Pioviggina, come una <font color="%%COLOR%%">fighetta.</font>]]></item>
+    </string-array>
+    <string-array name="weather_snowy">
+      <item><![CDATA[Arriva il <font color="%%COLOR%%">Babbo Natale</font> del cazzo.]]></item>
+    </string-array>
+    <string-array name="weather_extreme">
+      <item><![CDATA[<font color="%%COLOR%%">Corri</font> per salvarti la vita.]]></item>
+    </string-array>
+    <string-array name="weather_windy">
+      <item><![CDATA[<font color="%%COLOR%%">Eolo</font> è strasimpa oggi, merda.]]></item>
+    </string-array>
+    <string-array name="weather_cold">
+      <item><![CDATA[<font color="%%COLOR%%">L\'inverno sta arrivando</font>, cazzo.]]></item>
+    </string-array>
+    <string-array name="weather_hot">
+      <item><![CDATA[Ave, fottutissimo <font color="%%COLOR%%">Satana!</font>]]></item>
+    </string-array>
+    <string-array name="weather_hail">
+      <item><![CDATA[Piovono cazzo di <font color="%%COLOR%%">bombe</font> di ghiaccio]]></item>
+    </string-array>
+    <string-array name="weather_wtf">
+      <item><![CDATA[<font color="%%COLOR%%">Che cazzo,</font> non sai guardare da solo?]]></item>
+    </string-array>
+    <string-array name="weather_no_location">
+      <item><![CDATA[<font color="%%COLOR%%">\'catroia,</font> ciccio!]]></item>
+    </string-array>
+    <string-array name="weather_no_weather">
+      <item><![CDATA[LOL merda tipo <font color="%%COLOR%%">non lo so</font>]]></item>
+    </string-array>
 
     <!-- Widget temperature conditions -->
-    <string name="temp_freezing"><![CDATA[<font color="%%COLOR%%">Porca troia.</font> E\' tipo il polo nord.]]></string>
-    <string name="temp_cold"><![CDATA[Fa <font color="%%COLOR%%">freddo</font> come in un cazzo di frigo.]]></string>
-    <string name="temp_hot"><![CDATA[È <font color="%%COLOR%%">caldo</font> come un forno del cazzo.]]></string>
-    <string name="temp_warm"><![CDATA[Goditi i cazzo di uccellini che <font color="%%COLOR%%">cantano</font> e cagate simili.]]></string>
-    <string name="temp_wtf"><![CDATA[Cazzo, sul serio, al momento è la tua chance migliore, io <font color="%%COLOR%%">non ne ho idea.</font>]]></string>
-    <string name="temp_no_location"><![CDATA[Non ho una fottuta <font color="%%COLOR%%">sfera di cristallo!</font> Attiva il GPS o i Servizi di Posizione.]]></string>
+    <string-array name="temp_freezing">
+      <item><![CDATA[<font color="%%COLOR%%">Porca troia.</font> E\' tipo il polo nord.]]></item>
+    </string-array>
+    <string-array name="temp_cold">
+      <item><![CDATA[Fa <font color="%%COLOR%%">freddo</font> come in un cazzo di frigo.]]></item>
+    </string-array>
+    <string-array name="temp_hot">
+      <item><![CDATA[È <font color="%%COLOR%%">caldo</font> come un forno del cazzo.]]></item>
+    </string-array>
+    <string-array name="temp_warm">
+      <item><![CDATA[Goditi i cazzo di uccellini che <font color="%%COLOR%%">cantano</font> e cagate simili.]]></item>
+    </string-array>
+    <string-array name="temp_wtf">
+      <item><![CDATA[Cazzo, sul serio, al momento è la tua chance migliore, io <font color="%%COLOR%%">non ne ho idea.</font>]]></item>
+    </string-array>
+    <string-array name="temp_no_location">
+      <item><![CDATA[Non ho una fottuta <font color="%%COLOR%%">sfera di cristallo!</font> Attiva il GPS o i Servizi di Posizione.]]></item>
+    </string-array>
 
 </resources>
