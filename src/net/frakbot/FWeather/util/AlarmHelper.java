@@ -46,6 +46,13 @@ public class AlarmHelper {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String valuePreference = prefs.getString(Const.Preferences.SYNC_FREQUENCY, "-1");
         int value = Integer.decode(valuePreference);
+
+        if (value == -1) {
+            FLog.d(context, TAG, "Auto-sync is off. Removing all alarms.");
+            deleteAlarms(context);
+            return;
+        }
+
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
         calendar.add(Calendar.SECOND, value);
