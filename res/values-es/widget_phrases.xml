@@ -21,29 +21,73 @@
     <string name="loading_small"><![CDATA[Acercate a una así te puedo decir el clima.]]></string>
 
     <!-- Widget weather conditions -->
-    <string name="weather_sunny"><![CDATA[El puto <font color="%%COLOR%%">amor</font> está en el aire.]]></string>
-    <string name="weather_rainy"><![CDATA[Mierda, <font color="%%COLOR%%">llueve</font>.]]></string>
-    <string name="weather_cloudy"><![CDATA[Muchas <font color="%%COLOR%%">nubes</font> de mierda.]]></string>
-    <string name="weather_thunderstorm"><![CDATA[Mierda que hay <font color="%%COLOR%%">truenos!</font>]]></string>
-    <string name="weather_haze"><![CDATA[No se ve una <font color="%%COLOR%%">mierda</font>.]]></string>
-    <string name="weather_partly_cloudy"><![CDATA[En cualquier momento llueve. <font color="%%COLOR%%">Mierda.</font>]]></string>
-    <string name="weather_drizzle"><![CDATA[Llueve despacio. Lluvia de <font color="%%COLOR%%">mierda.</font>]]></string>
-    <string name="weather_snowy"><![CDATA[Here\'s <font color="%%COLOR%%">Santa</font> fucking Claus.]]></string>
-    <string name="weather_extreme"><![CDATA[<font color="%%COLOR%%">Corre</font> por tu puta vida.]]></string>
-    <string name="weather_windy"><![CDATA[<font color="%%COLOR%%">Mierda</font> que hay viento!]]></string>
-    <string name="weather_cold"><![CDATA[Un <font color="%%COLOR%%">frío</font> de cagarse.]]></string>
-    <string name="weather_hot"><![CDATA[El calor del puto <font color="%%COLOR%%">Satán!</font>]]></string>
-    <string name="weather_hail"><![CDATA[Caen putas <font color="%%COLOR%%">bombas de hielo!</font>]]></string>
-    <string name="weather_wtf"><![CDATA[<font color="%%COLOR%%">Qué carajo, </font>no podés mirar afuera?]]></string>
-    <string name="weather_no_weather"><![CDATA[LOL no tengo la más puta <font color="%%COLOR%%">idea.</font>]]></string>
-    <string name="weather_no_location"><![CDATA[<font color="%%COLOR%%">Qué mierda,</font> hombre!]]></string>
+    <string-array name="weather_sunny">
+      <item><![CDATA[El puto <font color="%%COLOR%%">amor</font> está en el aire.]]></item>
+    </string-array>
+    <string-array name="weather_rainy">
+      <item><![CDATA[Mierda, <font color="%%COLOR%%">llueve</font>.]]></item>
+    </string-array>
+    <string-array name="weather_cloudy">
+      <item><![CDATA[Muchas <font color="%%COLOR%%">nubes</font> de mierda.]]></item>
+    </string-array>
+    <string-array name="weather_thunderstorm">
+      <item><![CDATA[Mierda que hay <font color="%%COLOR%%">truenos!</font>]]></item>
+    </string-array>
+    <string-array name="weather_haze">
+      <item><![CDATA[No se ve una <font color="%%COLOR%%">mierda</font>.]]></item>
+    </string-array>
+    <string-array name="weather_partly_cloudy">
+      <item><![CDATA[En cualquier momento llueve. <font color="%%COLOR%%">Mierda.</font>]]></item>
+    </string-array>
+    <string-array name="weather_drizzle">
+      <item><![CDATA[Llueve despacio. Lluvia de <font color="%%COLOR%%">mierda.</font>]]></item>
+    </string-array>
+    <string-array name="weather_snowy">
+      <item><![CDATA[Here\'s <font color="%%COLOR%%">Santa</font> fucking Claus.]]></item>
+    </string-array>
+    <string-array name="weather_extreme">
+      <item><![CDATA[<font color="%%COLOR%%">Corre</font> por tu puta vida.]]></item>
+    </string-array>
+    <string-array name="weather_windy">
+      <item><![CDATA[<font color="%%COLOR%%">Mierda</font> que hay viento!]]></item>
+    </string-array>
+    <string-array name="weather_cold">
+      <item><![CDATA[Un <font color="%%COLOR%%">frío</font> de cagarse.]]></item>
+    </string-array>
+    <string-array name="weather_hot">
+      <item><![CDATA[El calor del puto <font color="%%COLOR%%">Satán!</font>]]></item>
+    </string-array>
+    <string-array name="weather_hail">
+      <item><![CDATA[Caen putas <font color="%%COLOR%%">bombas de hielo!</font>]]></item>
+    </string-array>
+    <string-array name="weather_wtf">
+      <item><![CDATA[<font color="%%COLOR%%">Qué carajo, </font>no podés mirar afuera?]]></item>
+    </string-array>
+    <string-array name="weather_no_weather">
+      <item><![CDATA[LOL no tengo la más puta <font color="%%COLOR%%">idea.</font>]]></item>
+    </string-array>
+    <string-array name="weather_no_location">
+      <item><![CDATA[<font color="%%COLOR%%">Qué mierda,</font> hombre!]]></item>
+    </string-array>
 
     <!-- Widget temperature conditions -->
-    <string name="temp_freezing"><![CDATA[<font color="%%COLOR%%">Mierda.</font> Puto Polo Norte.]]></string>
-    <string name="temp_cold"><![CDATA[<font color="%%COLOR%%">Frío</font> como una puta heladera.]]></string>
-    <string name="temp_hot"><![CDATA[<font color="%%COLOR%%">Calor</font> como en un puto horno.]]></string>
-    <string name="temp_warm"><![CDATA[Disfruta los pájaros <font color="%%COLOR%%">cantando</font> y esa mierda.]]></string>
-    <string name="temp_wtf"><![CDATA[No, en serio, sería lo mejor, no tengo <font color="%%COLOR%%">la más puta idea.</font>]]></string>
-    <string name="temp_no_location"><![CDATA[No tengo una puta <font color="%%COLOR%%">bola de cristal!</font> Activa el GPS en Location Services.]]></string>
+    <string-array name="temp_freezing">
+      <item><![CDATA[<font color="%%COLOR%%">Mierda.</font> Puto Polo Norte.]]></item>
+    </string-array>
+    <string-array name="temp_cold">
+      <item><![CDATA[<font color="%%COLOR%%">Frío</font> como una puta heladera.]]></item>
+    </string-array>
+    <string-array name="temp_hot">
+      <item><![CDATA[<font color="%%COLOR%%">Calor</font> como en un puto horno.]]></item>
+    </string-array>
+    <string-array name="temp_warm">
+      <item><![CDATA[Disfruta los pájaros <font color="%%COLOR%%">cantando</font> y esa mierda.]]></item>
+    </string-array>
+    <string-array name="temp_wtf">
+      <item><![CDATA[No, en serio, sería lo mejor, no tengo <font color="%%COLOR%%">la más puta idea.</font>]]></item>
+    </string-array>
+    <string-array name="temp_no_location">
+      <item><![CDATA[No tengo una puta <font color="%%COLOR%%">bola de cristal!</font> Activa el GPS en Location Services.]]></item>
+    </string-array>
 
 </resources>

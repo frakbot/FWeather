@@ -18,32 +18,143 @@
 <resources>
     <!-- Widget loading messages -->
     <string name="loading_main"><![CDATA[Stai să mă uit, în pula mea, pe geam.]]></string>
-    <string name="loading_small"><![CDATA[Vino mai aproape să-ţi spun cum e cu vremea.]]></string>
+    <string name="loading_small"><![CDATA[Ai răbdare... Inventez expresii de căcat...]]></string>
+
 
     <!-- Widget weather conditions -->
-    <string name="weather_sunny"><![CDATA[Te bate <font color="%%COLOR%%">soarele</font>-n cap.]]></string>
-    <string name="weather_rainy"><![CDATA[<font color="%%COLOR%%">Plouă</font> să-mi bag pula.]]></string>
-    <string name="weather_cloudy"><![CDATA[E <font color="%%COLOR%%">înnorat</font> în pizda mă-sii.]]></string>
-    <string name="weather_thunderstorm"><![CDATA[Fute-m-ar trăznetu de nu-i <font color="%%COLOR%%">furtună</font>.]]></string>
-    <string name="weather_haze"><![CDATA[Nu-ţi vezi pula de <font color="%%COLOR%%">ceaţă</font>.]]></string>
-    <string name="weather_partly_cloudy"><![CDATA[Poţi scoate coaiele la aer că nu plouă… <font color="%%COLOR%%">Încă.</font>]]></string>
-    <string name="weather_drizzle"><![CDATA[E ceva <font color="%%COLOR%%">umed</font> la mijloc.]]></string>
-    <string name="weather_snowy"><![CDATA[Cică <font color="%%COLOR%%">ninge</font>. Nu cred.]]></string>
-    <string name="weather_extreme"><![CDATA[<font color="%%COLOR%%">Fugi</font>, în pula mea, cât mai poţi!]]></string>
-    <string name="weather_windy"><![CDATA[<font color="%%COLOR%%">Aeolus</font> e pus pe caterincă trăiască-i mă-sa.]]></string>
-    <string name="weather_cold"><![CDATA[A venit vremea să purtăm <font color="%%COLOR%%">chiloţi</font> fute-m-aş.]]></string>
-    <string name="weather_hot"><![CDATA[<font color="%%COLOR%%">Supradoză</font> de căldură-n pula mea!]]></string>
-    <string name="weather_hail"><![CDATA[Plouă cu <font color="%%COLOR%%">coaie de gheaţă</font>!]]></string>
-    <string name="weather_wtf"><![CDATA[Ce pula mea? Nu poţi să te uiţi pe <font color="%%COLOR%%">geam</font>?]]></string>
-    <string name="weather_no_weather"><![CDATA[Să moară Fram de ştiu <font color="%%COLOR%%">cum</font> e vremea.]]></string>
-    <string name="weather_no_location"><![CDATA[Să dea dracii de ştiu <font color="%%COLOR%%">unde</font> eşti, coaie.]]></string>
+    <string-array name="weather_sunny">
+      <item><![CDATA[Te bate <font color="%%COLOR%%">soarele-n</font> cap.]]></item>
+      <item><![CDATA[Sfântul coi ne <font color="%%COLOR%%">încălzeşte.</font>]]></item>
+      <item><![CDATA[Cică-i <font color="%%COLOR%%">soare.</font>]]></item>
+      <item><![CDATA[Avem d-ăla de dă <font color="%%COLOR%%">căldură.</font>]]></item>
+      <item><![CDATA[<font color="%%COLOR%%">Caloriferul ceresc</font> veghează.]]></item>
+    </string-array>
+
+    <string-array name="weather_rainy">
+      <item><![CDATA[<font color="%%COLOR%%">Plouă</font> să-mi bag pula.]]></item>
+      <item><![CDATA[Treaba-i <font color="%%COLOR%%">udă.</font>]]></item>
+      <item><![CDATA[Aruncaţi <font color="%%COLOR%%">umbrelele</font> în aer.]]></item>
+      <item><![CDATA[Să mori tu că <font color="%%COLOR%%">plouă</font>?!?]]></item>
+      <item><![CDATA[Doamne... <font color="%%COLOR%%">Te pişi</font>?]]></item>
+    </string-array>
+
+    <string-array name="weather_cloudy">
+      <item><![CDATA[<font color="%%COLOR%%">E-nnorat</font> în pizda mă-sii.]]></item>
+      <item><![CDATA[<font color="%%COLOR%%">E-nnorat</font> în pula mea.]]></item>
+      <item><![CDATA[<font color="%%COLOR%%">Era să</font> se vadă soarele.]]></item>
+    </string-array>
+
+    <string-array name="weather_thunderstorm">
+      <item><![CDATA[Fute-m-ar trăznetu de nu-i <font color="%%COLOR%%">furtună.</font>]]></item>
+      <item><![CDATA[Vine <font color="%%COLOR%%">vâju\'</font> coaie!]]></item>
+      <item><![CDATA[Când te-o păli <font color="%%COLOR%%">vijelia...</font>]]></item>
+      <item><![CDATA[Îţi propun să <font color="%%COLOR%%">rămâi la bere...</font>]]></item>
+    </string-array>
+
+    <string-array name="weather_haze">
+      <item><![CDATA[Nu-ţi vezi pula de <font color="%%COLOR%%">ceaţă.</font>]]></item>
+      <item><![CDATA[E <font color="%%COLOR%%">ceaţă-n</font> pula mea.]]></item>
+      <item><![CDATA[Faruri de <font color="%%COLOR%%">ceaţă</font>! Zic.]]></item>
+      <item><![CDATA[Nu, nu e geamul <font color="%%COLOR%%">jegos...</font>]]></item>
+      <item><![CDATA[Cred că nu iau de unde trebuie. <font color="%%COLOR%%">Ceaţă</font>?]]></item>
+    </string-array>
+
+    <string-array name="weather_partly_cloudy">
+      <item><![CDATA[Poţi scoate coaiele la aer că nu plouă... <font color="%%COLOR%%">Încă.</font>]]></item>
+      <item><![CDATA[E frumos dar <font color="%%COLOR%%">nu prea...</font>]]></item>
+      <item><![CDATA[<font color="%%COLOR%%">Înnorăcioasă</font> treabă...]]></item>
+    </string-array>
+
+    <string-array name="weather_drizzle">
+      <item><![CDATA[E ceva <font color="%%COLOR%%">umed</font> la mijloc.]]></item>
+      <item><![CDATA[Vremea a luat-o pe <font color="%%COLOR%%">ciupercoase.</font>]]></item>
+    </string-array>
+
+    <string-array name="weather_snowy">
+      <item><![CDATA[Cică <font color="%%COLOR%%">ninge.</font> Nu cred.]]></item>
+      <item><![CDATA[<font color="%%COLOR%%">Moş Crăciun</font> are 3 orgasme acum.]]></item>
+      <item><![CDATA[Hai cu <font color="%%COLOR%%">sania</font> pe autostradă.]]></item>
+      <item><![CDATA[Fă o pulă de <font color="%%COLOR%%">zăpadă.</font>]]></item>
+    </string-array>
+
+    <string-array name="weather_extreme">
+      <item><![CDATA[<font color="%%COLOR%%">Fugi</font>, în pula mea, cât mai poţi!]]></item>
+      <item><![CDATA[Imaginează-ţi c-au venit <font color="%%COLOR%%">zombalăii</font>!]]></item>
+      <item><![CDATA[Asigură-te că eşti într-o <font color="%%COLOR%%">cocioabă</font> rezistentă!]]></item>
+    </string-array>
+
+    <string-array name="weather_windy">
+      <item><![CDATA[<font color="%%COLOR%%">Aeolus</font> e pus pe caterincă trăiască-i mă-sa.]]></item>
+      <item><![CDATA[Mă cam bate <font color="%%COLOR%%">vântu-n</font> coaie.]]></item>
+      <item><![CDATA[Mi se <font color="%%COLOR%%">fâlfâie</font> pula.]]></item>
+    </string-array>
+
+    <string-array name="weather_cold">
+      <item><![CDATA[A venit vremea să purtăm <font color="%%COLOR%%">chiloţi</font> fute-m-aş.]]></item>
+    </string-array>
+
+    <string-array name="weather_hot">
+      <item><![CDATA[E cald ca <font color="%%COLOR%%">dracu</font>!]]></item>
+      <item><![CDATA[<font color="%%COLOR%%">Supradoză</font> de căldură-n pula mea!]]></item>
+    </string-array>
+
+    <string-array name="weather_hail">
+      <item><![CDATA[Plouă cu <font color="%%COLOR%%">coaie de gheaţă</font>!]]></item>
+    </string-array>
+
+    <string-array name="weather_wtf">
+      <item><![CDATA[Ce pula mea? Nu poţi să te uiţi pe <font color="%%COLOR%%">geam</font>?]]></item>
+    </string-array>
+
+    <string-array name="weather_no_weather">
+      <item><![CDATA[Să moară Fram de ştiu <font color="%%COLOR%%">cum</font> e vremea.]]></item>
+    </string-array>
+
+    <string-array name="weather_no_location">
+      <item><![CDATA[Să dea dracii de ştiu <font color="%%COLOR%%">unde</font> eşti, coaie.]]></item>
+    </string-array>
+
 
     <!-- Widget temperature conditions -->
-    <string name="temp_freezing"><![CDATA[E <font color="%%COLOR%%">cancer</font> coaie!]]></string>
-    <string name="temp_cold"><![CDATA[Copacii albi, copacii negrii, îmi bag pula e <font color="%%COLOR%%">frig</font>.]]></string>
-    <string name="temp_hot"><![CDATA[E cald ca <font color="%%COLOR%%">dracu</font>!]]></string>
-    <string name="temp_warm"><![CDATA[A venit vremea să fuţi un drum până la cea mai apropiată <font color="%%COLOR%%">terasă</font>.]]></string>
-    <string name="temp_wtf"><![CDATA[Vorbesc serios… Chiar <font color="%%COLOR%%">n-am idee</font> cum e vremea.]]></string>
-    <string name="temp_no_location"><![CDATA[Nu sunt atotştiutor prietenaş. <font color="%%COLOR%%">Activează</font>, în pula mea, GPS-ul sau serviciile de localizare!]]></string>
+    <string-array name="temp_freezing">
+      <item><![CDATA[Astrele spun că-ţi vor <font color="%%COLOR%%">îngheţa</font> coaiele.]]></item>
+      <item><![CDATA[E <font color="%%COLOR%%">cancer</font> coaie!]]></item>
+      <item><![CDATA[Sărbătorile vin, sărbătorile vin... Nu orice vin, <font color="%%COLOR%%">vin fiert!</font>]]></item>
+      <item><![CDATA[Vinul după bere e plăcere, berea după vin e un chin. <font color="%%COLOR%%">Deci?</font>]]></item>
+      <item><![CDATA[Dacă vinul după bere e plăcere... <font color="%%COLOR%%">Vinul fiert</font> după bere cum e?]]></item>
+      <item><![CDATA[E puţin friguţ... <font color="%%COLOR%%">Al dracu\'</font> de friguţ!]]></item>
+    </string-array>
+
+    <string-array name="temp_cold">
+      <item><![CDATA[Astrele spun că-ţi va fi <font color="%%COLOR%%">friguţ</font> la coaie.]]></item>
+      <item><![CDATA[Copacii albi, copacii negrii, îmi bag pula e <font color="%%COLOR%%">frig.</font>]]></item>
+      <item><![CDATA[<font color="%%COLOR%%">Fascinant...</font> Deja nu ştiu dacă să mă-mbrac gros sau să-mi mai iau o bere.]]></item>
+      <item><![CDATA[E ceva greşit. Pe aşa călduri iţi poţi pune chiloţii cu <font color="%%COLOR%%">blăniţă.</font>]]></item>
+    </string-array>
+
+    <string-array name="temp_hot">
+      <item><![CDATA[Astrele spun că-ţi cad coaiele de <font color="%%COLOR%%">cald</font>!]]></item>
+      <item><![CDATA[Alcoolul este viaţa şi viaţa e <font color="%%COLOR%%">alcool</font>!]]></item>
+      <item><![CDATA[Berea şi terasa din <font color="%%COLOR%%">ştrand</font>! Acum!]]></item>
+      <item><![CDATA[Temperatura e-n <font color="%%COLOR%%">călduri.</font> Dă-i o bere urgent!]]></item>
+      <item><![CDATA[Este vremea potrivită să te răcoreşti cu un ceai proaspăt de <font color="%%COLOR%%">hamei.</font>]]></item>
+    </string-array>
+
+    <string-array name="temp_warm">
+      <item><![CDATA[Astrele spun că au <font color="%%COLOR%%">uitat</font> ce au vrut sa spună.]]></item>
+      <item><![CDATA[A venit vremea să fuţi un drum până la cea mai apropiată <font color="%%COLOR%%">terasă.</font>]]></item>
+      <item><![CDATA[Asta-i vreme de <font color="%%COLOR%%">tricou cu burtă.</font>]]></item>
+      <item><![CDATA[Aproape că mă doare-n pulă că-i <font color="%%COLOR%%">călduţ</font> afară.]]></item>
+      <item><![CDATA[Scoate lada de <font color="%%COLOR%%">bere şi micii</font> şi hai la pădurice!]]></item>
+      <item><![CDATA[Ireal. Oare visez? Oare mă doare-n cur de cum e vremea? <font color="%%COLOR%%">Hmmm..</font>!]]></item>
+    </string-array>
+
+    <string-array name="temp_wtf">
+      <item><![CDATA[Vorbesc serios... Chiar <font color="%%COLOR%%">n-am idee</font> cum e vremea.]]></item>
+    </string-array>
+
+    <string-array name="temp_no_location">
+      <item><![CDATA[Nu sunt atotştiutor prietenaş. <font color="%%COLOR%%">Activează</font>, în pula mea, GPS-ul sau ceva servicii de localizare!]]></item>
+    </string-array>
 
 </resources>

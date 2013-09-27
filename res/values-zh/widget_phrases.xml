@@ -21,28 +21,72 @@
     <string name="loading_small"><![CDATA[再近点，离窗户这么远老子怎么知道尼玛是什么鬼天气]]></string>
 
     <!-- Widget weather conditions -->
-    <string name="weather_sunny"><![CDATA[天晴了 <font color="%%COLOR%%">你感觉到了吗</font> 到处一片河蟹的气息。]]></string>
-    <string name="weather_rainy"><![CDATA[没事儿下个尼玛的<font color="%%COLOR%%">雨！</font>]]></string>
-    <string name="weather_cloudy"><![CDATA[又是一个尼玛的 <font color="%%COLOR%%">阴天！</font>]]></string>
-    <string name="weather_thunderstorm"><![CDATA[尼玛！竟然是！<font color="%%COLOR%%">雷暴！</font>]]></string>
-    <string name="weather_haze"><![CDATA[<font color="%%COLOR%%">什么尼玛</font> 都看不见！]]></string>
-    <string name="weather_partly_cloudy"><![CDATA[尼玛！竟然！<font color="%%COLOR%%">还没下雨！</font>]]></string>
-    <string name="weather_drizzle"><![CDATA[尼玛！就下这么<font color="%%COLOR%%">小雨！</font>]]></string>
-    <string name="weather_snowy"><![CDATA[尼玛！<font color="%%COLOR%%">快看！</font> 剩蛋老人！]]></string>
-    <string name="weather_extreme"><![CDATA[<font color="%%COLOR%%">还看手机？</font> 快尼玛逃命吧！]]></string>
-    <string name="weather_windy"><![CDATA[大<font color="%%COLOR%%">风！</font> 今天真尼玛有意思！]]></string>
-    <string name="weather_cold"><![CDATA[<font color="%%COLOR%%">冬天来了 coming</font>我了个去！]]></string>
-    <string name="weather_hot"><![CDATA[我去尼玛！ <font color="%%COLOR%%">热屎了！</font>]]></string>
-    <string name="weather_hail"><![CDATA[我勒个去！ <font color="%%COLOR%%">冰雹！</font> a-fallin\']]></string>
-    <string name="weather_wtf"><![CDATA[<font color="%%COLOR%%">尼玛,</font> 你就不能TM自己看看外面啊！]]></string>
-    <string name="weather_no_weather"><![CDATA[么么哒<font color="%%COLOR%%">人家神马都不知道。</font>]]></string>
-    <string name="weather_no_location"><![CDATA[<font color="%%COLOR%%">我了个去!,</font> 哥们把定位打开!]]></string>
+    <string-array name="weather_sunny">
+      <item><![CDATA[天晴了 <font color="%%COLOR%%">你感觉到了吗</font> 到处一片河蟹的气息。]]></item>
+    </string-array>
+    <string-array name="weather_rainy">
+      <item><![CDATA[没事儿下个尼玛的<font color="%%COLOR%%">雨！</font>]]></item>
+    </string-array>
+    <string-array name="weather_cloudy">
+      <item><![CDATA[又是一个尼玛的 <font color="%%COLOR%%">阴天！</font>]]></item>
+    </string-array>
+    <string-array name="weather_thunderstorm">
+      <item><![CDATA[尼玛！竟然是！<font color="%%COLOR%%">雷暴！</font>]]></item>
+    </string-array>
+    <string-array name="weather_haze">
+      <item><![CDATA[<font color="%%COLOR%%">什么尼玛</font> 都看不见！]]></item>
+    </string-array>
+    <string-array name="weather_partly_cloudy">
+      <item><![CDATA[尼玛！竟然！<font color="%%COLOR%%">还没下雨！</font>]]></item>
+    </string-array>
+    <string-array name="weather_drizzle">
+      <item><![CDATA[尼玛！就下这么<font color="%%COLOR%%">小雨！</font>]]></item>
+    </string-array>
+    <string-array name="weather_snowy">
+      <item><![CDATA[尼玛！<font color="%%COLOR%%">快看！</font> 剩蛋老人！]]></item>
+    </string-array>
+    <string-array name="weather_extreme">
+      <item><![CDATA[<font color="%%COLOR%%">还看手机？</font> 快尼玛逃命吧！]]></item>
+    </string-array>
+    <string-array name="weather_windy">
+      <item><![CDATA[大<font color="%%COLOR%%">风！</font> 今天真尼玛有意思！]]></item>
+    </string-array>
+    <string-array name="weather_cold">
+      <item><![CDATA[<font color="%%COLOR%%">冬天来了 coming</font>我了个去！]]></item>
+    </string-array>
+    <string-array name="weather_hot">
+      <item><![CDATA[我去尼玛！ <font color="%%COLOR%%">热屎了！</font>]]></item>
+    </string-array>
+    <string-array name="weather_hail">
+      <item><![CDATA[我勒个去！ <font color="%%COLOR%%">冰雹！</font> a-fallin\']]></item>
+    </string-array>
+    <string-array name="weather_wtf">
+      <item><![CDATA[<font color="%%COLOR%%">尼玛,</font> 你就不能TM自己看看外面啊！]]></item>
+    </string-array>
+    <string-array name="weather_no_weather">
+      <item><![CDATA[么么哒<font color="%%COLOR%%">人家神马都不知道。</font>]]></item>
+    </string-array>
+    <string-array name="weather_no_location">
+      <item><![CDATA[<font color="%%COLOR%%">我了个去!,</font> 哥们把定位打开!]]></item>
+    </string-array>
 
     <!-- Widget temperature conditions -->
-    <string name="temp_freezing"><![CDATA[<font color="%%COLOR%%">我勒个去</font> 尼玛我是在北极吗！]]></string>
-    <string name="temp_cold"><![CDATA[<font color="%%COLOR%%">真尼玛冷/font> 那个谁把冰箱门关上]]></string>
-    <string name="temp_hot"><![CDATA[<font color="%%COLOR%%">热成球了</font> 跟尼玛在烤箱里一样！]]></string>
-    <string name="temp_warm"><![CDATA[好尼玛暖和啊<font color="%%COLOR%%">抬头听鸟叫</font> 低头观鸟屎]]></string>
-    <string name="temp_wtf"><![CDATA[你的机会来了 <font color="%%COLOR%%">我尼玛的一点主意都没有。</font>]]></string>
-    <string name="temp_no_location"><![CDATA[我尼玛不是算命的 !<font color="%%COLOR%%">老子没这本事！</font>请打开GPS地址服务.]]></string>
+    <string-array name="temp_freezing">
+      <item><![CDATA[<font color="%%COLOR%%">我勒个去</font> 尼玛我是在北极吗！]]></item>
+    </string-array>
+    <string-array name="temp_cold">
+      <item><![CDATA[<font color="%%COLOR%%">真尼玛冷/font> 那个谁把冰箱门关上]]></item>
+    </string-array>
+    <string-array name="temp_hot">
+      <item><![CDATA[<font color="%%COLOR%%">热成球了</font> 跟尼玛在烤箱里一样！]]></item>
+    </string-array>
+    <string-array name="temp_warm">
+      <item><![CDATA[好尼玛暖和啊<font color="%%COLOR%%">抬头听鸟叫</font> 低头观鸟屎]]></item>
+    </string-array>
+    <string-array name="temp_wtf">
+      <item><![CDATA[你的机会来了 <font color="%%COLOR%%">我尼玛的一点主意都没有。</font>]]></item>
+    </string-array>
+    <string-array name="temp_no_location">
+      <item><![CDATA[我尼玛不是算命的 !<font color="%%COLOR%%">老子没这本事！</font>请打开GPS地址服务.]]></item>
+    </string-array>
 </resources>
