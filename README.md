@@ -39,8 +39,14 @@ The following languages will be available from v2.1:
  * Romanian (by BruceLee)
  * Spanish (by Anon)
 
-These languages are in the works and will come in future updates:
+These languages are in the works and should come in future updates:
  * Czech (by Pavel Tížek)
+ * Russian and Ukraininan (by Ярослав Шевчук and Yegor Vyalov)
+ * French (by Christian Knaub)
+ * Hebrew (by Tomer Nachum)
+ * Dutch (by Frans-Peter van der Leur)
+
+Please note that this list is preliminary and might change without any notice.
 
 ## Contributing and requesting features
 Feel free to submit pull requests, we're more than open to your contributions!
