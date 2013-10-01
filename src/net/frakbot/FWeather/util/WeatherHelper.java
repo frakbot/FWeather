@@ -58,7 +58,7 @@ public class WeatherHelper {
      */
     public static WeatherData getWeather(Context context)
         throws LocationHelper.LocationNotReadyYetException, IOException {
-        FLog.i(context, TAG, "Starting Yahoo! Weather update");
+        FLog.i(context, TAG, "Starting weather update");
 
         // Get the current location
         final Location location = getLocation(context);

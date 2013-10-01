@@ -1,6 +1,12 @@
 Changelog
 =========
 
+### Version 2.1.1 ###
+Released on ?? October 2013
+
+- NEW: updated Play Services library code to v3.2.65 (was v3.1.36)
+- FIX: various fixes to location-handling code
+
 ### Version 2.1.0 ###
 Released on 26th September 2013
 

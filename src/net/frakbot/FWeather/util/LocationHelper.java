@@ -89,6 +89,7 @@ public class LocationHelper {
      * Bootstraps the appropriate location modules
      */
     private void bootstrapLocationHelper() {
+        FLog.d(TAG, "Bootstrapping location provider. Has Play Services: " + hasPlayServices);
         if (hasPlayServices) {
             // Setup the listener
             mLocationClientListener = new LocationClientListener();
@@ -163,7 +164,9 @@ public class LocationHelper {
     private static Criteria getDefaultCriteria() {
         Criteria criteria = new Criteria();
         criteria.setCostAllowed(false);
-        criteria.setAccuracy(Criteria.ACCURACY_LOW);
+        criteria.setHorizontalAccuracy(Criteria.ACCURACY_LOW);
+        criteria.setVerticalAccuracy(Criteria.NO_REQUIREMENT);
+        criteria.setSpeedRequired(false);
         criteria.setPowerRequirement(Criteria.POWER_LOW);
 
         return criteria;
@@ -184,6 +187,7 @@ public class LocationHelper {
             FLog.d(mContext, TAG, "LocationClient has connected.");
 
             LocationRequest request = LocationRequest.create();
+            request.setPriority(LocationRequest.PRIORITY_LOW_POWER);
             mLocationClient.requestLocationUpdates(request, this);
 
             onGenericConnected();
