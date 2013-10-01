@@ -45,6 +45,7 @@ These languages are in the works and should come in future updates:
  * French (by Christian Knaub)
  * Hebrew (by Tomer Nachum)
  * Dutch (by Frans-Peter van der Leur)
+ * Portuguese Brazilian (by Edu Miguel)
 
 Please note that this list is preliminary and might change without any notice.
 
