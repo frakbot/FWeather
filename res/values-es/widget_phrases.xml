@@ -17,33 +17,33 @@
 
 <resources>
     <!-- Widget loading messages -->
-    <string name="loading_main"><![CDATA[Dejame ver por la puta ventaa.]]></string>
-    <string name="loading_small"><![CDATA[Acercate a una así te puedo decir el clima.]]></string>
+    <string name="loading_main"><![CDATA[Dejame mirar por una puta ventana.]]></string>
+    <string name="loading_small"><![CDATA[Déjame preguntarle a alguien y te diré el puto tiempo.]]></string>
 
     <!-- Widget weather conditions -->
     <string name="weather_sunny"><![CDATA[El puto <font color="%%COLOR%%">amor</font> está en el aire.]]></string>
-    <string name="weather_rainy"><![CDATA[Mierda, <font color="%%COLOR%%">llueve</font>.]]></string>
-    <string name="weather_cloudy"><![CDATA[Muchas <font color="%%COLOR%%">nubes</font> de mierda.]]></string>
-    <string name="weather_thunderstorm"><![CDATA[Mierda que hay <font color="%%COLOR%%">truenos!</font>]]></string>
-    <string name="weather_haze"><![CDATA[No se ve una <font color="%%COLOR%%">mierda</font>.]]></string>
-    <string name="weather_partly_cloudy"><![CDATA[En cualquier momento llueve. <font color="%%COLOR%%">Mierda.</font>]]></string>
-    <string name="weather_drizzle"><![CDATA[Llueve despacio. Lluvia de <font color="%%COLOR%%">mierda.</font>]]></string>
-    <string name="weather_snowy"><![CDATA[Here\'s <font color="%%COLOR%%">Santa</font> fucking Claus.]]></string>
+    <string name="weather_rainy"><![CDATA[Puta <font color="%%COLOR%%">lluvia.</font>]]></string>
+    <string name="weather_cloudy"><![CDATA[Un día de <font color="%%COLOR%%">mierda.</font>]]></string>
+    <string name="weather_thunderstorm"><![CDATA[Hay una puta <font color="%%COLOR%%">tormenta.</font>]]></string>
+    <string name="weather_haze"><![CDATA[<font color="%%COLOR%%">No se ve una</font> puta mierda.]]></string>
+    <string name="weather_partly_cloudy"><![CDATA[No llueve. <font color="%%COLOR%%">Todavía.</font>]]></string>
+    <string name="weather_drizzle"><![CDATA[Lluvia que parece que no moja pero <font color="%%COLOR%%">sí.</font>]]></string>
+    <string name="weather_snowy"><![CDATA[Va a llegar el <font color="%%COLOR%%">puto</font> Santa Claus.]]></string>
     <string name="weather_extreme"><![CDATA[<font color="%%COLOR%%">Corre</font> por tu puta vida.]]></string>
-    <string name="weather_windy"><![CDATA[<font color="%%COLOR%%">Mierda</font> que hay viento!]]></string>
-    <string name="weather_cold"><![CDATA[Un <font color="%%COLOR%%">frío</font> de cagarse.]]></string>
-    <string name="weather_hot"><![CDATA[El calor del puto <font color="%%COLOR%%">Satán!</font>]]></string>
-    <string name="weather_hail"><![CDATA[Caen putas <font color="%%COLOR%%">bombas de hielo!</font>]]></string>
-    <string name="weather_wtf"><![CDATA[<font color="%%COLOR%%">Qué carajo, </font>no podés mirar afuera?]]></string>
-    <string name="weather_no_weather"><![CDATA[LOL no tengo la más puta <font color="%%COLOR%%">idea.</font>]]></string>
-    <string name="weather_no_location"><![CDATA[<font color="%%COLOR%%">Qué mierda,</font> hombre!]]></string>
+    <string name="weather_windy"><![CDATA[<font color="%%COLOR%%">Eolo</font> se lo pasa de puta madre.]]></string>
+    <string name="weather_cold"><![CDATA[<font color="%%COLOR%%">Llega el invierno</font>, mierda.]]></string>
+    <string name="weather_hot"><![CDATA[Hola, puto <font color="%%COLOR%%">Satán!</font>]]></string>
+    <string name="weather_hail"><![CDATA[Están cayendo <font color="%%COLOR%%">bombas</font> de hielo.]]></string>
+    <string name="weather_wtf"><![CDATA[<font color="%%COLOR%%">WTF,</font> no puedes mirar fuera?]]></string>
+    <string name="weather_no_weather"><![CDATA[Jajajaja No tengo ni <font color="%%COLOR%%">puta idea</font>]]></string>
+    <string name="weather_no_location"><![CDATA[<font color="%%COLOR%%">Coñ o,</font> tío!]]></string>
 
     <!-- Widget temperature conditions -->
-    <string name="temp_freezing"><![CDATA[<font color="%%COLOR%%">Mierda.</font> Puto Polo Norte.]]></string>
-    <string name="temp_cold"><![CDATA[<font color="%%COLOR%%">Frío</font> como una puta heladera.]]></string>
-    <string name="temp_hot"><![CDATA[<font color="%%COLOR%%">Calor</font> como en un puto horno.]]></string>
-    <string name="temp_warm"><![CDATA[Disfruta los pájaros <font color="%%COLOR%%">cantando</font> y esa mierda.]]></string>
-    <string name="temp_wtf"><![CDATA[No, en serio, sería lo mejor, no tengo <font color="%%COLOR%%">la más puta idea.</font>]]></string>
-    <string name="temp_no_location"><![CDATA[No tengo una puta <font color="%%COLOR%%">bola de cristal!</font> Activa el GPS en Location Services.]]></string>
+    <string name="temp_freezing"><![CDATA[Como en el puto<font color="%%COLOR%%">Polo Norte.</font>]]></string>
+    <string name="temp_cold"><![CDATA[<font color="%%COLOR%%">Frío</font> como en una puta nevera.]]></string>
+    <string name="temp_hot"><![CDATA[Un <font color="%%COLOR%%">calor</font> acojonante.]]></string>
+    <string name="temp_warm"><![CDATA[Disfruta de los putos pájaros <font color="%%COLOR%%">cantando</font> y cagando.]]></string>
+    <string name="temp_wtf"><![CDATA[No, enserio, no tienes nada mejor que hacer? <font color="%%COLOR%%">No tengo ni puta idea.</font>]]></string>
+    <string name="temp_no_location"><![CDATA[No tengo una puta <font color="%%COLOR%%">bola de cristal!</font> Enciende el GPS o los servicios de localización.]]></string>
 
 </resources>
