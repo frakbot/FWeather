@@ -55,6 +55,7 @@ public class ConnectivityBroadcastReceiver extends BroadcastReceiver {
         }
 
         boolean connectivity = !intent.getBooleanExtra(ConnectivityManager.EXTRA_NO_CONNECTIVITY, false);
+        FLog.d(TAG, "Network connectivity status change. Available: " +  connectivity);
 
         // If there's connectivity
         if (connectivity) {

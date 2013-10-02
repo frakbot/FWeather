@@ -29,6 +29,7 @@ import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.updater.weather.CantGetWeatherException;
 import net.frakbot.FWeather.updater.weather.YahooWeatherApiClient;
 import net.frakbot.FWeather.updater.weather.model.WeatherData;
+import net.frakbot.global.Const;
 import net.frakbot.util.log.FLog;
 
 import java.io.IOException;
@@ -46,7 +47,10 @@ import static net.frakbot.FWeather.updater.weather.YahooWeatherApiClient.getLoca
 public class WeatherHelper {
 
     private static final String TAG = WeatherHelper.class.getSimpleName();
+    private static final long WEATHER_CACHE_DURATION_MILLIS = 2 * 60 * 60 * 1000;   // Two hours cache expiry time
     private static WeatherData mCachedWeather = null;
+    private static long mCachedWeatherTimestamp = Long.MIN_VALUE;
+    private static boolean mCacheDataRead = false;
 
     /**
      * Gets the current weather at the user's location
@@ -60,6 +64,31 @@ public class WeatherHelper {
         throws LocationHelper.LocationNotReadyYetException, IOException {
         FLog.i(context, TAG, "Starting weather update");
 
+        // Read the cached data if needed
+        if (!mCacheDataRead) {
+            readDataFromCache(context);
+            mCacheDataRead = true;
+        }
+
+        WeatherData weather;
+
+        if (!checkNetwork(context)) {
+            FLog.w(TAG, "No network seems to be available!");
+
+            // Try to resort to cached weather data
+            weather = getLatestWeather();
+            if (weather != null) {
+                FLog.i(TAG, "Using cached weather data...");
+                return weather;
+            }
+
+            // No cached weather (or stale cached weather data), nothing we can do...
+            FLog.e(TAG, "No cached weather available, can't use it either. That's a wrap, ladies and gentlemen");
+            weather = new WeatherData();
+            weather.conditionCode = WeatherData.WEATHER_ID_ERR_NO_NETWORK;
+            return weather;
+        }
+
         // Use manual location if defined
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
 
@@ -67,7 +96,6 @@ public class WeatherHelper {
             WeatherLocationPreference.getWoeidFromValue(
                 sp.getString(context.getString(R.string.pref_key_weather_location), null));
 
-        WeatherData weather;
         if (!TextUtils.isEmpty(manualLocationWoeid)) {
             FLog.d(TAG, "Using manual location WOEID");
             YahooWeatherApiClient.LocationInfo locationInfo = new YahooWeatherApiClient.LocationInfo();
@@ -98,11 +126,49 @@ public class WeatherHelper {
             FLog.v(context, TAG, "No weather received");
         }
 
-        // Update the cached value
-        mCachedWeather = weather;
-        FLog.v(context, TAG, "Cached weather information updated");
+        saveDataToCache(context, weather);
 
         return weather;
+    }
+
+    /**
+     * Saves the current weather data to both the permanent and
+     * in-memory caches.
+     *
+     * @param context The current {@link Context}.
+     * @param weather The weather data to save in the cache
+     */
+    private static void saveDataToCache(Context context, WeatherData weather) {
+        // Update the cached value
+        mCachedWeather = weather;
+        mCachedWeatherTimestamp = System.currentTimeMillis();
+
+        SharedPreferences.Editor e = PreferenceManager.getDefaultSharedPreferences(context).edit();
+        e.putString(Const.Preferences.LOCATION_CACHE, weather.serializeToString());
+        e.putLong(Const.Preferences.LOCATION_CACHE_TIMESTAMP, mCachedWeatherTimestamp);
+        e.commit();
+
+        FLog.v(context, TAG, "Cached weather information updated");
+    }
+
+    /**
+     * Retrieved the last weather data from the permanent cache, if still valid.
+     *
+     * @param context The current {@link android.content.Context}.
+     */
+    private static void readDataFromCache(Context context) {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+
+        // Read the cached value
+        mCachedWeatherTimestamp = sp.getLong(Const.Preferences.LOCATION_CACHE_TIMESTAMP, Long.MIN_VALUE);
+        mCachedWeather = WeatherData.deserializeFromString(sp.getString(Const.Preferences.LOCATION_CACHE, null));
+
+        // Validate the cache age
+        if (!isLatestWeatherStillGood()) {
+            mCachedWeatherTimestamp = Long.MIN_VALUE;
+        }
+
+        FLog.v(context, TAG, "Cached weather information retrieved from permanent storage");
     }
 
     /**
@@ -138,7 +204,43 @@ public class WeatherHelper {
      * @return The cached {@link WeatherData}
      */
     public static WeatherData getLatestWeather() {
+        if (!isLatestWeatherStillGood()) {
+            // The cached weather has become stale, clear it.
+            FLog.v(TAG, "Stale cache detected, clearing the cached weather");
+            mCachedWeatherTimestamp = Long.MIN_VALUE;
+        }
+
         return mCachedWeather;
+    }
+
+    /**
+     * Returns a value indicating wether the latest known weather information
+     * is still fresh enough to be used, or if it's become stale.
+     *
+     * @return Returns true if there is a cached weather and if said cached
+     *         weather data is not stale.
+     */
+    public static boolean isLatestWeatherStillGood() {
+        final long weatherAgeMillis = getLatestWeatherAgeMillis();
+        return mCachedWeatherTimestamp != Long.MIN_VALUE &&
+               mCachedWeather != null &&
+               weatherAgeMillis < WEATHER_CACHE_DURATION_MILLIS;
+    }
+
+    /**
+     * Returns a value indicating the age in milliseconds of the latest known
+     * weather information, if any is available.
+     *
+     * @return Returns the cache age if there is a cached weather, or
+     *         {@link Long#MIN_VALUE} if there is no cached weather.
+     */
+    public static long getLatestWeatherAgeMillis() {
+        if (mCachedWeather == null) {
+            mCachedWeatherTimestamp = Long.MIN_VALUE;
+            return mCachedWeatherTimestamp;
+        }
+
+        return System.currentTimeMillis() - mCachedWeatherTimestamp;
     }
 
     private static WeatherData getWeatherDataForLocation(Location location) {

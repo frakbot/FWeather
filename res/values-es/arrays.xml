@@ -18,13 +18,13 @@
 <resources>
 
     <string-array name="pref_key_ui_override_language_entries">
-        <!-- TODO: item>Auto (system language)</item-->
-        <!-- TODO: item>German (de)</item-->
-        <!-- TODO: item>English (en)</item-->
-        <!-- TODO: item>Spanish (es)</item-->
-        <!-- TODO: item>Italian (it)</item-->
-        <!-- TODO: item>Romanian (ro)</item-->
-        <!-- TODO: item>Chinese (simplified) (zh)</item-->
+        <item>Automático (idioma del sistema)</item>
+        <item>Alemán (de)</item>
+        <item>Inglés (en)</item>
+        <item>Español (es)</item>
+        <item>Italiano (it)</item>
+        <item>Rumano (ro)</item>
+        <item>Chino (simplificado) (zh)</item>
     </string-array>
 
 </resources>
