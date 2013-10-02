@@ -5,6 +5,7 @@ Changelog
 Released on ?? October 2013
 
 - NEW: updated Play Services library code to v3.2.65 (was v3.1.36)
+- FIX: no more "can't find location" errors when using manual location
 - FIX: various fixes to location-handling code
 
 ### Version 2.1.0 ###

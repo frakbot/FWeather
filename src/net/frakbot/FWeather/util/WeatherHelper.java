@@ -60,18 +60,6 @@ public class WeatherHelper {
         throws LocationHelper.LocationNotReadyYetException, IOException {
         FLog.i(context, TAG, "Starting weather update");
 
-        // Get the current location
-        final Location location = getLocation(context);
-
-        if (location == null) {
-            TrackerHelper.sendException(context, "No location found", false);
-            FLog.e(context, TAG, "No location available, can't update");
-
-            WeatherData errWeather = new WeatherData();
-            errWeather.conditionCode = WeatherData.WEATHER_ID_ERR_NO_LOCATION;
-            return errWeather;
-        }
-
         // Use manual location if defined
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
 
@@ -79,14 +67,26 @@ public class WeatherHelper {
             WeatherLocationPreference.getWoeidFromValue(
                 sp.getString(context.getString(R.string.pref_key_weather_location), null));
 
-
         WeatherData weather;
         if (!TextUtils.isEmpty(manualLocationWoeid)) {
+            FLog.d(TAG, "Using manual location WOEID");
             YahooWeatherApiClient.LocationInfo locationInfo = new YahooWeatherApiClient.LocationInfo();
             locationInfo.woeids = Arrays.asList(manualLocationWoeid);
             weather = getWeatherDataForLocationInfo(locationInfo);
         }
         else {
+            // Get the current location
+            final Location location = getLocation(context);
+
+            if (location == null) {
+                TrackerHelper.sendException(context, "No location found", false);
+                FLog.e(context, TAG, "No location available, can't update");
+
+                WeatherData errWeather = new WeatherData();
+                errWeather.conditionCode = WeatherData.WEATHER_ID_ERR_NO_LOCATION;
+                return errWeather;
+            }
+
             weather = getWeatherDataForLocation(location);
         }
 

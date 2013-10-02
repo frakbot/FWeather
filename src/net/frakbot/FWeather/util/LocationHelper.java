@@ -24,6 +24,7 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Looper;
+import android.provider.Settings;
 import android.text.TextUtils;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient;
@@ -61,6 +62,9 @@ public class LocationHelper {
     private static LocationClientListener mLocationClientListener;
     private static LocationManagerListener mLocationManagerListener;
 
+    private static final int PLAY_SERVICES_CONNECTION_RETRIES = 5;
+    private static int mPlayServicesConnRetriesLeft = PLAY_SERVICES_CONNECTION_RETRIES;
+
     static {
         isInitialized = false;
         isConnected = false;
@@ -86,6 +90,41 @@ public class LocationHelper {
     }
 
     /**
+     * Reinitializes the LocationHelper. Unregisters and registers again
+     * all the listeners. Useful in case the connection with the location
+     * services has been lost. This method is NOT idempotent and can be called
+     * only after LocationHelper has been initialized.
+     */
+    public static void reinit() {
+        if (!isInitialized) {
+            throw new IllegalStateException("Cannot reinitialize LocationHelper if it's not been initialized yet!");
+        }
+
+        // First of all, unregister all listeners and clients
+        isInitialized = false;
+
+        try {
+            mLocationClient.unregisterConnectionCallbacks(mLocationClientListener);
+            mLocationClient.unregisterConnectionFailedListener(mLocationClientListener);
+        } catch (Throwable ignored) {}
+        mLocationClientListener = null;
+
+        try {
+            mLocationClient.disconnect();
+        } catch (Throwable ignored) {}
+        mLocationClient = null;
+
+        try {
+            mLocationManager.removeUpdates(mLocationManagerListener);
+        } catch (Throwable ignored) {}
+        mLocationManagerListener = null;
+        mLocationManager = null;
+
+        // Then redo the initialization
+        init(mContext);
+    }
+
+    /**
      * Bootstraps the appropriate location modules
      */
     private void bootstrapLocationHelper() {
@@ -97,6 +136,7 @@ public class LocationHelper {
             mLocationClient = new LocationClient(mContext, mLocationClientListener, mLocationClientListener);
             mLocationClient.connect();
         } else {
+            FLog.i(TAG, "Play Services aren't available on the device. Falling back to compatibility mode.");
             mLocationManager = (LocationManager) mContext.getSystemService(Context.LOCATION_SERVICE);
 
             final Criteria criteria = getDefaultCriteria();
@@ -135,11 +175,8 @@ public class LocationHelper {
      */
     public static Location getLastKnownSurroundings(PendingIntent pendingIntent)
             throws LocationNotReadyYetException {
-        // Checks if the LocationHelper has been initialized
-        checkForInit();
-
-        // If we are not connected
-        if (!isConnected) {
+        // Checks if the LocationHelper has been initialized and if we are connected
+        if (!checkForInit() || !isConnected) {
             // Re-start the pending intent when the connection is established
             mPendingIntent = pendingIntent;
             throw new LocationNotReadyYetException();
@@ -152,9 +189,34 @@ public class LocationHelper {
     /**
      * Throws an exception if the LocationHelper wasn't initialized.
      */
-    private static void checkForInit() {
+    private static boolean checkForInit() {
         if (!isInit())
             throw new IllegalStateException("The LocationHelper was not initialized.");
+
+        // Check if the passive location providers are enabled (this is useful when debugging!)
+        if (!isPassiveLocationEnabled()) {
+            FLog.w(TAG, "Passive location provider is not active/available! We'll only be using GPS");
+        }
+
+        // Check if the Location Services are active (this might have been changed
+        // since the last update went on) -- the location client has to be connected
+        // whenever Play Services are available and we are updating!
+        if (hasPlayServices && !mLocationClient.isConnected()) {
+            FLog.w(TAG, String.format("The location client is not connected yet!.\n" +
+                                      "\t> HasPlayServices: %s, connected: %s",
+                                      hasPlayServices, mLocationClient.isConnected()));
+            return false;
+        }
+
+        return true;
+    }
+
+    private static boolean isPassiveLocationEnabled() {
+        String availProviders =
+            Settings.Secure.getString(mContext.getContentResolver(),
+                                      Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
+
+        return availProviders.contains("network");
     }
 
     /**
@@ -183,6 +245,13 @@ public class LocationHelper {
 
         @Override
         public void onConnected(Bundle bundle) {
+            if (!mLocationClient.isConnected()) {
+                // Strange shit happens here sometimes...
+                FLog.w(mContext, TAG,
+                       "LocationClient's onConnected was called, but the LocationClient is not connected. WTF!");
+                onDisconnected();
+            }
+
             // The LocationClient has connected
             FLog.d(mContext, TAG, "LocationClient has connected.");
 
@@ -190,6 +259,7 @@ public class LocationHelper {
             request.setPriority(LocationRequest.PRIORITY_LOW_POWER);
             mLocationClient.requestLocationUpdates(request, this);
 
+            mPlayServicesConnRetriesLeft = PLAY_SERVICES_CONNECTION_RETRIES;
             onGenericConnected();
 
             Location currentLocation = mLocationClient.getLastLocation();
@@ -204,14 +274,35 @@ public class LocationHelper {
 
         @Override
         public void onDisconnected() {
-            // Nobody cares
             onGenericDisconnected();
+
+            FLog.i(mContext, TAG, "Trying to reconnect the LocationClient...");
+            mLocationClient.connect();
         }
 
         @Override
         public void onConnectionFailed(ConnectionResult connectionResult) {
-            // Nobody cares
             onGenericDisconnected();
+
+            mPlayServicesConnRetriesLeft--; // Decrement the connection retries left
+
+            // TODO: seriously handle errors here (service unavailable, Play Services update
+            // needed, etc)
+            if (mPlayServicesConnRetriesLeft > 0) {
+                FLog.i(mContext, TAG, "Trying to reconnect the LocationClient after this error: " + connectionResult +
+                                      "\n\t> Retries left: " + mPlayServicesConnRetriesLeft);
+                mLocationClient.connect();
+            }
+            else {
+                FLog.e(TAG, "Unable to connect to the LocationClient after " + PLAY_SERVICES_CONNECTION_RETRIES +
+                            " retries. Switching to compatibility mode.");
+                hasPlayServices = false;
+                mLocationClient.unregisterConnectionCallbacks(this);
+                mLocationClient.unregisterConnectionFailedListener(this);
+                mLocationClient = null;
+                mLocationClientListener = null;
+                bootstrapLocationHelper();
+            }
         }
     }
 
@@ -223,17 +314,28 @@ public class LocationHelper {
 
         @Override
         public void onStatusChanged(String provider, int status, Bundle extras) {
+            final String statusString;
+            if (status == 0) {
+                statusString = "UNAVAILABLE";
+            }
+            else if (status == 1) {
+                statusString = "TEMPORARILY UNAVAILABLE";
+            }
+            else {
+                statusString = "AVAILABLE";
+            }
 
+            FLog.i(TAG, "LocationManager status change for provider " + provider + ": new status is " + statusString);
         }
 
         @Override
         public void onProviderEnabled(String provider) {
-
+            FLog.d(TAG, "LocationManager has new provider enabled: " + provider);
         }
 
         @Override
         public void onProviderDisabled(String provider) {
-
+            FLog.d(TAG, "LocationManager has no longer this provider (disabled): " + provider);
         }
     }
 
@@ -282,6 +384,7 @@ public class LocationHelper {
      * Should handle disconnection, unused for now.
      */
     private void onGenericDisconnected() {
+        FLog.i(TAG, "Current location provider has disconnected. HasPlayServices: " + hasPlayServices);
         isConnected = false;
     }
 

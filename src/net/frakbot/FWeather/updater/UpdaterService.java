@@ -119,7 +119,8 @@ public class UpdaterService extends IntentService {
         }
         catch (LocationHelper.LocationNotReadyYetException justWaitException) {
             // If the location is not ready yet, leave the View unchanged
-            FLog.d(this, TAG, "The LocationHelper is not ready yet, the updater will be called again soon.");
+            FLog.d(this, TAG, "The LocationHelper is not ready yet, the updater will be called again " +
+                              "when a location is available.");
             return;
         }
         catch (IOException e) {
