@@ -23,7 +23,7 @@ You can download **FWeather** from the Google Play Store:
 
 [![Get FWeather from Google Play Store](https://developer.android.com/images/brand/en_generic_rgb_wo_60.png)](https://play.google.com/store/apps/details?id=net.frakbot.FWeather)
 
-Please note that we're also running a **public beta** through the Google Play Store. If you want to help us out and test new features, you can join the **testing community on Google+** here: https://plus.google.com/communities/110117001762069649703
+Please note that we're also running a **public beta** through the Google Play Store. If you want to help us out and test new features, you can [read the instructions in the wiki](https://github.com/frakbot/FWeather/wiki/Joining-the-beta).
 
 
 ## Translating FWeather
@@ -39,14 +39,21 @@ The following languages will be available from v2.1:
  * Romanian (by BruceLee)
  * Spanish (by Anon)
 
-These languages are in the works and will come in future updates:
+These languages are in the works and should come in future updates:
  * Czech (by Pavel Tížek)
+ * Russian and Ukraininan (by Ярослав Шевчук and Yegor Vyalov)
+ * French (by Christian Knaub)
+ * Hebrew (by Tomer Nachum)
+ * Dutch (by Frans-Peter van der Leur)
+ * Portuguese Brazilian (by Edu Miguel)
+
+Please note that this list is preliminary and might change without any notice.
 
 ## Contributing and requesting features
 Feel free to submit pull requests, we're more than open to your contributions!
 
 If you want to send us a generic feedback, [write us an email](mailto:frakbot+fweather@gmail.com).
-For bugs and feature requests, please [open an issue](https://github.com/frakbot/FWeather/issues) in the issue tracker.
+For bugs and feature requests, please [read the instructions](https://github.com/frakbot/FWeather/wiki/How-to-report-a-bug) and then [open an issue](https://github.com/frakbot/FWeather/issues) in the issue tracker.
 
 ## Credits
 This widget is partly based upon Surviving With Android's [WeatherApp](https://github.com/survivingwithandroid/Surviving-with-android/tree/master/WeatherApp) (released under the Apache 2 license), described in a [blog post](http://www.survivingwithandroid.com/2013/05/build-weather-app-json-http-android.html), and uses [OpenWeatherMap](http://openweathermap.org/)'s weather APIs.

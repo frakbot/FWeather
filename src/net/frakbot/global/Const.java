@@ -72,6 +72,8 @@ public class Const {
         public static final String UI_TOGGLE_TEMPERATURE_INFO = "ui_toggle_temperature_info";
         public static final String UI_DARKMODE = "ui_darkmode";
         public static final String UI_OVERRIDE_LANGUAGE = "ui_override_language";
+        public static final String LOCATION_CACHE = "location_cache";
+        public static final String LOCATION_CACHE_TIMESTAMP = "location_cache_timestamp";
         public static final String DEBUG = "debug";
     }
     

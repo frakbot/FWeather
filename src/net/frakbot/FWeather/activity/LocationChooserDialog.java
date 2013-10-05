@@ -61,7 +61,7 @@ public class LocationChooserDialog extends SherlockFragmentActivity
             public void onItemClick(AdapterView<?> listView, View view,
                                     int position, long itemId) {
                 String value = mSearchResultsAdapter.getPrefValueAt(position);
-                FLog.i(TAG, "User has selected an item: " + value);
+                FLog.d(TAG, "User has selected an item: " + value);
                 try {
                     sendBroadcast(new Intent(WeatherLocationPreference.ACTION_SET_VALUE)
                                       .putExtra(WeatherLocationPreference.EXTRA_VALUE, value)

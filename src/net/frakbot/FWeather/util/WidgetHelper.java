@@ -181,10 +181,12 @@ public class WidgetHelper {
                                            R.color.weather_no_weather_dark, darkMode);
         }
 
-        else if (weatherId == 10000) {
+        else if (weatherId == WeatherData.WEATHER_ID_ERR_NO_LOCATION ||
+                 weatherId == WeatherData.WEATHER_ID_ERR_NO_NETWORK) {
             // Error: no location available
             return getColoredSpannedString(R.string.weather_no_location, R.color.weather_no_location,
                                            R.color.weather_no_location_dark, darkMode);
+            // TODO: distinguish no network from no location errors!
         }
         else {
             return getColoredSpannedString(R.string.weather_wtf, R.color.weather_wtf,
@@ -292,15 +294,19 @@ public class WidgetHelper {
         }
         else if (weatherId == 3200) {
             // Error: no weather available (ATM has a generic error icon)
-            return !darkMode ? R.drawable.weather_wtf : R.drawable.weather_wtf_dark;
+            return !darkMode ? R.drawable.err_wtf : R.drawable.err_wtf_dark;
         }
-        else if (weatherId == 10000) {
-            // Error: no location available  (ATM has a generic error icon)
-            return !darkMode ? R.drawable.weather_wtf : R.drawable.weather_wtf_dark;
+        else if (weatherId == WeatherData.WEATHER_ID_ERR_NO_LOCATION) {
+            // Error: no location available
+            return !darkMode ? R.drawable.err_no_location : R.drawable.err_no_location_dark;
+        }
+        else if (weatherId == WeatherData.WEATHER_ID_ERR_NO_NETWORK) {
+            // Error: no network available
+            return !darkMode ? R.drawable.err_no_network : R.drawable.err_no_network_dark;
         }
         else {
             // Unknown weather
-            return !darkMode ? R.drawable.weather_wtf : R.drawable.weather_wtf_dark;
+            return !darkMode ? R.drawable.err_wtf : R.drawable.err_wtf_dark;
         }
     }
 
@@ -316,11 +322,13 @@ public class WidgetHelper {
     public CharSequence getTempString(WeatherData weather, boolean darkMode) {
         final float temp;
         if (weather != null) {
-            if (weather.conditionCode == WeatherData.WEATHER_ID_ERR_NO_LOCATION) {
+            if (weather.conditionCode == WeatherData.WEATHER_ID_ERR_NO_LOCATION ||
+                weather.conditionCode == WeatherData.WEATHER_ID_ERR_NO_NETWORK) {
 
-                // Error: no location available
+                // Error: no location or no network available
                 return getColoredSpannedString(R.string.temp_no_location, R.color.temp_no_location,
                                                R.color.temp_no_location_dark, darkMode);
+                // TODO: distinguish no network from no location errors!
             }
             temp = weather.temperature;
         }

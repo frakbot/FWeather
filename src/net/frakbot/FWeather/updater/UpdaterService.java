@@ -119,7 +119,8 @@ public class UpdaterService extends IntentService {
         }
         catch (LocationHelper.LocationNotReadyYetException justWaitException) {
             // If the location is not ready yet, leave the View unchanged
-            FLog.d(this, TAG, "The LocationHelper is not ready yet, the updater will be called again soon.");
+            FLog.d(this, TAG, "The LocationHelper is not ready yet, the updater will be called again " +
+                              "when a location is available.");
             return;
         }
         catch (IOException e) {
@@ -129,7 +130,7 @@ public class UpdaterService extends IntentService {
             weather = WeatherHelper.getLatestWeather();
             // Register a connection listener
             FLog.d(this, TAG, "Registering a connection listener");
-            ConnectionHelper.registerConnectivityListener(this.getApplicationContext());
+            ConnectionHelper.registerConnectivityListener(getApplicationContext());
         }
 
         Locale defaultLocale = null, selectedLocale;
@@ -151,7 +152,7 @@ public class UpdaterService extends IntentService {
             appWidgetManager.updateAppWidget(appWidgetId, views);
         }
 
-        // If the we switched the locale, let's restore the default one
+        // If we switched the locale, let's restore the default one
         if (selectedLocale != null) {
             switchLocale(defaultLocale);
         }

@@ -40,7 +40,7 @@
     <string name="pref_header_data_sync">Datos y sincronización</string>
     <string name="pref_title_sync_frequency">Frecuencia de sincronización</string>
     <string name="pref_title_sync_force">Actualizar datos del tiempo</string>
-    <string name="toast_force_update">OK, OK, no hace falta que seas un dolor de culo. Haciéndolo ahora. Contento?</string>
+    <string name="toast_force_update">Vale, vale, deja de tocar el puto botón. Ahora lo hago. Contento?</string>
 
     <string-array name="pref_sync_frequency_titles">
         <!--item>1 minuto</item-->
@@ -80,15 +80,15 @@
     <string name="pref_weather_location_automatic_description">Basada en tu ubicación actual.</string>
 
     <!-- ABOUT DIALOG -->
-    <!-- TODO: string name="about_body">Get your fucking weather right</string-->
+    <string name="about_body">Consigue el puto tiempo correctamente</string>
     <!-- Note to translators: remember to set your name in the strings.xml file, in the translator_name string -->
-    <!-- TODO: string name="about_developers"><![CDATA[Developed by <b>Frakbot</b> (Sebastiano Poggi and Francesco Pontillo).<p/>Based on the <i>Authentic Weather</i> concept by <b>Tobias van Scheider</b>.<p/>Translated with fucking love by <b>%s</b>.]]></string-->
-    <!-- TODO: string name="donate_frakbot">Donate to\nFrakbot</string-->
+    <string name="about_developers"><![CDATA[Diseñado por: <b>Frakbot</b> (Sebastiano Poggi y Francesco Pontillo).<p/>Basado en el concepto <i>Authentic Weather</i> de <b>Tobias van Scheider</b>.<p/>Traducido con amor por <b>D. Valentin</b>.]]></string>
+    <string name="donate_frakbot">Dona a Frakbot</string>
 
     <!-- Action Bar items -->
-    <!-- TODO: string name="done">DONE</string-->
+    <string name="done">Hecho</string>
 
     <!-- Switch values -->
-    <!-- TODO: string name="on">ON</string-->
-    <!-- TODO: string name="off">OFF</string-->
+    <string name="on">Encendido</string>
+    <string name="off">Apagado</string>
 </resources>
