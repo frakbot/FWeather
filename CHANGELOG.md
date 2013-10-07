@@ -1,6 +1,12 @@
 Changelog
 =========
 
+### Version 2.1.2 ###
+Released on 7th October 2013
+
+- FIX: added few missing weather conditions handling
+- FIX: fixed NPE crash when saving null data in the permanent cache
+
 ### Version 2.1.1 ###
 Released on 5th October 2013
 

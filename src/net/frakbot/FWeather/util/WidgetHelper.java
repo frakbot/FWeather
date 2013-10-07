@@ -118,7 +118,7 @@ public class WidgetHelper {
             return getColoredSpannedString(R.string.weather_drizzle, R.color.weather_drizzle,
                                            R.color.weather_drizzle_dark, darkMode);
         }
-        else if (weatherId == 10 || weatherId == 12 || weatherId == 40) {
+        else if ((weatherId >= 10 && weatherId <= 12) || weatherId == 40 || weatherId == 6) {
             // Rain
             return getColoredSpannedString(R.string.weather_rainy, R.color.weather_rainy,
                                            R.color.weather_rainy_dark, darkMode);
@@ -129,7 +129,8 @@ public class WidgetHelper {
                                            R.color.weather_hail_dark, darkMode);
         }
         else if ((weatherId >= 13 && weatherId <= 16) || weatherId == 18 ||
-                 (weatherId >= 41 && weatherId <= 43) || weatherId == 46) {
+                 (weatherId >= 41 && weatherId <= 43) || weatherId == 46 ||
+                 weatherId == 5 || weatherId == 7) {
             // Snow
             return getColoredSpannedString(R.string.weather_snowy, R.color.weather_snowy,
                                            R.color.weather_snowy_dark, darkMode);
@@ -239,7 +240,7 @@ public class WidgetHelper {
             // Drizzle
             return !darkMode ? R.drawable.weather_drizzle : R.drawable.weather_drizzle_dark;
         }
-        else if (weatherId == 10 || weatherId == 12 || weatherId == 40) {
+        else if ((weatherId >= 10 && weatherId <= 12) || weatherId == 40 || weatherId == 6) {
             // Rain
             return !darkMode ? R.drawable.weather_rain : R.drawable.weather_rain_dark;
         }
@@ -248,7 +249,8 @@ public class WidgetHelper {
             return !darkMode ? R.drawable.weather_hail : R.drawable.weather_hail_dark;
         }
         else if ((weatherId >= 13 && weatherId <= 16) || weatherId == 18 ||
-                 (weatherId >= 41 && weatherId <= 43) || weatherId == 46) {
+                 (weatherId >= 41 && weatherId <= 43) || weatherId == 46 ||
+                 weatherId == 5 || weatherId == 7) {
             // Snow
             return !darkMode ? R.drawable.weather_snow : R.drawable.weather_snow_dark;
         }
