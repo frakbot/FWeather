@@ -139,14 +139,27 @@ public class WeatherHelper {
      * @param weather The weather data to save in the cache
      */
     private static void saveDataToCache(Context context, WeatherData weather) {
+        if (weather == null) {
+            FLog.v(TAG, "Clearing cached weather information (null data)");
+            mCachedWeather = null;
+            mCachedWeatherTimestamp = Long.MIN_VALUE;
+
+            SharedPreferences.Editor e = PreferenceManager.getDefaultSharedPreferences(context).edit();
+            e.remove(Const.Preferences.LOCATION_CACHE)
+             .remove(Const.Preferences.LOCATION_CACHE_TIMESTAMP)
+             .commit();
+
+            return;
+        }
+
         // Update the cached value
         mCachedWeather = weather;
         mCachedWeatherTimestamp = System.currentTimeMillis();
 
         SharedPreferences.Editor e = PreferenceManager.getDefaultSharedPreferences(context).edit();
-        e.putString(Const.Preferences.LOCATION_CACHE, weather.serializeToString());
-        e.putLong(Const.Preferences.LOCATION_CACHE_TIMESTAMP, mCachedWeatherTimestamp);
-        e.commit();
+        e.putString(Const.Preferences.LOCATION_CACHE, weather.serializeToString())
+         .putLong(Const.Preferences.LOCATION_CACHE_TIMESTAMP, mCachedWeatherTimestamp)
+         .commit();
 
         FLog.v(context, TAG, "Cached weather information updated");
     }
