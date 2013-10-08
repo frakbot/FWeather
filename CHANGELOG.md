@@ -1,6 +1,14 @@
 Changelog
 =========
 
+### Version 2.1.3 ###
+Released on 8th October 2013
+
+- NEW: updated ActionBarSherlock to v4.4.0
+- NEW: updated Android Switch Backport
+- NEW: losslessly compressed all the drawables to have a slightly lighter APK
+- FIX: fixed feedback gathering being performed on the UI thread
+
 ### Version 2.1.2 ###
 Released on 7th October 2013
 
