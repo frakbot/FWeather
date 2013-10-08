@@ -24,14 +24,14 @@ package net.frakbot.global;
 public class Const {
 
     public static final String APP_NAME = "FWeather";
-    
+
     /**
      * Holds a series of utility strings, mostly used as Bundle keys.
      * @author Francesco Pontillo
      */
     public class Bundles {
     }
-    
+
     /**
      * Collection of Intents used in the app.
      * @author Francesco Pontillo
@@ -51,7 +51,7 @@ public class Const {
         public static final String DONATE_FRAKBOT = "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=frakbot@gmail.com&lc=EU&currency_code=EUR&item_name=Italiansubs.net%20Android&amount=";
         public static final String AUTHENTIC_WEATHER = "http://www.behance.net/gallery/Authentic-Weather/7196565";
     }
-    
+
     /**
      * Collection of preference keys, as listed in res/xml/*.xml files.
      * Always keep in sync these constants with the ones defined in those files.
@@ -76,7 +76,7 @@ public class Const {
         public static final String LOCATION_CACHE_TIMESTAMP = "location_cache_timestamp";
         public static final String DEBUG = "debug";
     }
-    
+
     /**
      * Collection of update rates, or thresholds,
      * expressed in seconds.

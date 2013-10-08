@@ -19,7 +19,7 @@
 
     <!-- Preference keys -->
     <!-- Always keep these values in sync with the ones in
-    	 net.frakbot.global.Const.Preferences . -->
+         net.frakbot.global.Const.Preferences . -->
     <string name="pref_key_sync_frequency" translatable="false">sync_frequency</string>
     <string name="pref_key_sync_force" translatable="false">sync_force</string>
     <string name="pref_key_feedback" translatable="false">feedback</string>
