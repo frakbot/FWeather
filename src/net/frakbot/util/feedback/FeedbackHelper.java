@@ -116,7 +116,7 @@ public class FeedbackHelper {
         Thread t = new Thread(emailSender);
         t.setPriority(Thread.MIN_PRIORITY);
         t.setName("FeedbackEmailSender");
-        t.run();
+        t.start();
     }
 
     /**
