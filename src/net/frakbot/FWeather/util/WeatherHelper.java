@@ -90,11 +90,12 @@ public class WeatherHelper {
         }
 
         // Use manual location if defined
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
-
-        String manualLocationWoeid =
-            WeatherLocationPreference.getWoeidFromValue(
+        String manualLocationWoeid = null;
+        final SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+        if (sp != null) {
+            manualLocationWoeid = WeatherLocationPreference.getWoeidFromValue(
                 sp.getString(context.getString(R.string.pref_key_weather_location), null));
+        }
 
         if (!TextUtils.isEmpty(manualLocationWoeid)) {
             FLog.d(TAG, "Using manual location WOEID");
@@ -139,12 +140,18 @@ public class WeatherHelper {
      * @param weather The weather data to save in the cache
      */
     private static void saveDataToCache(Context context, WeatherData weather) {
+        final SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+        if (sp == null) {
+            FLog.e(TAG, "Unable to access the shared preferences, can't save to cache");
+            return;
+        }
+
         if (weather == null) {
             FLog.v(TAG, "Clearing cached weather information (null data)");
             mCachedWeather = null;
             mCachedWeatherTimestamp = Long.MIN_VALUE;
 
-            SharedPreferences.Editor e = PreferenceManager.getDefaultSharedPreferences(context).edit();
+            SharedPreferences.Editor e = sp.edit();
             e.remove(Const.Preferences.LOCATION_CACHE)
              .remove(Const.Preferences.LOCATION_CACHE_TIMESTAMP)
              .commit();
@@ -156,7 +163,7 @@ public class WeatherHelper {
         mCachedWeather = weather;
         mCachedWeatherTimestamp = System.currentTimeMillis();
 
-        SharedPreferences.Editor e = PreferenceManager.getDefaultSharedPreferences(context).edit();
+        SharedPreferences.Editor e = sp.edit();
         e.putString(Const.Preferences.LOCATION_CACHE, weather.serializeToString())
          .putLong(Const.Preferences.LOCATION_CACHE_TIMESTAMP, mCachedWeatherTimestamp)
          .commit();
@@ -170,7 +177,11 @@ public class WeatherHelper {
      * @param context The current {@link android.content.Context}.
      */
     private static void readDataFromCache(Context context) {
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+        final SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+        if (sp == null) {
+            FLog.e(TAG, "Unable to access the shared preferences, can't save to cache");
+            return;
+        }
 
         // Read the cached value
         mCachedWeatherTimestamp = sp.getLong(Const.Preferences.LOCATION_CACHE_TIMESTAMP, Long.MIN_VALUE);
@@ -231,7 +242,7 @@ public class WeatherHelper {
      * is still fresh enough to be used, or if it's become stale.
      *
      * @return Returns true if there is a cached weather and if said cached
-     *         weather data is not stale.
+     * weather data is not stale.
      */
     public static boolean isLatestWeatherStillGood() {
         final long weatherAgeMillis = getLatestWeatherAgeMillis();
@@ -245,7 +256,7 @@ public class WeatherHelper {
      * weather information, if any is available.
      *
      * @return Returns the cache age if there is a cached weather, or
-     *         {@link Long#MIN_VALUE} if there is no cached weather.
+     * {@link Long#MIN_VALUE} if there is no cached weather.
      */
     public static long getLatestWeatherAgeMillis() {
         if (mCachedWeather == null) {
