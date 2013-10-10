@@ -1,6 +1,12 @@
 Changelog
 =========
 
+### Version 2.1.4 ###
+Released on 10th October 2013
+
+- NEW: shaved some 200 bytes off the APK size (thanks XhmikosR)
+- FIX: solved crash caused by SharedPreferences issues (issue #69)
+
 ### Version 2.1.3 ###
 Released on 8th October 2013
 
