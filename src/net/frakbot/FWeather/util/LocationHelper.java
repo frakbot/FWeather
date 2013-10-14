@@ -274,7 +274,11 @@ public class LocationHelper {
             onGenericDisconnected();
 
             FLog.i(mContext, TAG, "Trying to reconnect the LocationClient...");
-            mLocationClient.connect();
+            try {
+                mLocationClient.connect();
+            } catch (Exception e) {
+                FLog.w(mContext, TAG, "Unable to reconnect. Is Play Services borked?", e);
+            }
         }
 
         @Override
