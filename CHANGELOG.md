@@ -1,6 +1,11 @@
 Changelog
 =========
 
+### Version 2.1.5 ###
+Released on 14th October 2013
+
+- FIX: solved crash caused by misbehaving Google Play Services
+
 ### Version 2.1.4 ###
 Released on 10th October 2013
 
