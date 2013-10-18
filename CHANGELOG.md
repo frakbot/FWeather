@@ -38,7 +38,7 @@ Released on 5th October 2013
 Released on 26th September 2013
 
 - NEW: Spanish translation
-- NEW: Romenian translation -- thanks, BruceLee!
+- NEW: Romanian translation -- thanks, BruceLee!
 - NEW: even better feedback mechanism
 - FIX: crash on tablets when opening the Settings activity
 
