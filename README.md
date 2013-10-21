@@ -10,7 +10,7 @@ Please be warned, this widget prominenlty uses cursing. If you don't like it, ju
 
 The permissions (coarse location, internet access) are requested to access your coarse geolocation and to actually retrieve the weather at your location. I don't collect any information, and as of version 1.0 your position is not even stored locally. The app is open source, so you might just check out the code if you don't trust my word! I've coded the widget in less than a day as a learning experience for working with app widgets, so it's not really customizable nor flexible (at the moment).
 
-The widget supports English and Italian, but if you want to contribute a translation you just have to issue a pull request (remember to work on the develop branch!). Feedback is always welcome :)
+The widget supports [a few languages](#translating-fweather), but if you want to contribute a translation you just have to issue a pull request (remember to work on the develop branch!). Feedback is always welcome :)
 
 You can also find **[FWeather on XDA-Developers](http://forum.xda-developers.com/showthread.php?t=2346105)**!
 
@@ -34,8 +34,6 @@ As of today, FWeather has been translated into the following languages:
  * Deutsch (by Aaron Gerlach)
  * English (by Frakbot)
  * Italian (by Frakbot)
-
-The following languages will be available from v2.1:
  * Romanian (by BruceLee)
  * Spanish (by Anon)
 
@@ -56,7 +54,14 @@ If you want to send us a generic feedback, [write us an email](mailto:frakbot+fw
 For bugs and feature requests, please [read the instructions](https://github.com/frakbot/FWeather/wiki/How-to-report-a-bug) and then [open an issue](https://github.com/frakbot/FWeather/issues) in the issue tracker.
 
 ## Credits
-This widget is partly based upon Surviving With Android's [WeatherApp](https://github.com/survivingwithandroid/Surviving-with-android/tree/master/WeatherApp) (released under the Apache 2 license), described in a [blog post](http://www.survivingwithandroid.com/2013/05/build-weather-app-json-http-android.html), and uses [OpenWeatherMap](http://openweathermap.org/)'s weather APIs.
+This widget uses the awesome [Yahoo! Weather APIs](http://developer.yahoo.com/weather/) to retrieve the weather data.
+
+FWeather also uses the following libraries and open source projects:
+ * <b><a href="http://actionbarsherlock.com/" target=_blank>ActionBarSherlock</a></b> by Jake Wharton
+ * <b><a href="https://github.com/survivingwithandroid/Surviving-with-android/tree/master/WeatherApp" target=_blank>WeatherApp</a></b> by Surviving With Android
+ * <b><a href="https://github.com/BoD/android-switch-backport" target=_blank>Android Switch Backport</a></b> by Benoit 'BoD' Lubek
+ * <b><a href="https://code.google.com/p/dashclock/" target=_blank>Dashclock</a></b> by Roman Nurik (Google Inc.)
+ * <b><a href="https://code.google.com/p/android-log-collector/" target=_blank>Log Collector</a></b> by Xtralogic Inc.
 
 ## License
 This app's code is licensed under the Apache 2 license. Please see the NOTICE file for details.
