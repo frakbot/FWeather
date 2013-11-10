@@ -1,6 +1,14 @@
 Changelog
 =========
 
+### Version 2.2.0 ###
+Released on ???
+
+- NEW: Czech translation -- thanks, Pavel Tížek!
+- NEW: Dutch translation -- thanks, Frans-Peter van der Leur!
+- NEW: French translation -- thanks, Christian Knaub!
+- NEW: Russian translation -- thanks, Vsevolod Osinin!
+
 ### Version 2.1.5 ###
 Released on 14th October 2013
 
