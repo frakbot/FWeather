@@ -8,6 +8,7 @@ Released on ???
 - NEW: Dutch translation -- thanks, Frans-Peter van der Leur!
 - NEW: French translation -- thanks, Christian Knaub!
 - NEW: Russian translation -- thanks, Vsevolod Osinin!
+- FIX: fixed the code that gives the translator attribution
 
 ### Version 2.1.5 ###
 Released on 14th October 2013

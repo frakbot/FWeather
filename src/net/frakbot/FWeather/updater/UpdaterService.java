@@ -21,6 +21,7 @@ import android.app.IntentService;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProviderInfo;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
@@ -134,8 +135,8 @@ public class UpdaterService extends IntentService {
         }
 
         Locale defaultLocale = null, selectedLocale;
-        if ((selectedLocale = getUserSelectedLocale()) != null) {
-            defaultLocale = switchLocale(selectedLocale);
+        if ((selectedLocale = getUserSelectedLocale(this)) != null) {
+            defaultLocale = switchLocale(this, selectedLocale);
         }
 
         // Perform this loop procedure for each App Widget that belongs to this provider
@@ -154,7 +155,7 @@ public class UpdaterService extends IntentService {
 
         // If we switched the locale, let's restore the default one
         if (selectedLocale != null) {
-            switchLocale(defaultLocale);
+            switchLocale(this, defaultLocale);
         }
 
         // Reschedule the alarm
@@ -164,14 +165,15 @@ public class UpdaterService extends IntentService {
     }
 
     /**
-     * Change the Locale used for further (even implicit) calls to <code>getResources()</code>
+     * Change the Locale used for further (even implicit) calls to <code>getResources()</code> .
      *
      * @param selectedLocale The new locale to use
+     * @param context The current context
      *
-     * @return the Locale used before the switch. It should be restored after use.
+     * @return Returns the Locale used before the switch. It should be restored after use.
      */
-    private Locale switchLocale(Locale selectedLocale) {
-        Resources standardResources = getResources();
+    public static Locale switchLocale(Context context, Locale selectedLocale) {
+        Resources standardResources = context.getResources();
         AssetManager assets = standardResources.getAssets();
         DisplayMetrics metrics = standardResources.getDisplayMetrics();
         Configuration config = new Configuration(standardResources.getConfiguration());
@@ -189,15 +191,17 @@ public class UpdaterService extends IntentService {
     /**
      * Check the current default language against the language selected by the user in the preferences screen
      *
-     * @return the Locale related to the language choosen by the user or <code>null</code> if the user
+     * @param context The current context
+     *
+     * @return Returns the Locale related to the language choosen by the user or <code>null</code> if the user
      * didn't choose any other locale
      */
-    private Locale getUserSelectedLocale() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String defaultValue = getResources().getStringArray(R.array.pref_key_ui_override_language_values)[0];
+    public static Locale getUserSelectedLocale(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String defaultValue = context.getResources().getStringArray(R.array.pref_key_ui_override_language_values)[0];
         String desiredLanguage = prefs.getString(Const.Preferences.UI_OVERRIDE_LANGUAGE, defaultValue);
 
-        Configuration defaultConfiguration = new Configuration(getResources().getConfiguration());
+        Configuration defaultConfiguration = new Configuration(context.getResources().getConfiguration());
         String defaultLanguage = defaultConfiguration.locale.getLanguage();
 
         if (desiredLanguage == null || desiredLanguage.equals(defaultLanguage) || desiredLanguage.equals(

@@ -16,6 +16,7 @@
 
 package net.frakbot.FWeather.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -28,8 +29,11 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 import net.frakbot.FWeather.R;
-import net.frakbot.global.Const;
+import net.frakbot.FWeather.updater.UpdaterService;
 import net.frakbot.FWeather.util.TrackerHelper;
+import net.frakbot.global.Const;
+
+import java.util.Locale;
 
 /**
  * Implementation of android.preference.DialogPreference that
@@ -91,10 +95,14 @@ public class AuthorsDialog extends FragmentActivity {
         donateFrakbotBtn = (Button) findViewById(R.id.btn_donate_frakbot);
         authenticWeatherBtn = (Button) findViewById(R.id.btn_authentic_weather);
 
+        // Get the current widget locale (used to show the correct translator name)
+        Locale locale = UpdaterService.getUserSelectedLocale(this);
+
         nameAndVersionView.setText(
             Html.fromHtml(getString(R.string.app_name_and_version, versionName)));
         aboutAuthorsView.setText(
-            Html.fromHtml(getString(R.string.about_developers, getString(R.string.translator_name))));
+            Html.fromHtml(getString(R.string.about_developers,
+                                    getLocalizedString(this, R.string.translator_name, locale))));
 
         // Setup the donation buttons
         donateFrakbotBtn.setOnClickListener(new View.OnClickListener() {
@@ -114,5 +122,26 @@ public class AuthorsDialog extends FragmentActivity {
                     Intent.ACTION_VIEW, Uri.parse(Const.Urls.AUTHENTIC_WEATHER)));
             }
         });
+    }
+
+    /**
+     * Gets a string resource, localized in the desired language.
+     *
+     * @param context  The base Context
+     * @param stringId The ID of the resource string to retrieve
+     * @param destLocale   The locale to load the string for
+     *
+     * @return Returns the string resource in the desired locale
+     */
+    private static CharSequence getLocalizedString(Context context, int stringId, Locale destLocale) {
+        Locale defaultLocale = null;
+        if (destLocale != null) {
+            defaultLocale = UpdaterService.switchLocale(context, destLocale);
+        }
+
+        String locString = context.getString(stringId);
+        UpdaterService.switchLocale(context, defaultLocale);
+
+        return locString;
     }
 }
