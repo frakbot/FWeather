@@ -19,11 +19,15 @@
 
     <string-array name="pref_key_ui_override_language_entries">
         <item>Automático (idioma del sistema)</item>
+        <!-- TODO: item>Czech (cs)</item-->
         <item>Alemán (de)</item>
         <item>Inglés (en)</item>
         <item>Español (es)</item>
+        <!-- TODO: item>French (fr)</item-->
         <item>Italiano (it)</item>
+        <!-- TODO: item>Dutch (nl)</item-->
         <item>Rumano (ro)</item>
+        <!-- TODO: item>Russian (ru)</item-->
         <item>Chino (simplificado) (zh)</item>
     </string-array>
 

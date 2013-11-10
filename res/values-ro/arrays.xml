@@ -3,11 +3,15 @@
 
     <string-array name="pref_key_ui_override_language_entries">
         <item>Auto (limba sistemului)</item>
+        <!-- TODO: item>Czech (cs)</item-->
         <item>Germană (de)</item>
         <item>Engleză (en)</item>
         <item>Spaniolă (es)</item>
+        <!-- TODO: item>French (fr)</item-->
         <item>Italiană (it)</item>
+        <!-- TODO: item>Dutch (nl)</item-->
         <item>Română (ro)</item>
+        <!-- TODO: item>Russian (ru)</item-->
         <item>Chineză (simplificată) (zh)</item>
     </string-array>
 
