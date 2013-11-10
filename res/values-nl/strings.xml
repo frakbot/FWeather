@@ -17,7 +17,7 @@
 
 <resources>
     <!-- Translator name (used in the About box) -->
-    <string name="translator_name">Frakbot</string>
+    <string name="translator_name">Frans-Peter van der Leur</string>
 
     <!-- Activity labels -->
     <string name="activity_settings">FWeather instellingen</string>
