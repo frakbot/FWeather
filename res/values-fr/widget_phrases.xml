@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <!-- Widget loading messages -->
+    <string name="loading_main"><![CDATA[Laisse moi jeter un oeil par une putain de fenêtre.]]></string>
+    <string name="loading_small"><![CDATA[Rapproche toi d\'une pour que je puisse te dire cette connerie de météo.]]></string>
+
+    <!-- Widget weather conditions -->
+    <string name="weather_sunny"><![CDATA[Une tonne de putain <font color="%%COLOR%%">d\'amour</font> est dans l\'air.]]></string>
+    <string name="weather_rainy"><![CDATA[On est sous une putain de <font color="%%COLOR%%">pluie</font> pour le moment.]]></string>
+    <string name="weather_cloudy"><![CDATA[Tout simplement putain de <font color="%%COLOR%%">gris.</font>]]></string>
+    <string name="weather_thunderstorm"><![CDATA[C'est un putain d\'enfer d\'<font color="%%COLOR%%">orages de merde.</font>]]></string>
+    <string name="weather_haze"><![CDATA[J\'y<font color="%%COLOR%%">vois strictement rien.</font>]]></string>
+    <string name="weather_partly_cloudy"><![CDATA[Il n\'y a pas de putain de pluie <font color="%%COLOR%%">pour le moment.</font>]]></string>
+    <string name="weather_drizzle"><![CDATA[Putain de fine pluie <font color="%%COLOR%%">de merde.</font>]]></string>
+    <string name="weather_snowy"><![CDATA[Voila le putain de <font color="%%COLOR%%">Père Noel</font>]]></string>
+    <string name="weather_extreme"><![CDATA[<font color="%%COLOR%%">Cours</font> pour ta putain de vie.]]></string>
+    <string name="weather_windy"><![CDATA[Les putain d\'<font color="%%COLOR%%">éolienne</font> font enfin leur boulot de merde.]]></string>
+    <string name="weather_cold"><![CDATA[<font color="%%COLOR%%">L\'hiver arrive</font>, fait chier.]]></string>
+    <string name="weather_hot"><![CDATA[putain de gloire à toi, <font color="%%COLOR%%">Satan!</font>]]></string>
+    <string name="weather_hail"><![CDATA[On se prend des putains de <font color="%%COLOR%%">bombes</font> glacées sur la gueule.]]></string>
+    <string name="weather_wtf"><![CDATA[<font color="%%COLOR%%">Bordel de merde,</font> tu peux pas juste regarder par la fenêtre?]]></string>
+    <string name="weather_no_weather"><![CDATA[LOL, merde, j\'ai simplement<font color="%%COLOR%%">aucune idée.</font>]]></string>
+    <string name="weather_no_location"><![CDATA[<font color="%%COLOR%%">C\'est quoi ton problème</font> Mec.]]></string>
+
+    <!-- Widget temperature conditions -->
+    <string name="temp_freezing"><![CDATA[<font color="%%COLOR%%">WTF.</font> Bienvenue au putain de pôle nord.]]></string>
+    <string name="temp_cold"><![CDATA[Il fait <font color="%%COLOR%%">froid</font> comme dans ton putain de frigo.]]></string>
+    <string name="temp_hot"><![CDATA[Il fait<font color="%%COLOR%%">chaud</font> comme dans un putain de four.]]></string>
+    <string name="temp_warm"><![CDATA[Profite des putains d\'oiseaux débiles <font color="%%COLOR%%">qui chantent</font> et tout ce bordel.]]></string>
+    <string name="temp_wtf"><![CDATA[Non, franchement, c\'est ce que j\'ai de mieux à t\'offrir pour le moment, j\'ai aucune <font color="%%COLOR%%">putain d\'idée.</font>]]></string>
+    <string name="temp_no_location"><![CDATA[J\'ai pas de putain de <font color="%%COLOR%%">boule de cristal.</font> Active le GPS ou les services de localisation.]]></string>
+
+</resources>

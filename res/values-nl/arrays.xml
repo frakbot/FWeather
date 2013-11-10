@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="pref_key_ui_override_language_entries">
+        <!-- TODO: item>Auto (system language)</item-->
+        <!-- TODO: item>Czech (cs)</item-->
+        <!-- TODO: item>German (de)</item-->
+        <!-- TODO: item>English (en)</item-->
+        <!-- TODO: item>Spanish (es)</item-->
+        <!-- TODO: item>French (fr)</item-->
+        <!-- TODO: item>Italian (it)</item-->
+        <!-- TODO: item>Dutch (nl)</item-->
+        <!-- TODO: item>Romanian (ro)</item-->
+        <!-- TODO: item>Russian (ru)</item-->
+        <!-- TODO: item>Chinese (simplified) (zh)</item-->
+    </string-array>
+
+</resources>
