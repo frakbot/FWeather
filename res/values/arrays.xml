@@ -3,11 +3,15 @@
 
     <string-array name="pref_key_ui_override_language_entries">
         <item>Auto (system language)</item>
+        <item>Czech (cs)</item>
         <item>German (de)</item>
         <item>English (en)</item>
         <item>Spanish (es)</item>
+        <item>French (fr)</item>
         <item>Italian (it)</item>
+        <item>Dutch (nl)</item>
         <item>Romanian (ro)</item>
+        <item>Russian (ru)</item>
         <item>Chinese (simplified) (zh)</item>
     </string-array>
 
