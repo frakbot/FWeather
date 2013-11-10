@@ -2,21 +2,21 @@
 <resources>
 
     <string-array name="pref_key_ui_override_language_entries">
-        <item>Auto (limba sistemului)</item>
+        <!-- TODO: item>Auto (system language)</item-->
         <!-- TODO: item>Czech (cs)</item-->
-        <item>Germană (de)</item>
-        <item>Engleză (en)</item>
-        <item>Spaniolă (es)</item>
+        <!-- TODO: item>German (de)</item-->
+        <!-- TODO: item>English (en)</item-->
+        <!-- TODO: item>Spanish (es)</item-->
         <!-- TODO: item>French (fr)</item-->
         <!-- TODO: item>Greek (gr)</item-->
         <!-- TODO: item>Hebrew (he)</item-->
-        <item>Italiană (it)</item>
+        <!-- TODO: item>Italian (it)</item-->
         <!-- TODO: item>Dutch (nl)</item-->
         <!-- TODO: item>Portuguese Brazilian (pt)</item-->
-        <item>Română (ro)</item>
+        <!-- TODO: item>Romanian (ro)</item-->
         <!-- TODO: item>Russian (ru)</item-->
         <!-- TODO: item>Ukrainian (uk)</item-->
-        <item>Chineză (simplificată) (zh)</item>
+        <!-- TODO: item>Chinese (simplified) (zh)</item-->
     </string-array>
 
 </resources>

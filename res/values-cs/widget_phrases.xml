@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <!-- Widget loading messages -->
+    <string name="loading_main"><![CDATA[Nech mě podívat se z toho debilního okna.]]></string>
+    <string name="loading_small"><![CDATA[Běž k oknu, ať ti můžu říct počasí.]]></string>
+
+    <!-- Widget weather conditions -->
+    <string name="weather_sunny"><![CDATA[Ve vzduchu je zasraná <font color="%%COLOR%%">láska</font>.]]></string>
+    <string name="weather_rainy"><![CDATA[Zase <font color="%%COLOR%%">prší</font> sakra.]]></string>
+    <string name="weather_cloudy"><![CDATA[Je tam zasraně <font color="%%COLOR%%">šero.</font>]]></string>
+    <string name="weather_thunderstorm"><![CDATA[Do prdele, <font color="%%COLOR%%">létají blesky.</font>]]></string>
+    <string name="weather_haze"><![CDATA[<font color="%%COLOR%%">Není vidět</font> vůbec nic.]]></string>
+    <string name="weather_partly_cloudy"><![CDATA[Žádný zasraný déšť. <font color="%%COLOR%%">Zatím.</font>]]></string>
+    <string name="weather_drizzle"><![CDATA[Lehce kape, jako z <font color="%%COLOR%%">kalhotek.</font>]]></string>
+    <string name="weather_snowy"><![CDATA[Blíží se zasrané <font color="%%COLOR%%">Vánoce.</font>]]></string>
+    <string name="weather_extreme"><![CDATA[<font color="%%COLOR%%">Utíkej</font> pryč a zachraň se.]]></string>
+    <string name="weather_windy"><![CDATA[<font color="%%COLOR%%">Fouká</font> jako svině]]></string>
+    <string name="weather_cold"><![CDATA[<font color="%%COLOR%%">Zima přichází,</font> do hajzlu.]]></string>
+    <string name="weather_hot"><![CDATA[Hergot, zasraný <font color="%%COLOR%%">Satan!</font>]]></string>
+    <string name="weather_hail"><![CDATA[Do prdele, padají ledové <font color="%%COLOR%%">bomby!</font> ]]></string>
+    <string name="weather_wtf"><![CDATA[<font color="%%COLOR%%">WTF,</font> nemůžeš se sakra podívat z okna?]]></string>
+    <string name="weather_no_weather"><![CDATA[LOL fakt <font color="%%COLOR%%">nevím</font> vole]]></string>
+    <string name="weather_no_location"><![CDATA[<font color="%%COLOR%%">Sakra,</font> špatně!]]></string>
+
+    <!-- Widget temperature conditions -->
+    <string name="temp_freezing"><![CDATA[<font color="%%COLOR%%">WTF.</font> Zasraný severní pól.]]></string>
+    <string name="temp_cold"><![CDATA[<font color="%%COLOR%%">Zima</font> jako v debilní ledničce.]]></string>
+    <string name="temp_hot"><![CDATA[<font color="%%COLOR%%">Horko</font> jako v zasrané troubě.]]></string>
+    <string name="temp_warm"><![CDATA[Užívej si ten zasraný <font color="%%COLOR%%">ptačí zpěv.</font>]]></string>
+    <string name="temp_wtf"><![CDATA[Vážně, teď je tvá nejlepší šance. Nemám <font color="%%COLOR%%">žádný debilní nápad.</font>]]></string>
+    <string name="temp_no_location"><![CDATA[Nemám žádnou <font color="%%COLOR%%">křišťálovou kouli!</font> Zapni GPS.]]></string>
+
+</resources>

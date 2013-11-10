@@ -1,6 +1,15 @@
 Changelog
 =========
 
+### Version 2.2.0 ###
+Released on ???
+
+- NEW: Czech translation -- thanks, Pavel Tížek!
+- NEW: Dutch translation -- thanks, Frans-Peter van der Leur!
+- NEW: French translation -- thanks, Christian Knaub!
+- NEW: Russian translation -- thanks, Vsevolod Osinin!
+- FIX: fixed the code that gives the translator attribution
+
 ### Version 2.1.5 ###
 Released on 14th October 2013
 
@@ -38,7 +47,7 @@ Released on 5th October 2013
 Released on 26th September 2013
 
 - NEW: Spanish translation
-- NEW: Romenian translation -- thanks, BruceLee!
+- NEW: Romanian translation -- thanks, BruceLee!
 - NEW: even better feedback mechanism
 - FIX: crash on tablets when opening the Settings activity
 

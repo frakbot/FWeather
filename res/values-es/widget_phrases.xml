@@ -36,12 +36,13 @@
     <string name="weather_hail"><![CDATA[Están cayendo <font color="%%COLOR%%">bombas</font> de hielo.]]></string>
     <string name="weather_wtf"><![CDATA[<font color="%%COLOR%%">WTF,</font> no puedes mirar fuera?]]></string>
     <string name="weather_no_weather"><![CDATA[Jajajaja No tengo ni <font color="%%COLOR%%">puta idea</font>]]></string>
-    <string name="weather_no_location"><![CDATA[<font color="%%COLOR%%">Coñ o,</font> tío!]]></string>
+    <string name="weather_no_location"><![CDATA[<font color="%%COLOR%%">Coño,</font> tío!]]></string>
 
     <!-- Widget temperature conditions -->
     <string name="temp_freezing"><![CDATA[Como en el puto<font color="%%COLOR%%">Polo Norte.</font>]]></string>
     <string name="temp_cold"><![CDATA[<font color="%%COLOR%%">Frío</font> como en una puta nevera.]]></string>
     <string name="temp_hot"><![CDATA[Un <font color="%%COLOR%%">calor</font> acojonante.]]></string>
+    <!-- TODO: fix the "y cagando" part in temp_warm string. A Spanish user says it doesn't make sense. -->
     <string name="temp_warm"><![CDATA[Disfruta de los putos pájaros <font color="%%COLOR%%">cantando</font> y cagando.]]></string>
     <string name="temp_wtf"><![CDATA[No, enserio, no tienes nada mejor que hacer? <font color="%%COLOR%%">No tengo ni puta idea.</font>]]></string>
     <string name="temp_no_location"><![CDATA[No tengo una puta <font color="%%COLOR%%">bola de cristal!</font> Enciende el GPS o los servicios de localización.]]></string>

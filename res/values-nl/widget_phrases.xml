@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <!-- Widget loading messages -->
+    <string name="loading_main"><![CDATA[Laat me door een fucking raam naar buiten kijken.]]></string>
+    <string name="loading_small"><![CDATA[Ga daar staan zodat ik je het weer kan zeggen.]]></string>
+
+    <!-- Widget weather conditions -->
+    <string name="weather_sunny"><![CDATA[Fucking <font color="%%COLOR%%">love</font> is in the air.]]></string>
+    <string name="weather_rainy"><![CDATA[Het is aan het schijt<font color="%%COLOR%%">regenen.</font> Now.]]></string>
+    <string name="weather_cloudy"><![CDATA[Helemaal fucking <font color="%%COLOR%%">grijs.</font>]]></string>
+    <string name="weather_thunderstorm"><![CDATA[Klote <font color="%%COLOR%%">gedonder</font> uit de hel.]]></string>
+    <string name="weather_haze"><![CDATA[<font color="%%COLOR%%">Zie geen </font>flikker.]]></string>
+    <string name="weather_partly_cloudy"><![CDATA[Geen kutregen. <font color="%%COLOR%%">Nog niet.</font>]]></string>
+    <string name="weather_drizzle"><![CDATA[Lichte regen, als een fucking <font color="%%COLOR%%">poesje.</font>]]></string>
+    <string name="weather_snowy"><![CDATA[Here\'s <font color="%%COLOR%%">Santa</font> fucking Claus.]]></string>
+    <string name="weather_extreme"><![CDATA[<font color="%%COLOR%%">Ren</font> voor je klote leven.]]></string>
+    <string name="weather_windy"><![CDATA[<font color="%%COLOR%%">Aeolus</font> is fucking grappig vandaag]]></string>
+    <string name="weather_cold"><![CDATA[<font color="%%COLOR%%">Winter in aantocht</font>, fuck.]]></string>
+    <string name="weather_hot"><![CDATA[Hee, fucking <font color="%%COLOR%%">Satan!</font>]]></string>
+    <string name="weather_hail"><![CDATA[Klote ijs<font color="%%COLOR%%">bommen</font> vallen er]]></string>
+    <string name="weather_wtf"><![CDATA[<font color="%%COLOR%%">WTF,</font> kun je niet eens naar buiten kijken?]]></string>
+    <string name="weather_no_weather"><![CDATA[LOL kut ik heb totaal <font color="%%COLOR%%">geen idee</font>]]></string>
+    <string name="weather_no_location"><![CDATA[<font color="%%COLOR%%">Kutzooi,</font> gast!]]></string>
+
+    <!-- Widget temperature conditions -->
+    <string name="temp_freezing"><![CDATA[<font color="%%COLOR%%">WTF.</font> Fucking noordpool.]]></string>
+    <string name="temp_cold"><![CDATA[<font color="%%COLOR%%">Koud</font> als een fucking koelkast.]]></string>
+    <string name="temp_hot"><![CDATA[<font color="%%COLOR%%">Heet</font> als in een fucking oven.]]></string>
+    <string name="temp_warm"><![CDATA[Geniet van de kutvogels <font color="%%COLOR%%">die zingen</font> en schijten.]]></string>
+    <string name="temp_wtf"><![CDATA[Nee, echt, daar moet je het mee doen, ik heb <font color="%%COLOR%%">geen fucking idee.</font>]]></string>
+    <string name="temp_no_location"><![CDATA[Ik heb geen fucking <font color="%%COLOR%%">kristallen bol!</font> Zet je GPS of Locatieservices aan.]]></string>
+
+</resources>

@@ -3,11 +3,19 @@
 
     <string-array name="pref_key_ui_override_language_entries">
         <item>Auto (lingua di sistema)</item>
+        <item>Ceco (cs)</item>
         <item>Tedesco (de)</item>
         <item>Inglese (en)</item>
         <item>Spagnolo (es)</item>
+        <item>Francese (fr)</item>
+        <item>Greco (gr)</item>
+        <item>Ebraico (he)</item>
         <item>Italiano (it)</item>
+        <item>Olandese (nl)</item>
+        <item>Portoghese Brasiliano (pt)</item>
         <item>Rumeno (ro)</item>
+        <item>Russo (ru)</item>
+        <item>Ucraino (uk)</item>
         <item>Cinese (semplificato) (zh)</item>
     </string-array>
 
