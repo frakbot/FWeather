@@ -25,7 +25,7 @@
     <string name="pref_title_ui_toggle_temperature_info">Temperature \"info\"</string>
     <string name="pref_title_ui_darkmode">Mode sombre</string>
     <string name="pref_title_ui_override_language">Langue du Widget</string>
-    <string name="pref_title_ui_bgopacity">Fond du Widget de page d'accueil</string>
+    <string name="pref_title_ui_bgopacity">Fond du Widget de page d\'accueil</string>
     <string name="pref_summary_ui_darkmode">Adapte les couleurs pour des fonds d\'écran clairs</string>
 
     <string-array name="pref_ui_bgopacity_titles">
@@ -40,7 +40,7 @@
     <string name="pref_header_data_sync">Données &amp; synchronisation</string>
     <string name="pref_title_sync_frequency">Fréquence de synchronisation</string>
     <string name="pref_title_sync_force">Vérifier la météo maintenant</string>
-    <string name="toast_force_update">OK, OK, pas besoin d'être casse-pieds comme ca. C\'est fait. Content?</string>
+    <string name="toast_force_update">OK, OK, pas besoin d\'être casse-pieds comme ca. C\'est fait. Content?</string>
 
     <string-array name="pref_sync_frequency_titles">
         <!--item>1 minute</item-->
@@ -82,7 +82,7 @@
     <!-- ABOUT DIALOG -->
     <string name="about_body">Vérifie ta putain de météo !</string>
     <!-- Note to translators: remember to set your name in the strings.xml file, in the translator_name string -->
-    <string name="about_developers"><![CDATA[Developpé par <b>Frakbot</b> (Sebastiano Poggi et Francesco Pontillo).<p/>Basé sur le concept <i>Authentic Weather</i> de <b>Tobias van Scheider</b>.<p/>Traduit avec un putain d'amour par <b>%s</b>.]]></string>
+    <string name="about_developers"><![CDATA[Developpé par <b>Frakbot</b> (Sebastiano Poggi et Francesco Pontillo).<p/>Basé sur le concept <i>Authentic Weather</i> de <b>Tobias van Scheider</b>.<p/>Traduit avec un putain d\'amour par <b>%s</b>.]]></string>
     <string name="donate_frakbot">Faire un don à\nFrakbot</string>
 
     <!-- Action Bar items -->

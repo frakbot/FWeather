@@ -24,7 +24,7 @@
     <string name="weather_sunny"><![CDATA[Une tonne de putain <font color="%%COLOR%%">d\'amour</font> est dans l\'air.]]></string>
     <string name="weather_rainy"><![CDATA[On est sous une putain de <font color="%%COLOR%%">pluie</font> pour le moment.]]></string>
     <string name="weather_cloudy"><![CDATA[Tout simplement putain de <font color="%%COLOR%%">gris.</font>]]></string>
-    <string name="weather_thunderstorm"><![CDATA[C'est un putain d\'enfer d\'<font color="%%COLOR%%">orages de merde.</font>]]></string>
+    <string name="weather_thunderstorm"><![CDATA[C\'est un putain d\'enfer d\'<font color="%%COLOR%%">orages de merde.</font>]]></string>
     <string name="weather_haze"><![CDATA[J\'y<font color="%%COLOR%%">vois strictement rien.</font>]]></string>
     <string name="weather_partly_cloudy"><![CDATA[Il n\'y a pas de putain de pluie <font color="%%COLOR%%">pour le moment.</font>]]></string>
     <string name="weather_drizzle"><![CDATA[Putain de fine pluie <font color="%%COLOR%%">de merde.</font>]]></string>

@@ -33,7 +33,7 @@
     <string name="cdesc_refresh"><![CDATA[Rafraichir]]></string>
 
     <!-- Toasts -->
-    <string name="toast_feedback_mail_error">Impossible d'envoyer un commentaire. Veuillez écrire un email à frakbot+fweather@gmail.com</string>
+    <string name="toast_feedback_mail_error">Impossible d\'envoyer un commentaire. Veuillez écrire un email à frakbot+fweather@gmail.com</string>
 
     <!-- Messages -->
     <string name="no_weather_data">Aucun donnée météo accessible</string>
