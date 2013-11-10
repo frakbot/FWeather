@@ -31,18 +31,19 @@ You can contribute to the FWeather translation in your own language. It's really
 
 As of today, FWeather has been translated into the following languages:
  * Chinese (Simplified) (by Hansi Liu)
+ * Czech (by Pavel Tížek)
  * Deutsch (by Aaron Gerlach)
+ * Dutch (by Frans-Peter van der Leur)
  * English (by Frakbot)
+ * French (by Christian Knaub)
  * Italian (by Frakbot)
  * Romanian (by BruceLee)
+ * Russian (by Vsevolod Osinin)
  * Spanish (by Anon)
 
 These languages are in the works and should come in future updates:
- * Czech (by Pavel Tížek)
- * Russian and Ukraininan (by Ярослав Шевчук and Yegor Vyalov)
- * French (by Christian Knaub)
+ * Ukraininan (by Ярослав Шевчук and Yegor Vyalov)
  * Hebrew (by Tomer Nachum)
- * Dutch (by Frans-Peter van der Leur)
  * Portuguese Brazilian (by Edu Miguel)
 
 Please note that this list is preliminary and might change without any notice.
