@@ -8,10 +8,14 @@
         <item>Engleză (en)</item>
         <item>Spaniolă (es)</item>
         <!-- TODO: item>French (fr)</item-->
+        <!-- TODO: item>Greek (gr)</item-->
+        <!-- TODO: item>Hebrew (he)</item-->
         <item>Italiană (it)</item>
         <!-- TODO: item>Dutch (nl)</item-->
+        <!-- TODO: item>Portuguese Brazilian (pt)</item-->
         <item>Română (ro)</item>
         <!-- TODO: item>Russian (ru)</item-->
+        <!-- TODO: item>Ukrainian (uk)</item-->
         <item>Chineză (simplificată) (zh)</item>
     </string-array>
 
