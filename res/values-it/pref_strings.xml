@@ -56,8 +56,6 @@
         <item>Mai</item>
     </string-array>
 
-    <string name="pref_title_system_sync_settings">Impostazioni sincronizzazione di sistema</string>
-
     <!-- Settings for Info -->
     <string name="pref_header_info">Informazioni</string>
     <string name="pref_title_info_authors">Informazioni su FWeather</string>

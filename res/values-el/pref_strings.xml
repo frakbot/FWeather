@@ -84,7 +84,6 @@
     <!-- Note to translators: remember to set your name in the strings.xml file, in the translator_name string -->
     <string name="about_developers"><![CDATA[Δημιουργήθηκε από <b>Frakbot</b> (Sebastiano Poggi and Francesco Pontillo).<p/>Βασισμένο στο <i>Authentic Weather</i> ιδέα του <b>Tobias van Scheider</b>.<p/>Μεταφράστηκε με γαμημένη αγάπη από τον <b>%s</b>.]]></string>
     <string name="donate_frakbot">Δωρεά στον\nFrakbot</string>
-    <string name="authentic_weather" translatable="false">Αυθεντικό\nWeather</string>
 
     <!-- Action Bar items -->
     <string name="done">Τέλος</string>

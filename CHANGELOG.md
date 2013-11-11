@@ -5,6 +5,7 @@ Changelog
 Released on ???
 
 - NEW: Greek translation -- thanks, Dins!
+- FIX: a few fixes for the Russian translation -- thanks, Vsevolod Osinin!
 
 ### Version 2.2.0
 Released on 10th November 2013

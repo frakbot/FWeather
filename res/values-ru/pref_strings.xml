@@ -35,7 +35,7 @@
         <item>Сильно</item>
         <item>Полностью</item>
     </string-array>
- 
+
     <!-- Settings for Data & Sync -->
     <string name="pref_header_data_sync">Обновление данных</string>
     <string name="pref_title_sync_frequency">Автообновление</string>
@@ -62,27 +62,27 @@
     <string name="pref_title_info_license">Лицензии третьих сторон (англ.)</string>
     <string name="pref_title_feedback">Обратная связь</string>
     <string name="pref_title_changelog">Что нового</string>
-    <string name="pref_msg_changelog">Да нее. Бля, может в другой раз, чувак…</string>
+    <string name="pref_msg_changelog">Да нее… Бля, чувак, может в другой раз. </string>
     <string name="feedback_send_chooser_title">Отправить письмо через:</string>
 
     <!-- Settings for Advanced -->
     <string name="pref_header_advanced">Продвинутые</string>
     <string name="pref_title_analytics">Аналитика</string>
-    <string name="analytics_disable_warning">Для определения наиболее востребованных функций приложение использует службу Google Analytics. Это полностью анонимно и позволит разработчикам сосредоточить их усилия на полезных вещах. Включи аналитику, если не против.</string>
+    <string name="analytics_disable_warning">Служба Google Analytics используется для определения наиболее востребованных функций приложения. Это полностью анонимно и позволит разработчикам сосредоточить усилия на полезных вещах. Включи аналитику, если не против.</string>
     <string name="analytics_disabled">Google Analytics отключена.</string>
     <string name="analytics_enabled_thanks">Google Analytics включена. Спасибо!</string>
     <string name="pref_title_debug">Отладка</string>
     <string name="pref_summary_debug">Включать ТОЛЬКО при сообщении о проблемах!</string>
 
     <string name="pref_title_weather_location">Местоположение</string>
-    <string name="pref_weather_location_query_hint">Поиск местоположения</string>
+    <string name="pref_weather_location_query_hint">Поиск вручную (англ. буквами)</string>
     <string name="pref_weather_location_automatic">Автоматически</string>
     <string name="pref_weather_location_automatic_description">Основываясь на твоем текущем расположении.</string>
 
     <!-- ABOUT DIALOG -->
-     <string name="about_body">Получай свою ёбаную погоду правильно</string>
+    <string name="about_body">Получай свою ёбаную погоду правильно</string>
     <!-- Note to translators: remember to set your name in the strings.xml file, in the translator_name string -->
-    <string name="about_developers"><![CDATA[Разработано <b>Frakbot</b> (Себастьяно Погги и Франческо Понтилло).<p/>За основу взят <i>Authentic Weather</i> за авторством <b>Тобиаса ван Шайдера</b>.<p/>Переведено, сука, с любовью. <b>%s</b>.]]></string>
+    <string name="about_developers"><![CDATA[Разработано <b>Frakbot</b> (Себастьяно Погги и Франческо Понтилло).<p/>За основу взят <i>Authentic Weather</i> за авторством <b>Тобиаса ван Шайдера</b>.<p/>Переведено, сука, с любовью. \n<b>%s</b>.]]></string>
     <string name="donate_frakbot">Поддержать \nFrakbot</string>
 
     <!-- Action Bar items -->
