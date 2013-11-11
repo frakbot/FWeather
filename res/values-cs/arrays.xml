@@ -2,21 +2,21 @@
 <resources>
 
     <string-array name="pref_key_ui_override_language_entries">
-        <!-- TODO: item>Auto (system language)</item-->
-        <!-- TODO: item>Czech (cs)</item-->
-        <!-- TODO: item>German (de)</item-->
-        <!-- TODO: item>English (en)</item-->
-        <!-- TODO: item>Spanish (es)</item-->
-        <!-- TODO: item>French (fr)</item-->
-        <!-- TODO: item>Greek (gr)</item-->
-        <!-- TODO: item>Hebrew (he)</item-->
-        <!-- TODO: item>Italian (it)</item-->
-        <!-- TODO: item>Dutch (nl)</item-->
-        <!-- TODO: item>Portuguese Brazilian (pt)</item-->
-        <!-- TODO: item>Romanian (ro)</item-->
-        <!-- TODO: item>Russian (ru)</item-->
-        <!-- TODO: item>Ukrainian (uk)</item-->
-        <!-- TODO: item>Chinese (simplified) (zh)</item-->
+        <item>Auto (system language)</item>
+        <item>Česky (cs)</item>
+        <item>Německy (de)</item>
+        <item>Anglicky (en)</item>
+        <item>Španělsky (es)</item>
+        <item>Francouzky (fr)</item>
+        <!--item>Řecky (gr)</item-->
+        <!--item>Hebrejsky (he)</item-->
+        <item>Italsky (it)</item>
+        <item>Holandsky (nl)</item>
+        <!--item>Portugalsky (pt)</item-->
+        <item>Rumunsky (ro)</item>
+        <item>Rusky (ru)</item>
+        <!--item>Ukrajinsky (uk)</item-->
+        <item>Čínsky (zjednodušeně) (zh)</item>
     </string-array>
 
 </resources>
