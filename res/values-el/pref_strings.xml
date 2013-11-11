@@ -1,0 +1,95 @@
+<!--
+  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <!-- Strings related to Settings -->
+
+    <!-- Settings for Widget Customization (some come from DashClock) -->
+    <string name="pref_header_customization">Προσαρμογή</string>
+    <string name="pref_title_customize_widgets">Προσαρμογή widget</string>
+    <string name="pref_title_ui_toggle_buttons">Κουμπιά στο widget</string>
+    <string name="pref_title_ui_toggle_weather_icon">Εικονίδιο καιρού</string>
+    <string name="pref_title_ui_toggle_temperature_info">Θερμοκρασία \"πληροφορία\"</string>
+    <string name="pref_title_ui_darkmode">Σκούρο στυλ</string>
+    <string name="pref_title_ui_override_language">Γλώσσα Widget</string>
+    <string name="pref_title_ui_bgopacity">Φόντο widget αρχικής οθόνης</string>
+    <string name="pref_summary_ui_darkmode">Προσαρμογή χρωμάτων για φωτεινό φόντο</string>
+
+    <string-array name="pref_ui_bgopacity_titles">
+        <!-- TODO: item>None</item-->
+        <!-- TODO: item>Light</item-->
+        <!-- TODO: item>Medium</item-->
+        <!-- TODO: item>Heavy</item-->
+        <!-- TODO: item>Opaque</item-->
+    </string-array>
+
+    <!-- Settings for Data & Sync -->
+    <!-- TODO: string name="pref_header_data_sync">Data &amp; sync</string-->
+    <string name="pref_title_sync_frequency">Συχνότητα ανανέωσης</string>
+    <string name="pref_title_sync_force">Ανανέωσε τον καιρό τώρα!</string>
+    <string name="toast_force_update">OK, OK, μη γίνεσαι σπαστικός. Το κάνω τώρα. Φχαριστήθηκες;</string>
+
+    <string-array name="pref_sync_frequency_titles">
+        <!--item>1 minute</item-->
+        <!-- TODO: item>5 minutes</item-->
+        <!-- TODO: item>10 minutes</item-->
+        <!-- TODO: item>15 minutes</item-->
+        <!-- TODO: item>30 minutes</item-->
+        <!-- TODO: item>1 hour</item-->
+        <!-- TODO: item>3 hours</item-->
+        <!-- TODO: item>6 hours</item-->
+        <!-- TODO: item>12 hours</item-->
+        <!-- TODO: item>24 hours</item-->
+        <!-- TODO: item>Never</item-->
+    </string-array>
+
+    <!-- Settings for Info -->
+    <string name="pref_header_info">Πληροφορίες</string>
+    <string name="pref_title_info_authors">Σχετικά με το FWeather</string>
+    <string name="pref_title_info_license">Άδειες χρήσης για τρίτους</string>
+    <string name="pref_title_feedback">Στείλτε αναπληροφόρηση</string>
+    <string name="pref_title_changelog">Ιστορικό εκδόσεων</string>
+    <string name="pref_msg_changelog">Δε τρέχει τίποτα! Μπορεί κάποια άλλη φορά δικέ μου…</string>
+    <string name="feedback_send_chooser_title">Στείλτε αναπληροφόρηση στο email:</string>
+
+    <!-- Settings for Advanced -->
+    <string name="pref_header_advanced">Για προχωρημένους</string>
+    <string name="pref_title_analytics">Analytics</string>
+    <string name="analytics_disable_warning">Το πρόγραμμα χρησιμοποιεί το Google Analytics για να καθορίσει τα περισσότερα σε χρήση χαρακτηριστικά με έναν εντελώς ανώνυμο τρόπο, επιτρέποντας τους προγραμματιστές να εστιάσουν σωστά τις προσπάθειες βελτίωσης του λογισμικού. Σας ζητάμε να το αφήσετε ενεργό, αν γίνεται.</string>
+    <string name="analytics_disabled">Το Google Analytics απενεργοποιήθηκε.</string>
+    <string name="analytics_enabled_thanks">Το Google Analytics ενεργοποιήθηκε. Ευχαριστούμε!</string>
+    <string name="pref_title_debug">Debug</string>
+    <string name="pref_summary_debug">Ενεργοποιήστε ΜΟΝΟ για την αναφορά σφαλμάτων!</string>
+
+    <string name="pref_title_weather_location">Τοποθεσία</string>
+    <string name="pref_weather_location_query_hint">Εύρεση τοποθεσίας</string>
+    <string name="pref_weather_location_automatic">Αυτόματα</string>
+    <string name="pref_weather_location_automatic_description">Βασισμένη στην τωρινή τοποθεσία.</string>
+
+    <!-- ABOUT DIALOG -->
+    <string name="about_body">Δες τον γαμημένο καιρό σωστά!</string>
+    <!-- Note to translators: remember to set your name in the strings.xml file, in the translator_name string -->
+    <string name="about_developers"><![CDATA[Δημιουργήθηκε από <b>Frakbot</b> (Sebastiano Poggi and Francesco Pontillo).<p/>Βασισμένο στο <i>Authentic Weather</i> ιδέα του <b>Tobias van Scheider</b>.<p/>Μεταφράστηκε με γαμημένη αγάπη από τον <b>%s</b>.]]></string>
+    <string name="donate_frakbot">Δωρεά στον\nFrakbot</string>
+    <string name="authentic_weather" translatable="false">Αυθεντικό\nWeather</string>
+
+    <!-- Action Bar items -->
+    <string name="done">Τέλος</string>
+
+    <!-- Switch values -->
+    <string name="on">ON</string>
+    <string name="off">OFF</string>
+</resources>
