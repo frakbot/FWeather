@@ -19,19 +19,19 @@
 
     <string-array name="pref_key_ui_override_language_entries">
         <item>自动(系统语言)</item>
-        <!-- TODO: item>Czech (cs)</item-->
+        <!-- TODO: --><item>Czech (cs)</item>
         <item>德语(de)</item>
         <item>英语（en)</item>
-        <!-- TODO: item>Spanish (es)</item-->
-        <!-- TODO: item>French (fr)</item-->
-        <!-- TODO: item>Greek (gr)</item-->
-        <!-- TODO: item>Hebrew (he)</item-->
+        <!-- TODO: --><item>Spanish (es)</item>
+        <!-- TODO: --><item>French (fr)</item>
+        <!-- TODO: --><item>Greek (gr)</item>
+        <!-- TODO: --><item>Hebrew (he)</item>
         <item>意大利语(it)</item>
-        <!-- TODO: item>Dutch (nl)</item-->
-        <!-- TODO: item>Portuguese Brazilian (pt)</item-->
-        <!-- TODO: item>Romanian (ro)</item-->
-        <!-- TODO: item>Russian (ru)</item-->
-        <!-- TODO: item>Ukrainian (uk)</item-->
+        <!-- TODO: --><item>Dutch (nl)</item>
+        <!-- TODO: --><item>Portuguese Brazilian (pt)</item>
+        <!-- TODO: --><item>Romanian (ro)</item>
+        <!-- TODO: --><item>Russian (ru)</item>
+        <!-- TODO: --><item>Ukrainian (uk)</item>
         <item>简体中文(zh)</item>
     </string-array>
 

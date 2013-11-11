@@ -19,19 +19,19 @@
 
     <string-array name="pref_key_ui_override_language_entries">
         <item>Automático (idioma del sistema)</item>
-        <!-- TODO: item>Czech (cs)</item-->
+        <!-- TODO: --><item>Czech (cs)</item>
         <item>Alemán (de)</item>
         <item>Inglés (en)</item>
         <item>Español (es)</item>
-        <!-- TODO: item>French (fr)</item-->
-        <!-- TODO: item>Greek (gr)</item-->
-        <!-- TODO: item>Hebrew (he)</item-->
+        <!-- TODO: --><item>French (fr)</item>
+        <!-- TODO: --><item>Greek (gr)</item>
+        <!-- TODO: --><item>Hebrew (he)</item>
         <item>Italiano (it)</item>
-        <!-- TODO: item>Dutch (nl)</item-->
-        <!-- TODO: item>Portuguese Brazilian (pt)</item-->
+        <!-- TODO: --><item>Dutch (nl)</item>
+        <!-- TODO: --><item>Portuguese Brazilian (pt)</item>
         <item>Rumano (ro)</item>
-        <!-- TODO: item>Russian (ru)</item-->
-        <!-- TODO: item>Ukrainian (uk)</item-->
+        <!-- TODO: --><item>Russian (ru)</item>
+        <!-- TODO: --><item>Ukrainian (uk)</item>
         <item>Chino (simplificado) (zh)</item>
     </string-array>
 

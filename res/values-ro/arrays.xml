@@ -9,13 +9,13 @@
         <item>Spaniolă (es)</item>
         <item>Franceză (fr)</item>
         <item>Greacă (gr)</item>
-        <item>Ebraică (he)</item>
+        <!--item>Ebraică (he)</item-->
         <item>Italiană (it)</item>
         <item>Olandeză (nl)</item>
-        <item>Portugheză Braziliană (pt)</item>
+        <!--item>Portugheză Braziliană (pt)</item-->
         <item>Română (ro)</item>
         <item>Rusă (ru)</item>
-        <item>Ucraineană (uk)</item>
+        <!--item>Ucraineană (uk)</item-->
         <item>Chineză (simplificată) (zh)</item>
     </string-array>
 
