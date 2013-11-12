@@ -59,31 +59,31 @@
     <!-- Settings for Info -->
     <string name="pref_header_info">Πληροφορίες</string>
     <string name="pref_title_info_authors">Σχετικά με το FWeather</string>
-    <string name="pref_title_info_license">Άδειες χρήσης για τρίτους</string>
-    <string name="pref_title_feedback">Στείλτε αναπληροφόρηση</string>
+    <string name="pref_title_info_license">Άδειες χρήσης τρίτων</string>
+    <string name="pref_title_feedback">Στείλτε τη γνώμη σας</string>
     <string name="pref_title_changelog">Ιστορικό εκδόσεων</string>
-    <string name="pref_msg_changelog">Δε τρέχει τίποτα! Μπορεί κάποια άλλη φορά δικέ μου…</string>
-    <string name="feedback_send_chooser_title">Στείλτε αναπληροφόρηση στο email:</string>
+    <string name="pref_msg_changelog">Δεν τρέχει τίποτα! Μπορεί κάποια άλλη φορά δικέ μου…</string>
+    <string name="feedback_send_chooser_title">Στείλτε τη γνώμη σας με email:</string>
 
     <!-- Settings for Advanced -->
     <string name="pref_header_advanced">Για προχωρημένους</string>
     <string name="pref_title_analytics">Analytics</string>
-    <string name="analytics_disable_warning">Το πρόγραμμα χρησιμοποιεί το Google Analytics για να καθορίσει τα περισσότερα σε χρήση χαρακτηριστικά με έναν εντελώς ανώνυμο τρόπο, επιτρέποντας τους προγραμματιστές να εστιάσουν σωστά τις προσπάθειες βελτίωσης του λογισμικού. Σας ζητάμε να το αφήσετε ενεργό, αν γίνεται.</string>
+    <string name="analytics_disable_warning">Το πρόγραμμα χρησιμοποιεί το Google Analytics για να καθορίσει τα πιο πολυ χρησιμοποιούμενα χαρακτηριστικά με έναν εντελώς ανώνυμο τρόπο, επιτρέποντας στους προγραμματιστές να εστιάσουν σωστά τις προσπάθειες βελτίωσης του λογισμικού. Σας ζητάμε να το αφήσετε ενεργό, αν γίνεται.</string>
     <string name="analytics_disabled">Το Google Analytics απενεργοποιήθηκε.</string>
     <string name="analytics_enabled_thanks">Το Google Analytics ενεργοποιήθηκε. Ευχαριστούμε!</string>
     <string name="pref_title_debug">Debug</string>
-    <string name="pref_summary_debug">Ενεργοποιήστε ΜΟΝΟ για την αναφορά σφαλμάτων!</string>
+    <string name="pref_summary_debug">Ενεργοποιήστε ΜΟΝΟ για την αναφορά προβλημάτων!</string>
 
     <string name="pref_title_weather_location">Τοποθεσία</string>
     <string name="pref_weather_location_query_hint">Εύρεση τοποθεσίας</string>
-    <string name="pref_weather_location_automatic">Αυτόματα</string>
-    <string name="pref_weather_location_automatic_description">Βασισμένη στην τωρινή τοποθεσία.</string>
+    <string name="pref_weather_location_automatic">Αυτόματη</string>
+    <string name="pref_weather_location_automatic_description">Βάσει της τρέχουσας τοποθεσίας.</string>
 
     <!-- ABOUT DIALOG -->
     <string name="about_body">Δες τον γαμημένο καιρό σωστά!</string>
     <!-- Note to translators: remember to set your name in the strings.xml file, in the translator_name string -->
-    <string name="about_developers"><![CDATA[Δημιουργήθηκε από <b>Frakbot</b> (Sebastiano Poggi and Francesco Pontillo).<p/>Βασισμένο στο <i>Authentic Weather</i> ιδέα του <b>Tobias van Scheider</b>.<p/>Μεταφράστηκε με αγάπη από τον <b>Dins</b>.]]></string>
-    <string name="donate_frakbot">Δωρεά στον\nFrakbot</string>
+    <string name="about_developers"><![CDATA[Δημιουργήθηκε από <b>Frakbot</b> (Sebastiano Poggi και Francesco Pontillo).<p/>Βασισμένο στην ιδέα <i>Authentic Weather</i> του <b>Tobias van Scheider</b>.<p/>Μεταφράστηκε με αγάπη, γαμώ την πουτάνα μου, από τον <b>%s</b>.]]></string>
+    <string name="donate_frakbot">Δωρεά στο\nFrakbot</string>
 
     <!-- Action Bar items -->
     <string name="done">Τέλος</string>
