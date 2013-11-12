@@ -6,6 +6,8 @@ Released on ???
 
 - NEW: Greek translation -- thanks, Dins!
 - FIX: a few fixes for the Russian translation -- thanks, Vsevolod Osinin!
+- FIX: fixed dialogs appearance on Android 2.x
+- FIX: fixed switches thumb width being too small in some situations
 
 ### Version 2.2.0
 Released on 10th November 2013
