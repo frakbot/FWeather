@@ -41,7 +41,6 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="actionbarsherlock" />
-        <module name="android-switch-backport" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -743,7 +742,7 @@
       <module fileurl="file://$PROJECT_DIR$/submods/google-play-services_lib/google-play-services_lib.iml" filepath="$PROJECT_DIR$/submods/google-play-services_lib/google-play-services_lib.iml" group="Dependencies" />
     </modules>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-name="Android 4.2.2 Platform" project-jdk-type="Android SDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-name="Android 4.4 Platform" project-jdk-type="Android SDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
   <component name="ProjectRunConfigurationManager">
@@ -835,17 +834,6 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/com/google/android/android/4.0.1.2/android-4.0.1.2-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: com.google.android:support-v4:r7">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/com/google/android/support-v4/r7/support-v4-r7.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/com/google/android/support-v4/r7/support-v4-r7-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/com/google/android/support-v4/r7/support-v4-r7-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: com.googlecode.catch-exception:catch-exception:1.0.4">
