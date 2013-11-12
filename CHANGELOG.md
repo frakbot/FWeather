@@ -2,12 +2,13 @@ Changelog
 =========
 
 ### Version 2.2.1
-Released on ???
+Released on 12th October 2013
 
 - NEW: Greek translation -- thanks, Dins!
 - FIX: a few fixes for the Russian translation -- thanks, Vsevolod Osinin!
 - FIX: fixed dialogs appearance on Android 2.x
 - FIX: fixed switches thumb width being too small in some situations
+- FIX: fixed crash when settings contained an invalid update interval
 
 ### Version 2.2.0
 Released on 10th November 2013
