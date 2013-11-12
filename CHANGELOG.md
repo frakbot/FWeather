@@ -2,7 +2,7 @@ Changelog
 =========
 
 ### Version 2.2.1
-Released on 12th October 2013
+Released on 12th November 2013
 
 - NEW: Greek translation -- thanks, Dins!
 - FIX: a few fixes for the Russian translation -- thanks, Vsevolod Osinin!
