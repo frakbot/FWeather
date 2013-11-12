@@ -28,9 +28,9 @@
     <string name="updater_service">Υπηρεσία αναβάθμισης FWeather</string>
 
     <!-- Widget accessibility -->
-    <!-- TODO: string name="cdesc_weathericon"><![CDATA[Current weather]]></string-->
-    <!-- TODO: string name="cdesc_infobtn"><![CDATA[Info & settings]]></string-->
-    <!-- TODO: string name="cdesc_refresh"><![CDATA[Refresh]]></string-->
+    <string name="cdesc_weathericon"><![CDATA[Τρέχων καιρός]]></string>
+    <string name="cdesc_infobtn"><![CDATA[Πληροφορίες & ρυθμίσεις]]></string>
+    <string name="cdesc_refresh"><![CDATA[Ανανέωση]]></string>
 
     <!-- Toasts -->
     <string name="toast_feedback_mail_error">Αδυναμία αποστολής αναπληροφόρησης. Γράψτε 1 email στο frakbot+fweather@gmail.com</string>

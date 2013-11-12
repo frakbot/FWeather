@@ -29,31 +29,31 @@
     <string name="pref_summary_ui_darkmode">Προσαρμογή χρωμάτων για φωτεινό φόντο</string>
 
     <string-array name="pref_ui_bgopacity_titles">
-        <!-- TODO: item>None</item-->
-        <!-- TODO: item>Light</item-->
-        <!-- TODO: item>Medium</item-->
-        <!-- TODO: item>Heavy</item-->
-        <!-- TODO: item>Opaque</item-->
+        <item>Καθόλου</item>
+        <item>Ελαφρύ</item>
+        <item>Μεσαίο</item>
+        <item>Βαρύ</item>
+        <item>Αδιαφανές</item>
     </string-array>
 
     <!-- Settings for Data & Sync -->
-    <!-- TODO: string name="pref_header_data_sync">Data &amp; sync</string-->
+    <string name="pref_header_data_sync">Data &amp; sync</string>
     <string name="pref_title_sync_frequency">Συχνότητα ανανέωσης</string>
     <string name="pref_title_sync_force">Ανανέωσε τον καιρό τώρα!</string>
     <string name="toast_force_update">OK, OK, μη γίνεσαι σπαστικός. Το κάνω τώρα. Φχαριστήθηκες;</string>
 
     <string-array name="pref_sync_frequency_titles">
         <!--item>1 minute</item-->
-        <!-- TODO: item>5 minutes</item-->
-        <!-- TODO: item>10 minutes</item-->
-        <!-- TODO: item>15 minutes</item-->
-        <!-- TODO: item>30 minutes</item-->
-        <!-- TODO: item>1 hour</item-->
-        <!-- TODO: item>3 hours</item-->
-        <!-- TODO: item>6 hours</item-->
-        <!-- TODO: item>12 hours</item-->
-        <!-- TODO: item>24 hours</item-->
-        <!-- TODO: item>Never</item-->
+        <item>5 λεπτά</item>
+        <item>10 λεπτά</item>
+        <item>15 λεπτά</item>
+        <item>30 λεπτά</item>
+        <item>1 ώρα</item>
+        <item>3 ώρες</item>
+        <item>6 ώρες</item>
+        <item>12 ώρες</item>
+        <item>24 ώρες</item>
+        <item>Ποτέ</item>
     </string-array>
 
     <!-- Settings for Info -->
@@ -82,7 +82,7 @@
     <!-- ABOUT DIALOG -->
     <string name="about_body">Δες τον γαμημένο καιρό σωστά!</string>
     <!-- Note to translators: remember to set your name in the strings.xml file, in the translator_name string -->
-    <string name="about_developers"><![CDATA[Δημιουργήθηκε από <b>Frakbot</b> (Sebastiano Poggi and Francesco Pontillo).<p/>Βασισμένο στο <i>Authentic Weather</i> ιδέα του <b>Tobias van Scheider</b>.<p/>Μεταφράστηκε με γαμημένη αγάπη από τον <b>%s</b>.]]></string>
+    <string name="about_developers"><![CDATA[Δημιουργήθηκε από <b>Frakbot</b> (Sebastiano Poggi and Francesco Pontillo).<p/>Βασισμένο στο <i>Authentic Weather</i> ιδέα του <b>Tobias van Scheider</b>.<p/>Μεταφράστηκε με αγάπη από τον <b>Dins</b>.]]></string>
     <string name="donate_frakbot">Δωρεά στον\nFrakbot</string>
 
     <!-- Action Bar items -->

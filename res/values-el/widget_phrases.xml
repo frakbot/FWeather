@@ -33,10 +33,10 @@
     <string name="weather_windy"><![CDATA[<font color="%%COLOR%%">Ο Αίολος</font> έχει γαμημένα κέφια!]]></string>
     <string name="weather_cold"><![CDATA[<font color="%%COLOR%%">Ο χειμώνας έρχεται λένε οι Σταρκ.</font> Tην γαμήσαμε.]]></string>
     <string name="weather_hot"><![CDATA[Η κόλαση του Δάντη! Γαμημένος <font color="%%COLOR%%">καύσωνας.</font>]]></string>
-    <string name="weather_hail"><![CDATA[Ρίχνει γαμημένα <font color="%%COLOR%%">πατσαβούρια!]]></string>
-    <string name="weather_wtf"><![CDATA[<font color="%%COLOR%%">WTF,</font> Δε κοιτάς έξω ρε μεγάλε;]]></string>
+    <string name="weather_hail"><![CDATA[Ρίχνει γαμημένα <font color="%%COLOR%%">κοτρώνια!]]></string>
+    <string name="weather_wtf"><![CDATA[<font color="%%COLOR%%">WTF,</font> Δε κοιτάς απ\'έξω ρε μεγάλε;]]></string>
     <string name="weather_no_weather"><![CDATA[Δεν έχω <font color="%%COLOR%%"> γαμημένη ιδέα.</font>]]></string>
-    <string name="weather_no_location"><![CDATA[<font color="%%COLOR%%">Τι στον πούτσο ρε </font> δικέ μου;]]></string>
+    <string name="weather_no_location"><![CDATA[<font color="%%COLOR%%">Τι διάολο ρε </font> δικέ μου;]]></string>
 
     <!-- Widget temperature conditions -->
     <string name="temp_freezing"><![CDATA[<font color="%%COLOR%%">Γαμημένο </font> πουτσόκρυο.]]></string>

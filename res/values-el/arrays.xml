@@ -2,21 +2,21 @@
 <resources>
 
     <string-array name="pref_key_ui_override_language_entries">
-        <!-- TODO: item>Auto (system language)</item-->
-        <!-- TODO: item>Czech (cs)</item-->
-        <!-- TODO: item>German (de)</item-->
-        <!-- TODO: item>English (en)</item-->
-        <!-- TODO: item>Spanish (es)</item-->
-        <!-- TODO: item>French (fr)</item-->
-        <!-- TODO: item>Greek (gr)</item-->
-        <!-- TODO: item>Hebrew (he)</item-->
-        <!-- TODO: item>Italian (it)</item-->
-        <!-- TODO: item>Dutch (nl)</item-->
-        <!-- TODO: item>Portuguese Brazilian (pt)</item-->
-        <!-- TODO: item>Romanian (ro)</item-->
-        <!-- TODO: item>Russian (ru)</item-->
-        <!-- TODO: item>Ukrainian (uk)</item-->
-        <!-- TODO: item>Chinese (simplified) (zh)</item-->
+        <item>Αυτόματα (system language)</item>
+        <item>Τσέχικα (cs)</item>
+        <item>Γερμανικά (de)</item>
+        <item>Αγγλικά (en)</item>
+        <item>Ισπανικά (es)</item>
+        <item>Γαλικά (fr)</item>
+        <item>Ελληνικά (gr)</item>
+        <!--item>Εβραϊκά (he)</item-->
+        <item>Ιταλικά (it)</item>
+        <item>Ολλανδικά (nl)</item>
+        <!--item>Πορτογαλικά (pt)</item-->
+        <item>Ρουμάνικα (ro)</item>
+        <item>Ρωσικά (ru)</item>
+        <!--item>Ουκρανικά (uk)</item-->
+        <item>Κινέζικα (απλοποιημένα) (zh)</item>
     </string-array>
 
 </resources>
