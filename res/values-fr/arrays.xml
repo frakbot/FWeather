@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name="pref_key_ui_override_language_entries">
+    <!--string-array name="pref_key_ui_override_language_entries"-->
         <!-- TODO: item>Auto (system language)</item-->
         <!-- TODO: item>Czech (cs)</item-->
         <!-- TODO: item>German (de)</item-->
@@ -17,6 +17,6 @@
         <!-- TODO: item>Russian (ru)</item-->
         <!-- TODO: item>Ukrainian (uk)</item-->
         <!-- TODO: item>Chinese (simplified) (zh)</item-->
-    </string-array>
+    <!--/string-array-->
 
 </resources>

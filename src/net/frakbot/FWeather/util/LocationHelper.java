@@ -135,6 +135,13 @@ public class LocationHelper {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(mContext);
         String valuePreference = sp.getString(Const.Preferences.SYNC_FREQUENCY, "300");
         int value = Integer.decode(valuePreference);
+        if (value <= 0) {
+            value = 300;
+            try {
+                sp.edit().putString(Const.Preferences.SYNC_FREQUENCY, "300").commit();
+            }
+            catch (Exception ignored) {}
+        }
         return value * 1000;
     }
 

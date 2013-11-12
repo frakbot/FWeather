@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="pref_key_ui_override_language_entries">
+        <item>Αυτόματα (system language)</item>
+        <item>Τσέχικα (cs)</item>
+        <item>Γερμανικά (de)</item>
+        <item>Αγγλικά (en)</item>
+        <item>Ισπανικά (es)</item>
+        <item>Γαλικά (fr)</item>
+        <item>Ελληνικά (gr)</item>
+        <!--item>Εβραϊκά (he)</item-->
+        <item>Ιταλικά (it)</item>
+        <item>Ολλανδικά (nl)</item>
+        <!--item>Πορτογαλικά (pt)</item-->
+        <item>Ρουμάνικα (ro)</item>
+        <item>Ρωσικά (ru)</item>
+        <!--item>Ουκρανικά (uk)</item-->
+        <item>Κινέζικα (απλοποιημένα) (zh)</item>
+    </string-array>
+
+</resources>

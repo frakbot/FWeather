@@ -3,19 +3,19 @@
 
     <string-array name="pref_key_ui_override_language_entries">
         <item>Auto (limba sistemului)</item>
-        <!-- TODO: item>Czech (cs)</item-->
+        <item>Cehă (cs)</item>
         <item>Germană (de)</item>
         <item>Engleză (en)</item>
         <item>Spaniolă (es)</item>
-        <!-- TODO: item>French (fr)</item-->
-        <!-- TODO: item>Greek (gr)</item-->
-        <!-- TODO: item>Hebrew (he)</item-->
+        <item>Franceză (fr)</item>
+        <item>Greacă (gr)</item>
+        <!--item>Ebraică (he)</item-->
         <item>Italiană (it)</item>
-        <!-- TODO: item>Dutch (nl)</item-->
-        <!-- TODO: item>Portuguese Brazilian (pt)</item-->
+        <item>Olandeză (nl)</item>
+        <!--item>Portugheză Braziliană (pt)</item-->
         <item>Română (ro)</item>
-        <!-- TODO: item>Russian (ru)</item-->
-        <!-- TODO: item>Ukrainian (uk)</item-->
+        <item>Rusă (ru)</item>
+        <!--item>Ucraineană (uk)</item-->
         <item>Chineză (simplificată) (zh)</item>
     </string-array>
 
