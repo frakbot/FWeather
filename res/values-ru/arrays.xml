@@ -9,13 +9,13 @@
         <item>Испанский (es)</item>
         <item>Французский (fr)</item>
         <item>Греческий (gr)</item>
-        <item>Иврит (he)</item>
+        <!--item>Иврит (he)</item-->
         <item>Итальянский (it)</item>
         <item>Голландский (nl)</item>
-        <item>Португальский Бразильский (pt)</item>
+        <!--item>Португальский Бразильский (pt)</item-->
         <item>Румынский (ro)</item>
         <item>Русский (ru)</item>
-        <item>Украинский (uk)</item>
+        <!--item>Украинский (uk)</item-->
         <item>Китайский (упрощенный) (zh)</item>
     </string-array>
 

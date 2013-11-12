@@ -25,13 +25,13 @@
         <!-- TODO: --><item>Spanish (es)</item>
         <!-- TODO: --><item>French (fr)</item>
         <!-- TODO: --><item>Greek (gr)</item>
-        <!-- TODO: --><item>Hebrew (he)</item>
+        <!-- TODO: --><!--item>Hebrew (he)</item-->
         <item>意大利语 (it)</item>
         <!-- TODO: --><item>Dutch (nl)</item>
-        <!-- TODO: --><item>Portuguese Brazilian (pt)</item>
+        <!-- TODO: --><!--item>Portuguese Brazilian (pt)</item-->
         <!-- TODO: --><item>Romanian (ro)</item>
         <!-- TODO: --><item>Russian (ru)</item>
-        <!-- TODO: --><item>Ukrainian (uk)</item>
+        <!-- TODO: --><!--item>Ukrainian (uk)</item-->
         <item>简体中文 (zh)</item>
     </string-array>
 
