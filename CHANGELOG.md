@@ -1,6 +1,12 @@
 Changelog
 =========
 
+### Version 2.2.2
+Released on ?? November 2013
+
+- FIX: a few fixes for the German translation -- thanks, Aaron Gerlach!
+- FIX: potential fix (maybe) for issues #85 and #86
+
 ### Version 2.2.1
 Released on 12th November 2013
 
