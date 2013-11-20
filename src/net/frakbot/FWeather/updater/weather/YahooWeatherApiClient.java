@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+ * Copyright 2013 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -269,6 +269,7 @@ public class YahooWeatherApiClient {
         HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();
         conn.setUseCaches(false);
         conn.setChunkedStreamingMode(0);
+        conn.setRequestProperty("connection", "close");    // Disable keep-alive because of issues with it
         conn.setRequestProperty("User-Agent", FWeatherApplication.getUserAgent());
         conn.connect();
         return conn;

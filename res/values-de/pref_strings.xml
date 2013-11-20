@@ -37,8 +37,8 @@
     </string-array>
 
     <!-- Settings for Data & Sync -->
-    <string name="pref_header_data_sync">Daten &amp; Sync</string>
-    <string name="pref_title_sync_frequency">Häufigkeit Sync</string>
+    <string name="pref_header_data_sync">Daten und Sync</string>
+    <string name="pref_title_sync_frequency">Häufigkeit des Syncs</string>
     <string name="pref_title_sync_force">Wetter aktualisieren</string>
     <string name="toast_force_update">OK, OK, ich mach ja schon, mein Gott. Hetz mich nicht.</string>
 
