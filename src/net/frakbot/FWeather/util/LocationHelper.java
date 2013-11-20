@@ -23,6 +23,7 @@ import android.content.SharedPreferences;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -205,12 +206,27 @@ public class LocationHelper {
     }
 
     private static boolean isLowPowerLocationProviderEnabled() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            try {
+                int activeMode = Settings.Secure.getInt(mContext.getContentResolver(),
+                                                        Settings.Secure.LOCATION_MODE);
+                return (activeMode & Settings.Secure.LOCATION_MODE_BATTERY_SAVING) != 0;
+            }
+            catch (Settings.SettingNotFoundException e) {
+                FLog.w(TAG, "Unable to detect the location mode using the new 4.4+ APIs, " +
+                            "falling back on the old ones.");
+                return false;
+            }
+        }
+
+        @SuppressWarnings("deprecation")
         String availProviders =
             Settings.Secure.getString(mContext.getContentResolver(),
                                       Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
 
-        return availProviders.contains(LocationManager.NETWORK_PROVIDER) ||
-               availProviders.contains(LocationManager.PASSIVE_PROVIDER);
+        return availProviders != null &&
+               (availProviders.contains(LocationManager.NETWORK_PROVIDER) ||
+                availProviders.contains(LocationManager.PASSIVE_PROVIDER));
     }
 
     /**
