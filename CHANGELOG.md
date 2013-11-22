@@ -2,10 +2,12 @@ Changelog
 =========
 
 ### Version 2.2.2
-Released on ?? November 2013
+Released on 22nd November 2013
 
 - FIX: a few fixes for the German translation -- thanks, Aaron Gerlach!
 - FIX: potential fix (maybe) for issues #85 and #86
+- FIX: the switches in the widget preferences now have the correct text color; added dedicated XXHDPI resources (also contributed to Android-switch-backport library code)
+- FIX: improved the location code behaviour under KitKat (uses the new APIs)
 
 ### Version 2.2.1
 Released on 12th November 2013
