@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/img_weathericon"
             android:bufferType="spannable"
-            android:text="Here goes the weather"
+            tools:text="Here goes the weather"
             style="@style/MainText.Medium"/>
 
         <TextView
@@ -57,7 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/txt_weather"
             android:bufferType="spannable"
-            android:text="Here goes the temperature"
+            tools:text="Here goes the temperature"
             style="@style/SmallText.Medium"/>
 
     </RelativeLayout>
