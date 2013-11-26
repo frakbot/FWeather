@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="pref_key_ui_override_language_entries">
+        <item>Auto (linguagem do sistema)</item>
+        <item>Tcheco (cs)</item>
+        <item>Alemão (de)</item>
+        <item>Inglês (en)</item>
+        <item>Espanhol (es)</item>
+        <item>Francês (fr)</item>
+        <item>Grego (gr)</item>
+        <!--item>Hebraico (he)</item-->
+        <item>Italiano (it)</item>
+        <item>Holandês (nl)</item>
+        <item>Português Brasileiro (pt)</item>
+        <item>Romeno (ro)</item>
+        <item>Russo (ru)</item>
+        <!--item>Ukraniano (uk)</item-->
+        <item>Chinês (simplificado) (zh)</item>
+    </string-array>
+
+</resources>

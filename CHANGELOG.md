@@ -1,6 +1,11 @@
 Changelog
 =========
 
+### Version 2.2.3
+Released on ??? November 2013
+
+- NEW: Brazilian Portuguese translation -- thanks, Bruno Moulin!
+
 ### Version 2.2.2
 Released on 22nd November 2013
 

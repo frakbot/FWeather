@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <!-- Widget loading messages -->
+    <string name="loading_main"><![CDATA[Deixe-me olhar pra fora da porra de uma janela.]]></string>
+    <string name="loading_small"><![CDATA[Chegue perto de uma para que eu possa te falar o tempo.]]></string>
+
+    <!-- Widget weather conditions -->
+    <string name="weather_sunny"><![CDATA[A porra do <font color="%%COLOR%%">amor</font> está no ar.]]></string>
+    <string name="weather_rainy"><![CDATA[Porra! Está <font color="%%COLOR%%">chovendo.</font> Agora.]]></string>
+    <string name="weather_cloudy"><![CDATA[A porra do céu está <font color="%%COLOR%%">cinza.</font>]]></string>
+    <string name="weather_thunderstorm"><![CDATA[<font color="%%COLOR%%">Fúria dos trovões</font> do Inferno.]]></string>
+    <string name="weather_haze"><![CDATA[<font color="%%COLOR%%">Não vejo</font> merda nenhuma.]]></string>
+    <string name="weather_partly_cloudy"><![CDATA[Não está chovendo, caralho.<font color="%%COLOR%%">Ainda.</font>]]></string>
+    <string name="weather_drizzle"><![CDATA[Pingando como uma <font color="%%COLOR%%">boceta.</font>]]></string>
+    <string name="weather_snowy"><![CDATA[Chegou o merda do <font color="%%COLOR%%">Papai</font> Noel.]]></string>
+    <string name="weather_extreme"><![CDATA[<font color="%%COLOR%%">Corra</font> pela merda da sua vida!]]></string>
+    <string name="weather_windy"><![CDATA[<font color="%%COLOR%%">Éolo</font> está engraçado pra caralho hoje.]]></string>
+    <string name="weather_cold"><![CDATA[<font color="%%COLOR%%">O inverno está chegando</font>, caralho.]]></string>
+    <string name="weather_hot"><![CDATA[Saudações, maldito <font color="%%COLOR%%">Satanás!</font>]]></string>
+    <string name="weather_hail"><![CDATA[<font color="%%COLOR%%">Bombas</font> de gelo estão caindo, porra!]]></string>
+    <string name="weather_wtf"><![CDATA[<font color="%%COLOR%%">Mas que caralho,</font> você não pode simplesmente olhar pra fora?]]></string>
+    <string name="weather_no_weather"><![CDATA[LOL. Porra, eu realmente <font color="%%COLOR%%">não sei</font>]]></string>
+    <string name="weather_no_location"><![CDATA[<font color="%%COLOR%%">Porra,</font> cara!]]></string>
+
+    <!-- Widget temperature conditions -->
+    <string name="temp_freezing"><![CDATA[<font color="%%COLOR%%">Cacete.</font> Porra de Pólo Norte.]]></string>
+    <string name="temp_cold"><![CDATA[<font color="%%COLOR%%">Frio</font> como a porra de uma geladeira.]]></string>
+    <string name="temp_hot"><![CDATA[<font color="%%COLOR%%">Quente</font> como a porra de um forno.]]></string>
+    <string name="temp_warm"><![CDATA[Aproveite a porra dos pássaros <font color="%%COLOR%%">cantando</font> e essas merdas.]]></string>
+    <string name="temp_wtf"><![CDATA[Não, sério, porra. Essa é sua melhor chance agora. Eu não faço<font color="%%COLOR%%">a menor idéia.</font>]]></string>
+    <string name="temp_no_location"><![CDATA[Eu não tenho a porra de uma <font color="%%COLOR%%">bola de cristal!</font> Habilite o GPS ou o serviço de localização.]]></string>
+
+</resources>

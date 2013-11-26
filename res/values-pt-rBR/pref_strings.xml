@@ -1,0 +1,95 @@
+<!--
+  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <!-- Strings related to Settings -->
+
+    <!-- Settings for Widget Customization (some come from DashClock) -->
+    <string name="pref_header_customization">Personalização</string>
+    <string name="pref_title_customize_widgets">Personalizar widgets</string>
+    <string name="pref_title_ui_toggle_buttons">Botões no widget</string>
+    <string name="pref_title_ui_toggle_weather_icon">Ícone do tempo</string>
+    <string name="pref_title_ui_toggle_temperature_info">\"Informações\" do tempo</string>
+    <string name="pref_title_ui_darkmode">Modo escuro</string>
+    <string name="pref_title_ui_override_language">Língua do Widget</string>
+    <string name="pref_title_ui_bgopacity">Plano de fundo da tela inicial do widget</string>
+    <string name="pref_summary_ui_darkmode">Adapta as cores para fundos de tela claros</string>
+
+    <string-array name="pref_ui_bgopacity_titles">
+        <item>Nenhum</item>
+        <item>Claro</item>
+        <item>Médio</item>
+        <item>Pesado</item>
+        <item>Opaco</item>
+    </string-array>
+
+    
+    <!-- Settings for Data & Sync -->
+    <string name="pref_header_data_sync">Dados &amp; sincronização</string>
+    <string name="pref_title_sync_frequency">Frequência de sincronização</string>
+    <string name="pref_title_sync_force">Atualizar o tempo agora</string>
+    <string name="toast_force_update">TÁ, TÁ, não precisa ser um pé no saco. Atualizando agora. Tá feliz?</string>
+
+    <string-array name="pref_sync_frequency_titles">
+        <!--item>1 minute</item-->
+        <item>5 minutos</item>
+        <item>10 minutos</item>
+        <item>15 minutos</item>
+        <item>30 minutos</item>
+        <item>1 horas</item>
+        <item>3 horas</item>
+        <item>6 horas</item>
+        <item>12 horas</item>
+        <item>24 horas</item>
+        <item>Nunca</item>
+    </string-array>
+
+    <!-- Settings for Info -->
+    <string name="pref_header_info">Informações</string>
+    <string name="pref_title_info_authors">Sobre o FWeather</string>
+    <string name="pref_title_info_license">Licenças de terceiros</string>
+    <string name="pref_title_feedback">Enviar feedback</string>
+    <string name="pref_title_changelog">Registro de alterações</string>
+    <string name="pref_msg_changelog">Sim, não. Preguiçaaa! Talvez uma outra hora, cara…</string>
+    <string name="feedback_send_chooser_title">Mande o email de feedback usando:</string>
+
+    <!-- Settings for Advanced -->
+    <string name="pref_header_advanced">Avançado</string>
+    <string name="pref_title_analytics">Analytics</string>
+    <string name="analytics_disable_warning">Este aplicativo usa o Google Analytics para determinar os recursos mais utilizados de uma maneira completamente anônima e permite aos desenvolvedores focar o desenvolvimento onde é necessário. Nós pedimos que você deixe ligado, se possível.</string>
+    <string name="analytics_disabled">Google Analytics foi desabilitado.</string>
+    <string name="analytics_enabled_thanks">Google Analytics foi habilitado. Obrigado!</string>
+    <string name="pref_title_debug">Depuração</string>
+    <string name="pref_summary_debug">Habilite APENAS quando for relatar problemas!</string>
+
+    <string name="pref_title_weather_location">Localização</string>
+    <string name="pref_weather_location_query_hint">Encontre uma localização</string>
+    <string name="pref_weather_location_automatic">Automática</string>
+    <string name="pref_weather_location_automatic_description">Baseado na sua localização atual.</string>
+
+    <string name="about_body">Saiba da porra do seu tempo direito</string>
+    <!-- Note to translators: remember to set your name in the strings.xml file, in the translator_name string -->
+    <string name="about_developers"><![CDATA[Desenvolvido por <b>Frakbot</b> (Sebastiano Poggi and Francesco Pontillo).<p/>Baseado no <i>Authentic Weather</i>, conceito por <b>Tobias van Scheider</b>.<p/>Traduzido com um amor do caralho por <b>%s</b>.]]></string>
+    <string name="donate_frakbot">Doe para\nFrakbot</string>
+    
+
+    <!-- Action Bar items -->
+    <string name="done">SALVAR</string>
+
+    <!-- Switch values -->
+    <string name="on">LIGADO</string>
+    <string name="off">DESLIGADO</string>
+</resources>
