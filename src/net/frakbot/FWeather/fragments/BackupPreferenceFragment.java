@@ -49,6 +49,9 @@ public class BackupPreferenceFragment extends PreferenceFragment implements
     @Override
     public void onSharedPreferenceChanged(
         SharedPreferences sharedPreferences, String s) {
-        new BackupManager(getActivity()).dataChanged();
+        BackupManager backupManager = new BackupManager(getActivity());
+        if (backupManager != null) {
+            backupManager.dataChanged();
+        }
     }
 }
