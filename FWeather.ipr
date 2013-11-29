@@ -45,7 +45,6 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="actionbarsherlock" target="1.6" />
-      <module name="SunriseSunsetCalculator" target="1.6" />
     </bytecodeTargetLevel>
   </component>
   <component name="CopyrightManager" default="">

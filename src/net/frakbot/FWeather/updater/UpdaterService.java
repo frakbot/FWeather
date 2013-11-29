@@ -31,6 +31,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.provider.Settings;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.RemoteViews;
@@ -122,7 +123,8 @@ public class UpdaterService extends IntentService {
             // If the location is not ready yet, leave the View unchanged
             FLog.d(this, TAG, "The LocationHelper is not ready yet, the updater will be called again " +
                               "when a location is available.");
-            return;
+            weather = new WeatherData();
+            weather.conditionCode = WeatherData.INVALID_CONDITION;
         }
         catch (IOException e) {
             // Caught if there are connection issues
@@ -299,6 +301,16 @@ public class UpdaterService extends IntentService {
         i.putExtra(UpdaterService.EXTRA_WIDGET_IDS, widgetIds);
         i.putExtra(UpdaterService.EXTRA_USER_FORCE_UPDATE, true);
         views.setOnClickPendingIntent(R.id.btn_refresh, PendingIntent.getService(this, 0, i, 0));
+
+        // The pending intent (Magnum PI, ha!) for the main TextViews
+        PendingIntent magnumPI = null;
+        // If the user hasn't enabled location settings and there's no information available
+        if (weather.conditionCode == WeatherData.WEATHER_ID_ERR_NO_LOCATION) {
+            // When the user tap on the main contents, redirect him/her to the proper settings
+            magnumPI = PendingIntent.getActivity(this, 0, new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS), 0);
+        }
+        views.setOnClickPendingIntent(R.id.txt_weather, magnumPI);
+        views.setOnClickPendingIntent(R.id.txt_temp, magnumPI);
     }
 
     /**
