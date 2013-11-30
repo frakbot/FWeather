@@ -50,6 +50,7 @@ As of today, FWeather has been translated into the following languages:
 * English (by Frakbot)
 * French (by Christian Knaub)
 * German (by Aaron Gerlach)
+* Greek (by Dins)
 * Italian (by Frakbot)
 * Romanian (by BruceLee)
 * Russian (by Vsevolod Osinin)
