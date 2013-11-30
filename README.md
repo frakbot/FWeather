@@ -50,6 +50,7 @@ As of today, FWeather has been translated into the following languages:
 * English (by Frakbot)
 * French (by Christian Knaub)
 * German (by Aaron Gerlach)
+* Greek (by Dins)
 * Italian (by Frakbot)
 * Romanian (by BruceLee)
 * Russian (by Vsevolod Osinin)
@@ -74,11 +75,11 @@ This widget uses the awesome [Yahoo! Weather APIs](http://developer.yahoo.com/we
 to retrieve the weather data.
 
 FWeather also uses the following libraries and open source projects:
-* <b><a href="http://actionbarsherlock.com/" target="_blank">ActionBarSherlock</a></b> by Jake Wharton
-* <b><a href="https://github.com/survivingwithandroid/Surviving-with-android/tree/master/WeatherApp" target="_blank">WeatherApp</a></b> by Surviving With Android
-* <b><a href="https://github.com/BoD/android-switch-backport" target="_blank">Android Switch Backport</a></b> by Benoit 'BoD' Lubek
-* <b><a href="https://code.google.com/p/dashclock/" target="_blank">Dashclock</a></b> by Roman Nurik (Google Inc.)
-* <b><a href="https://code.google.com/p/android-log-collector/" target="_blank">Log Collector</a></b> by Xtralogic Inc.
+* **[ActionBarSherlock](http://actionbarsherlock.com/)** by Jake Wharton
+* **[WeatherApp](https://github.com/survivingwithandroid/Surviving-with-android/tree/master/WeatherApp)** by Surviving With Android
+* **[Android Switch Backport](https://github.com/BoD/android-switch-backport)** by Benoit 'BoD' Lubek
+* **[Dashclock](https://code.google.com/p/dashclock/)** by Roman Nurik (Google Inc.)
+* **[Log Collector](https://code.google.com/p/android-log-collector/)** by Xtralogic Inc.
 
 ## License
 This app's code is licensed under the Apache 2 license.
