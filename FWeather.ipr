@@ -781,9 +781,9 @@
     <mapping directory="$PROJECT_DIR$/submods/android-switch-backport" vcs="Git" />
   </component>
   <component name="libraryTable">
-    <library name="libGoogleAnalyticsV2">
+    <library name="libGoogleAnalyticsServices">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/libs/libGoogleAnalyticsV2.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/libGoogleAnalyticsServices.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES />

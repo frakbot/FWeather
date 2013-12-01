@@ -15,7 +15,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="libGoogleAnalyticsV2" level="project" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>
@@ -28,6 +27,7 @@
     <orderEntry type="module" module-name="actionbarsherlock" />
     <orderEntry type="module" module-name="android-switch-backport" />
     <orderEntry type="module" module-name="google-play-services_lib" />
+    <orderEntry type="library" name="libGoogleAnalyticsServices" level="project" />
   </component>
 </module>
 
