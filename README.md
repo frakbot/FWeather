@@ -75,6 +75,7 @@ This widget uses the awesome [Yahoo! Weather APIs](http://developer.yahoo.com/we
 to retrieve the weather data.
 
 FWeather also uses the following libraries and open source projects:
+
 * **[ActionBarSherlock](http://actionbarsherlock.com/)** by Jake Wharton
 * **[WeatherApp](https://github.com/survivingwithandroid/Surviving-with-android/tree/master/WeatherApp)** by Surviving With Android
 * **[Android Switch Backport](https://github.com/BoD/android-switch-backport)** by Benoit 'BoD' Lubek
