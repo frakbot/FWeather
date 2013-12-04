@@ -16,11 +16,8 @@
   -->
 
 <resources>
-    <!-- Widget loading messages -->
     <string name="loading_main"><![CDATA[先候着，等着老子往窗外看看]]></string>
     <string name="loading_small"><![CDATA[再近点，离窗户这么远老子怎么知道尼玛是什么鬼天气]]></string>
-
-    <!-- Widget weather conditions -->
     <string name="weather_sunny"><![CDATA[天晴了 <font color="%%COLOR%%">你感觉到了吗</font> 到处一片河蟹的气息。]]></string>
     <string name="weather_rainy"><![CDATA[没事儿下个尼玛的<font color="%%COLOR%%">雨！</font>]]></string>
     <string name="weather_cloudy"><![CDATA[又是一个尼玛的 <font color="%%COLOR%%">阴天！</font>]]></string>
@@ -37,12 +34,9 @@
     <string name="weather_wtf"><![CDATA[<font color="%%COLOR%%">尼玛,</font> 你就不能TM自己看看外面啊！]]></string>
     <string name="weather_no_weather"><![CDATA[么么哒<font color="%%COLOR%%">人家神马都不知道。</font>]]></string>
     <string name="weather_no_location"><![CDATA[<font color="%%COLOR%%">我了个去!,</font> 哥们把定位打开!]]></string>
-
-    <!-- Widget temperature conditions -->
     <string name="temp_freezing"><![CDATA[<font color="%%COLOR%%">我勒个去</font> 尼玛我是在北极吗！]]></string>
     <string name="temp_cold"><![CDATA[<font color="%%COLOR%%">真尼玛冷/font> 那个谁把冰箱门关上]]></string>
     <string name="temp_hot"><![CDATA[<font color="%%COLOR%%">热成球了</font> 跟尼玛在烤箱里一样！]]></string>
     <string name="temp_warm"><![CDATA[好尼玛暖和啊<font color="%%COLOR%%">抬头听鸟叫</font> 低头观鸟屎]]></string>
     <string name="temp_wtf"><![CDATA[你的机会来了 <font color="%%COLOR%%">我尼玛的一点主意都没有。</font>]]></string>
-    <string name="temp_no_location"><![CDATA[我尼玛不是算命的 !<font color="%%COLOR%%">老子没这本事！</font>请打开GPS地址服务.]]></string>
 </resources>

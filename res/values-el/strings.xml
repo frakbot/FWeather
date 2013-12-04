@@ -16,26 +16,15 @@
   -->
 
 <resources>
-    <!-- Translator name (used in the About box) -->
     <string name="translator_name">Dins</string>
-
-    <!-- Activity labels -->
     <string name="activity_settings">Ρυθμίσεις FWeather</string>
     <string name="activity_credits">Προγραμματιστές</string>
     <string name="activity_licenses">Άδειες χρήσης για τρίτους</string>
-
-    <!-- Service labels -->
     <string name="updater_service">Υπηρεσία αναβάθμισης FWeather</string>
-
-    <!-- Widget accessibility -->
     <string name="cdesc_weathericon"><![CDATA[Τρέχων καιρός]]></string>
     <string name="cdesc_infobtn"><![CDATA[Πληροφορίες & ρυθμίσεις]]></string>
     <string name="cdesc_refresh"><![CDATA[Ανανέωση]]></string>
-
-    <!-- Toasts -->
     <string name="toast_feedback_mail_error">Αδυναμία αποστολής αναπληροφόρησης. Γράψτε 1 email στο frakbot+fweather@gmail.com</string>
-
-    <!-- Messages -->
     <string name="no_weather_data">Μη διαθέσιμα δεδομένα καιρού</string>
     <string name="preparing_feedback">Ετοιμασία αναπληροφόρησης…</string>
     <string name="feedback_service">Υπηρεσία αναπληροφόρησης FWeather</string>

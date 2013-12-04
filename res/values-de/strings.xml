@@ -16,29 +16,16 @@
   -->
 
 <resources>
-
-    <!-- Translator name (used in the About box) -->
     <string name="translator_name">Aaron Gerlach</string>
-
-    <!-- Activity labels -->
     <string name="activity_settings">FWeather-Einstellungen</string>
     <string name="activity_credits">Urheber</string>
     <string name="activity_licenses">Drittanbieter-Lizenzen</string>
-
-    <!-- Service labels -->
     <string name="updater_service">FWeather Update Service</string>
-
-    <!-- Widget accessibility -->
     <string name="cdesc_weathericon"><![CDATA[Aktuelles Wetter]]></string>
     <string name="cdesc_infobtn"><![CDATA[Info & Einstellungen]]></string>
     <string name="cdesc_refresh"><![CDATA[Aktualisieren]]></string>
-
-    <!-- Toasts -->
     <string name="toast_feedback_mail_error">Dein Feedback konnte leider nicht gesendet werden. Schreib eine E-Mail an frakbot+fweather@gmail.com</string>
-
-    <!-- Messages -->
     <string name="no_weather_data">Keine Wetterdaten verfügbar!</string>
     <string name="preparing_feedback">Feedback vorbereiten…</string>
     <string name="feedback_service">FWeather Feedback-Service</string>
-
 </resources>

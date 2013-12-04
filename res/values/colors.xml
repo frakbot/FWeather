@@ -76,17 +76,27 @@
 
     <!-- WIDGET BG COLORS -->
     <array name="bg_colors">      <!-- These are for darkMode=OFF, so it's BLACK bg -->
-        <item>#00000000</item>    <!-- Fully transparent -->
-        <item>#40000000</item>    <!-- 25% alpha -->
-        <item>#80000000</item>    <!-- 50% alpha -->
-        <item>#C0000000</item>    <!-- 75% alpha -->
-        <item>#FF000000</item>    <!-- Fully opaque -->
+        <item>#00000000</item>
+        <!-- Fully transparent -->
+        <item>#40000000</item>
+        <!-- 25% alpha -->
+        <item>#80000000</item>
+        <!-- 50% alpha -->
+        <item>#C0000000</item>
+        <!-- 75% alpha -->
+        <item>#FF000000</item>
+        <!-- Fully opaque -->
     </array>
     <array name="bg_colors_darkmode">      <!-- These are for darkMode=ON, so it's WHITE bg -->
-        <item>#00FFFFFF</item>    <!-- Fully transparent -->
-        <item>#40FFFFFF</item>    <!-- 25% alpha -->
-        <item>#80FFFFFF</item>    <!-- 50% alpha -->
-        <item>#C0FFFFFF</item>    <!-- 75% alpha -->
-        <item>#FFFFFFFF</item>    <!-- Fully opaque -->
+        <item>#00FFFFFF</item>
+        <!-- Fully transparent -->
+        <item>#40FFFFFF</item>
+        <!-- 25% alpha -->
+        <item>#80FFFFFF</item>
+        <!-- 50% alpha -->
+        <item>#C0FFFFFF</item>
+        <!-- 75% alpha -->
+        <item>#FFFFFFFF</item>
+        <!-- Fully opaque -->
     </array>
 </resources>

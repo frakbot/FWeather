@@ -16,23 +16,21 @@
   -->
 
 <resources>
-
     <string-array name="pref_key_ui_override_language_entries">
         <item>Autom. (System-Sprache)</item>
         <item>Tschechisch (cs)</item>
         <item>Deutsch (de)</item>
         <item>Englisch (en)</item>
         <item>Französisch (fr)</item>
-        <item>Grieschisch (gr)</item>
-        <!--item>Hebräisch (he)</item-->
+        <item>Grieschisch (el)</item>
+        <item>Hebräisch (he)</item>
         <item>Spanisch (es)</item>
         <item>Italienisch (it)</item>
         <item>Niederländisch (nl)</item>
         <item>Portugiesisch Brasilianisch (pt)</item>
         <item>Rumänisch (ro)</item>
         <item>Russisch (ru)</item>
-        <!--item>Ukraine (uk)</item-->
+        <item>Ukraine (uk)</item>
         <item>Chinesisch (vereinfacht) (zh)</item>
     </string-array>
-
 </resources>

@@ -16,6 +16,7 @@
   -->
 
 <resources>
+
     <style name="Theme.FWeather" parent="@style/Theme.Sherlock.Light.DarkActionBar">
         <item name="switchStyle">@style/Widget.Holo.CompoundButton.Switch</item>
         <item name="switchPreferenceStyle">@style/Preference.SwitchPreference</item>
