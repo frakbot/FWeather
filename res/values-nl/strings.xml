@@ -16,27 +16,14 @@
   -->
 
 <resources>
-    <!-- Translator name (used in the About box) -->
     <string name="translator_name">Frans-Peter van der Leur</string>
-
-    <!-- Activity labels -->
     <string name="activity_settings">FWeather instellingen</string>
     <string name="activity_credits">Auteurs</string>
     <string name="activity_licenses">Derden licenties</string>
-
-    <!-- Service labels -->
-    <string name="updater_service">FWeather updater service</string>
-
-    <!-- Widget accessibility -->
     <string name="cdesc_weathericon"><![CDATA[Huidig weer]]></string>
     <string name="cdesc_infobtn"><![CDATA[Info & instellingen]]></string>
     <string name="cdesc_refresh"><![CDATA[Ververs]]></string>
-
-    <!-- Toasts -->
     <string name="toast_feedback_mail_error">Niet mogelijk om feedback te verzenden. Stuur een email naar frakbot+fweather@gmail.com</string>
-
-    <!-- Messages -->
     <string name="no_weather_data">Geen weergegevens beschikbaar</string>
     <string name="preparing_feedback">Bereid feedback voor…</string>
-    <string name="feedback_service">FWeather feedback service</string>
 </resources>
