@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
   ~
@@ -15,9 +16,6 @@
   -->
 
 <resources>
-    <!-- Strings related to Settings -->
-
-    <!-- Settings for Widget Customization (some come from DashClock) -->
     <string name="pref_header_customization">设定</string>
     <string name="pref_title_customize_widgets">定制小部件</string>
     <string name="pref_title_ui_toggle_buttons">显示按钮</string>
@@ -27,7 +25,34 @@
     <string name="pref_title_ui_override_language">小部件语言</string>
     <string name="pref_title_ui_bgopacity">小部件背景</string>
     <string name="pref_summary_ui_darkmode">为明亮的背景调整字体颜色</string>
-
+    <string name="pref_header_data_sync">数据 &amp; 同步</string>
+    <string name="pref_title_sync_frequency">同步频率</string>
+    <string name="pref_title_sync_force">刷新天气信息</string>
+    <string name="toast_force_update">行啦，行啦，摸尼玛啊，我现在就刷新，高兴了吧？</string>
+    <string name="pref_header_info">备注</string>
+    <string name="pref_title_info_authors">关于尼玛天气</string>
+    <string name="pref_title_info_license">第三方许可</string>
+    <string name="pref_title_feedback">意见反馈</string>
+    <string name="pref_title_changelog">更新日志</string>
+    <string name="pref_msg_changelog">嗯，目前还没有什么，嗯，对，就是这样，也许下次吧。</string>
+    <string name="feedback_send_chooser_title">发送反馈邮件:</string>
+    <string name="pref_header_advanced">更多“尼玛”的设定</string>
+    <string name="pref_title_analytics">分析</string>
+    <string name="analytics_disable_warning"> FWeather是一款基于谷歌分析之上的软件，并且是完全匿名的哟！开启这个选项会为广大开发者提供信息.请在可能的情况下一直保持打开，多谢！</string>
+    <string name="analytics_disabled">谷歌分析被关闭了，你怎么能这样做！？</string>
+    <string name="analytics_enabled_thanks">谷歌分析被打开了，哈哈哈，屌爆了！</string>
+    <string name="pref_title_debug">调试(戏)</string>
+    <string name="pref_summary_debug">请只在反馈问题的时候打开，别老摸来摸去的！</string>
+    <string name="pref_title_weather_location">位置</string>
+    <string name="pref_weather_location_query_hint">手动定位</string>
+    <string name="pref_weather_location_automatic">自动定位</string>
+    <string name="pref_weather_location_automatic_description">使用当前位置</string>
+    <string name="about_body">关于“尼玛”天气</string>
+    <string name="about_developers"><![CDATA[制作人： <b>Frakbot</b> (Sebastiano Poggi and Francesco Pontillo).<p/>参考 <i>Authentic Weather</i> 作者：<b>Tobias van Scheider</b>.<p/>热情汉化人 <b>%s</b>.]]></string>
+    <string name="donate_frakbot">赞助\nFrakbot</string>
+    <string name="done">“射”定结束</string>
+    <string name="on">开启</string>
+    <string name="off">关闭</string>
     <string-array name="pref_ui_bgopacity_titles">
         <item>无</item>
         <item>浅色</item>
@@ -35,15 +60,7 @@
         <item>深色</item>
         <item>非透明色</item>
     </string-array>
-
-    <!-- Settings for Data & Sync -->
-    <string name="pref_header_data_sync">数据 &amp; 同步</string>
-    <string name="pref_title_sync_frequency">同步频率</string>
-    <string name="pref_title_sync_force">刷新天气信息</string>
-    <string name="toast_force_update">行啦，行啦，摸尼玛啊，我现在就刷新，高兴了吧？</string>
-
     <string-array name="pref_sync_frequency_titles">
-        <!--item>1 minute</item-->
         <item>5 分钟</item>
         <item>10 分钟</item>
         <item>15 分钟</item>
@@ -55,40 +72,4 @@
         <item>24 小时</item>
         <item>从不同步</item>
     </string-array>
-
-    <!-- Settings for Info -->
-    <string name="pref_header_info">备注</string>
-    <string name="pref_title_info_authors">关于尼玛天气</string>
-    <string name="pref_title_info_license">第三方许可</string>
-    <string name="pref_title_feedback">意见反馈</string>
-    <string name="pref_title_changelog">更新日志</string>
-    <string name="pref_msg_changelog">嗯，目前还没有什么，嗯，对，就是这样，也许下次吧。</string>
-    <string name="feedback_send_chooser_title">发送反馈邮件:</string>
-
-    <!-- Settings for Advanced -->
-    <string name="pref_header_advanced">更多“尼玛”的设定</string>
-    <string name="pref_title_analytics">分析</string>
-    <string name="analytics_disable_warning"> FWeather是一款基于谷歌分析之上的软件，并且是完全匿名的哟！开启这个选项会为广大开发者提供信息.请在可能的情况下一直保持打开，多谢！</string>
-    <string name="analytics_disabled">谷歌分析被关闭了，你怎么能这样做！？</string>
-    <string name="analytics_enabled_thanks">谷歌分析被打开了，哈哈哈，屌爆了！</string>
-    <string name="pref_title_debug">调试(戏)</string>
-    <string name="pref_summary_debug">请只在反馈问题的时候打开，别老摸来摸去的！</string>
-
-    <string name="pref_title_weather_location">位置</string>
-    <string name="pref_weather_location_query_hint">手动定位</string>
-    <string name="pref_weather_location_automatic">自动定位</string>
-    <string name="pref_weather_location_automatic_description">使用当前位置</string>
-
-    <!-- ABOUT DIALOG -->
-    <string name="about_body">关于“尼玛”天气</string>
-    <!-- Note to translators: remember to set your name in the strings.xml file, in the translator_name string -->
-    <string name="about_developers"><![CDATA[制作人： <b>Frakbot</b> (Sebastiano Poggi and Francesco Pontillo).<p/>参考 <i>Authentic Weather</i> 作者：<b>Tobias van Scheider</b>.<p/>热情汉化人 <b>%s</b>.]]></string>
-    <string name="donate_frakbot">赞助\nFrakbot</string>
-
-    <!-- Action Bar items -->
-    <string name="done">“射”定结束</string>
-
-    <!-- Switch values -->
-    <string name="on">开启</string>
-    <string name="off">关闭</string>
 </resources>
