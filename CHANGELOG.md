@@ -2,9 +2,17 @@ Changelog
 =========
 
 ### Version 2.2.3
-Released on ??? November 2013
+Released on 4th December 2013
 
+- NEW: open the Location Settings screen on clicks when there are issues getting the location
 - NEW: Brazilian Portuguese translation -- thanks, Bruno Moulin!
+- NEW: partial Hebrew translation -- thanks, Tomer Nachum!
+- NEW: partial Ukrainian translation -- thanks, Jaroslav Shevchuk and Yegor Vyalov!
+- NEW: lots of minor updates to the translations -- thanks a lot, guys!
+- NEW: updated Google Analytics library to v3
+- NEW: updated Google Play Services client code to v4
+- FIX: Google Analytics opt-out wasn't working correctly
+- FIX: fixed crash when backing up the settings (issue #95)
 
 ### Version 2.2.2
 Released on 22nd November 2013
