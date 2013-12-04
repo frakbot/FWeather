@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
   ~
@@ -15,9 +16,6 @@
   -->
 
 <resources>
-    <!-- Strings related to Settings -->
-
-    <!-- Settings for Widget Customization (some come from DashClock) -->
     <string name="pref_header_customization">Personalización</string>
     <string name="pref_title_customize_widgets">Personalizar widgets</string>
     <string name="pref_title_ui_toggle_buttons">Botones del widget</string>
@@ -27,7 +25,33 @@
     <string name="pref_title_ui_override_language">Idioma del widget</string>
     <string name="pref_title_ui_bgopacity">Fondo del widget</string>
     <string name="pref_summary_ui_darkmode">Adapta los colores para fondos claros</string>
-
+    <string name="pref_header_data_sync">Datos y sincronización</string>
+    <string name="pref_title_sync_frequency">Frecuencia de sincronización</string>
+    <string name="pref_title_sync_force">Actualizar datos del tiempo</string>
+    <string name="toast_force_update">Vale, vale, deja de tocar el puto botón. Ahora lo hago. Contento?</string>
+    <string name="pref_header_info">Información</string>
+    <string name="pref_title_info_authors">Sobre FWeather</string>
+    <string name="pref_title_info_license">Licencias de terceros</string>
+    <string name="pref_title_feedback">Enviar tu opinión</string>
+    <string name="pref_title_changelog">Cambios</string>
+    <string name="pref_msg_changelog">Sí, no. Draaag! Tal vez en otro momento, hombre…</string>
+    <string name="feedback_send_chooser_title">Enviar tu opinión por email usando:</string>
+    <string name="pref_header_advanced">Avanzado</string>
+    <string name="analytics_disable_warning">Esta app usa Google Analytics para determinar las características más usadas, de forma anónima, y nos ayuda a concentrar el desarrollo de la app en las áreas donde es necesario.</string>
+    <string name="analytics_disabled">Google Analytics está disabled.</string>
+    <string name="analytics_enabled_thanks">Google Analytics está activado.</string>
+    <string name="pref_title_debug">Desarrollo</string>
+    <string name="pref_summary_debug">Activar SÓLO para reportar errores!</string>
+    <string name="pref_title_weather_location">Ubicación</string>
+    <string name="pref_weather_location_query_hint">Buscar una ubicación</string>
+    <string name="pref_weather_location_automatic">Automático</string>
+    <string name="pref_weather_location_automatic_description">Basada en tu ubicación actual.</string>
+    <string name="about_body">Consigue el puto tiempo correctamente</string>
+    <string name="about_developers"><![CDATA[Diseñado por: <b>Frakbot</b> (Sebastiano Poggi y Francesco Pontillo).<p/>Basado en el concepto <i>Authentic Weather</i> de <b>Tobias van Scheider</b>.<p/>Traducido con amor por <b>D. Valentin</b>.]]></string>
+    <string name="donate_frakbot">Dona a Frakbot</string>
+    <string name="done">Hecho</string>
+    <string name="on">Encendido</string>
+    <string name="off">Apagado</string>
     <string-array name="pref_ui_bgopacity_titles">
         <item>Ninguno</item>
         <item>Poco</item>
@@ -35,15 +59,7 @@
         <item>Mucho</item>
         <item>Opaco</item>
     </string-array>
-
-    <!-- Settings for Data & Sync -->
-    <string name="pref_header_data_sync">Datos y sincronización</string>
-    <string name="pref_title_sync_frequency">Frecuencia de sincronización</string>
-    <string name="pref_title_sync_force">Actualizar datos del tiempo</string>
-    <string name="toast_force_update">Vale, vale, deja de tocar el puto botón. Ahora lo hago. Contento?</string>
-
     <string-array name="pref_sync_frequency_titles">
-        <!--item>1 minuto</item-->
         <item>5 minutos</item>
         <item>10 minutos</item>
         <item>15 minutos</item>
@@ -55,40 +71,4 @@
         <item>24 horas</item>
         <item>Nunca</item>
     </string-array>
-
-    <!-- Settings for Info -->
-    <string name="pref_header_info">Información</string>
-    <string name="pref_title_info_authors">Sobre FWeather</string>
-    <string name="pref_title_info_license">Licencias de terceros</string>
-    <string name="pref_title_feedback">Enviar tu opinión</string>
-    <string name="pref_title_changelog">Cambios</string>
-    <string name="pref_msg_changelog">Sí, no. Draaag! Tal vez en otro momento, hombre…</string>
-    <string name="feedback_send_chooser_title">Enviar tu opinión por email usando:</string>
-
-    <!-- Settings for Advanced -->
-    <string name="pref_header_advanced">Avanzado</string>
-    <string name="pref_title_analytics">Analytics</string>
-    <string name="analytics_disable_warning">Esta app usa Google Analytics para determinar las características más usadas, de forma anónima, y nos ayuda a concentrar el desarrollo de la app en las áreas donde es necesario.</string>
-    <string name="analytics_disabled">Google Analytics está disabled.</string>
-    <string name="analytics_enabled_thanks">Google Analytics está activado.</string>
-    <string name="pref_title_debug">Desarrollo</string>
-    <string name="pref_summary_debug">Activar SÓLO para reportar errores!</string>
-
-    <string name="pref_title_weather_location">Ubicación</string>
-    <string name="pref_weather_location_query_hint">Buscar una ubicación</string>
-    <string name="pref_weather_location_automatic">Automático</string>
-    <string name="pref_weather_location_automatic_description">Basada en tu ubicación actual.</string>
-
-    <!-- ABOUT DIALOG -->
-    <string name="about_body">Consigue el puto tiempo correctamente</string>
-    <!-- Note to translators: remember to set your name in the strings.xml file, in the translator_name string -->
-    <string name="about_developers"><![CDATA[Diseñado por: <b>Frakbot</b> (Sebastiano Poggi y Francesco Pontillo).<p/>Basado en el concepto <i>Authentic Weather</i> de <b>Tobias van Scheider</b>.<p/>Traducido con amor por <b>D. Valentin</b>.]]></string>
-    <string name="donate_frakbot">Dona a Frakbot</string>
-
-    <!-- Action Bar items -->
-    <string name="done">Hecho</string>
-
-    <!-- Switch values -->
-    <string name="on">Encendido</string>
-    <string name="off">Apagado</string>
 </resources>

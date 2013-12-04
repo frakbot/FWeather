@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<!--
+  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
 
+<resources>
     <string-array name="pref_key_ui_override_language_entries">
         <item>Авто (язык системы)</item>
         <item>Чешский (cs)</item>
@@ -8,15 +23,14 @@
         <item>Английский (en)</item>
         <item>Испанский (es)</item>
         <item>Французский (fr)</item>
-        <item>Греческий (gr)</item>
-        <!--item>Иврит (he)</item-->
+        <item>Греческий (el)</item>
+        <item>Иврит (he)</item>
         <item>Итальянский (it)</item>
         <item>Голландский (nl)</item>
-        <!--item>Португальский Бразильский (pt)</item-->
+        <item>Португальский Бразильский (pt)</item>
         <item>Румынский (ro)</item>
         <item>Русский (ru)</item>
-        <!--item>Украинский (uk)</item-->
+        <item>Украинский (uk)</item>
         <item>Китайский (упрощенный) (zh)</item>
     </string-array>
-
 </resources>

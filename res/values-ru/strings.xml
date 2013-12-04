@@ -16,26 +16,15 @@
   -->
 
 <resources>
-    <!-- Translator name (used in the About box) -->
     <string name="translator_name">Всеволод Осинин</string>
-
-    <!-- Activity labels -->
     <string name="activity_settings">Настройки FWeather</string>
     <string name="activity_credits">Авторы</string>
     <string name="activity_licenses">Лицензии третьих сторон</string>
-
-    <!-- Service labels -->
     <string name="updater_service">Служба обновления FWeather</string>
-
-    <!-- Widget accessibility -->
     <string name="cdesc_weathericon"><![CDATA[Погода на улице]]></string>
     <string name="cdesc_infobtn"><![CDATA[Информация и настройки]]></string>
     <string name="cdesc_refresh"><![CDATA[Обновить]]></string>
-
-    <!-- Toasts -->
     <string name="toast_feedback_mail_error">Не удалось связаться с разработчиком. Напишите им письмо на frakbot+fweather@gmail.com</string>
-
-    <!-- Messages -->
     <string name="no_weather_data">Данные о погоде недоступны</string>
     <string name="preparing_feedback">Подготовка обратной связи…</string>
     <string name="feedback_service">Служба обратной связи с разработчиком FWeather</string>

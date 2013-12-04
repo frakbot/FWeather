@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
   ~
@@ -15,9 +16,6 @@
   -->
 
 <resources>
-    <!-- Strings related to Settings -->
-
-    <!-- Settings for Widget Customization (some come from DashClock) -->
     <string name="pref_header_customization">Přizpůsobit</string>
     <string name="pref_title_customize_widgets">Přizpůsobit widget</string>
     <string name="pref_title_ui_toggle_buttons">Tlačítka</string>
@@ -27,7 +25,34 @@
     <string name="pref_title_ui_override_language">Jazyk</string>
     <string name="pref_title_ui_bgopacity">Pozadí</string>
     <string name="pref_summary_ui_darkmode">Připůsobí barvy pro tmavé pozadí</string>
-
+    <string name="pref_header_data_sync">Data &amp; synchronizace</string>
+    <string name="pref_title_sync_frequency">Frekvence</string>
+    <string name="pref_title_sync_force">Načíst počasí ihned</string>
+    <string name="toast_force_update">OK, OK, Nebuď tak otravný. Jdu na to. Šťastný?</string>
+    <string name="pref_header_info">Informace</string>
+    <string name="pref_title_info_authors">O FWeather</string>
+    <string name="pref_title_info_license">Licence třetích stran</string>
+    <string name="pref_title_feedback">Odeslat názor</string>
+    <string name="pref_title_changelog">Changelog</string>
+    <string name="pref_msg_changelog">Nooo, ne. Možná někdy jindy kámo…</string>
+    <string name="feedback_send_chooser_title">Odeslat názor pomocí e-mailu:</string>
+    <string name="pref_header_advanced">Pokročilé</string>
+    <string name="pref_title_analytics">Analytics</string>
+    <string name="analytics_disable_warning">Tato aplikace používá Analytics pro zjištění oblíbených akcí anonymně a pomáhá vývojářům zaměřit se na důležité vlastnosti a chyby. Pokud je to možné, nechte tuto možnost povolenou.</string>
+    <string name="analytics_disabled">Google Analytics byly zakázány.</string>
+    <string name="analytics_enabled_thanks">Google Analytics byly povoleny. Díky!</string>
+    <string name="pref_title_debug">Ladit</string>
+    <string name="pref_summary_debug">Zapnout JEN při hlášení chyb!</string>
+    <string name="pref_title_weather_location">Lokace</string>
+    <string name="pref_weather_location_query_hint">Najít lokaci</string>
+    <string name="pref_weather_location_automatic">Automaticky</string>
+    <string name="pref_weather_location_automatic_description">Vaše současná poloha.</string>
+    <string name="about_body">Získejte zasrané počasí</string>
+    <string name="about_developers"><![CDATA[Vytvořil <b>Frakbot</b> (Sebastiano Poggi and Francesco Pontillo).<p/>Založeno na <i>Authentic Weather</i> Koncept od <b>Tobias van Scheider</b>.<p/>Přeloženo se zasranou láskou od <b>%s</b>.]]></string>
+    <string name="donate_frakbot">Přispět\nFrakbot</string>
+    <string name="done">HOTOVO</string>
+    <string name="on">ZAP</string>
+    <string name="off">VYP</string>
     <string-array name="pref_ui_bgopacity_titles">
         <item>Žádné</item>
         <item>Světlé</item>
@@ -35,15 +60,7 @@
         <item>Tmavé</item>
         <item>Neprůhledné</item>
     </string-array>
-
-    <!-- Settings for Data & Sync -->
-    <string name="pref_header_data_sync">Data &amp; synchronizace</string>
-    <string name="pref_title_sync_frequency">Frekvence</string>
-    <string name="pref_title_sync_force">Načíst počasí ihned</string>
-    <string name="toast_force_update">OK, OK, Nebuď tak otravný. Jdu na to. Šťastný?</string>
-
     <string-array name="pref_sync_frequency_titles">
-        <!--item>1 minute</item-->
         <item>5 minut</item>
         <item>10 minut</item>
         <item>15 minut</item>
@@ -55,42 +72,4 @@
         <item>24 hodin</item>
         <item>Nikdy</item>
     </string-array>
-
-
-    <!-- Settings for Info -->
-    <string name="pref_header_info">Informace</string>
-    <string name="pref_title_info_authors">O FWeather</string>
-    <string name="pref_title_info_license">Licence třetích stran</string>
-    <string name="pref_title_feedback">Odeslat názor</string>
-    <string name="pref_title_changelog">Changelog</string>
-    <string name="pref_msg_changelog">Nooo, ne. Možná někdy jindy kámo…</string>
-    <string name="feedback_send_chooser_title">Odeslat názor pomocí e-mailu:</string>
-
-    <!-- Settings for Advanced -->
-    <string name="pref_header_advanced">Pokročilé</string>
-    <string name="pref_title_analytics">Analytics</string>
-    <string name="analytics_disable_warning">Tato aplikace používá Analytics pro zjištění oblíbených akcí anonymně a pomáhá vývojářům zaměřit se na důležité vlastnosti a chyby. Pokud je to možné, nechte tuto možnost povolenou.</string>
-    <string name="analytics_disabled">Google Analytics byly zakázány.</string>
-    <string name="analytics_enabled_thanks">Google Analytics byly povoleny. Díky!</string>
-    <string name="pref_title_debug">Ladit</string>
-    <string name="pref_summary_debug">Zapnout JEN při hlášení chyb!</string>
-
-    <string name="pref_title_weather_location">Lokace</string>
-    <string name="pref_weather_location_query_hint">Najít lokaci</string>
-    <string name="pref_weather_location_automatic">Automaticky</string>
-    <string name="pref_weather_location_automatic_description">Vaše současná poloha.</string>
-
-    <!-- ABOUT DIALOG -->
-    <string name="about_body">Získejte zasrané počasí</string>
-    <!-- Note to translators: remember to set your name in the strings.xml file, in the translator_name string -->
-    <string name="about_developers"><![CDATA[Vytvořil <b>Frakbot</b> (Sebastiano Poggi and Francesco Pontillo).<p/>Založeno na <i>Authentic Weather</i> Koncept od <b>Tobias van Scheider</b>.<p/>Přeloženo se zasranou láskou od <b>%s</b>.]]></string>
-    <string name="donate_frakbot">Přispět\nFrakbot</string>
-
-
-    <!-- Action Bar items -->
-    <string name="done">HOTOVO</string>
-
-    <!-- Switch values -->
-    <string name="on">ZAP</string>
-    <string name="off">VYP</string>
 </resources>

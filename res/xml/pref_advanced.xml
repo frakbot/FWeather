@@ -22,7 +22,7 @@
 
     <net.frakbot.FWeather.util.WeatherLocationPreference
             android:key="@string/pref_key_weather_location"
-            android:title="@string/pref_title_weather_location" />
+            android:title="@string/pref_title_weather_location"/>
 
     <org.jraf.android.backport.switchwidget.SwitchPreference
             android:key="@string/pref_key_analytics"

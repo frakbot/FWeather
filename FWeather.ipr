@@ -45,7 +45,6 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="actionbarsherlock" target="1.6" />
-      <module name="SunriseSunsetCalculator" target="1.6" />
     </bytecodeTargetLevel>
   </component>
   <component name="CopyrightManager" default="">
@@ -785,9 +784,9 @@
     <mapping directory="$PROJECT_DIR$/submods/android-switch-backport" vcs="Git" />
   </component>
   <component name="libraryTable">
-    <library name="libGoogleAnalyticsV2">
+    <library name="libGoogleAnalyticsServices">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/libs/libGoogleAnalyticsV2.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/libGoogleAnalyticsServices.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES />
@@ -812,17 +811,6 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/classworlds/classworlds/1.1-alpha-2/classworlds-1.1-alpha-2-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: com.google.android:android:2.1.2">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/com/google/android/android/2.1.2/android-2.1.2.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/com/google/android/android/2.1.2/android-2.1.2-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/com/google/android/android/2.1.2/android-2.1.2-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: com.google.android:android:4.0.1.2">

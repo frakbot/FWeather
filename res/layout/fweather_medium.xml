@@ -31,34 +31,34 @@
             android:padding="@dimen/widget_padding"
             tools:ignore="UselessParent">
 
-        <include layout="@layout/include_widgetbuttons" />
+        <include layout="@layout/include_widgetbuttons"/>
 
         <ImageView
-            android:id="@+id/img_weathericon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:scaleType="centerInside"
-            android:src="@drawable/weather_clear_day"
-            android:contentDescription="@string/cdesc_weathericon"/>
+                android:id="@+id/img_weathericon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/weather_clear_day"
+                android:contentDescription="@string/cdesc_weathericon"/>
 
         <TextView
-            android:id="@+id/txt_weather"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/img_weathericon"
-            android:bufferType="spannable"
-            android:text="Here goes the weather"
-            style="@style/MainText.Medium"/>
+                android:id="@+id/txt_weather"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_weathericon"
+                android:bufferType="spannable"
+                tools:text="Here goes the weather"
+                style="@style/MainText.Medium"/>
 
         <TextView
-            android:id="@+id/txt_temp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txt_weather"
-            android:bufferType="spannable"
-            android:text="Here goes the temperature"
-            style="@style/SmallText.Medium"/>
+                android:id="@+id/txt_temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_weather"
+                android:bufferType="spannable"
+                tools:text="Here goes the temperature"
+                style="@style/SmallText.Medium"/>
 
     </RelativeLayout>
 

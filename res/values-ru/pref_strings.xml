@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
   ~
@@ -15,9 +16,6 @@
   -->
 
 <resources>
-    <!-- Strings related to Settings -->
-
-    <!-- Settings for Widget Customization (some come from DashClock) -->
     <string name="pref_header_customization">Настройки</string>
     <string name="pref_title_customize_widgets">Настройки виджета</string>
     <string name="pref_title_ui_toggle_buttons">Кнопки на виджете</string>
@@ -27,7 +25,34 @@
     <string name="pref_title_ui_override_language">Язык виджета</string>
     <string name="pref_title_ui_bgopacity">Задний фон виджета</string>
     <string name="pref_summary_ui_darkmode">Лучше видно на ярком фоне</string>
-
+    <string name="pref_header_data_sync">Обновление данных</string>
+    <string name="pref_title_sync_frequency">Автообновление</string>
+    <string name="pref_title_sync_force">Обновить прямо сейчас</string>
+    <string name="toast_force_update">Хорошо, хорошо, только не надо давить на кнопку до усрачки. Уже делаю. Полегчало?</string>
+    <string name="pref_header_info">Информация</string>
+    <string name="pref_title_info_authors">Об этом виджете</string>
+    <string name="pref_title_info_license">Лицензии третьих сторон (англ.)</string>
+    <string name="pref_title_feedback">Обратная связь</string>
+    <string name="pref_title_changelog">Что нового</string>
+    <string name="pref_msg_changelog">Да нее… Бля, чувак, может в другой раз. </string>
+    <string name="feedback_send_chooser_title">Отправить письмо через:</string>
+    <string name="pref_header_advanced">Продвинутые</string>
+    <string name="pref_title_analytics">Аналитика</string>
+    <string name="analytics_disable_warning">Служба Google Analytics используется для определения наиболее востребованных функций приложения. Это полностью анонимно и позволит разработчикам сосредоточить усилия на полезных вещах. Включи аналитику, если не против.</string>
+    <string name="analytics_disabled">Google Analytics отключена.</string>
+    <string name="analytics_enabled_thanks">Google Analytics включена. Спасибо!</string>
+    <string name="pref_title_debug">Отладка</string>
+    <string name="pref_summary_debug">Включать ТОЛЬКО при сообщении о проблемах!</string>
+    <string name="pref_title_weather_location">Местоположение</string>
+    <string name="pref_weather_location_query_hint">Поиск вручную (англ. буквами)</string>
+    <string name="pref_weather_location_automatic">Автоматически</string>
+    <string name="pref_weather_location_automatic_description">Основываясь на твоем текущем расположении.</string>
+    <string name="about_body">Получай свою ёбаную погоду правильно</string>
+    <string name="about_developers"><![CDATA[Разработано <b>Frakbot</b> (Себастьяно Погги и Франческо Понтилло).<p/>За основу взят <i>Authentic Weather</i> за авторством <b>Тобиаса ван Шайдера</b>.<p/>Переведено, сука, с любовью. \n<b>%s</b>.]]></string>
+    <string name="donate_frakbot">Поддержать \nFrakbot</string>
+    <string name="done">Готово</string>
+    <string name="on">I</string>
+    <string name="off">O</string>
     <string-array name="pref_ui_bgopacity_titles">
         <item>Нет</item>
         <item>Слегка</item>
@@ -35,15 +60,7 @@
         <item>Сильно</item>
         <item>Полностью</item>
     </string-array>
-
-    <!-- Settings for Data & Sync -->
-    <string name="pref_header_data_sync">Обновление данных</string>
-    <string name="pref_title_sync_frequency">Автообновление</string>
-    <string name="pref_title_sync_force">Обновить прямо сейчас</string>
-    <string name="toast_force_update">Хорошо, хорошо, только не надо давить на кнопку до усрачки. Уже делаю. Полегчало?</string>
-
     <string-array name="pref_sync_frequency_titles">
-        <!--item>1 minute</item-->
         <item>каждые 5 минут</item>
         <item>каждые 10 минут</item>
         <item>каждые 15 минут</item>
@@ -55,40 +72,4 @@
         <item>Раз в сутки</item>
         <item>Нет</item>
     </string-array>
-
-    <!-- Settings for Info -->
-    <string name="pref_header_info">Информация</string>
-    <string name="pref_title_info_authors">Об этом виджете</string>
-    <string name="pref_title_info_license">Лицензии третьих сторон (англ.)</string>
-    <string name="pref_title_feedback">Обратная связь</string>
-    <string name="pref_title_changelog">Что нового</string>
-    <string name="pref_msg_changelog">Да нее… Бля, чувак, может в другой раз. </string>
-    <string name="feedback_send_chooser_title">Отправить письмо через:</string>
-
-    <!-- Settings for Advanced -->
-    <string name="pref_header_advanced">Продвинутые</string>
-    <string name="pref_title_analytics">Аналитика</string>
-    <string name="analytics_disable_warning">Служба Google Analytics используется для определения наиболее востребованных функций приложения. Это полностью анонимно и позволит разработчикам сосредоточить усилия на полезных вещах. Включи аналитику, если не против.</string>
-    <string name="analytics_disabled">Google Analytics отключена.</string>
-    <string name="analytics_enabled_thanks">Google Analytics включена. Спасибо!</string>
-    <string name="pref_title_debug">Отладка</string>
-    <string name="pref_summary_debug">Включать ТОЛЬКО при сообщении о проблемах!</string>
-
-    <string name="pref_title_weather_location">Местоположение</string>
-    <string name="pref_weather_location_query_hint">Поиск вручную (англ. буквами)</string>
-    <string name="pref_weather_location_automatic">Автоматически</string>
-    <string name="pref_weather_location_automatic_description">Основываясь на твоем текущем расположении.</string>
-
-    <!-- ABOUT DIALOG -->
-    <string name="about_body">Получай свою ёбаную погоду правильно</string>
-    <!-- Note to translators: remember to set your name in the strings.xml file, in the translator_name string -->
-    <string name="about_developers"><![CDATA[Разработано <b>Frakbot</b> (Себастьяно Погги и Франческо Понтилло).<p/>За основу взят <i>Authentic Weather</i> за авторством <b>Тобиаса ван Шайдера</b>.<p/>Переведено, сука, с любовью. \n<b>%s</b>.]]></string>
-    <string name="donate_frakbot">Поддержать \nFrakbot</string>
-
-    <!-- Action Bar items -->
-    <string name="done">Готово</string>
-
-    <!-- Switch values -->
-    <string name="on">I</string>
-    <string name="off">O</string>
 </resources>

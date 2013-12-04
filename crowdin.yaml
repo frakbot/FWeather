@@ -1,0 +1,20 @@
+project_identifier: fweather
+# api_key: shhh, that's a secret :)
+# base_path: /home/office/source-code         # don't set this if calling crowdin-cli from the project root
+
+files:
+  -
+    source: 'res/values/arrays.xml'
+    translation: 'res/values-%two_letters_code%/%original_file_name%'
+
+  -
+    source: 'res/values/pref_strings.xml'
+    translation: 'res/values-%two_letters_code%/%original_file_name%'
+
+  -
+    source: 'res/values/strings.xml'
+    translation: 'res/values-%two_letters_code%/%original_file_name%'
+
+  -
+    source: 'res/values/widget_phrases.xml'
+    translation: 'res/values-%two_letters_code%/%original_file_name%'
