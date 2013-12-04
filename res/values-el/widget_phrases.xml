@@ -16,11 +16,8 @@
   -->
 
 <resources>
-    <!-- Widget loading messages -->
     <string name="loading_main"><![CDATA[Άσε να κοιτάξω κανά γαμωπαράθυρο.]]></string>
     <string name="loading_small"><![CDATA[Πάνε κοντά σε κάποιο για να σου πω τον καιρό.]]></string>
-
-    <!-- Widget weather conditions -->
     <string name="weather_sunny"><![CDATA[Και γαμώ! <font color="%%COLOR%%">Η αγάπη</font> είναι παντού.]]></string>
     <string name="weather_rainy"><![CDATA[Ρίξε ρε <font color="%%COLOR%%">γαμημένε.</font> Ρίξε!]]></string>
     <string name="weather_cloudy"><![CDATA[Γκριζαμάρα <font color="%%COLOR%%">γαμημένη μουντάδα.</font>]]></string>
@@ -37,13 +34,10 @@
     <string name="weather_wtf"><![CDATA[<font color="%%COLOR%%">WTF,</font> Δε κοιτάς απ\'έξω ρε μεγάλε;]]></string>
     <string name="weather_no_weather"><![CDATA[Δεν έχω <font color="%%COLOR%%"> γαμημένη ιδέα.</font>]]></string>
     <string name="weather_no_location"><![CDATA[<font color="%%COLOR%%">Τι διάολο ρε </font> δικέ μου;]]></string>
-
-    <!-- Widget temperature conditions -->
     <string name="temp_freezing"><![CDATA[<font color="%%COLOR%%">Γαμημένο </font> πουτσόκρυο.]]></string>
     <string name="temp_cold"><![CDATA[<font color="%%COLOR%%">Κρύο</font> σα γαμημένο ψυγείο.]]></string>
     <string name="temp_hot"><![CDATA[<font color="%%COLOR%%">Ζέστη</font> σα γαμημένος κλίβανος.]]></string>
     <string name="temp_warm"><![CDATA[Άκου τα πουλιά που κελαηδάνε. <font color="%%COLOR%%">Σκασμό δε βγάζουν</font> τα γαμημένα!]]></string>
     <string name="temp_wtf"><![CDATA[Σοβαρά μαλάκα, η καλύτερή σου επιλογή. <font color="%%COLOR%%">Δεν έχω ιδέα.</font>]]></string>
-    <string name="temp_no_location"><![CDATA[Δεν είμαι <font color="%%COLOR%%">γαμωμέντιουμ!</font> Άνοιξε το GPS ή τις Υπηρεσίες Τοποθεσίας.]]></string>
-
+    <string name="temp_no_location"><![CDATA[Δεν είμαι <font color="%%COLOR%%">γαμωμέντιουμ!</font>Κάνε κλικ εδώ για να ανοίξει το GPS ή οι Υπηρεσίες Τοποθεσίας.]]></string>
 </resources>
