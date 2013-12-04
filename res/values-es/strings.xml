@@ -16,27 +16,15 @@
   -->
 
 <resources>
-
-    <!-- Translator name (used in the About box) -->
     <string name="translator_name">Anon</string>
-
-    <!-- Activity labels -->
     <string name="activity_settings">Opciones de FWeather</string>
     <string name="activity_credits">Autores</string>
     <string name="activity_licenses">Licencias de terceros</string>
-
-    <!-- Service labels -->
     <string name="updater_service">Servicio de actualización de FWeather</string>
-
-    <!-- Widget accessibility -->
     <string name="cdesc_weathericon"><![CDATA[Clima actual]]></string>
     <string name="cdesc_infobtn"><![CDATA[Información y opciones]]></string>
     <string name="cdesc_refresh"><![CDATA[Actualizar]]></string>
-
-    <!-- Toasts -->
     <string name="toast_feedback_mail_error">No se pudo enviar. Escribe un mail a frakbot+fweather@gmail.com</string>
-
-    <!-- Messages -->
     <string name="no_weather_data">No hay datos del clima disponibles</string>
     <string name="preparing_feedback">Preparando recomendaciones…</string>
     <string name="feedback_service">Servicio de recomendaciones de FWeather</string>
