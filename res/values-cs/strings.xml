@@ -16,27 +16,15 @@
   -->
 
 <resources>
-
-    <!-- Translator name (used in the About box) -->
     <string name="translator_name">Pavel Tížek</string>
-
-    <!-- Activity labels -->
     <string name="activity_settings">Nastavení FWeather</string>
     <string name="activity_credits">Autoři</string>
     <string name="activity_licenses">Licence třetích stran</string>
-
-    <!-- Service labels -->
     <string name="updater_service">Aktualizace FWeather</string>
-
-    <!-- Widget accessibility -->
     <string name="cdesc_weathericon"><![CDATA[Aktuální počasí]]></string>
     <string name="cdesc_infobtn"><![CDATA[Informace & nastavení]]></string>
     <string name="cdesc_refresh"><![CDATA[Obnovit]]></string>
-
-    <!-- Toasts -->
     <string name="toast_feedback_mail_error">Nepodařilo se odeslat. Napište e-mail frakbot+fweather@gmail.com</string>
-
-    <!-- Messages -->
     <string name="no_weather_data">Data o počasí nejsou dostupná</string>
     <string name="preparing_feedback">Připravuji zpětnou vazbu</string>
     <string name="feedback_service">FWeather zpětná vazba</string>

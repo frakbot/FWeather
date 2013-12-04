@@ -16,11 +16,8 @@
   -->
 
 <resources>
-    <!-- Widget loading messages -->
     <string name="loading_main"><![CDATA[Nech mě podívat se z toho debilního okna.]]></string>
     <string name="loading_small"><![CDATA[Běž k oknu, ať ti můžu říct počasí.]]></string>
-
-    <!-- Widget weather conditions -->
     <string name="weather_sunny"><![CDATA[Ve vzduchu je zasraná <font color="%%COLOR%%">láska</font>.]]></string>
     <string name="weather_rainy"><![CDATA[Zase <font color="%%COLOR%%">prší</font> sakra.]]></string>
     <string name="weather_cloudy"><![CDATA[Je tam zasraně <font color="%%COLOR%%">šero.</font>]]></string>
@@ -37,13 +34,10 @@
     <string name="weather_wtf"><![CDATA[<font color="%%COLOR%%">WTF,</font> nemůžeš se sakra podívat z okna?]]></string>
     <string name="weather_no_weather"><![CDATA[LOL fakt <font color="%%COLOR%%">nevím</font> vole]]></string>
     <string name="weather_no_location"><![CDATA[<font color="%%COLOR%%">Sakra,</font> špatně!]]></string>
-
-    <!-- Widget temperature conditions -->
     <string name="temp_freezing"><![CDATA[<font color="%%COLOR%%">WTF.</font> Zasraný severní pól.]]></string>
     <string name="temp_cold"><![CDATA[<font color="%%COLOR%%">Zima</font> jako v debilní ledničce.]]></string>
     <string name="temp_hot"><![CDATA[<font color="%%COLOR%%">Horko</font> jako v zasrané troubě.]]></string>
     <string name="temp_warm"><![CDATA[Užívej si ten zasraný <font color="%%COLOR%%">ptačí zpěv.</font>]]></string>
     <string name="temp_wtf"><![CDATA[Vážně, teď je tvá nejlepší šance. Nemám <font color="%%COLOR%%">žádný debilní nápad.</font>]]></string>
     <string name="temp_no_location"><![CDATA[Nemám žádnou <font color="%%COLOR%%">křišťálovou kouli!</font> Zapni GPS.]]></string>
-
 </resources>

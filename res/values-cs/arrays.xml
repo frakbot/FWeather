@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
 
+<!--
+  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
     <string-array name="pref_key_ui_override_language_entries">
         <item>Auto (system language)</item>
         <item>Česky (cs)</item>
@@ -9,14 +25,13 @@
         <item>Španělsky (es)</item>
         <item>Francouzky (fr)</item>
         <item>Řecky (gr)</item>
-        <!--item>Hebrejsky (he)</item-->
+        <item>Hebrejsky (he)</item>
         <item>Italsky (it)</item>
         <item>Holandsky (nl)</item>
         <item>Portugalsky (pt)</item>
         <item>Rumunsky (ro)</item>
         <item>Rusky (ru)</item>
-        <!--item>Ukrajinsky (uk)</item-->
+        <item>Ukrajinsky (uk)</item>
         <item>Čínsky (zjednodušeně) (zh)</item>
     </string-array>
-
 </resources>
