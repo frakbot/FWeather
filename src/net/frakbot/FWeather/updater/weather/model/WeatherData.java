@@ -33,8 +33,8 @@ public class WeatherData {
 
     public static final int INVALID_TEMPERATURE = Integer.MIN_VALUE;
     public static final int INVALID_CONDITION = -1;
-    public static final int WEATHER_ID_ERR_NO_LOCATION = 10000;
-    public static final int WEATHER_ID_ERR_NO_NETWORK = 10001;
+    public static final int WEATHER_ID_ERR_NO_LOCATION = -10000;
+    public static final int WEATHER_ID_ERR_NO_NETWORK = -10001;
 
     public int temperature = INVALID_TEMPERATURE;
     public int low = INVALID_TEMPERATURE;

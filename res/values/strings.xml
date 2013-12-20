@@ -33,6 +33,7 @@
     <string name="cdesc_weathericon"><![CDATA[Current weather]]></string>
     <string name="cdesc_infobtn"><![CDATA[Info & settings]]></string>
     <string name="cdesc_refresh"><![CDATA[Refresh]]></string>
+    <string name="cdesc_sharebtn"><![CDATA[Share]]></string>
 
     <!-- Toasts -->
     <string name="toast_feedback_mail_error">Unable to send feedback. Write an email to frakbot+fweather@gmail.com</string>
