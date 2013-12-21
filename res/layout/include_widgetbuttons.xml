@@ -25,7 +25,7 @@
             android:layout_alignParentRight="true"
             android:layout_alignBaseline="@+id/img_weathericon"
             android:layout_marginRight="@dimen/spacing_single"
-            android:src="@drawable/action_settings"
+            android:src="@drawable/ic_action_share"
             android:contentDescription="@string/cdesc_sharebtn"
             android:background="@drawable/widget_btn_bg"
             android:padding="4dp"/>
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@+id/btn_share"
             android:layout_alignTop="@+id/btn_share"
-            android:src="@drawable/ic_menu_info_details"
+            android:src="@drawable/ic_action_settings"
             android:contentDescription="@string/cdesc_infobtn"
             android:background="@drawable/widget_btn_bg"
             android:padding="4dp"/>
