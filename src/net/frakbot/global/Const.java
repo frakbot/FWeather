@@ -86,4 +86,8 @@ public class Const {
     public class Thresholds {
     }
 
+    public class Share {
+        public static final String VIA = "// via #FWeather";
+    }
+
 }

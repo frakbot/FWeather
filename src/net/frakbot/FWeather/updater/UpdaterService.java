@@ -311,6 +311,16 @@ public class UpdaterService extends IntentService {
         }
         views.setOnClickPendingIntent(R.id.txt_weather, magnumPI);
         views.setOnClickPendingIntent(R.id.txt_temp, magnumPI);
+
+        // Create and set the PendingIntent for the share action
+        PendingIntent sharePendingIntent = null;
+        if (weather.conditionCode >= 0) {
+            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+            shareIntent.setType("text/plain");
+            shareIntent.putExtra(Intent.EXTRA_TEXT, mWidgetHelper.getShareString(weather));
+            sharePendingIntent = PendingIntent.getActivity(this, 1, shareIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        }
+        views.setOnClickPendingIntent(R.id.btn_share, sharePendingIntent);
     }
 
     /**

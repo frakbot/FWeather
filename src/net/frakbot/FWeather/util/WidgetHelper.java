@@ -32,6 +32,7 @@ import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.updater.UpdaterService;
 import net.frakbot.FWeather.updater.weather.model.WeatherData;
 import net.frakbot.FWeather.widget.FontTextView;
+import net.frakbot.global.Const;
 import net.frakbot.util.log.FLog;
 
 /**
@@ -427,5 +428,16 @@ public class WidgetHelper {
         t.setDuration(duration);
         t.setGravity(Gravity.BOTTOM, 0, c.getResources().getDimensionPixelSize(R.dimen.toast_yoffset));
         return t;
+    }
+
+    /**
+     * Get the sharing string by using the given weather data.
+     * @param weatherData   The {@link net.frakbot.FWeather.updater.weather.model.WeatherData} to build the share
+     *                      string from
+     * @return The sharing string
+     */
+    public String getShareString(WeatherData weatherData) {
+        String weather = getWeatherString(weatherData, false).toString();
+        return new StringBuilder().append(weather).append(" ").append(Const.Share.VIA).toString();
     }
 }

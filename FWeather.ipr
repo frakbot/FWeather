@@ -824,6 +824,17 @@
         <root url="jar://$MAVEN_REPOSITORY$/com/google/android/android/4.0.1.2/android-4.0.1.2-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="Maven: com.google.android:support-v4:r7">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/google/android/support-v4/r7/support-v4-r7.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/google/android/support-v4/r7/support-v4-r7-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/google/android/support-v4/r7/support-v4-r7-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="Maven: com.googlecode.catch-exception:catch-exception:1.0.4">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/com/googlecode/catch-exception/catch-exception/1.0.4/catch-exception-1.0.4.jar!/" />
