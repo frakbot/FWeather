@@ -268,14 +268,15 @@ public class WeatherHelper {
     }
 
     private static WeatherData getWeatherDataForLocation(Location location) {
+        WeatherData weatherData = null;
         try {
             FLog.d(TAG, "Using location: " + location.getLatitude() + "," + location.getLongitude());
-            return YahooWeatherApiClient.getWeatherForLocationInfo(getLocationInfo(location));
+            weatherData = YahooWeatherApiClient.getWeatherForLocationInfo(getLocationInfo(location));
         }
         catch (CantGetWeatherException e) {
             FLog.e(TAG, "Unable to retrieve weather", e);
-            return null;
         }
+        return weatherData;
     }
 
     private static WeatherData getWeatherDataForLocationInfo(YahooWeatherApiClient.LocationInfo location) {

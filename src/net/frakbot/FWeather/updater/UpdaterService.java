@@ -305,7 +305,7 @@ public class UpdaterService extends IntentService {
         // The pending intent (Magnum PI, ha!) for the main TextViews
         PendingIntent magnumPI = null;
         // If the user hasn't enabled location settings and there's no information available
-        if (weather.conditionCode == WeatherData.WEATHER_ID_ERR_NO_LOCATION) {
+        if (weather != null && weather.conditionCode == WeatherData.WEATHER_ID_ERR_NO_LOCATION) {
             // When the user tap on the main contents, redirect him/her to the proper settings
             magnumPI = PendingIntent.getActivity(this, 0, new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS), 0);
         }
@@ -314,7 +314,7 @@ public class UpdaterService extends IntentService {
 
         // Create and set the PendingIntent for the share action
         PendingIntent sharePendingIntent = null;
-        if (weather.conditionCode >= 0) {
+        if (weather != null && weather.conditionCode >= 0) {
             Intent shareIntent = new Intent(Intent.ACTION_SEND);
             shareIntent.setType("text/plain");
             shareIntent.putExtra(Intent.EXTRA_TEXT, mWidgetHelper.getShareString(weather));
