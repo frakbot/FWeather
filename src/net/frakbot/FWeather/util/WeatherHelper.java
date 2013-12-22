@@ -82,7 +82,6 @@ public class WeatherHelper {
 
         WeatherData weather;
 
-        // TODO: implement a n-retry mechanism
         if (!checkNetwork(context)) {
             FLog.w(TAG, "No network seems to be available!");
 
@@ -309,7 +308,7 @@ public class WeatherHelper {
         WeatherData weatherData = null;
         try {
             FLog.d(TAG, "Using location: " + location.getLatitude() + "," + location.getLongitude());
-            weatherData = YahooWeatherApiClient.getWeatherForLocationInfo(getLocationInfo(location));
+            weatherData = getWeatherWithRetry(getLocationInfoWithRetry(location));
         }
         catch (CantGetWeatherException e) {
             FLog.e(TAG, "Unable to retrieve weather", e);
@@ -320,7 +319,7 @@ public class WeatherHelper {
     private static WeatherData getWeatherDataForLocationInfo(YahooWeatherApiClient.LocationInfo location) {
         try {
             FLog.d(TAG, "Using manual location. WOEIDs count: " + location.woeids.size());
-            return YahooWeatherApiClient.getWeatherForLocationInfo(location);
+            return getWeatherWithRetry(location);
         }
         catch (CantGetWeatherException e) {
             FLog.e(TAG, "Unable to retrieve weather", e);
@@ -330,6 +329,70 @@ public class WeatherHelper {
             FLog.e(TAG, "Unable to retrieve weather: no WOEIDs!", e);
             return null;
         }
+    }
+
+    /**
+     * Internal method to retry weather fetching from the Yahoo weather provider.
+     * @param location  The {@link net.frakbot.FWeather.updater.weather.YahooWeatherApiClient.LocationInfo}
+     * @return          The {@link net.frakbot.FWeather.updater.weather.model.WeatherData} containing weather information
+     * @throws CantGetWeatherException  If there's some network error
+     */
+    private static WeatherData getWeatherWithRetry(YahooWeatherApiClient.LocationInfo location)
+            throws CantGetWeatherException {
+        CantGetWeatherException lastException = null;
+        for (int i = 0; i < Const.Thresholds.MAX_FETCH_WEATHER_ATTEMPTS; i++) {
+            try {
+                WeatherData weatherData = YahooWeatherApiClient.getWeatherForLocationInfo(location);
+                return weatherData;
+            } catch (CantGetWeatherException e) {
+                FLog.w(TAG, String.format(
+                        "Weather fetching attempt number %d has failed. %d attempts remaining.",
+                        i+1, Const.Thresholds.MAX_FETCH_WEATHER_ATTEMPTS-i-1));
+                // Save the last exception for me
+                lastException = e;
+            }
+        }
+        FLog.e(TAG, String.format(
+                "Maximum number (%d) of weather fetching attempts reached. Giving up.",
+                Const.Thresholds.MAX_FETCH_WEATHER_ATTEMPTS));
+        // If we are here, it means that MAX_FETCH_WEATHER_ATTEMPTS have been made without a result, give up!
+        throw lastException;
+    }
+
+    /**
+     * Internal method to retry location fetching from the Yahoo weather provider.
+     * @param location  The {@link net.frakbot.FWeather.updater.weather.YahooWeatherApiClient.LocationInfo}
+     * @return          The {@link net.frakbot.FWeather.updater.weather.model.WeatherData} containing weather information
+     * @throws CantGetWeatherException  If there's some network error
+     */
+
+    /**
+     * Internal method to retry location fetching from the Yahoo weather provider.
+     * @param location  The known {@link android.location.Location}
+     * @return          The {@link net.frakbot.FWeather.updater.weather.YahooWeatherApiClient.LocationInfo} returned
+     *                  by the Yahoo weather provider
+     * @throws CantGetWeatherException  If there's some parsing or network error
+     */
+    private static YahooWeatherApiClient.LocationInfo getLocationInfoWithRetry(Location location)
+            throws CantGetWeatherException {
+        CantGetWeatherException lastException = null;
+        for (int i = 0; i < Const.Thresholds.MAX_FETCH_LOCATION_ATTEMPTS; i++) {
+            try {
+                YahooWeatherApiClient.LocationInfo locationInfo = getLocationInfo(location);
+                return locationInfo;
+            } catch (CantGetWeatherException e) {
+                FLog.w(TAG, String.format(
+                        "Location fetching attempt number %d has failed. %d attempts remaining.",
+                        i+1, Const.Thresholds.MAX_FETCH_LOCATION_ATTEMPTS-i-1));
+                // Save the last exception for me
+                lastException = e;
+            }
+        }
+        FLog.e(TAG, String.format(
+                "Maximum number (%d) of Location fetching attempts reached. Giving up.",
+                Const.Thresholds.MAX_FETCH_LOCATION_ATTEMPTS));
+        // If we are here, it means that MAX_FETCH_WEATHER_ATTEMPTS have been made without a result, give up!
+        throw lastException;
     }
 
 }

@@ -84,6 +84,8 @@ public class Const {
      * @author Francesco Pontillo
      */
     public class Thresholds {
+        public static final int MAX_FETCH_WEATHER_ATTEMPTS = 3;
+        public static final int MAX_FETCH_LOCATION_ATTEMPTS = 3;
     }
 
     public class Share {
