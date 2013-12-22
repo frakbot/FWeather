@@ -72,6 +72,7 @@ public class WeatherHelper {
 
         WeatherData weather;
 
+        // TODO: implement a n-retry mechanism
         if (!checkNetwork(context)) {
             FLog.w(TAG, "No network seems to be available!");
 
