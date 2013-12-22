@@ -1,0 +1,27 @@
+[
+    {
+        "name": "ActionBarSherlock",
+        "short": "abs",
+        "author": "Jake Wharton"
+    },
+    {
+        "name": "WeatherApp",
+        "short": "weatherapp",
+        "author": "Surviving With Android"
+    },
+    {
+        "name": "Android Switch Backport",
+        "short": "switchbackport",
+        "author": "Benoit 'BoD' Lubek"
+    },
+    {
+        "name": "Dashclock",
+        "short": "dashclock",
+        "author": "Roman Nurik (Google Inc.)"
+    },
+    {
+        "name": "Log Collector",
+        "short": "logcollector",
+        "author": "Xtralogic Inc."
+    }
+]

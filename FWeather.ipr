@@ -60,7 +60,7 @@
     </module2copyright>
   </component>
   <component name="DependencyValidationManager">
-    <scope name="FirstParty" pattern="(file:res//*||file:src//*&amp;&amp;!file:src/net/frakbot/FWeather/updater/weather/JSONWeatherParser.java&amp;&amp;!file:src/net/frakbot/FWeather/updater/weather/WeatherHttpClient.java&amp;&amp;!file:src/net/frakbot/FWeather/updater/weather/model/*)&amp;&amp;!file[group:Dependencies]:*//*" />
+    <scope name="FirstParty" pattern="(file:res//*||file:src//*&amp;&amp;!file:src/net/frakbot/FWeather/updater/weather/JSONWeatherParser.java&amp;&amp;!file:src/net/frakbot/FWeather/updater/weather/WeatherHttpClient.java&amp;&amp;!file:src/net/frakbot/FWeather/updater/weather/model/*)&amp;&amp;!file[group:Dependencies]:*//*||file[FWeather]:license/Gruntfile.js||file[FWeather]:license/license.html" />
     <option name="SKIP_IMPORT_STATEMENTS" value="false" />
   </component>
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
@@ -732,6 +732,7 @@
         </XML>
       </value>
     </option>
+    <option name="PREFERRED_PROJECT_CODE_STYLE" value="Default (1)" />
   </component>
   <component name="ProjectModuleManager">
     <modules>
