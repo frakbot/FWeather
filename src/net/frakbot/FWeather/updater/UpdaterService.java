@@ -97,8 +97,11 @@ public class UpdaterService extends IntentService {
             return;
         }
 
-        if (intent.getBooleanExtra(EXTRA_USER_FORCE_UPDATE, false)) {
+        boolean forced = intent.getBooleanExtra(EXTRA_USER_FORCE_UPDATE, false);
+
+        if (forced) {
             FLog.i(this, TAG, "User has requested a forced update");
+            // Show a toast message
             mHandler.post(new Runnable() {
                 @Override
                 public void run() {
@@ -117,7 +120,7 @@ public class UpdaterService extends IntentService {
         // Get the latest weather info (new or cached)
         WeatherData weather;
         try {
-            weather = WeatherHelper.getWeather(this);
+            weather = WeatherHelper.getWeather(this, forced);
         }
         catch (LocationHelper.LocationNotReadyYetException justWaitException) {
             // If the location is not ready yet, leave the View unchanged

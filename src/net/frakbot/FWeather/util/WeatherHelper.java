@@ -52,6 +52,11 @@ public class WeatherHelper {
     private static long mCachedWeatherTimestamp = Long.MIN_VALUE;
     private static boolean mCacheDataRead = false;
 
+    public static WeatherData getWeather(Context context)
+            throws LocationHelper.LocationNotReadyYetException, IOException {
+        return getWeather(context, false);
+    }
+
     /**
      * Gets the current weather at the user's location
      *
@@ -60,9 +65,14 @@ public class WeatherHelper {
      * @return Returns the weather info, if available, or null
      * if there was any error during the download.
      */
-    public static WeatherData getWeather(Context context)
+    public static WeatherData getWeather(Context context, boolean forced)
         throws LocationHelper.LocationNotReadyYetException, IOException {
         FLog.i(context, TAG, "Starting weather update");
+
+        if (forced) {
+            FLog.i(context, TAG, "Update was forced, clear the cache.");
+            clearCache(context);
+        }
 
         // Read the cached data if needed
         if (!mCacheDataRead) {
@@ -149,14 +159,7 @@ public class WeatherHelper {
 
         if (weather == null) {
             FLog.v(TAG, "Clearing cached weather information (null data)");
-            mCachedWeather = null;
-            mCachedWeatherTimestamp = Long.MIN_VALUE;
-
-            SharedPreferences.Editor e = sp.edit();
-            e.remove(Const.Preferences.LOCATION_CACHE)
-             .remove(Const.Preferences.LOCATION_CACHE_TIMESTAMP)
-             .commit();
-
+            clearCache(context, true);
             return;
         }
 
@@ -180,7 +183,7 @@ public class WeatherHelper {
     private static void readDataFromCache(Context context) {
         final SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
         if (sp == null) {
-            FLog.e(TAG, "Unable to access the shared preferences, can't save to cache");
+            FLog.e(TAG, "Unable to access the shared preferences, can't read from cache");
             return;
         }
 
@@ -194,6 +197,37 @@ public class WeatherHelper {
         }
 
         FLog.v(context, TAG, "Cached weather information retrieved from permanent storage");
+    }
+
+    /**
+     * Clear the cache and resets the cache-handling objects.
+     * @param context The current {@link Context}.
+     * @param persist true to persist to {@link android.content.SharedPreferences}, false to clear the memory cache
+     */
+    private static void clearCache(Context context, boolean persist) {
+        FLog.v(TAG, "Clearing cached weather information (as requested)");
+        mCachedWeather = null;
+        mCachedWeatherTimestamp = Long.MIN_VALUE;
+
+        if (persist) {
+            final SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+            if (sp == null) {
+                FLog.e(TAG, "Unable to access the shared preferences, can't save to cache");
+                return;
+            }
+
+            SharedPreferences.Editor e = sp.edit();
+            e.remove(Const.Preferences.LOCATION_CACHE)
+                    .remove(Const.Preferences.LOCATION_CACHE_TIMESTAMP)
+                    .commit();
+        }
+    }
+    /**
+     * Clear the in memory cache and resets the cache-handling objects.
+     * @param context The current {@link Context}.
+     */
+    private static void clearCache(Context context) {
+        clearCache(context, false);
     }
 
     /**
@@ -229,10 +263,13 @@ public class WeatherHelper {
      * @return The cached {@link WeatherData}
      */
     public static WeatherData getLatestWeather() {
+        // If the cached weather has become stale
         if (!isLatestWeatherStillGood()) {
-            // The cached weather has become stale, clear it.
+            // Clear the cached timestamp
             FLog.v(TAG, "Stale cache detected, clearing the cached weather");
             mCachedWeatherTimestamp = Long.MIN_VALUE;
+            // Clear the cache value
+            mCachedWeather = null;
         }
 
         return mCachedWeather;
