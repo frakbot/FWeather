@@ -37,7 +37,9 @@
     <string name="pref_msg_changelog">Sí, no. Draaag! Tal vez en otro momento, hombre…</string>
     <string name="feedback_send_chooser_title">Enviar tu opinión por email usando:</string>
     <string name="pref_header_advanced">Avanzado</string>
-    <string name="analytics_disable_warning">Esta app usa Google Analytics para determinar las características más usadas, de forma anónima, y nos ayuda a concentrar el desarrollo de la app en las áreas donde es necesario.</string>
+    <string name="analytics_disable_warning">Esta app usa Google Analytics para determinar las características más
+        usadas, de forma anónima, y nos ayuda a concentrar el desarrollo de la app en las áreas donde es necesario.
+    </string>
     <string name="analytics_disabled">Google Analytics está disabled.</string>
     <string name="analytics_enabled_thanks">Google Analytics está activado.</string>
     <string name="pref_title_debug">Desarrollo</string>
@@ -47,7 +49,8 @@
     <string name="pref_weather_location_automatic">Automático</string>
     <string name="pref_weather_location_automatic_description">Basada en tu ubicación actual.</string>
     <string name="about_body">Consigue el puto tiempo correctamente</string>
-    <string name="about_developers"><![CDATA[Diseñado por: <b>Frakbot</b> (Sebastiano Poggi y Francesco Pontillo).<p/>Basado en el concepto <i>Authentic Weather</i> de <b>Tobias van Scheider</b>.<p/>Traducido con amor por <b>D. Valentin</b>.]]></string>
+    <string name="about_developers">
+        <![CDATA[Diseñado por: <b>Frakbot</b> (Sebastiano Poggi y Francesco Pontillo).<p/>Basado en el concepto <i>Authentic Weather</i> de <b>Tobias van Scheider</b>.<p/>Traducido con amor por <b>D. Valentin</b>.]]></string>
     <string name="donate_frakbot">Dona a Frakbot</string>
     <string name="done">Hecho</string>
     <string name="on">Encendido</string>

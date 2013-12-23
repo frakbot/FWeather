@@ -23,7 +23,8 @@
     <string name="weather_cloudy"><![CDATA[Это просто ебанный <font color="%%COLOR%%">тлен.</font>]]></string>
     <string name="weather_thunderstorm"><![CDATA[Господи это  <font color="%%COLOR%%">ЕБАННЫЙ ШТОРМ.</font>]]></string>
     <string name="weather_haze"><![CDATA[<font color="%%COLOR%%">Я не вижу</font> нехера.]]></string>
-    <string name="weather_partly_cloudy"><![CDATA[Еще не блядский дождь. <font color="%%COLOR%%">Пока.</font>]]></string>
+    <string name="weather_partly_cloudy">
+        <![CDATA[Еще не блядский дождь. <font color="%%COLOR%%">Пока.</font>]]></string>
     <string name="weather_drizzle"><![CDATA[Не дождь, не ясно <font color="%%COLOR%%">хуй пойми.</font>]]></string>
     <string name="weather_snowy"><![CDATA[Это ссаный <font color="%%COLOR%%">Дед</font> блядь Мороз.]]></string>
     <string name="weather_extreme"><![CDATA[<font color="%%COLOR%%">БЕГИ</font> нахуй, если хочешь жить.]]></string>
@@ -31,12 +32,15 @@
     <string name="weather_cold"><![CDATA[<font color="%%COLOR%%">Зима близко</font>, блядь.]]></string>
     <string name="weather_hot"><![CDATA[Жаркл, как в жопе <font color="%%COLOR%%">Сатаны!</font>]]></string>
     <string name="weather_hail"><![CDATA[Ледянные <font color="%%COLOR%%">бомбы</font> с неба нахуй.]]></string>
-    <string name="weather_wtf"><![CDATA[<font color="%%COLOR%%">Что блядь?</font> Не можешь посмотреть в окно?]]></string>
+    <string name="weather_wtf">
+        <![CDATA[<font color="%%COLOR%%">Что блядь?</font> Не можешь посмотреть в окно?]]></string>
     <string name="weather_no_weather"><![CDATA[LOL чувак, <font color="%%COLOR%%">я не знаю даже.</font>]]></string>
     <string name="weather_no_location"><![CDATA[<font color="%%COLOR%%">GPS,</font> включи чувак!]]></string>
     <string name="temp_freezing"><![CDATA[<font color="%%COLOR%%">БЛЯХА.</font> Как на ссцаной Арктике.]]></string>
     <string name="temp_cold"><![CDATA[<font color="%%COLOR%%">Прохладно</font> как в подвале твоей бабули.]]></string>
     <string name="temp_hot"><![CDATA[<font color="%%COLOR%%">ЖАРА</font> как в аду!]]></string>
-    <string name="temp_warm"><![CDATA[Наслаждайся солнишком и пением <font color="%%COLOR%%">птиц</font> и деремо.]]></string>
-    <string name="temp_wtf"><![CDATA[Нет, я не имею не малеших предположений или <font color="%%COLOR%%">блядский идей.</font>]]></string>
+    <string name="temp_warm">
+        <![CDATA[Наслаждайся солнишком и пением <font color="%%COLOR%%">птиц</font> и деремо.]]></string>
+    <string name="temp_wtf">
+        <![CDATA[Нет, я не имею не малеших предположений или <font color="%%COLOR%%">блядский идей.</font>]]></string>
 </resources>

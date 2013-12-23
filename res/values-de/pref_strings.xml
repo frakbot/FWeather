@@ -18,7 +18,7 @@
 <resources>
     <string name="pref_header_customization">Anpassung</string>
     <string name="pref_title_customize_widgets">Widgets anpassen</string>
-    <string name="pref_title_ui_toggle_buttons">Buttons auf  Widget</string>
+    <string name="pref_title_ui_toggle_buttons">Buttons auf Widget</string>
     <string name="pref_title_ui_toggle_weather_icon">Wetter-Icon</string>
     <string name="pref_title_ui_toggle_temperature_info">Erweiterte Temperatur \"info\"</string>
     <string name="pref_title_ui_darkmode">Dunkler Modus</string>
@@ -38,7 +38,10 @@
     <string name="feedback_send_chooser_title">Sende Feedback-Email über:</string>
     <string name="pref_header_advanced">Erweitert</string>
     <string name="pref_title_analytics">Analysen</string>
-    <string name="analytics_disable_warning">Diese App benutzt Google Analytics, um die meistbenutzten Features auf eine komplett anonyme Art und Weise festzulegen und damit den Entwicklern ermöglicht, die Software zu verbessern. Wir bitten dich, die Funktion an zu lassen, wenn möglich.</string>
+    <string name="analytics_disable_warning">Diese App benutzt Google Analytics, um die meistbenutzten Features auf eine
+        komplett anonyme Art und Weise festzulegen und damit den Entwicklern ermöglicht, die Software zu verbessern. Wir
+        bitten dich, die Funktion an zu lassen, wenn möglich.
+    </string>
     <string name="analytics_disabled">Google Analytics wurde deaktiviert.</string>
     <string name="analytics_enabled_thanks">Google Analytics wurde aktiviert. Danke!</string>
     <string name="pref_title_debug">Debuggen</string>
@@ -48,7 +51,8 @@
     <string name="pref_weather_location_automatic">Automatisch</string>
     <string name="pref_weather_location_automatic_description">Genutzt wird Dein aktueller Standort.</string>
     <string name="about_body">Bekomm Dein verdammtes Wetter auf eine besondere Art!</string>
-    <string name="about_developers"><![CDATA[Entwickelt von <b>Frakbot</b> (Sebastiano Poggi und Francesco Pontillo).<p/>Basiert auf dem <i>Authentic Weather</i>-Konzept von <b>Tobias Van Scheider</b>.<p/>Übersetzt mit verfickter Liebe von <b>%s</b>.]]></string>
+    <string name="about_developers">
+        <![CDATA[Entwickelt von <b>Frakbot</b> (Sebastiano Poggi und Francesco Pontillo).<p/>Basiert auf dem <i>Authentic Weather</i>-Konzept von <b>Tobias Van Scheider</b>.<p/>Übersetzt mit verfickter Liebe von <b>%s</b>.]]></string>
     <string name="donate_frakbot">Frakbot\netwas spenden</string>
     <string name="done">FERTIG</string>
     <string name="on">EIN</string>

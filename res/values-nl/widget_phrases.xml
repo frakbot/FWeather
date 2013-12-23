@@ -23,19 +23,25 @@
     <string name="weather_thunderstorm"><![CDATA[Klote <font color="%%COLOR%%">gedonder</font> uit de hel.]]></string>
     <string name="weather_haze"><![CDATA[<font color="%%COLOR%%">Zie geen </font>flikker.]]></string>
     <string name="weather_partly_cloudy"><![CDATA[Geen kutregen. <font color="%%COLOR%%">Nog niet.</font>]]></string>
-    <string name="weather_drizzle"><![CDATA[Lichte regen, als een fucking <font color="%%COLOR%%">poesje.</font>]]></string>
+    <string name="weather_drizzle">
+        <![CDATA[Lichte regen, als een fucking <font color="%%COLOR%%">poesje.</font>]]></string>
     <string name="weather_extreme"><![CDATA[<font color="%%COLOR%%">Ren</font> voor je klote leven.]]></string>
     <string name="weather_windy"><![CDATA[<font color="%%COLOR%%">Aeolus</font> is fucking grappig vandaag]]></string>
     <string name="weather_cold"><![CDATA[<font color="%%COLOR%%">Winter in aantocht</font>, fuck.]]></string>
     <string name="weather_hot"><![CDATA[Hee, fucking <font color="%%COLOR%%">Satan!</font>]]></string>
     <string name="weather_hail"><![CDATA[Klote ijs<font color="%%COLOR%%">bommen</font> vallen er]]></string>
-    <string name="weather_wtf"><![CDATA[<font color="%%COLOR%%">WTF,</font> kun je niet eens naar buiten kijken?]]></string>
-    <string name="weather_no_weather"><![CDATA[LOL kut ik heb totaal <font color="%%COLOR%%">geen idee</font>]]></string>
+    <string name="weather_wtf">
+        <![CDATA[<font color="%%COLOR%%">WTF,</font> kun je niet eens naar buiten kijken?]]></string>
+    <string name="weather_no_weather">
+        <![CDATA[LOL kut ik heb totaal <font color="%%COLOR%%">geen idee</font>]]></string>
     <string name="weather_no_location"><![CDATA[<font color="%%COLOR%%">Kutzooi,</font> gast!]]></string>
     <string name="temp_freezing"><![CDATA[<font color="%%COLOR%%">WTF.</font> Fucking noordpool.]]></string>
     <string name="temp_cold"><![CDATA[<font color="%%COLOR%%">Koud</font> als een fucking koelkast.]]></string>
     <string name="temp_hot"><![CDATA[<font color="%%COLOR%%">Heet</font> als in een fucking oven.]]></string>
-    <string name="temp_warm"><![CDATA[Geniet van de kutvogels <font color="%%COLOR%%">die zingen</font> en schijten.]]></string>
-    <string name="temp_wtf"><![CDATA[Nee, echt, daar moet je het mee doen, ik heb <font color="%%COLOR%%">geen fucking idee.</font>]]></string>
-    <string name="temp_no_location"><![CDATA[Ik heb geen fucking <font color="%%COLOR%%">kristallen bol!</font> Zet je GPS of Locatieservices aan.]]></string>
+    <string name="temp_warm">
+        <![CDATA[Geniet van de kutvogels <font color="%%COLOR%%">die zingen</font> en schijten.]]></string>
+    <string name="temp_wtf">
+        <![CDATA[Nee, echt, daar moet je het mee doen, ik heb <font color="%%COLOR%%">geen fucking idee.</font>]]></string>
+    <string name="temp_no_location">
+        <![CDATA[Ik heb geen fucking <font color="%%COLOR%%">kristallen bol!</font> Zet je GPS of Locatieservices aan.]]></string>
 </resources>

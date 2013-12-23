@@ -38,6 +38,8 @@
     <string name="temp_cold"><![CDATA[<font color="%%COLOR%%">Zima</font> jako v debilní ledničce.]]></string>
     <string name="temp_hot"><![CDATA[<font color="%%COLOR%%">Horko</font> jako v zasrané troubě.]]></string>
     <string name="temp_warm"><![CDATA[Užívej si ten zasraný <font color="%%COLOR%%">ptačí zpěv.</font>]]></string>
-    <string name="temp_wtf"><![CDATA[Vážně, teď je tvá nejlepší šance. Nemám <font color="%%COLOR%%">žádný debilní nápad.</font>]]></string>
-    <string name="temp_no_location"><![CDATA[Nemám žádnou <font color="%%COLOR%%">křišťálovou kouli!</font> Zapni GPS.]]></string>
+    <string name="temp_wtf">
+        <![CDATA[Vážně, teď je tvá nejlepší šance. Nemám <font color="%%COLOR%%">žádný debilní nápad.</font>]]></string>
+    <string name="temp_no_location">
+        <![CDATA[Nemám žádnou <font color="%%COLOR%%">křišťálovou kouli!</font> Zapni GPS.]]></string>
 </resources>

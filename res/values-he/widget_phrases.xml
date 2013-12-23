@@ -23,5 +23,6 @@
     <string name="temp_freezing"><![CDATA[<font color="%%COLOR%%">סססאמק</font> הקוטב הצפוני פה.]]></string>
     <string name="temp_cold"><![CDATA[<font color="%%COLOR%%">קר</font> כמו פאקינג מקרר.]]></string>
     <string name="temp_hot"><![CDATA[<font color="%%COLOR%%">חם</font>כמו תנור מזוין.]]></string>
-    <string name="temp_no_location"><![CDATA[טוב מה אני קוסם?? <font color="%%COLOR%%">crystal ball!</font> לחץ כאן כדי להפעיל את ה-GPS המזוין שלך.]]></string>
+    <string name="temp_no_location">
+        <![CDATA[טוב מה אני קוסם?? <font color="%%COLOR%%">crystal ball!</font> לחץ כאן כדי להפעיל את ה-GPS המזוין שלך.]]></string>
 </resources>

@@ -23,7 +23,9 @@
     <string name="cdesc_weathericon"><![CDATA[Huidig weer]]></string>
     <string name="cdesc_infobtn"><![CDATA[Info & instellingen]]></string>
     <string name="cdesc_refresh"><![CDATA[Ververs]]></string>
-    <string name="toast_feedback_mail_error">Niet mogelijk om feedback te verzenden. Stuur een email naar frakbot+fweather@gmail.com</string>
+    <string name="toast_feedback_mail_error">Niet mogelijk om feedback te verzenden. Stuur een email naar
+        frakbot+fweather@gmail.com
+    </string>
     <string name="no_weather_data">Geen weergegevens beschikbaar</string>
     <string name="preparing_feedback">Bereid feedback voor…</string>
 </resources>
