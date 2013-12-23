@@ -55,6 +55,8 @@
         <![CDATA[Desenvolvido por <b>Frakbot</b> (Sebastiano Poggi and Francesco Pontillo).<p/>Baseado no <i>Authentic Weather</i>, conceito por <b>Tobias van Scheider</b>.<p/>Traduzido com um amor do caralho por <b>%s</b>.]]></string>
     <string name="donate_frakbot">Doe para\nFrakbot</string>
     <string name="done">SALVAR</string>
+    <string name="on">LIGADO</string>
+    <string name="off">DESLIGADO</string>
     <string-array name="pref_ui_bgopacity_titles">
         <item>Nenhum</item>
         <item>Claro</item>
