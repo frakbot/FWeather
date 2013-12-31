@@ -25,13 +25,13 @@
         <item>Hiszpański (es)</item>
         <item>Francuski (fr)</item>
         <item>Greek (el)</item>
-        <item>Hebrew (he)</item>
-        <item>Italian (it)</item>
-        <item>Dutch (nl)</item>
-        <item>Brazilian Portuguese (pt)</item>
-        <item>Romanian (ro)</item>
-        <item>Russian (ru)</item>
-        <item>Ukrainian (uk)</item>
-        <item>Chinese (simplified) (zh)</item>
+        <item>Hebrajski (he)</item>
+        <item>Włoski (it)</item>
+        <item>Duński (nl)</item>
+        <item>Portugalski (pt)</item>
+        <item>Rumuński (ro)</item>
+        <item>Rosyjski (ru)</item>
+        <item>Ukraiński (uk)</item>
+        <item>Chiński (uproszczony) (zh)</item>
     </string-array>
 </resources>
