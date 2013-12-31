@@ -39,7 +39,7 @@ import net.frakbot.util.log.FLog;
  * Helper class that deals with finding resources to assign to
  * the widget views.
  * <p/>
- * <b>WARNING!</b> Unavoidable spaghetti lies in here.
+ * <b>WARNING!</b> Unavoidable spaghetti lies in here (maybe not anymore).
  */
 public class WidgetHelper {
 
@@ -53,8 +53,9 @@ public class WidgetHelper {
 
     /**
      * Gets the instances of the FWeather widget.
-     * @param context   the Context
-     * @return          Array of int containing all of the widget ids
+     *
+     * @param context the Context
+     * @return Array of int containing all of the widget ids
      */
     public static int[] getWidgetIds(Context context) {
         AppWidgetManager mgr = AppWidgetManager.getInstance(context);
@@ -80,8 +81,7 @@ public class WidgetHelper {
             if (silent) {
                 // Code-originated forced update (config changes, etc)
                 i.putExtra(UpdaterService.EXTRA_SILENT_FORCE_UPDATE, true);
-            }
-            else {
+            } else {
                 // User-forced updated
                 i.putExtra(UpdaterService.EXTRA_USER_FORCE_UPDATE, true);
             }
@@ -91,271 +91,202 @@ public class WidgetHelper {
     }
 
     /**
-     * Gets the string representing the weather.
-     *
-     *
-     * @param weather  The weather to get the string for
-     * @param darkMode True if the widget is in dark mode, false otherwise
-     *
-     * @return Returns the corresponding weather string
-     */
-    public Spanned getWeatherString(WeatherData weather, boolean darkMode) {
-        final int weatherId;
-        if (weather != null) {
-            weatherId = weather.conditionCode;
-        }
-        else {
-            weatherId = -1;
-        }
-
-        // Codes list: http://developer.yahoo.com/weather/
-        if (weatherId == 3 || weatherId == 4 || (weatherId >= 37 && weatherId <= 39) ||
-            weatherId == 45 || weatherId == 47) {// Thunderstorm
-            return getColoredSpannedString(R.string.weather_thunderstorm, R.color.weather_thunderstorm,
-                                           R.color.weather_thunderstorm_dark, darkMode);
-        }
-        else if (weatherId == 8 || weatherId == 9) {
-            // Drizzle
-            return getColoredSpannedString(R.string.weather_drizzle, R.color.weather_drizzle,
-                                           R.color.weather_drizzle_dark, darkMode);
-        }
-        else if ((weatherId >= 10 && weatherId <= 12) || weatherId == 40 || weatherId == 6) {
-            // Rain
-            return getColoredSpannedString(R.string.weather_rainy, R.color.weather_rainy,
-                                           R.color.weather_rainy_dark, darkMode);
-        }
-        else if (weatherId == 17 || weatherId == 35) {
-            // Hail
-            return getColoredSpannedString(R.string.weather_hail, R.color.weather_hail,
-                                           R.color.weather_hail_dark, darkMode);
-        }
-        else if ((weatherId >= 13 && weatherId <= 16) || weatherId == 18 ||
-                 (weatherId >= 41 && weatherId <= 43) || weatherId == 46 ||
-                 weatherId == 5 || weatherId == 7) {
-            // Snow
-            return getColoredSpannedString(R.string.weather_snowy, R.color.weather_snowy,
-                                           R.color.weather_snowy_dark, darkMode);
-        }
-        else if (weatherId >= 19 && weatherId <= 22) {
-            // Atmosphere (mist, smoke, etc)
-            return getColoredSpannedString(R.string.weather_haze, R.color.weather_haze,
-                                           R.color.weather_haze_dark, darkMode);
-        }
-        else if (weatherId == 32 || weatherId == 34 ||
-                 weatherId == 31 || weatherId == 33) {
-            // Sunny or mostly sunny (day&night)
-            return getColoredSpannedString(R.string.weather_sunny, R.color.weather_sunny,
-                                           R.color.weather_sunny_dark, darkMode);
-        }
-        else if (weatherId == 30 || weatherId == 44 || weatherId == 29) {
-            // Partly cloudy (day&night)
-            return getColoredSpannedString(R.string.weather_partly_cloudy, R.color.weather_partly_cloudy,
-                                           R.color.weather_partly_cloudy_dark, darkMode);
-        }
-        else if (weatherId >= 26 && weatherId <= 28) {
-            // Cloudy
-            return getColoredSpannedString(R.string.weather_cloudy, R.color.weather_cloudy,
-                                           R.color.weather_cloudy_dark, darkMode);
-        }
-        else if (weatherId == 23 || weatherId == 24) {
-            // Windy
-            return getColoredSpannedString(R.string.weather_windy, R.color.weather_windy,
-                                           R.color.weather_windy_dark, darkMode);
-        }
-        else if (weatherId == 25) {
-            // Cold
-            return getColoredSpannedString(R.string.weather_cold, R.color.weather_cold,
-                                           R.color.weather_cold_dark, darkMode);
-        }
-        else if (weatherId == 36) {
-            // Hot
-            return getColoredSpannedString(R.string.weather_hot, R.color.weather_hot,
-                                           R.color.weather_hot_dark, darkMode);
-        }
-        else if (weatherId >= 0 && weatherId <= 2) {
-            // Extreme weather
-            return getColoredSpannedString(R.string.weather_extreme, R.color.weather_extreme,
-                                           R.color.weather_extreme_dark, darkMode);
-        }
-        else if (weatherId == 3200) {
-            // Error: no weather available
-            return getColoredSpannedString(R.string.weather_no_weather, R.color.weather_no_weather,
-                                           R.color.weather_no_weather_dark, darkMode);
-        }
-        else if (weatherId == WeatherData.WEATHER_ID_ERR_NO_LOCATION ||
-                weatherId == WeatherData.WEATHER_ID_ERR_NO_NETWORK) {
-            // Error: no location available
-            return getColoredSpannedString(R.string.weather_no_location, R.color.weather_no_location,
-                                           R.color.weather_no_location_dark, darkMode);
-        }
-        else {
-            return getColoredSpannedString(R.string.weather_wtf, R.color.weather_wtf,
-                                           R.color.weather_wtf_dark, darkMode);
-        }
-    }
-
-    /**
      * Returns the specified spanned string with the correct highlighting color.
      *
      * @param stringId     The Resource ID of the string
      * @param lightColorId The Resource ID of the highlight color in normal (light) mode
      * @param darkColorId  The Resource ID of the highlight color in dark mode
      * @param darkMode     True if the widget is in dark mode, false otherwise
-     *
      * @return Returns the spanned, colored string
      */
     public Spanned getColoredSpannedString(int stringId, int lightColorId, int darkColorId, boolean darkMode) {
         int color = mContext.getResources().getColor(!darkMode ? lightColorId : darkColorId);
         String string = mContext.getString(stringId)
-                                .replace(PLACEHOLDER_COLOR, String.format("#%06X", (0xFFFFFF & color)));
+                .replace(PLACEHOLDER_COLOR, String.format("#%06X", (0xFFFFFF & color)));
         return Html.fromHtml(string);
     }
 
     /**
-     * Gets the ID of the image representing the weather.
+     * Gets the string representing the weather.
      *
-     *
-     * @param weather  The weather to get the image for
+     * @param weather  The weather to get the string for
      * @param darkMode True if the widget is in dark mode, false otherwise
      *
-     * @return Returns the corresponding weather image ID
+     * @return Returns the corresponding weather string
      */
-    public int getWeatherImageId(WeatherData weather, boolean darkMode) {
+    public Spanned getWeatherMainString(WeatherData weather, boolean darkMode) {
         final int weatherId;
         if (weather != null) {
             weatherId = weather.conditionCode;
-        }
-        else {
+        } else {
             weatherId = -1;
         }
 
-        // TODO: improve the weather image selection with an access list, maybe?
-        // Codes list: http://developer.yahoo.com/weather/
-        if (weatherId == 3 || weatherId == 4 || (weatherId >= 37 && weatherId <= 39) ||
-            weatherId == 45 || weatherId == 47) {
-            // Thunderstorm
-            return !darkMode ? R.drawable.weather_thunderstorm : R.drawable.weather_thunderstorm_dark;
-        }
-        else if (weatherId == 8 || weatherId == 9) {
-            // Drizzle
-            return !darkMode ? R.drawable.weather_drizzle : R.drawable.weather_drizzle_dark;
-        }
-        else if ((weatherId >= 10 && weatherId <= 12) || weatherId == 40 || weatherId == 6) {
-            // Rain
-            return !darkMode ? R.drawable.weather_rain : R.drawable.weather_rain_dark;
-        }
-        else if (weatherId == 17 || weatherId == 35) {
-            // Hail
-            return !darkMode ? R.drawable.weather_hail : R.drawable.weather_hail_dark;
-        }
-        else if ((weatherId >= 13 && weatherId <= 16) || weatherId == 18 ||
-                 (weatherId >= 41 && weatherId <= 43) || weatherId == 46 ||
-                 weatherId == 5 || weatherId == 7) {
-            // Snow
-            return !darkMode ? R.drawable.weather_snow : R.drawable.weather_snow_dark;
-        }
-        else if (weatherId >= 19 && weatherId <= 22) {
-            // Atmosphere (mist, smoke, etc)
-            return !darkMode ? R.drawable.weather_haze : R.drawable.weather_haze_dark;
-        }
-        else if (weatherId == 32 || weatherId == 34) {
-            // Sunny or mostly sunny (day)
-            return !darkMode ? R.drawable.weather_clear_day : R.drawable.weather_clear_day_dark;
-        }
-        else if (weatherId == 31 || weatherId == 33) {
-            // Clear (night)
-            return !darkMode ? R.drawable.weather_clear_night : R.drawable.weather_clear_night_dark;
-        }
-        else if (weatherId >= 26 && weatherId <= 28) {
-            // Cloudy
-            return !darkMode ? R.drawable.weather_cloudy : R.drawable.weather_cloudy_dark;
-        }
-        else if (weatherId == 30 || weatherId == 44) {
-            // Partly cloudy (day)
-            return !darkMode ? R.drawable.weather_partly_cloudy_day : R.drawable.weather_partly_cloudy_day_dark;
-        }
-        else if (weatherId == 29) {
-            // Partly cloudy (night)
-            return !darkMode ? R.drawable.weather_partly_cloudy_night : R.drawable.weather_partly_cloudy_night_dark;
-        }
-        else if (weatherId == 23 || weatherId == 24) {
-            // Windy
-            return !darkMode ? R.drawable.weather_windy : R.drawable.weather_windy_dark;
-        }
-        else if (weatherId == 25) {
-            // Cold
-            return !darkMode ? R.drawable.weather_cold : R.drawable.weather_cold_dark;
-        }
-        else if (weatherId == 36) {
-            // Hot
-            return !darkMode ? R.drawable.weather_hot : R.drawable.weather_hot_dark;
-        }
-        else if (weatherId >= 0 && weatherId <= 2) {
-            // Extreme weather
-            return !darkMode ? R.drawable.weather_extreme : R.drawable.weather_extreme_dark;
-        }
-        else if (weatherId == 3200) {
-            // Error: no weather available (ATM has a generic error icon)
-            return !darkMode ? R.drawable.err_wtf : R.drawable.err_wtf_dark;
-        }
-        else if (weatherId == WeatherData.WEATHER_ID_ERR_NO_LOCATION) {
-            // Error: no location available
-            return !darkMode ? R.drawable.err_no_location : R.drawable.err_no_location_dark;
-        }
-        else if (weatherId == WeatherData.WEATHER_ID_ERR_NO_NETWORK) {
-            // Error: no network available
-            return !darkMode ? R.drawable.err_no_network : R.drawable.err_no_network_dark;
-        }
-        else {
-            // Unknown weather
-            return !darkMode ? R.drawable.err_wtf : R.drawable.err_wtf_dark;
-        }
+        Spanned randomSpanned = getGenericRandomWeatherSpanned("weather_code", weatherId, darkMode);
+        return randomSpanned;
     }
 
     /**
      * Gets the temperature string for the weather.
      *
-     *
      * @param weather  The weather to get the temperature string for
      * @param darkMode True if the widget is in dark mode, false otherwise
-     *
      * @return Returns the temperature string
      */
-    public CharSequence getTempString(WeatherData weather, boolean darkMode) {
+    public Spanned getWeatherTempString(WeatherData weather, boolean darkMode) {
         final float temp;
+
         if (weather != null) {
             if (weather.conditionCode == WeatherData.WEATHER_ID_ERR_NO_LOCATION) {
                 // Error: no location available
-                return getColoredSpannedString(R.string.temp_no_location, R.color.temp_no_location,
-                                               R.color.temp_no_location_dark, darkMode);
+                temp = WeatherData.WEATHER_ID_ERR_NO_LOCATION;
             } else if (weather.conditionCode == WeatherData.WEATHER_ID_ERR_NO_NETWORK) {
                 // Error: no location or no network available
-                return getColoredSpannedString(R.string.temp_no_network, R.color.temp_no_network,
-                        R.color.temp_no_network_dark, darkMode);
+                temp = WeatherData.WEATHER_ID_ERR_NO_NETWORK;
+            } else {
+                temp = weather.temperature;
             }
-            temp = weather.temperature;
-        }
-        else {
-            return getColoredSpannedString(R.string.temp_wtf, R.color.temp_wtf,
-                                           R.color.temp_wtf_dark, darkMode);
+        } else {
+            temp = WeatherData.WEATHER_ID_ERR_WTF;
         }
 
-        if (temp < 0f) {
-            return getColoredSpannedString(R.string.temp_freezing, R.color.temp_freezing,
-                                           R.color.temp_freezing_dark, darkMode);
+        int tempRangeDescriptor = WeatherData.WEATHER_ID_ERR_WTF;
+
+        // Loop for every temperature
+        int[] temperatures = new int[] {-10002, -10001, -10000, -1, 15, 28, 1000};
+        for (int t : temperatures) {
+            // If the range minimum bound matches
+            if (temp <= t) {
+                // Select it and let's grab a beer
+                tempRangeDescriptor = t;
+                break;
+            }
         }
-        else if (temp < 15f) {
-            return getColoredSpannedString(R.string.temp_cold, R.color.temp_cold,
-                                           R.color.temp_cold_dark, darkMode);
+
+        // Select a random temeprature string, formst it and blah blah
+        Spanned randomSpanned = getGenericRandomWeatherSpanned("weather_temp", tempRangeDescriptor, darkMode);
+        return randomSpanned;
+    }
+
+    /**
+     * Gets the ID of the image representing the weather.
+     *
+     * @param weather  The weather to get the image for
+     * @param darkMode True if the widget is in dark mode, false otherwise
+     * @return Returns the corresponding weather image ID
+     */
+    public int getWeatherImageId(WeatherData weather, boolean darkMode) {
+        final String packageName = mContext.getPackageName();
+        final int weatherId;
+
+        if (weather != null) {
+            weatherId = weather.conditionCode;
+        } else {
+            weatherId = -1;
         }
-        else if (temp < 28f) {
-            return getColoredSpannedString(R.string.temp_warm, R.color.temp_warm,
-                                           R.color.temp_warm_dark, darkMode);
+
+        String valueId = buildResourceName("weather_image", weatherId);
+        // Get the resource string id
+        int stringId = mContext.getResources().getIdentifier(valueId, "string", packageName);
+        String imageName = mContext.getResources().getString(stringId);
+        if (imageName == null) {
+            imageName = "err_wtf";
         }
-        else {
-            return getColoredSpannedString(R.string.temp_hot, R.color.temp_hot,
-                                           R.color.temp_hot_dark, darkMode);
+        if (darkMode) {
+            imageName += "_dark";
         }
+        int drawableId = mContext.getResources().getIdentifier(imageName, "drawable", packageName);
+
+        return drawableId;
+    }
+
+    /**
+     * Build a resource name starting from the prefix and an integer value.
+     * The resulting {@link java.lang.String} will be in the following formats:
+     *  - prefix_value if the value is >= 0
+     *  - prefix_m_value if the value is < 0
+     *
+     * @param prefix    The prefix for the resource name
+     * @param value     The value to build the resource name from
+     * @return          A string in the "prefix_[m_]value" format
+     */
+    private String buildResourceName(String prefix, int value) {
+        // Create the array identifier string, such as "code_32" or "code_m_10000"
+        String valueId = ((Integer) Math.abs(Integer.valueOf(value))).toString();
+        if (value < 0) {
+            valueId = "m_" + valueId;
+        }
+        valueId = prefix + "_" + valueId;
+        return valueId;
+    }
+
+    /**
+     * Get a generic {@link java.lang.String} array by using the prefix and the value.
+     *
+     * @param prefix   The prefix for the string array (e.g. "code")
+     * @param value    The value to attach to the prefix
+     *
+     * @return The randomly selected {@link android.text.Spanned} text
+     */
+    private String[] getGenericStringNameArray(String prefix, int value) {
+        final String packageName = mContext.getPackageName();
+        // Create the array identifier string, such as "code_32" or "code_m_10000"
+        String valueId = buildResourceName(prefix, value);
+        // Get the array int id
+        int arrayId = mContext.getResources().getIdentifier(valueId, "array", packageName);
+        if (arrayId == 0) {
+            FLog.w(mContext, "WidgetHelper", String.format("No resource named %s", valueId));
+            return null;
+        }
+        // Get the candidate strings
+        String[] candidates = mContext.getResources().getStringArray(arrayId);
+        return candidates;
+    }
+
+    /**
+     * Get a generic random weather {@link android.text.Spanned} by doing the following:
+     * 1) Uses the prefix and the value to retrieve a custom {@link java.lang.String} array
+     * 2) Selects a pseudo-random {@link java.lang.String} from the retrieved array
+     * 3) Gets the corresponding string with the random selected name
+     * 4) Gets the default "light" color with the same string name
+     * 5) Gets the "dark" color by appending "_dark" to the selected string name
+     *
+     * @param prefix   The prefix for the string array (e.g. "code")
+     * @param value    The value to attach to the prefix
+     * @param darkMode true to return a dark {@link android.text.Spanned} text
+     *
+     * @return The randomly selected {@link android.text.Spanned} text
+     */
+    private Spanned getGenericRandomWeatherSpanned(String prefix, int value, boolean darkMode) {
+        String packageName = mContext.getPackageName();
+        // Get a pseudo-random string
+        String theChosenOne = getRandomString(getGenericStringNameArray(prefix, value));
+        // Retrieve the string name, the color and dark color
+        int theChosenOneId = mContext.getResources().getIdentifier(theChosenOne, "string", packageName);
+        int colorId = mContext.getResources().getIdentifier(theChosenOne, "color", packageName);
+        int colorDarkId = mContext.getResources().getIdentifier(theChosenOne + "_dark", "color", packageName);
+        // Return the spanned string
+        return getColoredSpannedString(theChosenOneId, colorId, colorDarkId, darkMode);
+    }
+
+    /**
+     * Get a pseudo-random string from a string array.
+     *
+     * @param candidates The candidates {@link java.lang.String}s
+     * @return A pseudo-random {@link java.lang.String}
+     */
+    private String getRandomString(String[] candidates) {
+        if (candidates == null || candidates.length <= 0) {
+            return null;
+        }
+        // Save some computing power when possible
+        if (candidates.length == 1) {
+            return candidates[0];
+        }
+        int min = 0;
+        int max = candidates.length - 1;
+        int rnd = min + (int) (Math.random() * ((max - min) + 1));
+        return candidates[rnd];
     }
 
     /**
@@ -364,29 +295,24 @@ public class WidgetHelper {
      *
      * @param bgOpacityPrefValue The value of the {@link net.frakbot.FWeather.R.string#pref_key_ui_bgopacity}
      *                           preference
-     * @param darkMode True if the widget is in dark mode (and thus requires a bright BG), false otherwise
+     * @param darkMode           True if the widget is in dark mode (and thus requires a bright BG), false otherwise
      * @return Returns the color to be assigned to the widget BG
      */
     public int getWidgetBGColor(int bgOpacityPrefValue, boolean darkMode) {
         TypedArray colors = mContext.getResources()
-                                    .obtainTypedArray(darkMode ? R.array.bg_colors_darkmode : R.array.bg_colors);
+                .obtainTypedArray(darkMode ? R.array.bg_colors_darkmode : R.array.bg_colors);
+
+        final int opacityStep = 25;
+        // Normalize the opacity
+        int modulus = bgOpacityPrefValue % opacityStep;
+        if (modulus != 0) {
+            FLog.w("WidgetHelper", "Invalid BG preference value detected: " + bgOpacityPrefValue);
+            bgOpacityPrefValue = bgOpacityPrefValue - modulus;
+        }
 
         // We assume a fully transparent BG color as default
-        switch (bgOpacityPrefValue) {
-            case 0:
-                return colors.getColor(0, 0x00000000);
-            case 25:
-                return colors.getColor(1, 0x00000000);
-            case 50:
-                return colors.getColor(2, 0x00000000);
-            case 75:
-                return colors.getColor(3, 0x00000000);
-            case 100:
-                return colors.getColor(4, 0x00000000);
-            default:
-                FLog.w("WidgetHelper", "Invalid BG preference value detected: " + bgOpacityPrefValue);
-                return 0x00000000;
-        }
+        return colors.getColor(bgOpacityPrefValue/opacityStep, 0x00000000);
+
     }
 
     /**
@@ -396,7 +322,6 @@ public class WidgetHelper {
      * @param c        The Context to build the Toast within
      * @param text     The text of the Toast
      * @param duration The duration of the Toast (see Toast's duration)
-     *
      * @return Returns the initialized Toast
      */
     public static Toast makeToast(Context c, CharSequence text, int duration) {
@@ -416,7 +341,6 @@ public class WidgetHelper {
      * @param c        The Context to build the Toast within
      * @param text     The Resource ID of the text of the Toast
      * @param duration The duration of the Toast (see Toast's duration)
-     *
      * @return Returns the initialized Toast
      */
     public static Toast makeToast(Context c, int text, int duration) {
@@ -432,12 +356,13 @@ public class WidgetHelper {
 
     /**
      * Get the sharing string by using the given weather data.
-     * @param weatherData   The {@link net.frakbot.FWeather.updater.weather.model.WeatherData} to build the share
-     *                      string from
+     *
+     * @param weatherData The {@link net.frakbot.FWeather.updater.weather.model.WeatherData} to build the share
+     *                    string from
      * @return The sharing string
      */
     public String getShareString(WeatherData weatherData) {
-        String weather = getWeatherString(weatherData, false).toString();
+        String weather = getWeatherMainString(weatherData, false).toString();
         return new StringBuilder().append(weather).append(" ").append(Const.Share.VIA).toString();
     }
 }
