@@ -1,6 +1,16 @@
 Changelog
 =========
 
+### Version 2.2.4
+Released on 31st December 2013
+
+- NEW: share your FWeather!
+- NEW: new button icons for the widget
+- NEW: updated all the languages (thanks everyone!)
+- NEW: specific error message for no network availability
+- FIX: NPE crash and a poorly handled exception
+- FIX: better weather caching and fetch retrying
+
 ### Version 2.2.3
 Released on 4th December 2013
 
