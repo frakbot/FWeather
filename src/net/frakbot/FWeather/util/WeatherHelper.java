@@ -52,6 +52,11 @@ public class WeatherHelper {
     private static long mCachedWeatherTimestamp = Long.MIN_VALUE;
     private static boolean mCacheDataRead = false;
 
+    public static WeatherData getWeather(Context context)
+            throws LocationHelper.LocationNotReadyYetException, IOException {
+        return getWeather(context, false);
+    }
+
     /**
      * Gets the current weather at the user's location
      *
@@ -60,9 +65,14 @@ public class WeatherHelper {
      * @return Returns the weather info, if available, or null
      * if there was any error during the download.
      */
-    public static WeatherData getWeather(Context context)
+    public static WeatherData getWeather(Context context, boolean forced)
         throws LocationHelper.LocationNotReadyYetException, IOException {
         FLog.i(context, TAG, "Starting weather update");
+
+        if (forced) {
+            FLog.i(context, TAG, "Update was forced, clear the cache.");
+            clearCache(context);
+        }
 
         // Read the cached data if needed
         if (!mCacheDataRead) {
@@ -148,14 +158,7 @@ public class WeatherHelper {
 
         if (weather == null) {
             FLog.v(TAG, "Clearing cached weather information (null data)");
-            mCachedWeather = null;
-            mCachedWeatherTimestamp = Long.MIN_VALUE;
-
-            SharedPreferences.Editor e = sp.edit();
-            e.remove(Const.Preferences.LOCATION_CACHE)
-             .remove(Const.Preferences.LOCATION_CACHE_TIMESTAMP)
-             .commit();
-
+            clearCache(context, true);
             return;
         }
 
@@ -179,7 +182,7 @@ public class WeatherHelper {
     private static void readDataFromCache(Context context) {
         final SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
         if (sp == null) {
-            FLog.e(TAG, "Unable to access the shared preferences, can't save to cache");
+            FLog.e(TAG, "Unable to access the shared preferences, can't read from cache");
             return;
         }
 
@@ -193,6 +196,37 @@ public class WeatherHelper {
         }
 
         FLog.v(context, TAG, "Cached weather information retrieved from permanent storage");
+    }
+
+    /**
+     * Clear the cache and resets the cache-handling objects.
+     * @param context The current {@link Context}.
+     * @param persist true to persist to {@link android.content.SharedPreferences}, false to clear the memory cache
+     */
+    private static void clearCache(Context context, boolean persist) {
+        FLog.v(TAG, "Clearing cached weather information (as requested)");
+        mCachedWeather = null;
+        mCachedWeatherTimestamp = Long.MIN_VALUE;
+
+        if (persist) {
+            final SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+            if (sp == null) {
+                FLog.e(TAG, "Unable to access the shared preferences, can't save to cache");
+                return;
+            }
+
+            SharedPreferences.Editor e = sp.edit();
+            e.remove(Const.Preferences.LOCATION_CACHE)
+                    .remove(Const.Preferences.LOCATION_CACHE_TIMESTAMP)
+                    .commit();
+        }
+    }
+    /**
+     * Clear the in memory cache and resets the cache-handling objects.
+     * @param context The current {@link Context}.
+     */
+    private static void clearCache(Context context) {
+        clearCache(context, false);
     }
 
     /**
@@ -228,10 +262,13 @@ public class WeatherHelper {
      * @return The cached {@link WeatherData}
      */
     public static WeatherData getLatestWeather() {
+        // If the cached weather has become stale
         if (!isLatestWeatherStillGood()) {
-            // The cached weather has become stale, clear it.
+            // Clear the cached timestamp
             FLog.v(TAG, "Stale cache detected, clearing the cached weather");
             mCachedWeatherTimestamp = Long.MIN_VALUE;
+            // Clear the cache value
+            mCachedWeather = null;
         }
 
         return mCachedWeather;
@@ -268,20 +305,21 @@ public class WeatherHelper {
     }
 
     private static WeatherData getWeatherDataForLocation(Location location) {
+        WeatherData weatherData = null;
         try {
             FLog.d(TAG, "Using location: " + location.getLatitude() + "," + location.getLongitude());
-            return YahooWeatherApiClient.getWeatherForLocationInfo(getLocationInfo(location));
+            weatherData = getWeatherWithRetry(getLocationInfoWithRetry(location));
         }
         catch (CantGetWeatherException e) {
             FLog.e(TAG, "Unable to retrieve weather", e);
-            return null;
         }
+        return weatherData;
     }
 
     private static WeatherData getWeatherDataForLocationInfo(YahooWeatherApiClient.LocationInfo location) {
         try {
             FLog.d(TAG, "Using manual location. WOEIDs count: " + location.woeids.size());
-            return YahooWeatherApiClient.getWeatherForLocationInfo(location);
+            return getWeatherWithRetry(location);
         }
         catch (CantGetWeatherException e) {
             FLog.e(TAG, "Unable to retrieve weather", e);
@@ -291,6 +329,70 @@ public class WeatherHelper {
             FLog.e(TAG, "Unable to retrieve weather: no WOEIDs!", e);
             return null;
         }
+    }
+
+    /**
+     * Internal method to retry weather fetching from the Yahoo weather provider.
+     * @param location  The {@link net.frakbot.FWeather.updater.weather.YahooWeatherApiClient.LocationInfo}
+     * @return          The {@link net.frakbot.FWeather.updater.weather.model.WeatherData} containing weather information
+     * @throws CantGetWeatherException  If there's some network error
+     */
+    private static WeatherData getWeatherWithRetry(YahooWeatherApiClient.LocationInfo location)
+            throws CantGetWeatherException {
+        CantGetWeatherException lastException = null;
+        for (int i = 0; i < Const.Thresholds.MAX_FETCH_WEATHER_ATTEMPTS; i++) {
+            try {
+                WeatherData weatherData = YahooWeatherApiClient.getWeatherForLocationInfo(location);
+                return weatherData;
+            } catch (CantGetWeatherException e) {
+                FLog.w(TAG, String.format(
+                        "Weather fetching attempt number %d has failed. %d attempts remaining.",
+                        i+1, Const.Thresholds.MAX_FETCH_WEATHER_ATTEMPTS-i-1));
+                // Save the last exception for me
+                lastException = e;
+            }
+        }
+        FLog.e(TAG, String.format(
+                "Maximum number (%d) of weather fetching attempts reached. Giving up.",
+                Const.Thresholds.MAX_FETCH_WEATHER_ATTEMPTS));
+        // If we are here, it means that MAX_FETCH_WEATHER_ATTEMPTS have been made without a result, give up!
+        throw lastException;
+    }
+
+    /**
+     * Internal method to retry location fetching from the Yahoo weather provider.
+     * @param location  The {@link net.frakbot.FWeather.updater.weather.YahooWeatherApiClient.LocationInfo}
+     * @return          The {@link net.frakbot.FWeather.updater.weather.model.WeatherData} containing weather information
+     * @throws CantGetWeatherException  If there's some network error
+     */
+
+    /**
+     * Internal method to retry location fetching from the Yahoo weather provider.
+     * @param location  The known {@link android.location.Location}
+     * @return          The {@link net.frakbot.FWeather.updater.weather.YahooWeatherApiClient.LocationInfo} returned
+     *                  by the Yahoo weather provider
+     * @throws CantGetWeatherException  If there's some parsing or network error
+     */
+    private static YahooWeatherApiClient.LocationInfo getLocationInfoWithRetry(Location location)
+            throws CantGetWeatherException {
+        CantGetWeatherException lastException = null;
+        for (int i = 0; i < Const.Thresholds.MAX_FETCH_LOCATION_ATTEMPTS; i++) {
+            try {
+                YahooWeatherApiClient.LocationInfo locationInfo = getLocationInfo(location);
+                return locationInfo;
+            } catch (CantGetWeatherException e) {
+                FLog.w(TAG, String.format(
+                        "Location fetching attempt number %d has failed. %d attempts remaining.",
+                        i+1, Const.Thresholds.MAX_FETCH_LOCATION_ATTEMPTS-i-1));
+                // Save the last exception for me
+                lastException = e;
+            }
+        }
+        FLog.e(TAG, String.format(
+                "Maximum number (%d) of Location fetching attempts reached. Giving up.",
+                Const.Thresholds.MAX_FETCH_LOCATION_ATTEMPTS));
+        // If we are here, it means that MAX_FETCH_WEATHER_ATTEMPTS have been made without a result, give up!
+        throw lastException;
     }
 
 }

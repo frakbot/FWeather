@@ -49,6 +49,7 @@
     <color name="temp_warm">#00d500</color>
     <color name="temp_wtf">#3075e0</color>
     <color name="temp_no_location">#61e0e0</color>
+    <color name="temp_no_network">#61e0e0</color>
 
     <!-- WIDGET PHRASES COLORS - DARK MODE -->
     <color name="weather_sunny_dark">#97003a</color>
@@ -73,6 +74,7 @@
     <color name="temp_warm_dark">#009300</color>
     <color name="temp_wtf_dark">#265baf</color>
     <color name="temp_no_location_dark">#296262</color>
+    <color name="temp_no_network_dark">#296262</color>
 
     <!-- WIDGET BG COLORS -->
     <array name="bg_colors">      <!-- These are for darkMode=OFF, so it's BLACK bg -->

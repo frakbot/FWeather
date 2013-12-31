@@ -22,23 +22,32 @@
     <string name="weather_sunny"><![CDATA[<font color="%%COLOR%%">Любовь,</font> сука, витает в воздухе.]]></string>
     <string name="weather_rainy"><![CDATA[Хуярит <font color="%%COLOR%%">дождь.</font> Прямо сейчас.]]></string>
     <string name="weather_cloudy"><![CDATA[Просто, блядь, всё <font color="%%COLOR%%">серое.</font>]]></string>
-    <string name="weather_thunderstorm"><![CDATA[Адово-пиздецовая <font color="%%COLOR%%">яростная гроза.</font>]]></string>
+    <string name="weather_thunderstorm">
+        <![CDATA[Адово-пиздецовая <font color="%%COLOR%%">яростная гроза.</font>]]></string>
     <string name="weather_haze"><![CDATA[<font color="%%COLOR%%">Не видно</font> ни хуя.]]></string>
-    <string name="weather_partly_cloudy"><![CDATA[Нет ебучего дождя. <font color="%%COLOR%%">Пока нет.</font>]]></string>
-    <string name="weather_drizzle"><![CDATA[Блядский дождь, как в <font color="%%COLOR%%">пизде</font> по праздникам.]]></string>
+    <string name="weather_partly_cloudy">
+        <![CDATA[Нет ебучего дождя. <font color="%%COLOR%%">Пока нет.</font>]]></string>
+    <string name="weather_drizzle">
+        <![CDATA[Блядский дождь, как в <font color="%%COLOR%%">пизде</font> по праздникам.]]></string>
     <string name="weather_snowy"><![CDATA[А вот и Дед, мать его, <font color="%%COLOR%%">Мороз.</font>]]></string>
     <string name="weather_extreme"><![CDATA[<font color="%%COLOR%%">Сёбывайся,</font> спасай свою жопу.]]></string>
-    <string name="weather_windy"><![CDATA[<font color="%%COLOR%%">Стрибог</font> сегодня куролесит. Смотри чтоб не сдуло нахуй.]]></string>
+    <string name="weather_windy">
+        <![CDATA[<font color="%%COLOR%%">Стрибог</font> сегодня куролесит. Смотри чтоб не сдуло нахуй.]]></string>
     <string name="weather_cold"><![CDATA[<font color="%%COLOR%%">Зима на носу,</font> сука.]]></string>
     <string name="weather_hot"><![CDATA[Привет, бля,<font color="%%COLOR%%">из адского пекла!</font>]]></string>
-    <string name="weather_hail"><![CDATA[Ледяные, нахуй, <font color="%%COLOR%%">бомбы,</font> в пизду их, валятся с неба, сука бля.]]></string>
-    <string name="weather_wtf"><![CDATA[<font color="%%COLOR%%">Какого хуя,</font> не можешь просто выглянуть на улицу?]]></string>
+    <string name="weather_hail">
+        <![CDATA[Ледяные, нахуй, <font color="%%COLOR%%">бомбы,</font> в пизду их, валятся с неба, сука бля.]]></string>
+    <string name="weather_wtf">
+        <![CDATA[<font color="%%COLOR%%">Какого хуя,</font> не можешь просто выглянуть на улицу?]]></string>
     <string name="weather_no_weather"><![CDATA[LOL, ебать я ваще <font color="%%COLOR%%">не в курсе</font>]]></string>
-    <string name="weather_no_location"><![CDATA[<font color="%%COLOR%%">Да ну нахуй,</font> чувак! На кофейной гуще гадать будем?]]></string>
+    <string name="weather_no_location">
+        <![CDATA[<font color="%%COLOR%%">Да ну нахуй,</font> чувак! На кофейной гуще гадать будем?]]></string>
     <string name="temp_freezing"><![CDATA[<font color="%%COLOR%%">С хуя ли.</font> Ебучий северный полюс.]]></string>
     <string name="temp_cold"><![CDATA[<font color="%%COLOR%%">Холодно,</font> как в пизде у снежной бабы.]]></string>
     <string name="temp_hot"><![CDATA[<font color="%%COLOR%%">Жарко,</font> как в духовке.]]></string>
     <string name="temp_warm"><![CDATA[Наслаждайся, ёбаные птицы <font color="%%COLOR%%">поют</font> и срут.]]></string>
-    <string name="temp_wtf"><![CDATA[Нет, серьёзно, сейчас это лучшая идея, я просто <font color="%%COLOR%%">в душе не ебу.</font>]]></string>
-    <string name="temp_no_location"><![CDATA[Где этот ебучий <font color="%%COLOR%%">хрустальный шар!</font> Просто включи GPS или что-то типа того.]]></string>
+    <string name="temp_wtf">
+        <![CDATA[Нет, серьёзно, сейчас это лучшая идея, я просто <font color="%%COLOR%%">в душе не ебу.</font>]]></string>
+    <string name="temp_no_location">
+        <![CDATA[Где этот ебучий <font color="%%COLOR%%">хрустальный шар!</font> Просто включи GPS или что-то типа того.]]></string>
 </resources>

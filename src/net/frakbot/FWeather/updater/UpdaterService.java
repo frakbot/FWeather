@@ -97,8 +97,11 @@ public class UpdaterService extends IntentService {
             return;
         }
 
-        if (intent.getBooleanExtra(EXTRA_USER_FORCE_UPDATE, false)) {
+        boolean forced = intent.getBooleanExtra(EXTRA_USER_FORCE_UPDATE, false);
+
+        if (forced) {
             FLog.i(this, TAG, "User has requested a forced update");
+            // Show a toast message
             mHandler.post(new Runnable() {
                 @Override
                 public void run() {
@@ -117,7 +120,7 @@ public class UpdaterService extends IntentService {
         // Get the latest weather info (new or cached)
         WeatherData weather;
         try {
-            weather = WeatherHelper.getWeather(this);
+            weather = WeatherHelper.getWeather(this, forced);
         }
         catch (LocationHelper.LocationNotReadyYetException justWaitException) {
             // If the location is not ready yet, leave the View unchanged
@@ -305,12 +308,22 @@ public class UpdaterService extends IntentService {
         // The pending intent (Magnum PI, ha!) for the main TextViews
         PendingIntent magnumPI = null;
         // If the user hasn't enabled location settings and there's no information available
-        if (weather.conditionCode == WeatherData.WEATHER_ID_ERR_NO_LOCATION) {
+        if (weather != null && weather.conditionCode == WeatherData.WEATHER_ID_ERR_NO_LOCATION) {
             // When the user tap on the main contents, redirect him/her to the proper settings
             magnumPI = PendingIntent.getActivity(this, 0, new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS), 0);
         }
         views.setOnClickPendingIntent(R.id.txt_weather, magnumPI);
         views.setOnClickPendingIntent(R.id.txt_temp, magnumPI);
+
+        // Create and set the PendingIntent for the share action
+        PendingIntent sharePendingIntent = null;
+        if (weather != null && weather.conditionCode >= 0) {
+            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+            shareIntent.setType("text/plain");
+            shareIntent.putExtra(Intent.EXTRA_TEXT, mWidgetHelper.getShareString(weather));
+            sharePendingIntent = PendingIntent.getActivity(this, 1, shareIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        }
+        views.setOnClickPendingIntent(R.id.btn_share, sharePendingIntent);
     }
 
     /**

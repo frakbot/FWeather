@@ -24,10 +24,12 @@
     <string name="weather_sunny"><![CDATA[Fucking <font color="%%COLOR%%">love</font> is in the air.]]></string>
     <string name="weather_rainy"><![CDATA[It\'s fucking <font color="%%COLOR%%">raining.</font> Now.]]></string>
     <string name="weather_cloudy"><![CDATA[Just fucking <font color="%%COLOR%%">grey.</font>]]></string>
-    <string name="weather_thunderstorm"><![CDATA[Hell\'s fucking <font color="%%COLOR%%">thunder fury.</font>]]></string>
+    <string name="weather_thunderstorm">
+        <![CDATA[Hell\'s fucking <font color="%%COLOR%%">thunder fury.</font>]]></string>
     <string name="weather_haze"><![CDATA[<font color="%%COLOR%%">Can\'t see</font> a damn thing.]]></string>
     <string name="weather_partly_cloudy"><![CDATA[Not fucking raining. <font color="%%COLOR%%">Yet.</font>]]></string>
-    <string name="weather_drizzle"><![CDATA[Slight raining, like a fucking <font color="%%COLOR%%">pussy.</font>]]></string>
+    <string name="weather_drizzle">
+        <![CDATA[Slight raining, like a fucking <font color="%%COLOR%%">pussy.</font>]]></string>
     <string name="weather_snowy"><![CDATA[Here\'s <font color="%%COLOR%%">Santa</font> fucking Claus.]]></string>
     <string name="weather_extreme"><![CDATA[<font color="%%COLOR%%">Run</font> for your fucking life.]]></string>
     <string name="weather_windy"><![CDATA[<font color="%%COLOR%%">Aeolus</font> is fucking funny today]]></string>
@@ -42,8 +44,13 @@
     <string name="temp_freezing"><![CDATA[<font color="%%COLOR%%">WTF.</font> Fucking north pole.]]></string>
     <string name="temp_cold"><![CDATA[<font color="%%COLOR%%">Cold</font> like a fucking fridge.]]></string>
     <string name="temp_hot"><![CDATA[<font color="%%COLOR%%">Hot</font> as in a fucking oven.]]></string>
-    <string name="temp_warm"><![CDATA[Enjoy the fucking birds <font color="%%COLOR%%">singing</font> and shit.]]></string>
-    <string name="temp_wtf"><![CDATA[No, seriously, that\'s your best chance right now, I have <font color="%%COLOR%%">no fucking idea.</font>]]></string>
-    <string name="temp_no_location"><![CDATA[I don\'t have a <font color="%%COLOR%%">crystal ball!</font> Tap here so you can enable the damn GPS or Location Services.]]></string>
+    <string name="temp_warm">
+        <![CDATA[Enjoy the fucking birds <font color="%%COLOR%%">singing</font> and shit.]]></string>
+    <string name="temp_wtf">
+        <![CDATA[No, seriously, that\'s your best chance right now, I have <font color="%%COLOR%%">no fucking idea.</font>]]></string>
+    <string name="temp_no_location">
+        <![CDATA[I don\'t have a <font color="%%COLOR%%">crystal ball!</font> Tap here so you can enable the damn GPS or Location Services.]]></string>
+    <string name="temp_no_network">
+        <![CDATA[Losing my <font color="%%COLOR%%">patience</font> here! Just enable WiFi or any kind of data connection...]]></string>
 
 </resources>

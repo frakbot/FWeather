@@ -1,0 +1,13 @@
+{
+  "name": "FWeather-license-gen",
+  "version": "0.0.1",
+  "description": "License generator for FWeather",
+  "author": "Francesco Pontillo",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-processhtml": "~0.2.7",
+    "load-grunt-tasks": "~0.2.1",
+    "grunt-contrib-clean": "~0.5.0"
+  }
+}

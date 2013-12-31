@@ -50,7 +50,7 @@
   <component name="CopyrightManager" default="">
     <copyright>
       <option name="notice" value="Copyright &amp;#36;today.year Sebastiano Poggi and Francesco Pontillo&#10;&#10;Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);&#10;you may not use this file except in compliance with the License.&#10;You may obtain a copy of the License at&#10;&#10;    http://www.apache.org/licenses/LICENSE-2.0&#10;&#10;Unless required by applicable law or agreed to in writing, software&#10;distributed under the License is distributed on an &quot;AS IS&quot; BASIS,&#10;WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#10;See the License for the specific language governing permissions and&#10;limitations under the License." />
-      <option name="keyword" value="Copyright" />
+      <option name="keyword" value="Sebastiano Poggi and Francesco Pontillo" />
       <option name="allowReplaceKeyword" value="" />
       <option name="myName" value="Apache" />
       <option name="myLocal" value="true" />
@@ -60,7 +60,7 @@
     </module2copyright>
   </component>
   <component name="DependencyValidationManager">
-    <scope name="FirstParty" pattern="(file:res//*||file:src//*&amp;&amp;!file:src/net/frakbot/FWeather/updater/weather/JSONWeatherParser.java&amp;&amp;!file:src/net/frakbot/FWeather/updater/weather/WeatherHttpClient.java&amp;&amp;!file:src/net/frakbot/FWeather/updater/weather/model/*)&amp;&amp;!file[group:Dependencies]:*//*" />
+    <scope name="FirstParty" pattern="(file:res//*||file:src//*&amp;&amp;!file:src/net/frakbot/FWeather/updater/weather/JSONWeatherParser.java&amp;&amp;!file:src/net/frakbot/FWeather/updater/weather/WeatherHttpClient.java&amp;&amp;!file:src/net/frakbot/FWeather/updater/weather/model/*)&amp;&amp;!file[group:Dependencies]:*//*||file[FWeather]:license/Gruntfile.js||file[FWeather]:license/license.html" />
     <option name="SKIP_IMPORT_STATEMENTS" value="false" />
   </component>
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
@@ -732,6 +732,7 @@
         </XML>
       </value>
     </option>
+    <option name="PREFERRED_PROJECT_CODE_STYLE" value="Default (1)" />
   </component>
   <component name="ProjectModuleManager">
     <modules>
@@ -822,6 +823,17 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/com/google/android/android/4.0.1.2/android-4.0.1.2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.google.android:support-v4:r7">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/google/android/support-v4/r7/support-v4-r7.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/google/android/support-v4/r7/support-v4-r7-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/google/android/support-v4/r7/support-v4-r7-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: com.googlecode.catch-exception:catch-exception:1.0.4">

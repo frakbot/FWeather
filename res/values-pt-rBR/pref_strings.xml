@@ -38,7 +38,10 @@
     <string name="pref_msg_changelog">Sim, não. Preguiçaaa! Talvez uma outra hora, cara…</string>
     <string name="feedback_send_chooser_title">Mande o email de feedback usando:</string>
     <string name="pref_header_advanced">Avançado</string>
-    <string name="analytics_disable_warning">Este aplicativo usa o Google Analytics para determinar os recursos mais utilizados de uma maneira completamente anônima e permite aos desenvolvedores focar o desenvolvimento onde é necessário. Nós pedimos que você deixe ligado, se possível.</string>
+    <string name="analytics_disable_warning">Este aplicativo usa o Google Analytics para determinar os recursos mais
+        utilizados de uma maneira completamente anônima e permite aos desenvolvedores focar o desenvolvimento onde é
+        necessário. Nós pedimos que você deixe ligado, se possível.
+    </string>
     <string name="analytics_disabled">Google Analytics foi desabilitado.</string>
     <string name="analytics_enabled_thanks">Google Analytics foi habilitado. Obrigado!</string>
     <string name="pref_title_debug">Depuração</string>
@@ -48,9 +51,12 @@
     <string name="pref_weather_location_automatic">Automática</string>
     <string name="pref_weather_location_automatic_description">Baseado na sua localização atual.</string>
     <string name="about_body">Saiba da porra do seu tempo direito</string>
-    <string name="about_developers"><![CDATA[Desenvolvido por <b>Frakbot</b> (Sebastiano Poggi and Francesco Pontillo).<p/>Baseado no <i>Authentic Weather</i>, conceito por <b>Tobias van Scheider</b>.<p/>Traduzido com um amor do caralho por <b>%s</b>.]]></string>
+    <string name="about_developers">
+        <![CDATA[Desenvolvido por <b>Frakbot</b> (Sebastiano Poggi and Francesco Pontillo).<p/>Baseado no <i>Authentic Weather</i>, conceito por <b>Tobias van Scheider</b>.<p/>Traduzido com um amor do caralho por <b>%s</b>.]]></string>
     <string name="donate_frakbot">Doe para\nFrakbot</string>
     <string name="done">SALVAR</string>
+    <string name="on">LIGADO</string>
+    <string name="off">DESLIGADO</string>
     <string-array name="pref_ui_bgopacity_titles">
         <item>Nenhum</item>
         <item>Claro</item>

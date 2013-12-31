@@ -32,6 +32,7 @@ import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.updater.UpdaterService;
 import net.frakbot.FWeather.updater.weather.model.WeatherData;
 import net.frakbot.FWeather.widget.FontTextView;
+import net.frakbot.global.Const;
 import net.frakbot.util.log.FLog;
 
 /**
@@ -181,13 +182,11 @@ public class WidgetHelper {
             return getColoredSpannedString(R.string.weather_no_weather, R.color.weather_no_weather,
                                            R.color.weather_no_weather_dark, darkMode);
         }
-
         else if (weatherId == WeatherData.WEATHER_ID_ERR_NO_LOCATION ||
-                 weatherId == WeatherData.WEATHER_ID_ERR_NO_NETWORK) {
+                weatherId == WeatherData.WEATHER_ID_ERR_NO_NETWORK) {
             // Error: no location available
             return getColoredSpannedString(R.string.weather_no_location, R.color.weather_no_location,
                                            R.color.weather_no_location_dark, darkMode);
-            // TODO: distinguish no network from no location errors!
         }
         else {
             return getColoredSpannedString(R.string.weather_wtf, R.color.weather_wtf,
@@ -230,6 +229,7 @@ public class WidgetHelper {
             weatherId = -1;
         }
 
+        // TODO: improve the weather image selection with an access list, maybe?
         // Codes list: http://developer.yahoo.com/weather/
         if (weatherId == 3 || weatherId == 4 || (weatherId >= 37 && weatherId <= 39) ||
             weatherId == 45 || weatherId == 47) {
@@ -324,13 +324,14 @@ public class WidgetHelper {
     public CharSequence getTempString(WeatherData weather, boolean darkMode) {
         final float temp;
         if (weather != null) {
-            if (weather.conditionCode == WeatherData.WEATHER_ID_ERR_NO_LOCATION ||
-                weather.conditionCode == WeatherData.WEATHER_ID_ERR_NO_NETWORK) {
-
-                // Error: no location or no network available
+            if (weather.conditionCode == WeatherData.WEATHER_ID_ERR_NO_LOCATION) {
+                // Error: no location available
                 return getColoredSpannedString(R.string.temp_no_location, R.color.temp_no_location,
                                                R.color.temp_no_location_dark, darkMode);
-                // TODO: distinguish no network from no location errors!
+            } else if (weather.conditionCode == WeatherData.WEATHER_ID_ERR_NO_NETWORK) {
+                // Error: no location or no network available
+                return getColoredSpannedString(R.string.temp_no_network, R.color.temp_no_network,
+                        R.color.temp_no_network_dark, darkMode);
             }
             temp = weather.temperature;
         }
@@ -427,5 +428,16 @@ public class WidgetHelper {
         t.setDuration(duration);
         t.setGravity(Gravity.BOTTOM, 0, c.getResources().getDimensionPixelSize(R.dimen.toast_yoffset));
         return t;
+    }
+
+    /**
+     * Get the sharing string by using the given weather data.
+     * @param weatherData   The {@link net.frakbot.FWeather.updater.weather.model.WeatherData} to build the share
+     *                      string from
+     * @return The sharing string
+     */
+    public String getShareString(WeatherData weatherData) {
+        String weather = getWeatherString(weatherData, false).toString();
+        return new StringBuilder().append(weather).append(" ").append(Const.Share.VIA).toString();
     }
 }

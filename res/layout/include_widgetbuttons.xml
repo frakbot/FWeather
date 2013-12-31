@@ -17,25 +17,39 @@
 
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!-- Share buttons, first from right -->
     <ImageButton
-            android:id="@+id/btn_info"
+            android:id="@+id/btn_share"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_alignBaseline="@+id/img_weathericon"
             android:layout_marginRight="@dimen/spacing_single"
-            android:src="@drawable/ic_menu_info_details"
+            android:src="@drawable/ic_action_share"
+            android:contentDescription="@string/cdesc_sharebtn"
+            android:background="@drawable/widget_btn_bg"
+            android:padding="4dp"/>
+
+    <!-- Settings buttons, middle -->
+    <ImageButton
+            android:id="@+id/btn_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/btn_share"
+            android:layout_alignTop="@+id/btn_share"
+            android:src="@drawable/ic_action_settings"
             android:contentDescription="@string/cdesc_infobtn"
             android:background="@drawable/widget_btn_bg"
             android:padding="4dp"/>
 
+    <!-- Refresh buttons, last from right -->
     <ImageButton
             android:id="@+id/btn_refresh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@+id/btn_info"
             android:layout_alignTop="@+id/btn_info"
-            android:src="@drawable/ic_menu_refresh"
+            android:src="@drawable/ic_action_refresh"
             android:contentDescription="@string/cdesc_refresh"
             android:background="@drawable/widget_btn_bg"
             android:padding="4dp"/>

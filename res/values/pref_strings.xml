@@ -109,7 +109,10 @@
     <!-- Settings for Advanced -->
     <string name="pref_header_advanced">Advanced</string>
     <string name="pref_title_analytics">Analytics</string>
-    <string name="analytics_disable_warning">This app uses Google Analytics to determine the most used features in a completely anonymous way, and allow the devs to focus their development issues where needed. We\'d ask you to leave it enabled, if possible.</string>
+    <string name="analytics_disable_warning">This app uses Google Analytics to determine the most used features in a
+        completely anonymous way, and allow the devs to focus their development issues where needed. We\'d ask you to
+        leave it enabled, if possible.
+    </string>
     <string name="analytics_disabled">Google Analytics has been disabled.</string>
     <string name="analytics_enabled_thanks">Google Analytics has been enabled. Thanks!</string>
     <string name="pref_title_debug">Debug</string>
@@ -125,7 +128,8 @@
         <![CDATA[<b>FWeather</b>&nbsp;<font color=\"#888888\"><br/>v%1$s</font>]]></string>
     <string name="about_body">Get your fucking weather right</string>
     <!-- Note to translators: remember to set your name in the strings.xml file, in the translator_name string -->
-    <string name="about_developers"><![CDATA[Developed by <b>Frakbot</b> (Sebastiano Poggi and Francesco Pontillo).<p/>Based on the <i>Authentic Weather</i> concept by <b>Tobias van Scheider</b>.<p/>Translated with fucking love by <b>%s</b>.]]></string>
+    <string name="about_developers">
+        <![CDATA[Developed by <b>Frakbot</b> (Sebastiano Poggi and Francesco Pontillo).<p/>Based on the <i>Authentic Weather</i> concept by <b>Tobias van Scheider</b>.<p/>Translated with fucking love by <b>%s</b>.]]></string>
     <string name="donate_frakbot">Donate to\nFrakbot</string>
     <string name="authentic_weather" translatable="false">Authentic\nWeather</string>
 
