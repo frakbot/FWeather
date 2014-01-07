@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~ Copyright 2014 Sebastiano Poggi and Francesco Pontillo
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -26,9 +26,7 @@
     <string name="cdesc_infobtn"><![CDATA[Информация и настройки]]></string>
     <string name="cdesc_refresh"><![CDATA[Обновить]]></string>
     <string name="cdesc_sharebtn"><![CDATA[Поделиться]]></string>
-    <string name="toast_feedback_mail_error">Не удалось связаться с разработчиком. Напишите им письмо на
-        frakbot+fweather@gmail.com
-    </string>
+    <string name="toast_feedback_mail_error">Не удалось связаться с разработчиком. Напишите им письмо на frakbot+fweather@gmail.com</string>
     <string name="no_weather_data">Данные о погоде недоступны</string>
     <string name="preparing_feedback">Подготовка обратной связи…</string>
     <string name="feedback_service">Служба обратной связи с разработчиком FWeather</string>

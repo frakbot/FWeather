@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~ Copyright 2014 Sebastiano Poggi and Francesco Pontillo
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -26,9 +26,7 @@
     <string name="cdesc_infobtn"><![CDATA[Πληροφορίες & ρυθμίσεις]]></string>
     <string name="cdesc_refresh"><![CDATA[Ανανέωση]]></string>
     <string name="cdesc_sharebtn"><![CDATA[Μοιραστείτε]]></string>
-    <string name="toast_feedback_mail_error">Αδυναμία αποστολής αναπληροφόρησης. Γράψτε 1 email στο
-        frakbot+fweather@gmail.com
-    </string>
+    <string name="toast_feedback_mail_error">Αδυναμία αποστολής αναπληροφόρησης. Γράψτε 1 email στο frakbot+fweather@gmail.com</string>
     <string name="no_weather_data">Μη διαθέσιμα δεδομένα καιρού</string>
     <string name="preparing_feedback">Ετοιμασία αναπληροφόρησης…</string>
     <string name="feedback_service">Υπηρεσία αναπληροφόρησης FWeather</string>

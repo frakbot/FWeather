@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~ Copyright 2014 Sebastiano Poggi and Francesco Pontillo
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -22,34 +22,23 @@
     <string name="weather_sunny"><![CDATA[Te bate <font color="%%COLOR%%">soarele</font>-n cap.]]></string>
     <string name="weather_rainy"><![CDATA[<font color="%%COLOR%%">Plouă</font> să-mi bag pula.]]></string>
     <string name="weather_cloudy"><![CDATA[E <font color="%%COLOR%%">înnorat</font> în pizda mă-sii.]]></string>
-    <string name="weather_thunderstorm">
-        <![CDATA[Fute-m-ar trăznetu de nu-i <font color="%%COLOR%%">furtună</font>.]]></string>
+    <string name="weather_thunderstorm"><![CDATA[Fute-m-ar trăznetu de nu-i <font color="%%COLOR%%">furtună</font>.]]></string>
     <string name="weather_haze"><![CDATA[Nu-ţi vezi pula de <font color="%%COLOR%%">ceaţă</font>.]]></string>
-    <string name="weather_partly_cloudy">
-        <![CDATA[Poţi scoate coaiele la aer că nu plouă… <font color="%%COLOR%%">Încă.</font>]]></string>
+    <string name="weather_partly_cloudy"><![CDATA[Poţi scoate coaiele la aer că nu plouă… <font color="%%COLOR%%">Încă.</font>]]></string>
     <string name="weather_drizzle"><![CDATA[E ceva <font color="%%COLOR%%">umed</font> la mijloc.]]></string>
     <string name="weather_snowy"><![CDATA[Cică <font color="%%COLOR%%">ninge</font>. Nu cred.]]></string>
     <string name="weather_extreme"><![CDATA[<font color="%%COLOR%%">Fugi</font>, în pula mea, cât mai poţi!]]></string>
-    <string name="weather_windy">
-        <![CDATA[<font color="%%COLOR%%">Aeolus</font> e pus pe caterincă trăiască-i mă-sa.]]></string>
-    <string name="weather_cold">
-        <![CDATA[A venit vremea să purtăm <font color="%%COLOR%%">chiloţi</font> fute-m-aş.]]></string>
+    <string name="weather_windy"><![CDATA[<font color="%%COLOR%%">Aeolus</font> e pus pe caterincă trăiască-i mă-sa.]]></string>
+    <string name="weather_cold"><![CDATA[A venit vremea să purtăm <font color="%%COLOR%%">chiloţi</font> fute-m-aş.]]></string>
     <string name="weather_hot"><![CDATA[<font color="%%COLOR%%">Supradoză</font> de căldură-n pula mea!]]></string>
     <string name="weather_hail"><![CDATA[Plouă cu <font color="%%COLOR%%">coaie de gheaţă</font>!]]></string>
-    <string name="weather_wtf">
-        <![CDATA[Ce pula mea? Nu poţi să te uiţi pe <font color="%%COLOR%%">geam</font>?]]></string>
-    <string name="weather_no_weather">
-        <![CDATA[Să moară Fram de ştiu <font color="%%COLOR%%">cum</font> e vremea.]]></string>
-    <string name="weather_no_location">
-        <![CDATA[Să dea dracii de ştiu <font color="%%COLOR%%">unde</font> eşti, coaie.]]></string>
+    <string name="weather_wtf"><![CDATA[Ce pula mea? Nu poţi să te uiţi pe <font color="%%COLOR%%">geam</font>?]]></string>
+    <string name="weather_no_weather"><![CDATA[Să moară Fram de ştiu <font color="%%COLOR%%">cum</font> e vremea.]]></string>
+    <string name="weather_no_location"><![CDATA[Să dea dracii de ştiu <font color="%%COLOR%%">unde</font> eşti, coaie.]]></string>
     <string name="temp_freezing"><![CDATA[E <font color="%%COLOR%%">cancer</font> coaie!]]></string>
-    <string name="temp_cold">
-        <![CDATA[Copacii albi, copacii negrii, îmi bag pula e <font color="%%COLOR%%">frig</font>.]]></string>
+    <string name="temp_cold"><![CDATA[Copacii albi, copacii negrii, îmi bag pula e <font color="%%COLOR%%">frig</font>.]]></string>
     <string name="temp_hot"><![CDATA[E cald ca <font color="%%COLOR%%">dracu</font>!]]></string>
-    <string name="temp_warm">
-        <![CDATA[A venit vremea să fuţi un drum până la cea mai apropiată <font color="%%COLOR%%">terasă</font>.]]></string>
-    <string name="temp_wtf">
-        <![CDATA[Vorbesc serios… Chiar <font color="%%COLOR%%">n-am idee</font> cum e vremea.]]></string>
-    <string name="temp_no_location">
-        <![CDATA[Nu-s <font color="%%COLOR%%">Mama Omida!</font> Apasă aici ca să activezi GPS-ul sau alt serviciu de localizare.]]></string>
+    <string name="temp_warm"><![CDATA[A venit vremea să fuţi un drum până la cea mai apropiată <font color="%%COLOR%%">terasă</font>.]]></string>
+    <string name="temp_wtf"><![CDATA[Vorbesc serios… Chiar <font color="%%COLOR%%">n-am idee</font> cum e vremea.]]></string>
+    <string name="temp_no_location"><![CDATA[Nu-s <font color="%%COLOR%%">Mama Omida!</font> Apasă aici ca să activezi GPS-ul sau alt serviciu de localizare.]]></string>
 </resources>

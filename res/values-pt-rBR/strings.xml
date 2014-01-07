@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~ Copyright 2014 Sebastiano Poggi and Francesco Pontillo
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -25,9 +25,8 @@
     <string name="cdesc_weathericon"><![CDATA[Tempo atual]]></string>
     <string name="cdesc_infobtn"><![CDATA[Informações & configurações]]></string>
     <string name="cdesc_refresh"><![CDATA[Atualizar]]></string>
-    <string name="toast_feedback_mail_error">Não foi possível enviar feedback. Escreva um email para
-        frakbot+fweather@gmail.com
-    </string>
+    <string name="cdesc_sharebtn"><![CDATA[Compartilhar]]></string>
+    <string name="toast_feedback_mail_error">Não foi possível enviar feedback. Escreva um email para frakbot+fweather@gmail.com</string>
     <string name="no_weather_data">Sem dados de tempo disponíveis</string>
     <string name="preparing_feedback">Preparando feedback…</string>
     <string name="feedback_service">Serviço de feedback do FWeather</string>

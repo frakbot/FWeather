@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~ Copyright 2014 Sebastiano Poggi and Francesco Pontillo
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -25,8 +25,7 @@
     <string name="weather_thunderstorm"><![CDATA[Hay una puta <font color="%%COLOR%%">tormenta.</font>]]></string>
     <string name="weather_haze"><![CDATA[<font color="%%COLOR%%">No se ve una</font> puta mierda.]]></string>
     <string name="weather_partly_cloudy"><![CDATA[No llueve. <font color="%%COLOR%%">Todavía.</font>]]></string>
-    <string name="weather_drizzle">
-        <![CDATA[Lluvia que parece que no moja pero <font color="%%COLOR%%">sí.</font>]]></string>
+    <string name="weather_drizzle"><![CDATA[Lluvia que parece que no moja pero <font color="%%COLOR%%">sí.</font>]]></string>
     <string name="weather_snowy"><![CDATA[Va a llegar el <font color="%%COLOR%%">puto</font> Santa Claus.]]></string>
     <string name="weather_extreme"><![CDATA[<font color="%%COLOR%%">Corre</font> por tu puta vida.]]></string>
     <string name="weather_windy"><![CDATA[<font color="%%COLOR%%">Eolo</font> se lo pasa de puta madre.]]></string>
@@ -39,10 +38,7 @@
     <string name="temp_freezing"><![CDATA[Como en el puto<font color="%%COLOR%%">Polo Norte.</font>]]></string>
     <string name="temp_cold"><![CDATA[<font color="%%COLOR%%">Frío</font> como en una puta nevera.]]></string>
     <string name="temp_hot"><![CDATA[Un <font color="%%COLOR%%">calor</font> acojonante.]]></string>
-    <string name="temp_warm">
-        <![CDATA[Disfruta de los putos pájaros <font color="%%COLOR%%">cantando</font> y cagando.]]></string>
-    <string name="temp_wtf">
-        <![CDATA[No, enserio, no tienes nada mejor que hacer? <font color="%%COLOR%%">No tengo ni puta idea.</font>]]></string>
-    <string name="temp_no_location">
-        <![CDATA[No tengo una puta <font color="%%COLOR%%">bola de cristal!</font> Enciende el GPS o los servicios de localización.]]></string>
+    <string name="temp_warm"><![CDATA[Disfruta de los putos pájaros <font color="%%COLOR%%">cantando</font> y cagando.]]></string>
+    <string name="temp_wtf"><![CDATA[No, enserio, no tienes nada mejor que hacer? <font color="%%COLOR%%">No tengo ni puta idea.</font>]]></string>
+    <string name="temp_no_location"><![CDATA[No tengo una puta <font color="%%COLOR%%">bola de cristal!</font> Enciende el GPS o los servicios de localización.]]></string>
 </resources>

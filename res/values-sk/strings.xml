@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~ Copyright 2014 Sebastiano Poggi and Francesco Pontillo
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -25,8 +25,7 @@
     <string name="cdesc_weathericon"><![CDATA[Aktuálne počasie]]></string>
     <string name="cdesc_infobtn"><![CDATA[Informácie & nastavenia]]></string>
     <string name="cdesc_refresh"><![CDATA[Obnoviť]]></string>
-    <string name="toast_feedback_mail_error">Nepodarilo sa odoslať. Napíšte e-mail na frakbot+fweather@gmail.com
-    </string>
+    <string name="toast_feedback_mail_error">Nepodarilo sa odoslať. Napíšte e-mail na frakbot+fweather@gmail.com</string>
     <string name="no_weather_data">Dáta o počasiu nedostupné</string>
     <string name="preparing_feedback">Pripravujem spätnú väzbu…</string>
     <string name="feedback_service">FWeather služby spätnej väzby</string>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~ Copyright 2014 Sebastiano Poggi and Francesco Pontillo
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -25,13 +25,13 @@
         <item>Hiszpański (es)</item>
         <item>Francuski (fr)</item>
         <item>Greek (el)</item>
-        <item>Hebrajski (he)</item>
-        <item>Włoski (it)</item>
-        <item>Duński (nl)</item>
-        <item>Portugalski (pt)</item>
-        <item>Rumuński (ro)</item>
-        <item>Rosyjski (ru)</item>
-        <item>Ukraiński (uk)</item>
-        <item>Chiński (uproszczony) (zh)</item>
+        <item>Hebrew (he)</item>
+        <item>Italian (it)</item>
+        <item>Dutch (nl)</item>
+        <item>Brazilian Portuguese (pt)</item>
+        <item>Romanian (ro)</item>
+        <item>Russian (ru)</item>
+        <item>Ukrainian (uk)</item>
+        <item>Chinese (simplified) (zh)</item>
     </string-array>
 </resources>

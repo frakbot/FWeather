@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~ Copyright 2014 Sebastiano Poggi and Francesco Pontillo
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -39,8 +39,7 @@
     <string name="temp_cold"><![CDATA[<font color="%%COLOR%%">Zima</font> jako v debilní ledničce.]]></string>
     <string name="temp_hot"><![CDATA[<font color="%%COLOR%%">Horko</font> jako v zasrané troubě.]]></string>
     <string name="temp_warm"><![CDATA[Užívej si ten zasraný <font color="%%COLOR%%">ptačí zpěv.</font>]]></string>
-    <string name="temp_wtf">
-        <![CDATA[Vážně, teď je tvá nejlepší šance. Nemám <font color="%%COLOR%%">žádný debilní nápad.</font>]]></string>
-    <string name="temp_no_location">
-        <![CDATA[Nemám žádnou <font color="%%COLOR%%">křišťálovou kouli!</font> Zapni GPS.]]></string>
+    <string name="temp_wtf"><![CDATA[Vážně, teď je tvá nejlepší šance. Nemám <font color="%%COLOR%%">žádný debilní nápad.</font>]]></string>
+    <string name="temp_no_location"><![CDATA[Nemám žádnou <font color="%%COLOR%%">křišťálovou kouli!</font> Zapni GPS.]]></string>
+    <string name="temp_no_network"><![CDATA[Došly mi <font color="%%COLOR%%">nervy</font>! Zapni WiFi, nebo nějaké jiné připojení…]]></string>
 </resources>

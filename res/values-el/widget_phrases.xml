@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~ Copyright 2014 Sebastiano Poggi and Francesco Pontillo
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -24,18 +24,13 @@
     <string name="weather_cloudy"><![CDATA[Γκριζαμάρα <font color="%%COLOR%%">γαμημένη μουντάδα.</font>]]></string>
     <string name="weather_thunderstorm"><![CDATA[Ο Δίας έχει <font color="%%COLOR%%">γαμημένα κέφια!</font>]]></string>
     <string name="weather_haze"><![CDATA[<font color="%%COLOR%%">Δε βλέπω</font> Χριστό.]]></string>
-    <string name="weather_partly_cloudy">
-        <![CDATA[Ακόμα να ρίξει μια γαμημένη <font color="%%COLOR%%">βρόχα.</font>]]></string>
-    <string name="weather_drizzle">
-        <![CDATA[Ψιλόβροχο, λες και κάποιος μαλάκας <font color="%%COLOR%%">φτύνει.</font>]]></string>
-    <string name="weather_snowy">
-        <![CDATA[Καλώς τον <font color="%%COLOR%%">γαμημένο</font> ερυθρόλευκο Άγ. Βασίλη.]]></string>
+    <string name="weather_partly_cloudy"><![CDATA[Ακόμα να ρίξει μια γαμημένη <font color="%%COLOR%%">βρόχα.</font>]]></string>
+    <string name="weather_drizzle"><![CDATA[Ψιλόβροχο, λες και κάποιος μαλάκας <font color="%%COLOR%%">φτύνει.</font>]]></string>
+    <string name="weather_snowy"><![CDATA[Καλώς τον <font color="%%COLOR%%">γαμημένο</font> ερυθρόλευκο Άγ. Βασίλη.]]></string>
     <string name="weather_extreme"><![CDATA[<font color="%%COLOR%%">Τρέχατε </font> ποδαράκια μου.]]></string>
     <string name="weather_windy"><![CDATA[<font color="%%COLOR%%">Ο Αίολος</font> έχει γαμημένα κέφια!]]></string>
-    <string name="weather_cold">
-        <![CDATA[<font color="%%COLOR%%">Ο χειμώνας έρχεται λένε οι Σταρκ.</font> Tην γαμήσαμε.]]></string>
-    <string name="weather_hot">
-        <![CDATA[Η κόλαση του Δάντη! Γαμημένος <font color="%%COLOR%%">καύσωνας.</font>]]></string>
+    <string name="weather_cold"><![CDATA[<font color="%%COLOR%%">Ο χειμώνας έρχεται λένε οι Σταρκ.</font> Tην γαμήσαμε.]]></string>
+    <string name="weather_hot"><![CDATA[Η κόλαση του Δάντη! Γαμημένος <font color="%%COLOR%%">καύσωνας.</font>]]></string>
     <string name="weather_hail"><![CDATA[Ρίχνει γαμημένα <font color="%%COLOR%%">κοτρώνια!]]></string>
     <string name="weather_wtf"><![CDATA[<font color="%%COLOR%%">WTF,</font> Δε κοιτάς απ\'έξω ρε μεγάλε;]]></string>
     <string name="weather_no_weather"><![CDATA[Δεν έχω <font color="%%COLOR%%"> γαμημένη ιδέα.</font>]]></string>
@@ -43,10 +38,7 @@
     <string name="temp_freezing"><![CDATA[<font color="%%COLOR%%">Γαμημένο </font> πουτσόκρυο.]]></string>
     <string name="temp_cold"><![CDATA[<font color="%%COLOR%%">Κρύο</font> σα γαμημένο ψυγείο.]]></string>
     <string name="temp_hot"><![CDATA[<font color="%%COLOR%%">Ζέστη</font> σα γαμημένος κλίβανος.]]></string>
-    <string name="temp_warm">
-        <![CDATA[Άκου τα πουλιά που κελαηδάνε. <font color="%%COLOR%%">Σκασμό δε βγάζουν</font> τα γαμημένα!]]></string>
-    <string name="temp_wtf">
-        <![CDATA[Σοβαρά μαλάκα, η καλύτερή σου επιλογή. <font color="%%COLOR%%">Δεν έχω ιδέα.</font>]]></string>
-    <string name="temp_no_location">
-        <![CDATA[Δεν είμαι <font color="%%COLOR%%">γαμωμέντιουμ!</font>Κάνε κλικ εδώ για να ανοίξει το GPS ή οι Υπηρεσίες Τοποθεσίας.]]></string>
+    <string name="temp_warm"><![CDATA[Άκου τα πουλιά που κελαηδάνε. <font color="%%COLOR%%">Σκασμό δε βγάζουν</font> τα γαμημένα!]]></string>
+    <string name="temp_wtf"><![CDATA[Σοβαρά μαλάκα, η καλύτερή σου επιλογή. <font color="%%COLOR%%">Δεν έχω ιδέα.</font>]]></string>
+    <string name="temp_no_location"><![CDATA[Δεν είμαι <font color="%%COLOR%%">γαμωμέντιουμ!</font>Κάνε κλικ εδώ για να ανοίξει το GPS ή οι Υπηρεσίες Τοποθεσίας.]]></string>
 </resources>
