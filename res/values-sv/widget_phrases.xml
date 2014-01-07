@@ -36,7 +36,7 @@
     <string name="weather_no_weather"><![CDATA[LOL fan jag vet verkligen <font color="%%COLOR%%">inte.</font>]]></string>
     <string name="weather_no_location"><![CDATA[<font color="%%COLOR%%">Vafan,</font> kompis!]]></string>
     <string name="temp_freezing"><![CDATA[<font color="%%COLOR%%">VAFAN.</font> Jävla nordpolen.]]></string>
-    <string name="temp_cold"><![CDATA[<font color="%%COLOR%%">Kallt</font> som i ett jävla kylskåp.]]></string>
+    <string name="temp_cold"><![CDATA[<font color="%%COLOR%%">Kallt</font> som i en jävla frys.]]></string>
     <string name="temp_hot"><![CDATA[<font color="%%COLOR%%">Varmt</font> som i en jävla ugn.]]></string>
     <string name="temp_warm"><![CDATA[Njut av fågeljävlarnas <font color="%%COLOR%%">sjungande</font> och skit.]]></string>
     <string name="temp_wtf"><![CDATA[Nej, men seriöst. Det är din bästa chans nu. Jag har <font color="%%COLOR%%">ingen jävla idé.</font>]]></string>
