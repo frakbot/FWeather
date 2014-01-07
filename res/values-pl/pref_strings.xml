@@ -29,7 +29,7 @@
     <string name="pref_header_data_sync">Dane i synchronizacja</string>
     <string name="pref_title_sync_frequency">Częstotliwość synchronizacji</string>
     <string name="pref_title_sync_force">Odśwież teraz</string>
-    <string name="toast_force_update">Dobra kurwa, nie spinaj się. Odświeżam.. Szczęśliwy?</string>
+    <string name="toast_force_update">Dobra kurwa, nie spinaj się. Odświeżam... Zadowolony?</string>
     <string name="pref_header_info">Informacje</string>
     <string name="pref_title_info_authors">O programie</string>
     <string name="pref_title_info_license">Inne licencje</string>
@@ -55,15 +55,15 @@
     <string name="about_developers">
         <![CDATA[Stworzone przez <b>Frakbot</b> (Sebastiano Poggi and Francesco Pontillo).<p/>Oparte na <i>Authentic Weather</i>, pomysł: <b>Tobias van Scheider</b>.<p/>Tłumaczenie: <b>%s</b>.]]></string>
     <string name="donate_frakbot">Wspomóż\nFrakbot</string>
-    <string name="done">ZROBIONE</string>
+    <string name="done">GOTOWE</string>
     <string name="on">ON</string>
     <string name="off">OFF</string>
     <string-array name="pref_ui_bgopacity_titles">
-        <item>Brak</item>
+        <item>Przeźroczysty</item>
         <item>Jasny</item>
         <item>Średni</item>
         <item>Ciemny</item>
-        <item>Przeźroczysty</item>
+        <item>Nieprzeźroczysty</item>
     </string-array>
     <string-array name="pref_sync_frequency_titles">
         <item>5 minut</item>
