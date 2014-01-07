@@ -1,6 +1,13 @@
 Changelog
 =========
 
+### Version 2.2.5
+Released on 7th January 2014
+
+- NEW: updated all the languages (thanks everyone!)
+- FIX: fixed four crashes (see issues #101-#105)
+- FIX: fixed the sharing icon not hiding when hiding widget buttons
+
 ### Version 2.2.4
 Released on 31st December 2013
 
