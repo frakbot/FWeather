@@ -49,7 +49,7 @@
     <string name="pref_weather_location_automatic">Автоматически</string>
     <string name="pref_weather_location_automatic_description">Основываясь на твоем текущем расположении.</string>
     <string name="about_body">Получай свою ёбаную погоду правильно</string>
-    <string name="about_developers"><![CDATA[Разработано <b>Frakbot</b> (Себастьяно Погги и Франческо Понтилло).<p/>За основу взят <i>Authentic Weather</i> за авторством <b>Тобиаса ван Шайдера</b>.<p/>Переведено, сука, с любовью. \n<b>%s</b>.]]></string>
+    <string name="about_developers"><![CDATA[Разработано <b>Frakbot</b> (Себастьяно Погги и Франческо Понтилло).<p/>За основу взят виджет<i>Authentic Weather</i> за авторством <b>Тобиаса ван Шайдера</b>.<p/>Переведено, сука, с любовью. \n<b>%s</b>.]]></string>
     <string name="donate_frakbot">Поддержать \nFrakbot</string>
     <string name="done">Готово</string>
     <string name="on">I</string>

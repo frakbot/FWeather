@@ -206,7 +206,7 @@ public class WidgetHelper {
      */
     public Spanned getColoredSpannedString(int stringId, int lightColorId, int darkColorId, boolean darkMode) {
         int color = mContext.getResources().getColor(!darkMode ? lightColorId : darkColorId);
-        String string = mContext.getString(stringId, "")
+        String string = mContext.getString(stringId)
                                 .replace(PLACEHOLDER_COLOR, String.format("#%06X", (0xFFFFFF & color)));
         return Html.fromHtml(string);
     }

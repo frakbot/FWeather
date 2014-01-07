@@ -89,7 +89,8 @@ import java.util.Locale;
      */
     @SuppressWarnings("StringBufferReplaceableByString")
     private static String generateFeedbackBody(Context c) {
-        StringBuilder sb = new StringBuilder("\n\n" +
+        StringBuilder sb = new StringBuilder("\n\n\n" +
+                                             "(only write above this line)\n\n" +
                                              "-----------\n" +
                                              "System info\n" +
                                              "-----------\n\n");

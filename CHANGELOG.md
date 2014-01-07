@@ -1,11 +1,18 @@
 Changelog
 =========
 
+### Version 2.2.6
+Released on 7th January 2014
+
+- NEW: updated the languages (thanks everyone!)
+- FIX: text being all white (see issue #107)
+- FIX: minor tweaks to the feedback email body template
+
 ### Version 2.2.5
 Released on 7th January 2014
 
 - NEW: updated all the languages (thanks everyone!)
-- FIX: fixed four crashes (see issues #101-#105)
+- FIX: fixed four crashes (see issues #102, #103, #104 and #105)
 - FIX: fixed the sharing icon not hiding when hiding widget buttons
 
 ### Version 2.2.4

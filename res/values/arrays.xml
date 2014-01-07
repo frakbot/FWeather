@@ -26,6 +26,7 @@
         <item>French (fr)</item>
         <item>Greek (el)</item>
         <item>Hebrew (he)</item>
+        <item>Hungarian (hu)</item>
         <item>Italian (it)</item>
         <item>Dutch (nl)</item>
         <item>Brazilian Portuguese (pt)</item>
@@ -42,8 +43,9 @@
         <item>en</item>
         <item>es</item>
         <item>fr</item>
-        <item>gr</item>
+        <item>el</item>
         <item>he</item>
+        <item>hu</item>
         <item>it</item>
         <item>nl</item>
         <item>pt</item>
