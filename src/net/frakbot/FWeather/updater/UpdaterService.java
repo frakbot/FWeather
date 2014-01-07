@@ -288,10 +288,12 @@ public class UpdaterService extends IntentService {
         if (prefs.getBoolean(getString(R.string.pref_key_ui_toggle_buttons), true)) {
             views.setViewVisibility(R.id.btn_info, View.VISIBLE);
             views.setViewVisibility(R.id.btn_refresh, View.VISIBLE);
+            views.setViewVisibility(R.id.btn_share, View.VISIBLE);
         }
         else {
             views.setViewVisibility(R.id.btn_info, View.GONE);
             views.setViewVisibility(R.id.btn_refresh, View.GONE);
+            views.setViewVisibility(R.id.btn_share, View.GONE);
         }
 
         // Initalize OnClick listeners
