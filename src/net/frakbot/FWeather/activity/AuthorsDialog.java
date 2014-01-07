@@ -26,6 +26,7 @@ import android.support.v4.app.FragmentActivity;
 import android.text.Html;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import net.frakbot.FWeather.R;
@@ -73,6 +74,10 @@ public class AuthorsDialog extends FragmentActivity {
         super.onCreate(savedInstanceState);
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        // This sets the window size, while working around the IllegalStateException thrown by ActionBarView
+        getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.WRAP_CONTENT);
 
         // Get app version
         pm = getPackageManager();

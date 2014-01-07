@@ -65,6 +65,10 @@ public class LocationChooserDialog extends SherlockFragmentActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // This sets the window size, while working around the IllegalStateException thrown by ActionBarView
+        getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.WRAP_CONTENT);
+
         setContentView(R.layout.dialog_weather_location_chooser);
 
         TextView searchView = (TextView) findViewById(R.id.location_query);
