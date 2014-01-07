@@ -4,6 +4,7 @@ Changelog
 ### Version 2.2.6
 Released on 7th January 2014
 
+- NEW: Hungarian localization (thanks Gergő Bihary!)
 - NEW: updated the languages (thanks everyone!)
 - FIX: text being all white (see issue #107)
 - FIX: minor tweaks to the feedback email body template
