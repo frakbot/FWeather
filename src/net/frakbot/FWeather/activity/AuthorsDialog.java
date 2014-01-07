@@ -1,11 +1,11 @@
 /*
- * Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+ * Copyright 2014 Sebastiano Poggi and Francesco Pontillo
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *    http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -26,6 +26,7 @@ import android.support.v4.app.FragmentActivity;
 import android.text.Html;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import net.frakbot.FWeather.R;
@@ -73,6 +74,10 @@ public class AuthorsDialog extends FragmentActivity {
         super.onCreate(savedInstanceState);
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        // This sets the window size, while working around the IllegalStateException thrown by ActionBarView
+        getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.WRAP_CONTENT);
 
         // Get app version
         pm = getPackageManager();

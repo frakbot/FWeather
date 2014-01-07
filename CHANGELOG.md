@@ -1,6 +1,13 @@
 Changelog
 =========
 
+### Version 2.2.5
+Released on 7th January 2014
+
+- NEW: updated all the languages (thanks everyone!)
+- FIX: fixed four crashes (see issues #101-#105)
+- FIX: fixed the sharing icon not hiding when hiding widget buttons
+
 ### Version 2.2.4
 Released on 31st December 2013
 
@@ -10,6 +17,7 @@ Released on 31st December 2013
 - NEW: specific error message for no network availability
 - FIX: NPE crash and a poorly handled exception
 - FIX: better weather caching and fetch retrying
+- **Happy new freaking year!**
 
 ### Version 2.2.3
 Released on 4th December 2013

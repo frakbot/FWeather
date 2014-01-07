@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~ Copyright 2014 Sebastiano Poggi and Francesco Pontillo
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -39,10 +39,7 @@
     <string name="feedback_send_chooser_title">Trimite feedback-ul folosind:</string>
     <string name="pref_header_advanced">Avansat</string>
     <string name="pref_title_analytics">Analytics</string>
-    <string name="analytics_disable_warning">Această aplicaţie foloseşte Google Analytics pentru a determina cele mai
-        folosite proprietăţi ale sale într-un mod anonim şi pentru a permite dezvoltatorilor să se concentreze asupra
-        acestora. Am prefera să laşi opţiunea activată, dacă se poate.
-    </string>
+    <string name="analytics_disable_warning">Această aplicaţie foloseşte Google Analytics pentru a determina cele mai folosite proprietăţi ale sale într-un mod anonim şi pentru a permite dezvoltatorilor să se concentreze asupra acestora. Am prefera să laşi opţiunea activată, dacă se poate.</string>
     <string name="analytics_disabled">Google Analytics a fost dezactivat.</string>
     <string name="analytics_enabled_thanks">Google Analytics a fost activat. Mulţumim!</string>
     <string name="pref_title_debug">Debug</string>
@@ -52,8 +49,7 @@
     <string name="pref_weather_location_automatic">Automat</string>
     <string name="pref_weather_location_automatic_description">Bazat pe locaţia curentă.</string>
     <string name="about_body">Vremea în pula mea</string>
-    <string name="about_developers">
-        <![CDATA[Dezvoltat de <b>Frakbot</b> (Sebastiano Poggi şi Francesco Pontillo).<br>Bazat pe conceptul <i>Authentic Weather</i> al lui <b>Tobias van Scheider</b>.<p/>Tradus în sictir de <b>%s</b>.]]></string>
+    <string name="about_developers"><![CDATA[Dezvoltat de <b>Frakbot</b> (Sebastiano Poggi şi Francesco Pontillo).<br>Bazat pe conceptul <i>Authentic Weather</i> al lui <b>Tobias van Scheider</b>.<p/>Tradus în sictir de <b>%s</b>.]]></string>
     <string name="donate_frakbot">Donează lui\nFrakbot</string>
     <string name="done">OK</string>
     <string name="on">ON</string>

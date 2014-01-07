@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~ Copyright 2014 Sebastiano Poggi and Francesco Pontillo
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -44,13 +44,9 @@
     <string name="temp_freezing"><![CDATA[<font color="%%COLOR%%">WTF.</font> Fucking north pole.]]></string>
     <string name="temp_cold"><![CDATA[<font color="%%COLOR%%">Cold</font> like a fucking fridge.]]></string>
     <string name="temp_hot"><![CDATA[<font color="%%COLOR%%">Hot</font> as in a fucking oven.]]></string>
-    <string name="temp_warm">
-        <![CDATA[Enjoy the fucking birds <font color="%%COLOR%%">singing</font> and shit.]]></string>
-    <string name="temp_wtf">
-        <![CDATA[No, seriously, that\'s your best chance right now, I have <font color="%%COLOR%%">no fucking idea.</font>]]></string>
-    <string name="temp_no_location">
-        <![CDATA[I don\'t have a <font color="%%COLOR%%">crystal ball!</font> Tap here so you can enable the damn GPS or Location Services.]]></string>
-    <string name="temp_no_network">
-        <![CDATA[Losing my <font color="%%COLOR%%">patience</font> here! Just enable WiFi or any kind of data connection...]]></string>
+    <string name="temp_warm"><![CDATA[Enjoy the fucking birds <font color="%%COLOR%%">singing</font> and shit.]]></string>
+    <string name="temp_wtf"><![CDATA[No, seriously, that\'s your best chance right now, I have <font color="%%COLOR%%">no fucking idea.</font>]]></string>
+    <string name="temp_no_location"><![CDATA[I don\'t have a <font color="%%COLOR%%">crystal ball!</font> Tap here so you can enable the damn GPS or Location Services.]]></string>
+    <string name="temp_no_network"><![CDATA[Losing my <font color="%%COLOR%%">patience</font> here! Just enable WiFi or any kind of data connection…]]></string>
 
 </resources>

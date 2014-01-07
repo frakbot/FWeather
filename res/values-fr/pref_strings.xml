@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~ Copyright 2014 Sebastiano Poggi and Francesco Pontillo
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -39,10 +39,7 @@
     <string name="feedback_send_chooser_title">Envoyer un mail de commentaire en utilisant:</string>
     <string name="pref_header_advanced">Avancés</string>
     <string name="pref_title_analytics">Analytics</string>
-    <string name="analytics_disable_warning">Cette application utilise Google Analytics pour déterminer les fonctions
-        les plus utilisées de manière complètement anonyme, et permet aux développeurs de focaliser leur développement
-        sur celles qui sont les plus importantes. Nous vous demandons de le laisser activé si possible.
-    </string>
+    <string name="analytics_disable_warning">Cette application utilise Google Analytics pour déterminer les fonctions les plus utilisées de manière complètement anonyme, et permet aux développeurs de focaliser leur développement sur celles qui sont les plus importantes. Nous vous demandons de le laisser activé si possible.</string>
     <string name="analytics_disabled">Google Analytics a été désactivé.</string>
     <string name="analytics_enabled_thanks">Google Analytics a été activé. Merci!</string>
     <string name="pref_title_debug">Deboguage</string>
@@ -52,8 +49,7 @@
     <string name="pref_weather_location_automatic">Automatique</string>
     <string name="pref_weather_location_automatic_description">Basée sur votre position actuelle.</string>
     <string name="about_body">Vérifie ta putain de météo !</string>
-    <string name="about_developers">
-        <![CDATA[Developpé par <b>Frakbot</b> (Sebastiano Poggi et Francesco Pontillo).<p/>Basé sur le concept <i>Authentic Weather</i> de <b>Tobias van Scheider</b>.<p/>Traduit avec un putain d\'amour par <b>%s</b>.]]></string>
+    <string name="about_developers"><![CDATA[Developpé par <b>Frakbot</b> (Sebastiano Poggi et Francesco Pontillo).<p/>Basé sur le concept <i>Authentic Weather</i> de <b>Tobias van Scheider</b>.<p/>Traduit avec un putain d\'amour par <b>%s</b>.]]></string>
     <string name="donate_frakbot">Faire un don à\nFrakbot</string>
     <string name="done">Fait</string>
     <string name="on">ON</string>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~ Copyright 2014 Sebastiano Poggi and Francesco Pontillo
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -29,8 +29,7 @@
     <string name="pref_header_data_sync">Data &amp; sync</string>
     <string name="pref_title_sync_frequency">Sync frequentie</string>
     <string name="pref_title_sync_force">Ververs weer nu</string>
-    <string name="toast_force_update">OK, OK, niet nodig om een verveeld stuk vreten uit te hangen. Doet het nu. Blij?
-    </string>
+    <string name="toast_force_update">OK, OK, niet nodig om een verveeld stuk vreten uit te hangen. Doet het nu. Blij?</string>
     <string name="pref_header_info">Informatie</string>
     <string name="pref_title_info_authors">Over FWeather</string>
     <string name="pref_title_info_license">Derden licenties</string>
@@ -40,10 +39,7 @@
     <string name="feedback_send_chooser_title">Stuur email feedback via:</string>
     <string name="pref_header_advanced">Geavanceerd</string>
     <string name="pref_title_analytics">Analytics</string>
-    <string name="analytics_disable_warning">Deze app maakt gebruik van Google Analytics om de meest gebruikte functies
-        op een volstrekt anonieme wijze te bepalen, en laat de ontwikkelaars focussen waar dat nodig is. We zouden je
-        willen vragen om het te activeren, indien mogelijk.
-    </string>
+    <string name="analytics_disable_warning">Deze app maakt gebruik van Google Analytics om de meest gebruikte functies op een volstrekt anonieme wijze te bepalen, en laat de ontwikkelaars focussen waar dat nodig is. We zouden je willen vragen om het te activeren, indien mogelijk.</string>
     <string name="analytics_disabled">Google Analytics is uitgeschakeld.</string>
     <string name="analytics_enabled_thanks">Google Analytics is ingeschakeld. Bedankt!</string>
     <string name="pref_title_debug">Debug</string>
@@ -53,8 +49,7 @@
     <string name="pref_weather_location_automatic">Automatisch</string>
     <string name="pref_weather_location_automatic_description">Op basis van je huidige locatie.</string>
     <string name="about_body">Zie het kutweer op de juiste wijze</string>
-    <string name="about_developers">
-        <![CDATA[Ontwikkeld door <b>Frakbot</b> (Sebastiano Poggi en Francesco Pontillo).<p/>Gebaseerd op het <i>Authentic Weather</i> concept van <b>Tobias van Scheider</b>.<p/>Vertaald met fucking liefde door <b>%s</b>.]]></string>
+    <string name="about_developers"><![CDATA[Ontwikkeld door <b>Frakbot</b> (Sebastiano Poggi en Francesco Pontillo).<p/>Gebaseerd op het <i>Authentic Weather</i> concept van <b>Tobias van Scheider</b>.<p/>Vertaald met fucking liefde door <b>%s</b>.]]></string>
     <string name="donate_frakbot">Doneer aan\nFrakbot</string>
     <string name="done">KLAAR</string>
     <string name="on">AAN</string>

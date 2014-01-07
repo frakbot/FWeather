@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~ Copyright 2014 Sebastiano Poggi and Francesco Pontillo
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -22,9 +22,11 @@
     <string name="activity_credits">Utveklare</string>
     <string name="activity_licenses">Tredjepartslicenser</string>
     <string name="updater_service">FWeather uppdateringstjänster</string>
-    <string name="toast_feedback_mail_error">Kunde inte skicka feedback. Skicka ett mail till
-        frakbot+fweather@gmail.com
-    </string>
+    <string name="cdesc_weathericon"><![CDATA[Nuvarande väder]]></string>
+    <string name="cdesc_infobtn"><![CDATA[Info & inställningar]]></string>
+    <string name="cdesc_refresh"><![CDATA[Uppdatera]]></string>
+    <string name="cdesc_sharebtn"><![CDATA[Dela]]></string>
+    <string name="toast_feedback_mail_error">Kunde inte skicka feedback. Skicka ett mail till frakbot+fweather@gmail.com</string>
     <string name="no_weather_data">Ingen väder information tillgänglig</string>
     <string name="preparing_feedback">Förbereder feedback…</string>
     <string name="feedback_service">FWeather feedback tjänster</string>

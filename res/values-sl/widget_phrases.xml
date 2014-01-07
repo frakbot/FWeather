@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~ Copyright 2014 Sebastiano Poggi and Francesco Pontillo
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -24,8 +24,7 @@
     <string name="weather_cloudy"><![CDATA[Sama jebena <font color="%%COLOR%%">sivina.</font>]]></string>
     <string name="weather_thunderstorm"><![CDATA[Uuuu jebena <font color="%%COLOR%%">nevihta.</font>]]></string>
     <string name="weather_haze"><![CDATA[<font color="%%COLOR%%">Vidim</font> za en kurac.]]></string>
-    <string name="weather_partly_cloudy">
-        <![CDATA[Za enkrat še ne dežuje <font color="%%COLOR%%">Pizda.</font>]]></string>
+    <string name="weather_partly_cloudy"><![CDATA[Za enkrat še ne dežuje <font color="%%COLOR%%">Pizda.</font>]]></string>
     <string name="weather_drizzle"><![CDATA[Neki kurac šprica, ko <font color="%%COLOR%%">pizda.</font>]]></string>
     <string name="weather_snowy"><![CDATA[Pride <font color="%%COLOR%%">Kurčev</font> Božiček.]]></string>
     <string name="weather_extreme"><![CDATA[<font color="%%COLOR%%">Spizdi</font> nekam u kurac.]]></string>
@@ -40,8 +39,7 @@
     <string name="temp_cold"><![CDATA[<font color="%%COLOR%%">Mrzlo</font> kot v kurčevem hladilniku.]]></string>
     <string name="temp_hot"><![CDATA[<font color="%%COLOR%%">Hica</font> kot v šporhertu.]]></string>
     <string name="temp_warm"><![CDATA[Občuduj ptice <font color="%%COLOR%%">singing</font> in sranje.]]></string>
-    <string name="temp_wtf">
-        <![CDATA[No, resno, je to tvoja odločitev, Nimam <font color="%%COLOR%%">kurčeve ideje.</font>]]></string>
-    <string name="temp_no_location">
-        <![CDATA[Koji kurac <font color="%%COLOR%%">jebeš!</font> Omogoči GPS, prokleto tele!]]></string>
+    <string name="temp_wtf"><![CDATA[No, resno, je to tvoja odločitev, Nimam <font color="%%COLOR%%">kurčeve ideje.</font>]]></string>
+    <string name="temp_no_location"><![CDATA[Koji kurac <font color="%%COLOR%%">jebeš!</font> Omogoči GPS, prokleto tele!]]></string>
+    <string name="temp_no_network"><![CDATA[Počasi <font color="%%COLOR%%">izgubljam</font> potrpežljivost! Pravkar vljučujem WiFi ali kak drug prenos podatkov…]]></string>
 </resources>

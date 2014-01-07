@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~ Copyright 2014 Sebastiano Poggi and Francesco Pontillo
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -38,9 +38,7 @@
     <string name="temp_freezing"><![CDATA[Piździ Jak na <font color="%%COLOR%%">biegunie północnym.</font> ]]></string>
     <string name="temp_cold"><![CDATA[<font color="%%COLOR%%">Zimno</font> jak w psiarni.]]></string>
     <string name="temp_hot"><![CDATA[Kurwa, <font color="%%COLOR%%">gorąco</font> jak w piekle.]]></string>
-    <string name="temp_warm">
-        <![CDATA[Ptaszki śpiewają, słońce świeci. Jest <font color="%%COLOR%%">wykurwiście.</font>]]></string>
+    <string name="temp_warm"><![CDATA[Ptaszki śpiewają, słońce świeci. Jest <font color="%%COLOR%%">wykurwiście.</font>]]></string>
     <string name="temp_wtf"><![CDATA[Serio, <font color="%%COLOR%%">nie mam kurwa pojęcia.</font>]]></string>
-    <string name="temp_no_location">
-        <![CDATA[Kurwa, nie jestem <font color="%%COLOR%%">wróżką!</font> Wejdź do ustawień i odpal GPS!]]></string>
+    <string name="temp_no_location"><![CDATA[Kurwa, nie jestem <font color="%%COLOR%%">wróżką!</font> Wejdź do ustawień i odpal GPS!]]></string>
 </resources>

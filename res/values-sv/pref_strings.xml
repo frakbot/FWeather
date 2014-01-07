@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~ Copyright 2014 Sebastiano Poggi and Francesco Pontillo
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -26,9 +26,11 @@
     <string name="pref_title_ui_override_language">Widget språk</string>
     <string name="pref_title_ui_bgopacity">Hem skärm widget bakgrund</string>
     <string name="pref_summary_ui_darkmode">Anpassa färger för ljusa bakgrunder</string>
+    <string name="pref_header_data_sync">Data &amp; synk</string>
     <string name="pref_title_sync_frequency">Sync intervall</string>
     <string name="pref_title_sync_force">Uppdatera väder nu</string>
     <string name="toast_force_update">OK, OK, måste du vara så jävla jobbig? Gör det nu. Glad?</string>
+    <string name="pref_header_info">Information</string>
     <string name="pref_title_info_authors">Om FWeather</string>
     <string name="pref_title_info_license">Tredjeparts licenser</string>
     <string name="pref_title_feedback">Skicka feedback</string>
@@ -37,17 +39,17 @@
     <string name="feedback_send_chooser_title">Skicka feedback via email genom:</string>
     <string name="pref_header_advanced">Avancerat</string>
     <string name="pref_title_analytics">Analyser</string>
-    <string name="analytics_disable_warning">Denna app använder Google Analytics för att avgöra vilka de mest använda
-        funktionerna är på ett helt anonymt sätt, vilket för the möjligt för utvecklare att fokusera på problemen där
-        det behövs. Därför ber vi dig att låta det vara på slaget, om möjligt.
-    </string>
+    <string name="analytics_disable_warning">Denna app använder Google Analytics för att avgöra vilka de mest använda funktionerna är på ett helt anonymt sätt, vilket för the möjligt för utvecklare att fokusera på problemen där det behövs. Därför ber vi dig att låta det vara på slaget, om möjligt.</string>
+    <string name="analytics_disabled">Google Analyser har avaktiverats.</string>
     <string name="analytics_enabled_thanks">Google Analytics har aktiverats. Tack!</string>
+    <string name="pref_title_debug">Debug</string>
     <string name="pref_summary_debug">Aktivera ENDAST när du ska rapportera problem!</string>
     <string name="pref_title_weather_location">Plats</string>
     <string name="pref_weather_location_query_hint">Hitta en plats</string>
     <string name="pref_weather_location_automatic">Automatisk</string>
     <string name="pref_weather_location_automatic_description">Baserat på din nuvarande plats.</string>
     <string name="about_body">Få rätt på ditt jävla väder</string>
+    <string name="about_developers"><![CDATA[Developed by <b>Frakbot</b> (Sebastiano Poggi och Francesco Pontillo).<p/>Baserat på det <i>Autentiska Väder</i> konceptet av <b>Tobias van Scheider</b>.<p/>Översatt med en jävla massa kärlek av <b>%s</b>.]]></string>
     <string name="donate_frakbot">Donera till\nFrakbot</string>
     <string name="done">GJORT</string>
     <string name="on">PÅ</string>

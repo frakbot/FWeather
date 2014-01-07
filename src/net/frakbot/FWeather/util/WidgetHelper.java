@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+ * Copyright 2014 Sebastiano Poggi and Francesco Pontillo
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -206,7 +206,7 @@ public class WidgetHelper {
      */
     public Spanned getColoredSpannedString(int stringId, int lightColorId, int darkColorId, boolean darkMode) {
         int color = mContext.getResources().getColor(!darkMode ? lightColorId : darkColorId);
-        String string = mContext.getString(stringId)
+        String string = mContext.getString(stringId, "")
                                 .replace(PLACEHOLDER_COLOR, String.format("#%06X", (0xFFFFFF & color)));
         return Html.fromHtml(string);
     }

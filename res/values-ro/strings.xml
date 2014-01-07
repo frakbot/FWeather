@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~ Copyright 2014 Sebastiano Poggi and Francesco Pontillo
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -25,9 +25,7 @@
     <string name="cdesc_weathericon"><![CDATA[Vremea acum]]></string>
     <string name="cdesc_infobtn"><![CDATA[Informaţii & setări]]></string>
     <string name="cdesc_refresh"><![CDATA[Actualizează]]></string>
-    <string name="toast_feedback_mail_error">Nu s-a putut trimite feedback-ul. Trimite un mail la
-        frakbot+fweather@gmail.com
-    </string>
+    <string name="toast_feedback_mail_error">Nu s-a putut trimite feedback-ul. Trimite un mail la frakbot+fweather@gmail.com</string>
     <string name="no_weather_data">Date meteorologice indisponibile</string>
     <string name="preparing_feedback">Se pregăteşte feedback-ul…</string>
     <string name="feedback_service">Serviciul de feedback FWeather</string>

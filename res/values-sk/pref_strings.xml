@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~ Copyright 2014 Sebastiano Poggi and Francesco Pontillo
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -39,10 +39,7 @@
     <string name="feedback_send_chooser_title">Pošlite mail so spätnou väzbou použitím:</string>
     <string name="pref_header_advanced">Pokročilé</string>
     <string name="pref_title_analytics">Analytics</string>
-    <string name="analytics_disable_warning">Táto aplikácia využíva Google Analytics aby zistila ktoré funkcie sú
-        najvyužívanejšie, a to kompletne anonymne, čo umožňuje vývojárom zamerať vývoj aplikácií tak, ako je potrebné.
-        Prosíme vás, ak sa dá, nevypínajte ich.
-    </string>
+    <string name="analytics_disable_warning">Táto aplikácia využíva Google Analytics aby zistila ktoré funkcie sú najvyužívanejšie, a to kompletne anonymne, čo umožňuje vývojárom zamerať vývoj aplikácií tak, ako je potrebné. Prosíme vás, ak sa dá, nevypínajte ich.</string>
     <string name="analytics_disabled">Google Analytics bolo vypnuté.</string>
     <string name="analytics_enabled_thanks">Google Analytics bolo zapnuté. Ďakujem!</string>
     <string name="pref_title_debug">Odstraňovanie chýb</string>
@@ -52,8 +49,7 @@
     <string name="pref_weather_location_automatic">Automaticky</string>
     <string name="pref_weather_location_automatic_description">Na základe tvojej aktuálnej polohy.</string>
     <string name="about_body">Zisti si posraté počasie</string>
-    <string name="about_developers">
-        <![CDATA[Vyrobili <b>Frakbot</b> (Sebastiano Poggi a Francesco Pontillo).<p/>Na základe<i>Authentic Weather</i>  konceptu od <b>Tobias van Scheider</b>.<p/>Preložili, z posratej lásky, <b>%s</b>.]]></string>
+    <string name="about_developers"><![CDATA[Vyrobili <b>Frakbot</b> (Sebastiano Poggi a Francesco Pontillo).<p/>Na základe<i>Authentic Weather</i>  konceptu od <b>Tobias van Scheider</b>.<p/>Preložili, z posratej lásky, <b>%s</b>.]]></string>
     <string name="donate_frakbot">Prispejte \nFrakbot-ovi</string>
     <string name="done">Hotovo</string>
     <string name="on">ON</string>

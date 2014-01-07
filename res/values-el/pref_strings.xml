@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~ Copyright 2014 Sebastiano Poggi and Francesco Pontillo
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -39,10 +39,7 @@
     <string name="feedback_send_chooser_title">Στείλτε τη γνώμη σας με email:</string>
     <string name="pref_header_advanced">Για προχωρημένους</string>
     <string name="pref_title_analytics">Analytics</string>
-    <string name="analytics_disable_warning">Το πρόγραμμα χρησιμοποιεί το Google Analytics για να καθορίσει τα πιο πολυ
-        χρησιμοποιούμενα χαρακτηριστικά με έναν εντελώς ανώνυμο τρόπο, επιτρέποντας στους προγραμματιστές να εστιάσουν
-        σωστά τις προσπάθειες βελτίωσης του λογισμικού. Σας ζητάμε να το αφήσετε ενεργό, αν γίνεται.
-    </string>
+    <string name="analytics_disable_warning">Το πρόγραμμα χρησιμοποιεί το Google Analytics για να καθορίσει τα πιο πολυ χρησιμοποιούμενα χαρακτηριστικά με έναν εντελώς ανώνυμο τρόπο, επιτρέποντας στους προγραμματιστές να εστιάσουν σωστά τις προσπάθειες βελτίωσης του λογισμικού. Σας ζητάμε να το αφήσετε ενεργό, αν γίνεται.</string>
     <string name="analytics_disabled">Το Google Analytics απενεργοποιήθηκε.</string>
     <string name="analytics_enabled_thanks">Το Google Analytics ενεργοποιήθηκε. Ευχαριστούμε!</string>
     <string name="pref_title_debug">Debug</string>
@@ -52,8 +49,7 @@
     <string name="pref_weather_location_automatic">Αυτόματη</string>
     <string name="pref_weather_location_automatic_description">Βάσει της τρέχουσας τοποθεσίας.</string>
     <string name="about_body">Δες τον γαμημένο καιρό σωστά!</string>
-    <string name="about_developers">
-        <![CDATA[Δημιουργήθηκε από <b>Frakbot</b> (Sebastiano Poggi και Francesco Pontillo).<p/>Βασισμένο στην ιδέα <i>Authentic Weather</i> του <b>Tobias van Scheider</b>.<p/>Μεταφράστηκε με αγάπη, γαμώ την πουτάνα μου, από τον <b>%s</b>.]]></string>
+    <string name="about_developers"><![CDATA[Δημιουργήθηκε από <b>Frakbot</b> (Sebastiano Poggi και Francesco Pontillo).<p/>Βασισμένο στην ιδέα <i>Authentic Weather</i> του <b>Tobias van Scheider</b>.<p/>Μεταφράστηκε με αγάπη, γαμώ την πουτάνα μου, από τον <b>%s</b>.]]></string>
     <string name="donate_frakbot">Δωρεά στο\nFrakbot</string>
     <string name="done">Τέλος</string>
     <string name="on">ON</string>

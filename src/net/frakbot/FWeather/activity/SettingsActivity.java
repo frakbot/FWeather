@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+ * Copyright 2014 Sebastiano Poggi and Francesco Pontillo
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,6 +36,7 @@ import android.widget.Toast;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockPreferenceActivity;
 import net.frakbot.FWeather.R;
+import net.frakbot.FWeather.fragments.*;
 import net.frakbot.FWeather.util.TrackerHelper;
 import net.frakbot.FWeather.util.WeatherLocationPreference;
 import net.frakbot.FWeather.util.WidgetHelper;
@@ -58,7 +59,7 @@ import java.util.List;
  * API Guide</a> for more information on developing a Settings UI.
  */
 public class SettingsActivity extends SherlockPreferenceActivity implements
-                                                                 OnSharedPreferenceChangeListener {
+        OnSharedPreferenceChangeListener {
     /**
      * Determines whether to always show the simplified settings UI, where
      * settings are presented in a single list. When false, settings are shown
@@ -81,14 +82,14 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         if (intent != null
-            && AppWidgetManager.ACTION_APPWIDGET_CONFIGURE.equals(intent.getAction())) {
+                && AppWidgetManager.ACTION_APPWIDGET_CONFIGURE.equals(intent.getAction())) {
 
             mNewWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
-                                              AppWidgetManager.INVALID_APPWIDGET_ID);
+                    AppWidgetManager.INVALID_APPWIDGET_ID);
 
             // See http://code.google.com/p/android/issues/detail?id=2539
             setResult(RESULT_CANCELED, new Intent()
-                .putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, mNewWidgetId));
+                    .putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, mNewWidgetId));
         }
 
         mHandler = new Handler();
@@ -141,7 +142,7 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
 
         // Unregister the SharedPreferences listener (me, duh)
         PreferenceManager.getDefaultSharedPreferences(this)
-                         .unregisterOnSharedPreferenceChangeListener(this);
+                .unregisterOnSharedPreferenceChangeListener(this);
     }
 
     @Override
@@ -161,7 +162,19 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
 
         // Register a SharedPreferences listener (me, duh)
         PreferenceManager.getDefaultSharedPreferences(this)
-                         .registerOnSharedPreferenceChangeListener(this);
+                .registerOnSharedPreferenceChangeListener(this);
+    }
+
+    @TargetApi(Build.VERSION_CODES.KITKAT)
+    @Override
+    protected boolean isValidFragment(String fragmentName) {
+        // We only accept our own fragments to use, or those provided by the super
+        return AdvancedPreferencesFragment.class.getName().equals(fragmentName) ||
+                BackupPreferenceFragment.class.getName().equals(fragmentName) ||
+                CustomizationPreferencesFragment.class.getName().equals(fragmentName) ||
+                DataSyncPreferencesFragment.class.getName().equals(fragmentName) ||
+                InformationPreferencesFragment.class.getName().equals(fragmentName) ||
+                super.isValidFragment(fragmentName);
     }
 
     /**
@@ -305,18 +318,18 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
         if (preference.getKey().equals(Const.Preferences.ANALYTICS)) {
             if (newValue == Boolean.FALSE) {
                 value = (long) 0;
-            }
-            else {
+            } else {
                 value = (long) 1;
             }
-        }
-        else if (preference.getKey().equals(Const.Preferences.SYNC_FREQUENCY)) {
+        } else if (preference.getKey().equals(Const.Preferences.SYNC_FREQUENCY)) {
             value = Long.valueOf((String) newValue);
         }
         TrackerHelper.preferenceChange(this, preference.getKey(), value);
     }
 
-    /** Builds the listener for the preference changes. */
+    /**
+     * Builds the listener for the preference changes.
+     */
     private void buildListener() {
         if (sBindPreferenceSummaryToValueListener != null) {
             FLog.v(TAG, "buildListener() won't do anything because the listener already exists");
@@ -346,12 +359,10 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
 
                     // Set the summary to reflect the new value.
                     preference.setSummary(index >= 0 ? listPreference.getEntries()[index] : null);
-                }
-                else if (preference instanceof WeatherLocationPreference) {
+                } else if (preference instanceof WeatherLocationPreference) {
                     preference.setSummary(
-                        WeatherLocationPreference.getDisplayValue(preference.getContext(), stringValue));
-                }
-                else {
+                            WeatherLocationPreference.getDisplayValue(preference.getContext(), stringValue));
+                } else {
                     // For all other preferences, set the summary to the value's
                     // simple string representation.
                     preference.setSummary(stringValue);
@@ -374,13 +385,13 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
                 AlertDialog.Builder b = new AlertDialog.Builder(SettingsActivity.this/*,
                                                                 R.style.Theme_FWeather_Settings_Dialog*/);
                 b.setTitle(R.string.pref_title_changelog)
-                 .setView(getLayoutInflater().inflate(R.layout.dialog_changelog, null))
-                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                     @Override
-                     public void onClick(DialogInterface dialog, int which) {
-                         dialog.dismiss();
-                     }
-                 });
+                        .setView(getLayoutInflater().inflate(R.layout.dialog_changelog, null))
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
 
                 b.show();
 
@@ -405,15 +416,15 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
 
                     AlertDialog.Builder b = new AlertDialog.Builder(SettingsActivity.this);
                     b.setMessage(R.string.analytics_disable_warning)
-                     .setPositiveButton(android.R.string.ok, null);
+                            .setPositiveButton(android.R.string.ok, null);
 
                     AlertDialog dialog = b.create();
                     dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
                         @Override
                         public void onDismiss(DialogInterface dialog) {
                             Toast.makeText(SettingsActivity.this, R.string.analytics_disabled,
-                                           Toast.LENGTH_SHORT)
-                                 .show();
+                                    Toast.LENGTH_SHORT)
+                                    .show();
                         }
                     });
                     dialog.show();
@@ -421,10 +432,9 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
                     FLog.i(SettingsActivity.this, TAG, "Disabled Google Analytics");
 
                     return true;
-                }
-                else {
+                } else {
                     Toast.makeText(SettingsActivity.this, R.string.analytics_enabled_thanks, Toast.LENGTH_SHORT)
-                         .show();
+                            .show();
 
                     FLog.i(SettingsActivity.this, TAG, "Enabled Google Analytics");
                     return true;
@@ -433,7 +443,9 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
         });
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean onIsMultiPane() {
         return isXLargeTablet(this) && !isSimplePreferences(this);
@@ -447,7 +459,7 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
     private static boolean isXLargeTablet(Context context) {
         return (context.getResources().getConfiguration().screenLayout
                 & Configuration.SCREENLAYOUT_SIZE_MASK)
-               >= Configuration.SCREENLAYOUT_SIZE_XLARGE;
+                >= Configuration.SCREENLAYOUT_SIZE_XLARGE;
     }
 
     /**
@@ -460,11 +472,13 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
     @SuppressWarnings({"ConstantConditions", "PointlessBooleanExpression"})
     private static boolean isSimplePreferences(Context context) {
         return ALWAYS_SIMPLE_PREFS
-               || Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB
-               || !isXLargeTablet(context);
+                || Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB
+                || !isXLargeTablet(context);
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public void onBuildHeaders(List<PreferenceActivity.Header> target) {
@@ -490,14 +504,14 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
 
         // Set the listener to watch for value changes.
         preference
-            .setOnPreferenceChangeListener(sBindPreferenceSummaryToValueListener);
+                .setOnPreferenceChangeListener(sBindPreferenceSummaryToValueListener);
 
         // Trigger the listener immediately with the preference's
         // current value.
         sBindPreferenceSummaryToValueListener.onPreferenceChange(
-            preference,
-            PreferenceManager.getDefaultSharedPreferences(
-                preference.getContext()).getString(preference.getKey(), ""));
+                preference,
+                PreferenceManager.getDefaultSharedPreferences(
+                        preference.getContext()).getString(preference.getKey(), ""));
     }
 
     /**
