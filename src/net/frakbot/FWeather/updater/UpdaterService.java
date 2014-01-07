@@ -307,15 +307,16 @@ public class UpdaterService extends IntentService {
         i.putExtra(UpdaterService.EXTRA_USER_FORCE_UPDATE, true);
         views.setOnClickPendingIntent(R.id.btn_refresh, PendingIntent.getService(this, 0, i, 0));
 
-        // The pending intent (Magnum PI, ha!) for the main TextViews
-        PendingIntent magnumPI = null;
-        // If the user hasn't enabled location settings and there's no information available
+        // If the user hasn't enabled location settings and there's no information available,
+        // they can tap the widget to open the system Location Settings activity
         if (weather != null && weather.conditionCode == WeatherData.WEATHER_ID_ERR_NO_LOCATION) {
-            // When the user tap on the main contents, redirect him/her to the proper settings
-            magnumPI = PendingIntent.getActivity(this, 0, new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS), 0);
+            // The pending intent (Magnum PI, ha!) for the main TextViews
+            PendingIntent magnumPI =
+                    PendingIntent.getActivity(this, 0, new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS), 0);
+
+            views.setOnClickPendingIntent(R.id.txt_weather, magnumPI);
+            views.setOnClickPendingIntent(R.id.txt_temp, magnumPI);
         }
-        views.setOnClickPendingIntent(R.id.txt_weather, magnumPI);
-        views.setOnClickPendingIntent(R.id.txt_temp, magnumPI);
 
         // Create and set the PendingIntent for the share action
         PendingIntent sharePendingIntent = null;
