@@ -95,6 +95,8 @@ public class LocationHelper {
         hasPlayServices = GooglePlayServicesUtil.isGooglePlayServicesAvailable(mContext)
                 == ConnectionResult.SUCCESS;
 
+        FLog.d(TAG, "Device supports Play Services: " + hasPlayServices);
+
         _instance.bootstrapLocationHelper();
     }
 
@@ -107,11 +109,16 @@ public class LocationHelper {
             // Setup the listener
             mLocationClientListener = new LocationClientListener();
 
-            mLocationClient = new LocationClient(mContext, mLocationClientListener, mLocationClientListener);
-            FLog.v(TAG, "Connecting to the Play Services' Location Client...");
-            mLocationClient.connect();
+            try {
+                mLocationClient = new LocationClient(mContext, mLocationClientListener, mLocationClientListener);
+                FLog.v(TAG, "Connecting to the Play Services' Location Client...");
+                mLocationClient.connect();
+            }
+            catch (NoSuchMethodError e) {
+                FLog.e(TAG, "Unable to connect to the Google Play Services. Falling back to old-school stuff", e);
+                switchToCompatibilityMode();
+            }
         } else {
-            FLog.i(TAG, "Play Services aren't available on the device. Falling back to compatibility mode.");
             mLocationManager = (LocationManager) mContext.getSystemService(Context.LOCATION_SERVICE);
 
             final Criteria criteria = getDefaultCriteria();
