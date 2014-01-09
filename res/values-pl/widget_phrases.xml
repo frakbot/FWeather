@@ -41,4 +41,5 @@
     <string name="temp_warm"><![CDATA[Ptaszki śpiewają, słońce świeci. Jest <font color="%%COLOR%%">wykurwiście.</font>]]></string>
     <string name="temp_wtf"><![CDATA[Serio, <font color="%%COLOR%%">nie mam kurwa pojęcia.</font>]]></string>
     <string name="temp_no_location"><![CDATA[Kurwa, nie jestem <font color="%%COLOR%%">wróżką!</font> Wejdź do ustawień i odpal GPS!]]></string>
+    <string name="temp_no_network"><![CDATA[Tracę kurwa <font color="%%COLOR%%">cierpliwość</font>. Poprostu odpal to pierdolone WiFi lub inny rodzaj połączenia…]]></string>
 </resources>

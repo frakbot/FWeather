@@ -19,10 +19,12 @@
 <resources>
     <string name="loading_main"><![CDATA[טוב תן להסתכל שנייה מהחלון קיבינימט.]]></string>
     <string name="weather_rainy"><![CDATA[סססאמק <font color="%%COLOR%%">יורד עכשיו</font> גשם.]]></string>
+    <string name="weather_cloudy"><![CDATA[אפור כמו כוס של <font color="%%COLOR%%">זקנה.</font>]]></string>
     <string name="weather_drizzle"><![CDATA[מטפטף כמו כוס <font color="%%COLOR%%">אחרי זיון.</font>]]></string>
     <string name="weather_no_weather"><![CDATA[פחחחח לגמרי אין <font color="%%COLOR%%">לי מושג</font>]]></string>
     <string name="temp_freezing"><![CDATA[<font color="%%COLOR%%">סססאמק</font> הקוטב הצפוני פה.]]></string>
     <string name="temp_cold"><![CDATA[<font color="%%COLOR%%">קר</font> כמו פאקינג מקרר.]]></string>
     <string name="temp_hot"><![CDATA[<font color="%%COLOR%%">חם</font>כמו תנור מזוין.]]></string>
     <string name="temp_no_location"><![CDATA[טוב מה אני קוסם?? <font color="%%COLOR%%">crystal ball!</font> לחץ כאן כדי להפעיל את ה-GPS המזוין שלך.]]></string>
+    <string name="temp_no_network"><![CDATA[מתחיל להישבר לי <font color="%%COLOR%%">הזין ממך</font> תפעיל WIFI או כל סוג אחר של תקשורת!…]]></string>
 </resources>

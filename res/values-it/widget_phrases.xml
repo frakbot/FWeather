@@ -40,6 +40,6 @@
     <string name="temp_hot"><![CDATA[È <font color="%%COLOR%%">caldo</font> come un forno del cazzo.]]></string>
     <string name="temp_warm"><![CDATA[Goditi i cazzo di uccellini che <font color="%%COLOR%%">cantano</font> e cagate simili.]]></string>
     <string name="temp_wtf"><![CDATA[Cazzo, sul serio, al momento è la tua chance migliore, io <font color="%%COLOR%%">non ne ho idea.</font>]]></string>
-    <string name="temp_no_location"><![CDATA[Non ho una <font color="%%COLOR%%">sfera di cristallo!</font> Tocca qui così potrai abilitare il maledetto GPS o i Servizi di Posizione.]]></string>
+    <string name="temp_no_location"><![CDATA[Non ho una <font color="%%COLOR%%">sfera di cristallo!</font> Tocca qui per abilitare il maledetto GPS o i Servizi di Posizione.]]></string>
     <string name="temp_no_network"><![CDATA[Sto perdendo la <font color="%%COLOR%%">pazienza!</font>! Abilita un po\' il WiFi o qualche connessione dati…]]></string>
 </resources>

@@ -32,6 +32,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.RemoteViews;
@@ -45,6 +46,8 @@ import net.frakbot.util.log.FLog;
 
 import java.io.IOException;
 import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Updater service for the widgets.
@@ -60,6 +63,9 @@ public class UpdaterService extends IntentService {
     public static final String EXTRA_USER_FORCE_UPDATE = "the_motherfocker_wants_us_to_do_stuff";
     public static final String EXTRA_SILENT_FORCE_UPDATE = "a_ninja_is_making_me_do_it";
     public static final String EXTRA_WIDGET_IDS = "widget_ids";
+
+    private static final Pattern REGEX_LANGCODE_SIMPLE = Pattern.compile("[a-z]{2}");
+    private static final Pattern REGEX_LANGCODE_COUNTRY = Pattern.compile("([a-z]{2})\\-([A-Z]{2})");
 
     private Handler mHandler;
 
@@ -178,6 +184,8 @@ public class UpdaterService extends IntentService {
      * @return Returns the Locale used before the switch. It should be restored after use.
      */
     public static Locale switchLocale(Context context, Locale selectedLocale) {
+        FLog.v(TAG, "Switching locale to " + selectedLocale.toString());
+
         Resources standardResources = context.getResources();
         AssetManager assets = standardResources.getAssets();
         DisplayMetrics metrics = standardResources.getDisplayMetrics();
@@ -203,19 +211,56 @@ public class UpdaterService extends IntentService {
      */
     public static Locale getUserSelectedLocale(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        String defaultValue = context.getResources().getStringArray(R.array.pref_key_ui_override_language_values)[0];
-        String desiredLanguage = prefs.getString(Const.Preferences.UI_OVERRIDE_LANGUAGE, defaultValue);
+        final String LANG_AUTO =
+                context.getResources().getStringArray(R.array.pref_key_ui_override_language_values)[0];
+        final String preferenceValue = prefs.getString(Const.Preferences.UI_OVERRIDE_LANGUAGE, LANG_AUTO);
 
-        Configuration defaultConfiguration = new Configuration(context.getResources().getConfiguration());
-        String defaultLanguage = defaultConfiguration.locale.getLanguage();
+        // Extract the target language (and, if present, country) from the preference
+        String targetLanguage = null;
+        String targetCountry = null;
+        final Matcher simpleLangFormat = REGEX_LANGCODE_SIMPLE.matcher(preferenceValue);
+        final Matcher countryLangFormat = REGEX_LANGCODE_COUNTRY.matcher(preferenceValue);
 
-        if (desiredLanguage == null || desiredLanguage.equals(defaultLanguage) || desiredLanguage.equals(
-            defaultValue)) {
+        if (simpleLangFormat.matches()) {
+            // The saved preferences string is a ISO1 language code
+            targetLanguage = preferenceValue;
+        }
+        else if (countryLangFormat.matches()) {
+            // We expect a format like "en-US", where 'en' is the ISO1 language code
+            // and 'US' is the ISO country variant
+            targetLanguage = countryLangFormat.group(1);
+            targetCountry = countryLangFormat.group(2);
+        }
+        else {
+            FLog.w(TAG, "Invalid locale detected in the preferences: " + preferenceValue + ". Resetting to AUTO");
+            prefs.edit()
+                    .putString(Const.Preferences.UI_OVERRIDE_LANGUAGE, LANG_AUTO)
+                    .commit();
+        }
+
+        // Retrieve the current locale (or use the default locale)
+        Configuration currentConfig = new Configuration(context.getResources().getConfiguration());
+        Locale currentLocale = Locale.getDefault();
+        if (currentConfig.locale != null) {
+            currentLocale = currentConfig.locale;
+        }
+
+        // We only need to change the locale if we actually have a target locale,
+        // or if the target locale is different from the current (or it's the same
+        // but has a different country code), or if we are going to use the system
+        // locale setting (locale switching is temporary/atomic for each run)
+        if (targetLanguage == null ||
+                (currentLocale.getLanguage().equals(targetLanguage) &&
+                        (targetCountry == null || currentLocale.getCountry().equals(targetCountry))) ||
+                (targetLanguage.equals(LANG_AUTO))) {
+
             // No need to change locale
             return null;
         }
 
-        return new Locale(desiredLanguage);
+        return TextUtils.isEmpty(targetCountry) ?
+                new Locale(targetLanguage) :
+                new Locale(targetLanguage, targetCountry);
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)

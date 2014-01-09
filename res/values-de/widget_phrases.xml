@@ -38,7 +38,7 @@
     <string name="temp_freezing"><![CDATA[<font color="%%COLOR%%">WTF.</font> Verfickter Nordpol.]]></string>
     <string name="temp_cold"><![CDATA[<font color="%%COLOR%%">Kalt</font> wie ein beschissener Kühlschrank.]]></string>
     <string name="temp_hot"><![CDATA[<font color="%%COLOR%%">Heiß</font> wie ein scheiß Ofen.]]></string>
-    <string name="temp_warm"><![CDATA[Freu dich über die behinderten <font color="%%COLOR%%">singenden Vögel</font> und so ein Scheiß.]]></string>
+    <string name="temp_warm"><![CDATA[Freu dich über die behinderten <font color="%%COLOR%%">singenden Vögel</font> und so einen Scheiß.]]></string>
     <string name="temp_wtf"><![CDATA[Nein, ernsthaft, das ist deine einzige Chance, ich habe <font color="%%COLOR%%">keine verfickte Ahnung.</font>]]></string>
     <string name="temp_no_location"><![CDATA[Ich habe keine<font color="%%COLOR%%">Kristallkugel!</font>Drücke hier, um das verdammte GPS oder den Ortungsdienst zu aktivieren.]]></string>
 </resources>

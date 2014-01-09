@@ -50,7 +50,7 @@
     <string name="pref_weather_location_automatic_description">Na základe tvojej aktuálnej polohy.</string>
     <string name="about_body">Zisti si posraté počasie</string>
     <string name="about_developers"><![CDATA[Vyrobili <b>Frakbot</b> (Sebastiano Poggi a Francesco Pontillo).<p/>Na základe<i>Authentic Weather</i>  konceptu od <b>Tobias van Scheider</b>.<p/>Preložili, z posratej lásky, <b>%s</b>.]]></string>
-    <string name="donate_frakbot">Prispejte \nFrakbot-ovi</string>
+    <string name="donate_frakbot">Prispejte\nFrakbot-ovi</string>
     <string name="done">Hotovo</string>
     <string name="on">ON</string>
     <string name="off">OFF</string>
