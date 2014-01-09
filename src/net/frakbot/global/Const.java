@@ -89,7 +89,7 @@ public class Const {
     }
 
     public class Share {
-        public static final String VIA = "// via #FWeather";
+        public static final String VIA = "#FWeather";
     }
 
 }
