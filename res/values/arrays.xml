@@ -36,6 +36,12 @@
         <item>Chinese (simplified) (zh)</item>
     </string-array>
 
+    <!-- Use the two-letter ISO code for a country agnostic language, or the
+         two-letter ISO language code followed by a dash and the uppercase
+         two-letter country code for country-specific variants.
+
+         Eg. use 'en' to refer to generic English, use 'en-US' to refer to
+             US English. -->
     <string-array name="pref_key_ui_override_language_values" translatable="false">
         <item>auto</item>
         <item>cs</item>
