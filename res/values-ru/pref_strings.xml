@@ -21,7 +21,7 @@
     <string name="pref_title_customize_widgets">Настройки виджета</string>
     <string name="pref_title_ui_toggle_buttons">Кнопки на виджете</string>
     <string name="pref_title_ui_toggle_weather_icon">Значок погоды</string>
-    <string name="pref_title_ui_toggle_temperature_info">Температура \"за бортом\"</string>
+    <string name="pref_title_ui_toggle_temperature_info">Температура снаружи</string>
     <string name="pref_title_ui_darkmode">Мрачный режим</string>
     <string name="pref_title_ui_override_language">Язык виджета</string>
     <string name="pref_title_ui_bgopacity">Задний фон виджета</string>
@@ -29,7 +29,7 @@
     <string name="pref_header_data_sync">Обновление данных</string>
     <string name="pref_title_sync_frequency">Автообновление</string>
     <string name="pref_title_sync_force">Обновить прямо сейчас</string>
-    <string name="toast_force_update">Хорошо, хорошо, только не надо давить на кнопку до усрачки. Уже делаю. Полегчало?</string>
+    <string name="toast_force_update">Хорошо, хорошо, только не надо давить на кнопку до усрачки. Уже обновляю. Полегчало?</string>
     <string name="pref_header_info">Информация</string>
     <string name="pref_title_info_authors">Об этом виджете</string>
     <string name="pref_title_info_license">Лицензии третьих сторон (англ.)</string>
@@ -48,7 +48,7 @@
     <string name="pref_weather_location_query_hint">Поиск вручную (англ. буквами)</string>
     <string name="pref_weather_location_automatic">Автоматически</string>
     <string name="pref_weather_location_automatic_description">Основываясь на твоем текущем расположении.</string>
-    <string name="about_body">Получай свою ёбаную погоду правильно</string>
+    <string name="about_body">Получай свою ёбаную погоду правильно!</string>
     <string name="about_developers"><![CDATA[Разработано <b>Frakbot</b> (Себастьяно Погги и Франческо Понтилло).<p/>За основу взят виджет<i>Authentic Weather</i> за авторством <b>Тобиаса ван Шайдера</b>.<p/>Переведено, сука, с любовью. \n<b>%s</b>.]]></string>
     <string name="donate_frakbot">Поддержать \nFrakbot</string>
     <string name="done">Готово</string>
