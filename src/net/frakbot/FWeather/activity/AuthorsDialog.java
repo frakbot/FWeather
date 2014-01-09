@@ -86,8 +86,7 @@ public class AuthorsDialog extends FragmentActivity {
         try {
             PackageInfo info = pm.getPackageInfo(packageName, 0);
             versionName = info.versionName;
-        }
-        catch (PackageManager.NameNotFoundException e) {
+        } catch (PackageManager.NameNotFoundException e) {
             versionName = VERSION_UNAVAILABLE;
         }
 
@@ -104,10 +103,16 @@ public class AuthorsDialog extends FragmentActivity {
         Locale locale = UpdaterService.getUserSelectedLocale(this);
 
         nameAndVersionView.setText(
-            Html.fromHtml(getString(R.string.app_name_and_version, versionName)));
-        aboutAuthorsView.setText(
-            Html.fromHtml(getString(R.string.about_developers,
-                                    getLocalizedString(this, R.string.translator_name, locale))));
+                Html.fromHtml(getString(R.string.app_name_and_version, versionName)));
+        if (locale != null) {
+            aboutAuthorsView.setText(
+                    Html.fromHtml(getString(R.string.about_developers,
+                            getLocalizedString(this, R.string.translator_name, locale))));
+        } else {
+            aboutAuthorsView.setText(
+                    Html.fromHtml(getString(R.string.about_developers,
+                            getString(R.string.translator_name))));
+        }
 
         // Setup the donation buttons
         donateFrakbotBtn.setOnClickListener(new View.OnClickListener() {
@@ -115,7 +120,7 @@ public class AuthorsDialog extends FragmentActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(
-                    Intent.ACTION_VIEW, Uri.parse(Const.Urls.DONATE_FRAKBOT)));
+                        Intent.ACTION_VIEW, Uri.parse(Const.Urls.DONATE_FRAKBOT)));
             }
         });
 
@@ -124,7 +129,7 @@ public class AuthorsDialog extends FragmentActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(
-                    Intent.ACTION_VIEW, Uri.parse(Const.Urls.AUTHENTIC_WEATHER)));
+                        Intent.ACTION_VIEW, Uri.parse(Const.Urls.AUTHENTIC_WEATHER)));
             }
         });
     }
@@ -132,10 +137,9 @@ public class AuthorsDialog extends FragmentActivity {
     /**
      * Gets a string resource, localized in the desired language.
      *
-     * @param context  The base Context
-     * @param stringId The ID of the resource string to retrieve
-     * @param destLocale   The locale to load the string for
-     *
+     * @param context    The base Context
+     * @param stringId   The ID of the resource string to retrieve
+     * @param destLocale The locale to load the string for
      * @return Returns the string resource in the desired locale
      */
     private static CharSequence getLocalizedString(Context context, int stringId, Locale destLocale) {
