@@ -29,9 +29,13 @@
         <item>Hungarian (hu)</item>
         <item>意大利语 (it)</item>
         <item>Dutch (nl)</item>
+        <item>Polish (pl)</item>
         <item>Brazilian Portuguese (pt-BR)</item>
         <item>Romanian (ro)</item>
         <item>Russian (ru)</item>
+        <item>Slovak (sk)</item>
+        <item>Slovene (sl)</item>
+        <item>Swedish (sv)</item>
         <item>Ukrainian (uk)</item>
         <item>简体中文 (zh)</item>
     </string-array>

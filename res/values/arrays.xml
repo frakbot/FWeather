@@ -29,9 +29,13 @@
         <item>Hungarian (hu)</item>
         <item>Italian (it)</item>
         <item>Dutch (nl)</item>
+        <item>Polish (pl)</item>
         <item>Brazilian Portuguese (pt-BR)</item>
         <item>Romanian (ro)</item>
         <item>Russian (ru)</item>
+        <item>Slovak (sk)</item>
+        <item>Slovene (sl)</item>
+        <item>Swedish (sv)</item>
         <item>Ukrainian (uk)</item>
         <item>Chinese (simplified) (zh)</item>
     </string-array>
@@ -54,9 +58,13 @@
         <item>hu</item>
         <item>it</item>
         <item>nl</item>
+        <item>pl</item>
         <item>pt-BR</item>
         <item>ro</item>
         <item>ru</item>
+        <item>sk</item>
+        <item>sl</item>
+        <item>sv</item>
         <item>uk</item>
         <item>zh</item>
     </string-array>
