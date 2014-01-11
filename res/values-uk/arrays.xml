@@ -29,10 +29,14 @@
         <item>Hungarian (hu)</item>
         <item>Italian (it)</item>
         <item>Dutch (nl)</item>
+        <item>Polish (pl)</item>
         <item>Brazilian Portuguese (pt-BR)</item>
         <item>Romanian (ro)</item>
         <item>Russian (ru)</item>
         <item>Ukrainian (uk)</item>
+        <item>Slovak (sk)</item>
+        <item>Slovene (sl)</item>
+        <item>Swedish (sv)</item>
         <item>Chinese (simplified) (zh)</item>
     </string-array>
 </resources>

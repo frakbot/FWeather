@@ -1,6 +1,11 @@
 Changelog
 =========
 
+### Version 2.2.8
+Released on ??
+
+- FIX: added missing languages to selection list (pl, sk, sl, sv) (issue #109)
+
 ### Version 2.2.7
 Released on 9th January 2014
 

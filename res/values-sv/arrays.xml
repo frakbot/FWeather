@@ -19,20 +19,24 @@
 <resources>
     <string-array name="pref_key_ui_override_language_entries">
         <item>Auto (system språk)</item>
-        <item>Tjekiska (tj)</item>
-        <item>Tyska (ty)</item>
+        <item>Tjekiska (cs)</item>
+        <item>Tyska (de)</item>
         <item>Engelska (en)</item>
-        <item>Spanska (sp)</item>
+        <item>Spanska (es)</item>
         <item>Franska (fr)</item>
         <item>Grekiska (el)</item>
         <item>Hebreiska (he)</item>
         <item>Hungarian (hu)</item>
         <item>Italienska (it)</item>
-        <item>Holländska (ho)</item>
-        <item>Brasilliansk portoguisiska (bp)</item>
-        <item>Rumänska (ru)</item>
-        <item>Ryska (ry)</item>
+        <item>Holländska (nl)</item>
+        <item>Polish (pl)</item>
+        <item>Brasilliansk portoguisiska (pr-BR)</item>
+        <item>Rumänska (ro)</item>
+        <item>Ryska (ru)</item>
+        <item>Slovak (sk)</item>
+        <item>Slovene (sl)</item>
+        <item>Swedish (sv)</item>
         <item>Ukrainska (uk)</item>
-        <item>Kinesiska (förenklad) (ki)</item>
+        <item>Kinesiska (förenklad) (zh)</item>
     </string-array>
 </resources>
