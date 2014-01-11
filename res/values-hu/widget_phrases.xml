@@ -41,5 +41,5 @@
     <string name="temp_warm"><![CDATA[Élvezd az ordító madarak mocskos <font color="%%COLOR%%">csicsergését</font> és a sok szart.]]></string>
     <string name="temp_wtf"><![CDATA[Nem, most őszintén, most ez az egyetlen esélyed, <font color="%%COLOR%%">gőzöm sincs.</font>]]></string>
     <string name="temp_no_location"><![CDATA[Nincsen rohadt <font color="%%COLOR%%">kristálygömböm!</font> Nyomj ide és kapcsold be a kibaszott GPS-t vagy a helymeghatározást.]]></string>
-    <string name="temp_no_network"><![CDATA[Mindjárt elvesztem a<font color="%%COLOR%%">türelmem</font>! Csak kapcsold be a WiFi-t vagy bármilyen adatkapcsolatot...]]></string>
+    <string name="temp_no_network"><![CDATA[Mindjárt elvesztem a<font color="%%COLOR%%">türelmem</font>! Csak kapcsold be a WiFi-t vagy bármilyen adatkapcsolatot…]]></string>
 </resources>
