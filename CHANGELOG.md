@@ -1,6 +1,12 @@
 Changelog
 =========
 
+### Version 2.2.9
+Released on ???
+
+- NEW: updated many localizations (thanks everyone!)
+- FIX: fixed widget button colors in dark mode (issue #110)
+
 ### Version 2.2.8
 Released on 11th January 2014
 

@@ -331,19 +331,26 @@ public class UpdaterService extends IntentService {
         }
 
         if (prefs.getBoolean(getString(R.string.pref_key_ui_toggle_buttons), true)) {
-            views.setViewVisibility(R.id.btn_info, View.VISIBLE);
+            views.setViewVisibility(R.id.btn_settings, View.VISIBLE);
             views.setViewVisibility(R.id.btn_refresh, View.VISIBLE);
             views.setViewVisibility(R.id.btn_share, View.VISIBLE);
+
+            views.setImageViewResource(R.id.btn_settings,
+                    darkMode ? R.drawable.ic_action_settings_dark : R.drawable.ic_action_settings);
+            views.setImageViewResource(R.id.btn_refresh,
+                    darkMode ? R.drawable.ic_action_refresh_dark : R.drawable.ic_action_refresh);
+            views.setImageViewResource(R.id.btn_share,
+                    darkMode ? R.drawable.ic_action_share_dark : R.drawable.ic_action_share);
         }
         else {
-            views.setViewVisibility(R.id.btn_info, View.GONE);
+            views.setViewVisibility(R.id.btn_settings, View.GONE);
             views.setViewVisibility(R.id.btn_refresh, View.GONE);
             views.setViewVisibility(R.id.btn_share, View.GONE);
         }
 
         // Initalize OnClick listeners
         Intent i = new Intent(this, SettingsActivity.class);
-        views.setOnClickPendingIntent(R.id.btn_info,
+        views.setOnClickPendingIntent(R.id.btn_settings,
                                       PendingIntent.getActivity(this, 0, i, 0));
 
         i = new Intent(this, UpdaterService.class);
