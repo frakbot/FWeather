@@ -32,7 +32,7 @@
 
     <!-- Settings buttons, middle -->
     <ImageButton
-            android:id="@+id/btn_info"
+            android:id="@+id/btn_settings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@+id/btn_share"
@@ -47,8 +47,8 @@
             android:id="@+id/btn_refresh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/btn_info"
-            android:layout_alignTop="@+id/btn_info"
+            android:layout_toLeftOf="@+id/btn_settings"
+            android:layout_alignTop="@+id/btn_settings"
             android:src="@drawable/ic_action_refresh"
             android:contentDescription="@string/cdesc_refresh"
             android:background="@drawable/widget_btn_bg"
