@@ -73,6 +73,11 @@ If you want to send us a generic feedback, [write us an email](mailto:frakbot+fw
 For bugs and feature requests, please read [the instructions](https://github.com/frakbot/FWeather/wiki/How-to-report-a-bug)
 and then [open an issue](https://github.com/frakbot/FWeather/issues) in the issue tracker.
 
+### Setup how-to
+In order to be able to build the project, you need to use [maven-android-sdk-deployer](https://github.com/mosabua/maven-android-sdk-deployer) and install the Android maven repositories into your local maven directory.
+
+Just follow the [How to use](https://github.com/mosabua/maven-android-sdk-deployer?source=cc#how-to-use) section and you'll be ready to go.
+
 ## Credits
 This widget uses the awesome [Yahoo! Weather APIs](http://developer.yahoo.com/weather/)
 to retrieve the weather data.
