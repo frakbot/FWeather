@@ -1,6 +1,11 @@
 Changelog
 =========
 
+### Version 2.2.10
+Released on 31st January 2014
+
+- FIX: fixed a crash on some devices running Android 4.0.x
+
 ### Version 2.2.9
 Released on 12th January 2014
 
