@@ -19,6 +19,7 @@
 
     <string-array name="pref_key_ui_override_language_entries">
         <item>Auto (system language)</item>
+        <item>Bulgarian (bg)</item>
         <item>Czech (cs)</item>
         <item>German (de)</item>
         <item>English (en)</item>
@@ -48,6 +49,7 @@
              US English. -->
     <string-array name="pref_key_ui_override_language_values" translatable="false">
         <item>auto</item>
+        <item>bg</item>
         <item>cs</item>
         <item>de</item>
         <item>en</item>
