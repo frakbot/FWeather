@@ -793,26 +793,26 @@
       <JAVADOC />
       <SOURCES />
     </library>
-    <library name="Maven: android.support:compatibility-v4:19">
+    <library name="Maven: android.support:compatibility-v4:19.0.1">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/android/support/compatibility-v4/19/compatibility-v4-19.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/android/support/compatibility-v4/19.0.1/compatibility-v4-19.0.1.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/android/support/compatibility-v4/19/compatibility-v4-19-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/android/support/compatibility-v4/19.0.1/compatibility-v4-19.0.1-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/android/support/compatibility-v4/19/compatibility-v4-19-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/android/support/compatibility-v4/19.0.1/compatibility-v4-19.0.1-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: android:android:4.4_r1">
+    <library name="Maven: android:android:4.4.2_r2">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/android/android/4.4_r1/android-4.4_r1.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/android/android/4.4.2_r2/android-4.4.2_r2.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/android/android/4.4_r1/android-4.4_r1-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/android/android/4.4.2_r2/android-4.4.2_r2-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/android/android/4.4_r1/android-4.4_r1-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/android/android/4.4.2_r2/android-4.4.2_r2-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: backport-util-concurrent:backport-util-concurrent:3.1">
@@ -835,6 +835,17 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/classworlds/classworlds/1.1-alpha-2/classworlds-1.1-alpha-2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.google.android:android:2.1.2">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/google/android/android/2.1.2/android-2.1.2.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/google/android/android/2.1.2/android-2.1.2-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/google/android/android/2.1.2/android-2.1.2-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: com.google.android:support-v4:r7">

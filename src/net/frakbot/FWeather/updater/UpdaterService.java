@@ -114,7 +114,7 @@ public class UpdaterService extends IntentService {
                     // We need this because the IntentService thread is too fast and dies too soon,
                     // resulting in the toast being on screen for an unpercievable time
                     WidgetHelper.makeToast(UpdaterService.this, R.string.toast_force_update, Toast.LENGTH_LONG)
-                                .show();
+                            .show();
                 }
             });
         }
@@ -127,15 +127,13 @@ public class UpdaterService extends IntentService {
         WeatherData weather;
         try {
             weather = WeatherHelper.getWeather(this, forced);
-        }
-        catch (LocationHelper.LocationNotReadyYetException justWaitException) {
+        } catch (LocationHelper.LocationNotReadyYetException justWaitException) {
             // If the location is not ready yet, leave the View unchanged
             FLog.d(this, TAG, "The LocationHelper is not ready yet, the updater will be called again " +
-                              "when a location is available.");
+                    "when a location is available.");
             weather = new WeatherData();
             weather.conditionCode = WeatherData.INVALID_CONDITION;
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             // Caught if there are connection issues
             // Get the latest cached weather information
             FLog.e(this, TAG, "Error while fetching the weather, using a cached value", e);
@@ -156,7 +154,7 @@ public class UpdaterService extends IntentService {
 
             // Get the widget layout and update it
             RemoteViews views = new RemoteViews(getPackageName(),
-                                                getWidgetLayout(appWidgetManager, appWidgetId));
+                    getWidgetLayout(appWidgetManager, appWidgetId));
             updateViews(views, weather, appWidgetIds);
             setupViewsForKeyguard(views, appWidgetManager, appWidgetId);
 
@@ -179,8 +177,7 @@ public class UpdaterService extends IntentService {
      * Change the Locale used for further (even implicit) calls to <code>getResources()</code> .
      *
      * @param selectedLocale The new locale to use
-     * @param context The current context
-     *
+     * @param context        The current context
      * @return Returns the Locale used before the switch. It should be restored after use.
      */
     public static Locale switchLocale(Context context, Locale selectedLocale) {
@@ -205,7 +202,6 @@ public class UpdaterService extends IntentService {
      * Check the current default language against the language selected by the user in the preferences screen
      *
      * @param context The current context
-     *
      * @return Returns the Locale related to the language choosen by the user or <code>null</code> if the user
      * didn't choose any other locale
      */
@@ -224,14 +220,12 @@ public class UpdaterService extends IntentService {
         if (simpleLangFormat.matches()) {
             // The saved preferences string is a ISO1 language code
             targetLanguage = preferenceValue;
-        }
-        else if (countryLangFormat.matches()) {
+        } else if (countryLangFormat.matches()) {
             // We expect a format like "en-US", where 'en' is the ISO1 language code
             // and 'US' is the ISO country variant
             targetLanguage = countryLangFormat.group(1);
             targetCountry = countryLangFormat.group(2);
-        }
-        else {
+        } else {
             FLog.w(TAG, "Invalid locale detected in the preferences: " + preferenceValue + ". Resetting to AUTO");
             prefs.edit()
                     .putString(Const.Preferences.UI_OVERRIDE_LANGUAGE, LANG_AUTO)
@@ -274,15 +268,12 @@ public class UpdaterService extends IntentService {
             // If the value is WIDGET_CATEGORY_KEYGUARD, it's a lockscreen widget
             if (maxHeight < 200) {
                 return R.layout.fweather_small;
-            }
-            else if (maxHeight < 300) {
+            } else if (maxHeight < 300) {
                 return R.layout.fweather_medium;
-            }
-            else {
+            } else {
                 return R.layout.fweather_large;
             }
-        }
-        else {
+        } else {
             return R.layout.fweather_large;
         }
     }
@@ -301,8 +292,7 @@ public class UpdaterService extends IntentService {
         int textColor;
         if (!darkMode) {
             textColor = getResources().getColor(R.color.text_widget_main_color);
-        }
-        else {
+        } else {
             textColor = getResources().getColor(R.color.text_widget_main_color_dark);
         }
 
@@ -311,22 +301,20 @@ public class UpdaterService extends IntentService {
         views.setTextColor(R.id.txt_weather, textColor);
         int bgColorPrefValue = getWidgetBgColorPrefValue(prefs);
         views.setInt(R.id.content, "setBackgroundColor",
-                     mWidgetHelper.getWidgetBGColor(bgColorPrefValue, darkMode));
+                mWidgetHelper.getWidgetBGColor(bgColorPrefValue, darkMode));
 
         if (prefs.getBoolean(getString(R.string.pref_key_ui_toggle_temperature_info), true)) {
             views.setViewVisibility(R.id.txt_temp, View.VISIBLE);
             views.setTextViewText(R.id.txt_temp, mWidgetHelper.getTempString(weather, darkMode));
             views.setTextColor(R.id.txt_temp, textColor);
-        }
-        else {
+        } else {
             views.setViewVisibility(R.id.txt_temp, View.GONE);
         }
 
         if (prefs.getBoolean(getString(R.string.pref_key_ui_toggle_weather_icon), true)) {
             views.setViewVisibility(R.id.img_weathericon, View.VISIBLE);
             views.setImageViewResource(R.id.img_weathericon, mWidgetHelper.getWeatherImageId(weather, darkMode));
-        }
-        else {
+        } else {
             views.setViewVisibility(R.id.img_weathericon, View.INVISIBLE);
         }
 
@@ -341,8 +329,7 @@ public class UpdaterService extends IntentService {
                     darkMode ? R.drawable.ic_action_refresh_dark : R.drawable.ic_action_refresh);
             views.setImageViewResource(R.id.btn_share,
                     darkMode ? R.drawable.ic_action_share_dark : R.drawable.ic_action_share);
-        }
-        else {
+        } else {
             views.setViewVisibility(R.id.btn_settings, View.GONE);
             views.setViewVisibility(R.id.btn_refresh, View.GONE);
             views.setViewVisibility(R.id.btn_share, View.GONE);
@@ -351,7 +338,7 @@ public class UpdaterService extends IntentService {
         // Initalize OnClick listeners
         Intent i = new Intent(this, SettingsActivity.class);
         views.setOnClickPendingIntent(R.id.btn_settings,
-                                      PendingIntent.getActivity(this, 0, i, 0));
+                PendingIntent.getActivity(this, 0, i, 0));
 
         i = new Intent(this, UpdaterService.class);
         i.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
@@ -363,22 +350,22 @@ public class UpdaterService extends IntentService {
         // they can tap the widget to open the system Location Settings activity
         if (weather != null && weather.conditionCode == WeatherData.WEATHER_ID_ERR_NO_LOCATION) {
             // The pending intent (Magnum PI, ha!) for the main TextViews
-            PendingIntent magnumPI =
+            PendingIntent enableLocationPendingIntent =
                     PendingIntent.getActivity(this, 0, new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS), 0);
-
-            views.setOnClickPendingIntent(R.id.txt_weather, magnumPI);
-            views.setOnClickPendingIntent(R.id.txt_temp, magnumPI);
+            views.setOnClickPendingIntent(R.id.txt_weather, enableLocationPendingIntent);
+            views.setOnClickPendingIntent(R.id.txt_temp, enableLocationPendingIntent);
         }
 
         // Create and set the PendingIntent for the share action
-        PendingIntent sharePendingIntent = null;
         if (weather != null && weather.conditionCode >= 0) {
             Intent shareIntent = new Intent(Intent.ACTION_SEND);
             shareIntent.setType("text/plain");
             shareIntent.putExtra(Intent.EXTRA_TEXT, mWidgetHelper.getShareString(weather));
-            sharePendingIntent = PendingIntent.getActivity(this, 1, shareIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+            PendingIntent sharePendingIntent = PendingIntent.getActivity(this, 1, shareIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+            views.setOnClickPendingIntent(R.id.btn_share, sharePendingIntent);
+        } else {
+            views.setViewVisibility(R.id.btn_share, View.GONE);
         }
-        views.setOnClickPendingIntent(R.id.btn_share, sharePendingIntent);
     }
 
     /**
@@ -386,15 +373,13 @@ public class UpdaterService extends IntentService {
      * any format errors that could arise.
      *
      * @param prefs The SharedPreferences to retrieve the value from
-     *
      * @return Returns the preference value, or a default value of 0 if there is
      * any issue with the preference value retrieval.
      */
     private int getWidgetBgColorPrefValue(SharedPreferences prefs) {
         try {
             return Integer.parseInt(prefs.getString(getString(R.string.pref_key_ui_bgopacity), "%NOVAL%"));
-        }
-        catch (NumberFormatException e) {
+        } catch (NumberFormatException e) {
             FLog.w(TAG, "Invalid preference value for UI BG opacity, defaulting to 0", e);
             return 0;
         }
@@ -416,7 +401,7 @@ public class UpdaterService extends IntentService {
             Bundle myOptions = appWidgetManager.getAppWidgetOptions(widgetId);
 
             final int category = myOptions.getInt(AppWidgetManager.OPTION_APPWIDGET_HOST_CATEGORY,
-                                                  AppWidgetProviderInfo.WIDGET_CATEGORY_HOME_SCREEN);
+                    AppWidgetProviderInfo.WIDGET_CATEGORY_HOME_SCREEN);
 
             if (category == AppWidgetProviderInfo.WIDGET_CATEGORY_KEYGUARD) {
                 FLog.v(TAG, "Hiding the refresh button: widget " + widgetId + " is on the keyguard");
