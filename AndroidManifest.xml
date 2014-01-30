@@ -2,8 +2,8 @@
 <!--suppress AndroidLintIconLocation -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="net.frakbot.FWeather"
-          android:versionCode="29"
-          android:versionName="2.2.9">
+          android:versionCode="30"
+          android:versionName="2.2.10">
 
     <uses-sdk
             android:minSdkVersion="10"

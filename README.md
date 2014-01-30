@@ -1,6 +1,6 @@
 FWeather
 ========
-![Icon](/res/drawable-xhdpi/ic_launcher.png)
+![Icon](https://raw2.github.com/frakbot/FWeather/develop/res/drawable-xhdpi/ic_launcher.png)
 
 **FWeather** is a weather widget for Android based upon Tobias van Scheider's
 [Authentic Weather](http://www.behance.net/gallery/Authentic-Weather/7196565) design.
@@ -48,20 +48,23 @@ As of today, FWeather has been translated into the following languages:
 * Czech (by Pavel Tížek)
 * Dutch (by Frans-Peter van der Leur)
 * English (by Frakbot)
-* French (by Christian Knaub)
+* French (by ChriKn)
 * German (by Aaron Gerlach)
 * Greek (by Dins)
-* Italian (by Frakbot)
-* Romanian (by BruceLee)
-* Russian (by Vsevolod Osinin)
-* Spanish (by Anon)
-
-These languages are in the works and should come in future updates:
 * Hebrew (by Tomer Nachum)
-* Portuguese Brazilian (by Edu Miguel)
+* Hungarian (by Gergő)
+* Italian (by Frakbot)
+* Polish (by Michał Jaworski)
+* Portuguese Brazilian (by Bruno Moulin)
+* Romanian (by BruceLee)
+* Russian (by Всеволод Осинин)
+* Slovak (by Marek Morvai and Rocky Puchert)
+* Slovenian (by Jebiveter)
+* Spanish (by Anon)
+* Swedish (by Philip Carlsson)
 * Ukrainian (by Ярослав Шевчук and Yegor Vyalov)
 
-Please note that this list is preliminary and might change without any notice.
+Please note that this list is not always up-to-date and might change without any notice.
 
 ## Contributing and requesting features
 Feel free to submit pull requests, we're more than open to your contributions!
@@ -69,6 +72,11 @@ Feel free to submit pull requests, we're more than open to your contributions!
 If you want to send us a generic feedback, [write us an email](mailto:frakbot+fweather@gmail.com).
 For bugs and feature requests, please read [the instructions](https://github.com/frakbot/FWeather/wiki/How-to-report-a-bug)
 and then [open an issue](https://github.com/frakbot/FWeather/issues) in the issue tracker.
+
+### Setup how-to
+In order to be able to build the project, you need to use [maven-android-sdk-deployer](https://github.com/mosabua/maven-android-sdk-deployer) and install the Android maven repositories into your local maven directory.
+
+Just follow the [How to use](https://github.com/mosabua/maven-android-sdk-deployer?source=cc#how-to-use) section and you'll be ready to go.
 
 ## Credits
 This widget uses the awesome [Yahoo! Weather APIs](http://developer.yahoo.com/weather/)
