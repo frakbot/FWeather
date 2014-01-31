@@ -49,7 +49,7 @@ public class Const {
     }
 
     public class Urls {
-        public static final String DONATE_FRAKBOT = "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=frakbot@gmail.com&lc=EU&currency_code=EUR&item_name=Italiansubs.net%20Android&amount=";
+        public static final String DONATE_FRAKBOT = "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=frakbot@gmail.com&lc=EU&currency_code=EUR&item_name=FWeather%20Widget&amount=";
         public static final String AUTHENTIC_WEATHER = "http://www.behance.net/gallery/Authentic-Weather/7196565";
     }
 
