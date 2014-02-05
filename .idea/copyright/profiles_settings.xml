@@ -1,5 +1,13 @@
 <component name="CopyrightManager">
-  <settings default="">
-    <module2copyright />
+  <settings default="Frakbot">
+    <module2copyright>
+      <element module="Copyrightable" copyright="Frakbot" />
+    </module2copyright>
+    <LanguageOptions name="Properties">
+      <option name="fileTypeOverride" value="1" />
+    </LanguageOptions>
+    <LanguageOptions name="__TEMPLATE__">
+      <option name="addBlankAfter" value="false" />
+    </LanguageOptions>
   </settings>
 </component>
