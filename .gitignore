@@ -8,3 +8,5 @@ local.properties
 .idea/workspace.xml
 *.iws
 .DS_Store
+.idea/libraries/
+.idea/dictionaries/
