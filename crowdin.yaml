@@ -4,17 +4,17 @@ project_identifier: fweather
 
 files:
   -
-    source: 'res/values/arrays.xml'
-    translation: 'res/values-%two_letters_code%/%original_file_name%'
+    source: 'FWeather/src/main/res/values/arrays.xml'
+    translation: 'FWeather/src/main/res/values-%two_letters_code%/%original_file_name%'
 
   -
-    source: 'res/values/pref_strings.xml'
-    translation: 'res/values-%two_letters_code%/%original_file_name%'
+    source: 'FWeather/src/main/res/values/pref_strings.xml'
+    translation: 'FWeather/src/main/res/values-%two_letters_code%/%original_file_name%'
 
   -
-    source: 'res/values/strings.xml'
-    translation: 'res/values-%two_letters_code%/%original_file_name%'
+    source: 'FWeather/src/main/res/values/strings.xml'
+    translation: 'FWeather/src/main/res/values-%two_letters_code%/%original_file_name%'
 
   -
-    source: 'res/values/widget_phrases.xml'
-    translation: 'res/values-%two_letters_code%/%original_file_name%'
+    source: 'FWeather/src/main/res/values/widget_phrases.xml'
+    translation: 'FWeather/src/main/res/values-%two_letters_code%/%original_file_name%'

@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="Copyrightable" pattern="((file:src/main/java//*||file:src/main/res//*||file:src/main/AndroidManifest.xml)&amp;&amp;!file[FWeather-FWeather]:build//*||file[FWeather-FWeather]:build.gradle||file[FWeather]:build.gradle||file[FWeather]:settings.gradle||file[FWeather]:license/Gruntfile.js||file[FWeather]:license/license.html)&amp;&amp;!file[FWeather-FWeather]:src/main/assets//*&amp;&amp;!file[FWeather]:gradle//*" />
+</component>
