@@ -44,7 +44,18 @@
         <activity
                 android:name=".activity.SettingsActivity"
                 android:label="@string/activity_settings"
-                android:theme="@style/Theme.FWeather.Settings">
+                android:theme="@style/Theme.FWeather.Settings"
+                android:launchMode="singleTop"
+                android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
 
             <intent-filter>
                 <action android:name="net.frakbot.FWeather.SETTINGS_FWEATHER_ACTION"/>

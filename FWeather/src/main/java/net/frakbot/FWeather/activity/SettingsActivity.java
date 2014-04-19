@@ -14,12 +14,29 @@
  * limitations under the License.
  */
 
+/*
+ * Copyright 2013 Google Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package net.frakbot.FWeather.activity;
 
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.app.backup.BackupManager;
 import android.appwidget.AppWidgetManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -87,15 +104,29 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
-        if (intent != null
-                && AppWidgetManager.ACTION_APPWIDGET_CONFIGURE.equals(intent.getAction())) {
 
+        if (intent != null) {
             mNewWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
                     AppWidgetManager.INVALID_APPWIDGET_ID);
 
-            // See http://code.google.com/p/android/issues/detail?id=2539
-            setResult(RESULT_CANCELED, new Intent()
-                    .putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, mNewWidgetId));
+            if (AppWidgetManager.ACTION_APPWIDGET_CONFIGURE.equals(intent.getAction())) {
+                // See http://code.google.com/p/android/issues/detail?id=2539
+                setResult(RESULT_CANCELED, new Intent()
+                        .putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, mNewWidgetId));
+            } else if (Intent.ACTION_CREATE_SHORTCUT.equals(intent.getAction())) {
+                // The following code has been taken from Roman Nurik's DashClock widget
+                // (see https://code.google.com/p/dashclock/source/browse/main/src/main/java/com/google/android/apps/dashclock/configuration/ConfigurationActivity.java)
+                Intent.ShortcutIconResource icon = new Intent.ShortcutIconResource();
+                icon.packageName = getPackageName();
+                icon.resourceName = getResources().getResourceName(R.drawable.ic_launcher);
+                setResult(RESULT_OK, new Intent()
+                        .putExtra(Intent.EXTRA_SHORTCUT_NAME, getString(R.string.activity_settings))
+                        .putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, icon)
+                        .putExtra(Intent.EXTRA_SHORTCUT_INTENT,
+                                Intent.makeMainActivity(
+                                        new ComponentName(this, SettingsActivity.class))));
+                finish();
+            }
         }
 
         mHandler = new Handler();
