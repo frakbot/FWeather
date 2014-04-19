@@ -18,9 +18,10 @@
 <resources>
     <!--
     This file contains the list of every handled weather code.
-    Each array name must be written in the format: "weather_temp_#", where "#" is the higher bound of the temperature
-    range (an array is selected iif the current temperature <= #)
-    Every item in each array refers to the exact name of a weather temperature string, so it can be randomly selected.
+    Each array name must be written in the format: "weather_temp_#", where "#" is the upper
+    temperature bound (an array is selected iif the current temperature <= #)
+    Every item in each array refers to the exact name of a weather temperature string, so it can
+    be randomly selected.
     -->
 
     <string-array name="weather_temp_0" translatable="false">
