@@ -29,7 +29,12 @@ import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.*;
+import android.preference.ListPreference;
+import android.preference.Preference;
+import android.preference.PreferenceActivity;
+import android.preference.PreferenceCategory;
+import android.preference.PreferenceManager;
+import android.preference.PreferenceScreen;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -43,6 +48,8 @@ import net.frakbot.FWeather.util.WidgetHelper;
 import net.frakbot.global.Const;
 import net.frakbot.util.feedback.FeedbackHelper;
 import net.frakbot.util.log.FLog;
+
+import org.jraf.android.backport.switchwidget.SwitchPreference;
 
 import java.util.List;
 
