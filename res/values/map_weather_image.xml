@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <string name="weather_image_3" translatable="false">
+        weather_thunderstorm
+    </string>
+    <string name="weather_image_4" translatable="false">
+        weather_thunderstorm
+    </string>
+    <string name="weather_image_37" translatable="false">
+        weather_thunderstorm
+    </string>
+    <string name="weather_image_38" translatable="false">
+        weather_thunderstorm
+    </string>
+    <string name="weather_image_39" translatable="false">
+        weather_thunderstorm
+    </string>
+    <string name="weather_image_45" translatable="false">
+        weather_thunderstorm
+    </string>
+    <string name="weather_image_47" translatable="false">
+        weather_thunderstorm
+    </string>
+
+    <string name="weather_image_8" translatable="false">
+        weather_drizzle
+    </string>
+    <string name="weather_image_9" translatable="false">
+        weather_drizzle
+    </string>
+
+    <string name="weather_image_10" translatable="false">
+        weather_rainy
+    </string>
+    <string name="weather_image_11" translatable="false">
+        weather_rainy
+    </string>
+    <string name="weather_image_12" translatable="false">
+        weather_rainy
+    </string>
+    <string name="weather_image_40" translatable="false">
+        weather_rainy
+    </string>
+    <string name="weather_image_6" translatable="false">
+        weather_rainy
+    </string>
+
+    <string name="weather_image_17" translatable="false">
+        weather_hail
+    </string>
+    <string name="weather_image_35" translatable="false">
+        weather_hail
+    </string>
+
+    <string name="weather_image_13" translatable="false">
+        weather_snowy
+    </string>
+    <string name="weather_image_14" translatable="false">
+        weather_snowy
+    </string>
+    <string name="weather_image_15" translatable="false">
+        weather_snowy
+    </string>
+    <string name="weather_image_16" translatable="false">
+        weather_snowy
+    </string>
+    <string name="weather_image_18" translatable="false">
+        weather_snowy
+    </string>
+    <string name="weather_image_41" translatable="false">
+        weather_snowy
+    </string>
+    <string name="weather_image_42" translatable="false">
+        weather_snowy
+    </string>
+    <string name="weather_image_43" translatable="false">
+        weather_snowy
+    </string>
+    <string name="weather_image_46" translatable="false">
+        weather_snowy
+    </string>
+    <string name="weather_image_5" translatable="false">
+        weather_snowy
+    </string>
+    <string name="weather_image_7" translatable="false">
+        weather_snowy
+    </string>
+
+    <string name="weather_image_19" translatable="false">
+        weather_haze
+    </string>
+    <string name="weather_image_20" translatable="false">
+        weather_haze
+    </string>
+    <string name="weather_image_21" translatable="false">
+        weather_haze
+    </string>
+    <string name="weather_image_22" translatable="false">
+        weather_haze
+    </string>
+
+    <string name="weather_image_32" translatable="false">
+        weather_clear_day
+    </string>
+    <string name="weather_image_34" translatable="false">
+        weather_clear_day
+    </string>
+
+    <string name="weather_image_31" translatable="false">
+        weather_clear_night
+    </string>
+    <string name="weather_image_33" translatable="false">
+        weather_clear_night
+    </string>
+
+    <string name="weather_image_29" translatable="false">
+        weather_partly_cloudy_night
+    </string>
+
+    <string name="weather_image_30" translatable="false">
+        weather_partly_cloudy_day
+    </string>
+    <string name="weather_image_44" translatable="false">
+        weather_partly_cloudy_day
+    </string>
+
+    <string name="weather_image_26" translatable="false">
+        weather_cloudy
+    </string>
+    <string name="weather_image_27" translatable="false">
+        weather_cloudy
+    </string>
+    <string name="weather_image_28" translatable="false">
+        weather_cloudy
+    </string>
+
+    <string name="weather_image_23" translatable="false">
+        weather_windy
+    </string>
+    <string name="weather_image_24" translatable="false">
+        weather_windy
+    </string>
+
+    <string name="weather_image_25" translatable="false">
+        weather_cold
+    </string>
+
+    <string name="weather_image_36" translatable="false">
+        weather_hot
+    </string>
+
+    <string name="weather_image_0" translatable="false">
+        weather_extreme
+    </string>
+    <string name="weather_image_1" translatable="false">
+        weather_extreme
+    </string>
+    <string name="weather_image_2" translatable="false">
+        weather_extreme
+    </string>
+
+    <string name="weather_image_3200" translatable="false">
+        err_wtf
+    </string>
+
+    <string name="weather_image_m_1" translatable="false">
+        err_wtf
+    </string>
+    <string name="weather_image_m_10000" translatable="false">
+        err_no_location
+    </string>
+    <string name="weather_image_m_10001" translatable="false">
+        err_no_network
+    </string>
+    <string name="weather_image_m_10002" translatable="false">
+        err_wtf
+    </string>
+</resources>

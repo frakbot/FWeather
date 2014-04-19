@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <!--
+    This file contains the list of every handled weather code.
+    Each array name must be written in the format: "weather_temp_#", where "#" is the higher bound of the temperature
+    range (an array is selected iif the current temperature <= #)
+    Every item in each array refers to the exact name of a weather temperature string, so it can be randomly selected.
+    -->
+
+    <string-array name="weather_temp_0" translatable="false">
+        <item>temp_freezing</item>
+    </string-array>
+    <string-array name="weather_temp_15" translatable="false">
+        <item>temp_cold</item>
+    </string-array>
+    <string-array name="weather_temp_28" translatable="false">
+        <item>temp_warm</item>
+    </string-array>
+    <string-array name="weather_temp_1000" translatable="false">
+        <item>temp_hot</item>
+    </string-array>
+
+    <!-- Error messages -->
+    <string-array name="weather_temp_m_1" translatable="false">
+        <item>temp_wtf</item>
+    </string-array>
+    <string-array name="weather_temp_m_10000" translatable="false">
+        <item>temp_no_location</item>
+    </string-array>
+    <string-array name="weather_temp_m_10001" translatable="false">
+        <item>temp_no_network</item>
+    </string-array>
+    <string-array name="weather_temp_m_10002" translatable="false">
+        <item>temp_wtf</item>
+    </string-array>
+</resources>

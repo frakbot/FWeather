@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2013 Sebastiano Poggi and Francesco Pontillo
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<resources>
+    <!--
+    This file contains the list of every handled weather code.
+    Each array name must be written in the format: "weather_code_#", where "#" is the Yahoo weather condition code.
+    Every item in each array refers to the exact name of a weather string, so it can be randomly selected.
+
+    Codes list: http://developer.yahoo.com/weather/
+    -->
+
+    <string-array name="weather_code_3" translatable="false">
+        <item>weather_thunderstorm</item>
+    </string-array>
+    <string-array name="weather_code_4" translatable="false">
+        <item>weather_thunderstorm</item>
+    </string-array>
+    <string-array name="weather_code_37" translatable="false">
+        <item>weather_thunderstorm</item>
+    </string-array>
+    <string-array name="weather_code_38" translatable="false">
+        <item>weather_thunderstorm</item>
+    </string-array>
+    <string-array name="weather_code_39" translatable="false">
+        <item>weather_thunderstorm</item>
+    </string-array>
+    <string-array name="weather_code_45" translatable="false">
+        <item>weather_thunderstorm</item>
+    </string-array>
+    <string-array name="weather_code_47" translatable="false">
+        <item>weather_thunderstorm</item>
+    </string-array>
+
+    <string-array name="weather_code_8" translatable="false">
+        <item>weather_drizzle</item>
+    </string-array>
+    <string-array name="weather_code_9" translatable="false">
+        <item>weather_drizzle</item>
+    </string-array>
+
+    <string-array name="weather_code_10" translatable="false">
+        <item>weather_rainy</item>
+    </string-array>
+    <string-array name="weather_code_11" translatable="false">
+        <item>weather_rainy</item>
+    </string-array>
+    <string-array name="weather_code_12" translatable="false">
+        <item>weather_rainy</item>
+    </string-array>
+    <string-array name="weather_code_40" translatable="false">
+        <item>weather_rainy</item>
+    </string-array>
+    <string-array name="weather_code_6" translatable="false">
+        <item>weather_rainy</item>
+    </string-array>
+
+    <string-array name="weather_code_17" translatable="false">
+        <item>weather_hail</item>
+    </string-array>
+    <string-array name="weather_code_35" translatable="false">
+        <item>weather_hail</item>
+    </string-array>
+
+    <string-array name="weather_code_13" translatable="false">
+        <item>weather_snowy</item>
+    </string-array>
+    <string-array name="weather_code_14" translatable="false">
+        <item>weather_snowy</item>
+    </string-array>
+    <string-array name="weather_code_15" translatable="false">
+        <item>weather_snowy</item>
+    </string-array>
+    <string-array name="weather_code_16" translatable="false">
+        <item>weather_snowy</item>
+    </string-array>
+    <string-array name="weather_code_18" translatable="false">
+        <item>weather_snowy</item>
+    </string-array>
+    <string-array name="weather_code_41" translatable="false">
+        <item>weather_snowy</item>
+    </string-array>
+    <string-array name="weather_code_42" translatable="false">
+        <item>weather_snowy</item>
+    </string-array>
+    <string-array name="weather_code_43" translatable="false">
+        <item>weather_snowy</item>
+    </string-array>
+    <string-array name="weather_code_46" translatable="false">
+        <item>weather_snowy</item>
+    </string-array>
+    <string-array name="weather_code_5" translatable="false">
+        <item>weather_snowy</item>
+    </string-array>
+    <string-array name="weather_code_7" translatable="false">
+        <item>weather_snowy</item>
+    </string-array>
+
+    <string-array name="weather_code_19" translatable="false">
+        <item>weather_haze</item>
+    </string-array>
+    <string-array name="weather_code_20" translatable="false">
+        <item>weather_haze</item>
+    </string-array>
+    <string-array name="weather_code_21" translatable="false">
+        <item>weather_haze</item>
+    </string-array>
+    <string-array name="weather_code_22" translatable="false">
+        <item>weather_haze</item>
+    </string-array>
+
+    <string-array name="weather_code_31" translatable="false">
+        <item>weather_sunny</item>
+    </string-array>
+    <string-array name="weather_code_32" translatable="false">
+        <item>weather_sunny</item>
+    </string-array>
+    <string-array name="weather_code_33" translatable="false">
+        <item>weather_sunny</item>
+    </string-array>
+    <string-array name="weather_code_34" translatable="false">
+        <item>weather_sunny</item>
+    </string-array>
+
+    <string-array name="weather_code_29" translatable="false">
+        <item>weather_partly_cloudy</item>
+    </string-array>
+    <string-array name="weather_code_30" translatable="false">
+        <item>weather_partly_cloudy</item>
+    </string-array>
+    <string-array name="weather_code_44" translatable="false">
+        <item>weather_partly_cloudy</item>
+    </string-array>
+
+    <string-array name="weather_code_26" translatable="false">
+        <item>weather_cloudy</item>
+    </string-array>
+    <string-array name="weather_code_27" translatable="false">
+        <item>weather_cloudy</item>
+    </string-array>
+    <string-array name="weather_code_28" translatable="false">
+        <item>weather_cloudy</item>
+    </string-array>
+
+    <string-array name="weather_code_23" translatable="false">
+        <item>weather_windy</item>
+    </string-array>
+    <string-array name="weather_code_24" translatable="false">
+        <item>weather_windy</item>
+    </string-array>
+
+    <string-array name="weather_code_25" translatable="false">
+        <item>weather_cold</item>
+    </string-array>
+
+    <string-array name="weather_code_36" translatable="false">
+        <item>weather_hot</item>
+    </string-array>
+
+    <string-array name="weather_code_0" translatable="false">
+        <item>weather_extreme</item>
+    </string-array>
+    <string-array name="weather_code_1" translatable="false">
+        <item>weather_extreme</item>
+    </string-array>
+    <string-array name="weather_code_2" translatable="false">
+        <item>weather_extreme</item>
+    </string-array>
+
+    <string-array name="weather_code_3200" translatable="false">
+        <item>weather_no_weather</item>
+    </string-array>
+
+    <string-array name="weather_code_m_1" translatable="false">
+        <item>weather_wtf</item>
+    </string-array>
+    <string-array name="weather_code_m_10000" translatable="false">
+        <item>weather_no_location</item>
+    </string-array>
+    <string-array name="weather_code_m_10001" translatable="false">
+        <item>weather_no_location</item>
+    </string-array>
+    <string-array name="weather_code_m_10002" translatable="false">
+        <item>weather_wtf</item>
+    </string-array>
+</resources>

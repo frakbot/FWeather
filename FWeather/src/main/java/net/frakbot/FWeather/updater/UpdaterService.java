@@ -297,7 +297,7 @@ public class UpdaterService extends IntentService {
         }
 
         // Show/hide elements, and update them only if needed
-        views.setTextViewText(R.id.txt_weather, mWidgetHelper.getWeatherString(weather, darkMode));
+        views.setTextViewText(R.id.txt_weather, mWidgetHelper.getWeatherMainString(weather, darkMode));
         views.setTextColor(R.id.txt_weather, textColor);
         int bgColorPrefValue = getWidgetBgColorPrefValue(prefs);
         views.setInt(R.id.content, "setBackgroundColor",
@@ -305,7 +305,7 @@ public class UpdaterService extends IntentService {
 
         if (prefs.getBoolean(getString(R.string.pref_key_ui_toggle_temperature_info), true)) {
             views.setViewVisibility(R.id.txt_temp, View.VISIBLE);
-            views.setTextViewText(R.id.txt_temp, mWidgetHelper.getTempString(weather, darkMode));
+            views.setTextViewText(R.id.txt_temp, mWidgetHelper.getWeatherTempString(weather, darkMode));
             views.setTextColor(R.id.txt_temp, textColor);
         } else {
             views.setViewVisibility(R.id.txt_temp, View.GONE);
