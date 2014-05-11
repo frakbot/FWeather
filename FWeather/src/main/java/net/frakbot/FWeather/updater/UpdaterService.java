@@ -377,10 +377,16 @@ public class UpdaterService extends IntentService {
      * any issue with the preference value retrieval.
      */
     private int getWidgetBgColorPrefValue(SharedPreferences prefs) {
+        final String defaultVal = "%NOVAL%";
+        final String prefVal = prefs.getString(getString(R.string.pref_key_ui_bgopacity), defaultVal);
+
         try {
-            return Integer.parseInt(prefs.getString(getString(R.string.pref_key_ui_bgopacity), "%NOVAL%"));
-        } catch (NumberFormatException e) {
-            FLog.w(TAG, "Invalid preference value for UI BG opacity, defaulting to 0", e);
+            return Integer.parseInt(prefVal);
+        }
+        catch (NumberFormatException e) {
+            if (!defaultVal.equals(prefVal)) {
+                FLog.w(TAG, "Invalid preference value for UI BG opacity, defaulting to 0: " + prefVal, e);
+            }
             return 0;
         }
     }
