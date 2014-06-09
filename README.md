@@ -41,7 +41,7 @@ If you want to help us out and test new features, you can read the instructions
 
 ## Translating FWeather
 You can contribute to the FWeather translation in your own language.
-It's really easy, just follow the intructions [in our wiki](https://github.com/frakbot/FWeather/wiki/Translating-FWeather)!
+It's really easy, just follow the intructions [in our wiki](https://github.com/frakbot/FWeather/wiki/Translating-FWeather-(on-Crowdin))!
 
 As of today, FWeather has been translated into the following languages:
 * Chinese (Simplified) (by Hansi Liu)
