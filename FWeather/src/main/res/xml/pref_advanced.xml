@@ -23,14 +23,14 @@
             android:key="@string/pref_key_weather_location"
             android:title="@string/pref_title_weather_location"/>
 
-    <SwitchPreference
+    <net.frakbot.FWeather.uglyworkarounds.ActuallyWorkingSwitchPreference
             android:key="@string/pref_key_analytics"
             android:title="@string/pref_title_analytics"
             android:defaultValue="true"
             android:switchTextOff="@string/off"
             android:switchTextOn="@string/on"/>
 
-    <SwitchPreference
+    <net.frakbot.FWeather.uglyworkarounds.ActuallyWorkingSwitchPreference
             android:key="@string/pref_key_debug"
             android:title="@string/pref_title_debug"
             android:summary="@string/pref_summary_debug"
