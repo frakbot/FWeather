@@ -17,23 +17,14 @@
 
 <resources>
 
-    <style name="Theme.FWeather" parent="@style/Theme.Sherlock.Light.DarkActionBar">
-        <item name="switchStyle">@style/Widget.Holo.CompoundButton.Switch</item>
-        <item name="switchPreferenceStyle">@style/Preference.SwitchPreference</item>
+    <style name="Theme.FWeather" parent="android:Theme.Holo.Light.DarkActionBar">
     </style>
 
     <style name="Theme.FWeather.Settings">
         <item name="android:windowBackground">@drawable/settings_window_bg</item>
     </style>
 
-    <style name="Theme.FWeather.Settings.Dialog" parent="@style/Theme.Sherlock.Light">
-        <item name="switchStyle">@style/Widget.Holo.CompoundButton.Switch</item>
-        <item name="switchPreferenceStyle">@style/Preference.SwitchPreference</item>
-        <item name="android:windowFrame">@null</item>
-        <item name="android:windowIsFloating">true</item>
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
-        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+    <style name="Theme.FWeather.Settings.Dialog" parent="android:Theme.Holo.Light.Dialog.NoActionBar">
     </style>
 
     <style name="Theme.FWeather.Settings.DialogWhenLarge" parent="Theme.FWeather.Settings.Dialog">
@@ -42,7 +33,7 @@
     <style name="ProgressBar.FWeather.Indeterminate.Large" parent="android:Widget.ProgressBar.Large.Inverse">
     </style>
 
-    <style name="ActionBar.Button" parent="Widget.Sherlock.ActionButton">
-        <item name="android:textColor">@color/abs__primary_text_holo_dark</item>
+    <style name="ActionBar.Button" parent="android:Widget.Holo.ActionButton">
+        <item name="android:textColor">@android:color/primary_text_dark_nodisable</item>
     </style>
 </resources>

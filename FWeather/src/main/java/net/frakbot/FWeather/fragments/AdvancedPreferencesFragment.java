@@ -20,11 +20,10 @@ import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
-
+import android.preference.SwitchPreference;
 import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.activity.SettingsActivity;
 
-import org.jraf.android.backport.switchwidget.SwitchPreference;
 
 /**
  * This fragment shows advanced settings only. It is used when the activity

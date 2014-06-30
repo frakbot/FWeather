@@ -24,19 +24,19 @@
             android:key="@string/pref_key_weather_location"
             android:title="@string/pref_title_weather_location"/>
 
-    <org.jraf.android.backport.switchwidget.SwitchPreference
+    <SwitchPreference
             android:key="@string/pref_key_analytics"
             android:title="@string/pref_title_analytics"
             android:defaultValue="true"
-            app:switchTextOff="@string/off"
-            app:switchTextOn="@string/on"/>
+            android:switchTextOff="@string/off"
+            android:switchTextOn="@string/on"/>
 
-    <org.jraf.android.backport.switchwidget.SwitchPreference
+    <SwitchPreference
             android:key="@string/pref_key_debug"
             android:title="@string/pref_title_debug"
             android:summary="@string/pref_summary_debug"
             android:defaultValue="false"
-            app:switchTextOff="@string/off"
-            app:switchTextOn="@string/on"/>
+            android:switchTextOff="@string/off"
+            android:switchTextOn="@string/on"/>
 
 </PreferenceScreen>

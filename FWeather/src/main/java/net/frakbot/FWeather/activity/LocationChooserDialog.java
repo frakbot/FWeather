@@ -16,14 +16,15 @@
 
 package net.frakbot.FWeather.activity;
 
+import android.app.Activity;
+import android.app.LoaderManager;
+import android.content.AsyncTaskLoader;
 import android.content.Context;
 import android.content.Intent;
+import android.content.Loader;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.AsyncTaskLoader;
-import android.support.v4.content.Loader;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -34,7 +35,6 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
 import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.updater.weather.YahooWeatherApiClient;
 import net.frakbot.FWeather.util.WeatherLocationPreference;
@@ -48,7 +48,7 @@ import static net.frakbot.FWeather.updater.weather.YahooWeatherApiClient.Locatio
 /**
  * Dialog that pops up when touching the Location preference.
  */
-public class LocationChooserDialog extends SherlockFragmentActivity
+public class LocationChooserDialog extends Activity
     implements TextWatcher, LoaderManager.LoaderCallbacks<List<LocationSearchResult>> {
 
     /**
@@ -153,7 +153,7 @@ public class LocationChooserDialog extends SherlockFragmentActivity
         public void handleMessage(Message msg) {
             Bundle args = new Bundle();
             args.putString("query", mQuery);
-            getSupportLoaderManager().restartLoader(0, args, LocationChooserDialog.this);
+            getLoaderManager().restartLoader(0, args, LocationChooserDialog.this);
         }
     };
 

@@ -33,30 +33,20 @@
 package net.frakbot.FWeather.activity;
 
 import android.annotation.TargetApi;
+import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.backup.BackupManager;
 import android.appwidget.AppWidgetManager;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.SharedPreferences;
+import android.content.*;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.ListPreference;
-import android.preference.Preference;
-import android.preference.PreferenceActivity;
-import android.preference.PreferenceCategory;
-import android.preference.PreferenceManager;
-import android.preference.PreferenceScreen;
+import android.preference.*;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockPreferenceActivity;
 import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.fragments.*;
 import net.frakbot.FWeather.util.TrackerHelper;
@@ -65,8 +55,6 @@ import net.frakbot.FWeather.util.WidgetHelper;
 import net.frakbot.global.Const;
 import net.frakbot.util.feedback.FeedbackHelper;
 import net.frakbot.util.log.FLog;
-
-import org.jraf.android.backport.switchwidget.SwitchPreference;
 
 import java.util.List;
 
@@ -81,7 +69,7 @@ import java.util.List;
  * href="http://developer.android.com/guide/topics/ui/settings.html">Settings
  * API Guide</a> for more information on developing a Settings UI.
  */
-public class SettingsActivity extends SherlockPreferenceActivity implements
+public class SettingsActivity extends PreferenceActivity implements
         OnSharedPreferenceChangeListener {
     /**
      * Determines whether to always show the simplified settings UI, where
@@ -143,7 +131,7 @@ public class SettingsActivity extends SherlockPreferenceActivity implements
         super.onPostCreate(savedInstanceState);
 
         // Sets and shows the title in the ActionBar
-        final ActionBar actionBar = getSupportActionBar();
+        final ActionBar actionBar = getActionBar();
         if (actionBar != null) {
             setupActionBar(actionBar);
         }

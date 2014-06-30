@@ -18,16 +18,16 @@ package net.frakbot.FWeather.activity;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
+import android.app.ActionBar;
+import android.app.Activity;
 import android.os.Build;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.MenuItem;
 import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.util.TrackerHelper;
 
@@ -42,7 +42,7 @@ import net.frakbot.FWeather.util.TrackerHelper;
  * Version 1.0
  * * Initial revision
  */
-public class LicensesActivity extends SherlockFragmentActivity {
+public class LicensesActivity extends Activity {
 
     WebView mWebView;
     ProgressBar mProgressBar;
@@ -84,7 +84,7 @@ public class LicensesActivity extends SherlockFragmentActivity {
         mWebView.loadUrl("file:///android_asset/www/license.html");
 
         // Sets and shows the title in the ActionBar
-        final ActionBar actionBar = getSupportActionBar();
+        final ActionBar actionBar = getActionBar();
         if (actionBar != null) {
             actionBar.setDisplayShowTitleEnabled(true);
             actionBar.setDisplayShowHomeEnabled(true);
