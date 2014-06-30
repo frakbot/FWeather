@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-apply plugin: 'android'
+apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 19
-    buildToolsVersion '19.1.0'
+    buildToolsVersion '20.0.0'
 
     defaultConfig {
-        minSdkVersion 10
+        minSdkVersion 15
         targetSdkVersion 19
         versionCode 30
-        versionName "2.2.10"
+        versionName "3.0 ALPHA"
     }
 
     buildTypes {
@@ -36,9 +36,6 @@ android {
 }
 
 dependencies {
-    compile 'com.actionbarsherlock:actionbarsherlock:4.4.+@aar'
-    compile 'com.android.support:support-v4:19.1.+'
     compile 'com.google.android.gms:play-services:4.4.52'
-    compile 'org.jraf:android-switch-backport:1.3.1'
     compile files('src/main/libs/libGoogleAnalyticsServices.jar')
 }
