@@ -1,6 +1,6 @@
 FWeather
 ========
-![Icon](https://raw2.github.com/frakbot/FWeather/develop/res/drawable-xhdpi/ic_launcher.png)
+![Icon](https://raw2.github.com/frakbot/FWeather/develop/FWeather/src/main/res/drawable-xhdpi/ic_launcher.png)
 
 **FWeather** is a weather widget for Android based upon Tobias van Scheider's
 [Authentic Weather](http://www.behance.net/gallery/Authentic-Weather/7196565) design.
