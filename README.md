@@ -27,7 +27,7 @@ You can also find FWeather **[on XDA-Developers](http://forum.xda-developers.com
 
 
 ## Screenshots
-![On the homescreen](http://hostr.co/file/JSS1T9zM56uG/2013-07-01-01.29.15_w400.png)&emsp;![On the lockscreen](http://hostr.co/file/AjKTBYCkSqPI/2013-07-01-01.35.53_w400.png)
+![On the homescreen](http://hostr.co/file/JSS1T9zM56uG/2013-07-01-01.29.15_w400.png)
 
 ## Download
 You can download **FWeather** from the Google Play Store:
@@ -84,9 +84,7 @@ to retrieve the weather data.
 
 FWeather also uses the following libraries and open source projects:
 
-* **[ActionBarSherlock](http://actionbarsherlock.com/)** by Jake Wharton
 * **[WeatherApp](https://github.com/survivingwithandroid/Surviving-with-android/tree/master/WeatherApp)** by Surviving With Android
-* **[Android Switch Backport](https://github.com/BoD/android-switch-backport)** by Benoit 'BoD' Lubek
 * **[Dashclock](https://code.google.com/p/dashclock/)** by Roman Nurik (Google Inc.)
 * **[Log Collector](https://code.google.com/p/android-log-collector/)** by Xtralogic Inc.
 
