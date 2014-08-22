@@ -1,20 +1,41 @@
+# 1. copy this file in your desired path
+# 2. set the api_key
+# 3. use crowdin-cli -c path/to/config.yaml [more parameters]
+# IMPORTANT: never commit the api_key!
+
 project_identifier: fweather
-# api_key: shhh, that's a secret :)
+api_key: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX      # replace with your own api key
 # base_path: /home/office/source-code         # don't set this if calling crowdin-cli from the project root
 
 files:
   -
-    source: 'FWeather/src/main/res/values/arrays.xml'
-    translation: 'FWeather/src/main/res/values-%two_letters_code%/%original_file_name%'
-
-  -
-    source: 'FWeather/src/main/res/values/pref_strings.xml'
-    translation: 'FWeather/src/main/res/values-%two_letters_code%/%original_file_name%'
-
-  -
-    source: 'FWeather/src/main/res/values/strings.xml'
-    translation: 'FWeather/src/main/res/values-%two_letters_code%/%original_file_name%'
-
-  -
-    source: 'FWeather/src/main/res/values/widget_phrases.xml'
-    translation: 'FWeather/src/main/res/values-%two_letters_code%/%original_file_name%'
+    source: '/res/values/*.xml'
+    translation: '/res/values-%android_code%/%original_file_name%'
+    ignore:
+      - '/res/values/attrs.xml'
+      - '/res/values/colors.xml'
+      - '/res/values/dimens.xml'
+      - '/res/values/styles.xml'
+      - '/res/values/themes.xml'
+      - '/res/values/analytics.xml'
+      - '/res/values/api_keys.xml'
+    languages_mapping:
+      android_code:
+        'bg': 'bg'
+        'cs': 'cs'
+        'de': 'de'
+        'el': 'el'
+        'es-ES': 'es'
+        'fr': 'fr'
+        'he': 'he'
+        'hu': 'hu'
+        'it': 'it'
+        'nl': 'nl'
+        'pl': 'pl'
+        'ro': 'ro'
+        'ru': 'ru'
+        'sl': 'sl'
+        'sk': 'sk'
+        'sv-SE': 'sv'
+        'uk': 'uk'
+        'zh-CN': 'zh'
