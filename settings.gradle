@@ -16,4 +16,4 @@
 
 
 
-include ':FWeather'
+include ':FWeather', ':WeatherProvider'
