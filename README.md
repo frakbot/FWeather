@@ -92,3 +92,4 @@ FWeather also uses the following libraries and open source projects:
 This app's code is licensed under the Apache 2 license.
 Please see the [NOTICE](/NOTICE) file for details.
 
+Hi peeps
