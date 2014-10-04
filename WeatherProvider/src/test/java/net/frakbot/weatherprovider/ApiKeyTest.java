@@ -13,13 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-apply plugin: 'java'
+package net.frakbot.weatherprovider;
 
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
+import org.junit.Before;
+import org.junit.Test;
 
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+import static org.junit.Assert.assertEquals;
 
-    testCompile 'junit:junit:4.11'
+public class ApiKeyTest {
+
+    private static final String TEST_API_KEY = "test-API Key-_-234567890)(*&^%$£@";
+
+    private ApiKey apiKey;
+
+    @Before
+    public void setUp() {
+        apiKey = new ApiKey(TEST_API_KEY);
+    }
+
+    @Test
+    public void getApiKeyReturnsAppropriateValue() {
+        String apiKeyValue = apiKey.getApiKey();
+
+        assertEquals("Api Key mismatch", TEST_API_KEY, apiKeyValue);
+    }
 }
