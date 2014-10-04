@@ -29,12 +29,12 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
-import net.frakbot.FWeather.R;
-import net.frakbot.FWeather.updater.UpdaterService;
-import net.frakbot.FWeather.util.TrackerHelper;
-import net.frakbot.global.Const;
 
 import java.util.Locale;
+
+import net.frakbot.FWeather.R;
+import net.frakbot.FWeather.updater.UpdaterService;
+import net.frakbot.global.Const;
 
 /**
  * Implementation of android.preference.DialogPreference that
@@ -56,18 +56,6 @@ public class AuthorsDialog extends FragmentActivity {
     TextView aboutAuthorsView;
     Button donateFrakbotBtn;
     Button authenticWeatherBtn;
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        TrackerHelper.activityStart(this);
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        TrackerHelper.activityStop(this);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

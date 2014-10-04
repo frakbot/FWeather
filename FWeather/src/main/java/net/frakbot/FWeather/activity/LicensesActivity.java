@@ -28,8 +28,8 @@ import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
+
 import net.frakbot.FWeather.R;
-import net.frakbot.FWeather.util.TrackerHelper;
 
 /**
  * A simple Activity that shows the third-party licenses for the app.
@@ -46,18 +46,6 @@ public class LicensesActivity extends Activity {
 
     WebView mWebView;
     ProgressBar mProgressBar;
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        TrackerHelper.activityStart(this);
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        TrackerHelper.activityStop(this);
-    }
 
     @SuppressLint("SetJavaScriptEnabled")
     @TargetApi(VERSION_CODES.JELLY_BEAN)

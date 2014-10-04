@@ -67,6 +67,19 @@ public class TrackerHelper {
     }
 
     /**
+     * Send an exception to Google Analytics, if the user hasn't opted out.
+     *
+     * @param context The {@link Context}
+     * @param label   The label for the event
+     */
+    public static void sendEvent(Context context, String label) {
+        Tracker tracker = getTracker(context);
+        tracker.send(new HitBuilders.EventBuilder()
+                .setLabel(label)
+                .build());
+    }
+
+    /**
      * Send the preference change to Google Analytics, if the user has chosen to do so.
      * It also sets the Google Analytics optout option, if the changed preference is ANALYTICS.
      *

@@ -37,17 +37,23 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.RemoteViews;
 import android.widget.Toast;
-import net.frakbot.FWeather.R;
-import net.frakbot.FWeather.activity.SettingsActivity;
-import net.frakbot.FWeather.updater.weather.model.WeatherData;
-import net.frakbot.FWeather.util.*;
-import net.frakbot.global.Const;
-import net.frakbot.util.log.FLog;
 
 import java.io.IOException;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import net.frakbot.FWeather.R;
+import net.frakbot.FWeather.activity.SettingsActivity;
+import net.frakbot.FWeather.updater.weather.model.WeatherData;
+import net.frakbot.FWeather.util.AlarmHelper;
+import net.frakbot.FWeather.util.ConnectionHelper;
+import net.frakbot.FWeather.util.LocationHelper;
+import net.frakbot.FWeather.util.TrackerHelper;
+import net.frakbot.FWeather.util.WeatherHelper;
+import net.frakbot.FWeather.util.WidgetHelper;
+import net.frakbot.global.Const;
+import net.frakbot.util.log.FLog;
 
 /**
  * Updater service for the widgets.
@@ -107,6 +113,7 @@ public class UpdaterService extends IntentService {
 
         if (forced) {
             FLog.i(this, TAG, "User has requested a forced update");
+            TrackerHelper.sendEvent(this, "forced_refresh");
             // Show a toast message
             mHandler.post(new Runnable() {
                 @Override

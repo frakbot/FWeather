@@ -37,26 +37,41 @@ import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.backup.BackupManager;
 import android.appwidget.AppWidgetManager;
-import android.content.*;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.*;
+import android.preference.ListPreference;
+import android.preference.Preference;
+import android.preference.PreferenceActivity;
+import android.preference.PreferenceCategory;
+import android.preference.PreferenceManager;
+import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import java.util.List;
+
 import net.frakbot.FWeather.R;
-import net.frakbot.FWeather.fragments.*;
+import net.frakbot.FWeather.fragments.AdvancedPreferencesFragment;
+import net.frakbot.FWeather.fragments.BackupPreferenceFragment;
+import net.frakbot.FWeather.fragments.CustomizationPreferencesFragment;
+import net.frakbot.FWeather.fragments.DataSyncPreferencesFragment;
+import net.frakbot.FWeather.fragments.InformationPreferencesFragment;
 import net.frakbot.FWeather.util.TrackerHelper;
 import net.frakbot.FWeather.util.WeatherLocationPreference;
 import net.frakbot.FWeather.util.WidgetHelper;
 import net.frakbot.global.Const;
 import net.frakbot.util.feedback.FeedbackHelper;
 import net.frakbot.util.log.FLog;
-
-import java.util.List;
 
 /**
  * A {@link android.preference.PreferenceActivity} that presents a set of application settings. On
@@ -121,12 +136,6 @@ public class SettingsActivity extends PreferenceActivity implements
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        TrackerHelper.activityStart(this);
-    }
-
-    @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
 
@@ -177,7 +186,6 @@ public class SettingsActivity extends PreferenceActivity implements
         // Update the widgets after the configuration is closed
         FLog.d(this, "SettingsActivity", "Closing the settings Activity; updating widgets");
         requestWidgetsUpdate(true, true);
-        TrackerHelper.activityStop(this);
     }
 
     @SuppressWarnings("deprecation")
