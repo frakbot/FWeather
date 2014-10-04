@@ -19,6 +19,4 @@ public class Weather {
 
     protected LocationId locationId;
 
-    protected
-
 }
