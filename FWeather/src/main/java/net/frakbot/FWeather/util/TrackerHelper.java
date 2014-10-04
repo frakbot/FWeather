@@ -16,62 +16,63 @@
 
 package net.frakbot.FWeather.util;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import com.google.analytics.tracking.android.EasyTracker;
-import com.google.analytics.tracking.android.GoogleAnalytics;
-import com.google.analytics.tracking.android.MapBuilder;
+
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+
+import java.util.Map;
+
+import net.frakbot.FWeather.R;
 import net.frakbot.global.Const;
 import net.frakbot.util.log.FLog;
 
 /**
  * Helper for the Google Analytics tracking.
- * Updated for Google Analytics library v3.
+ * Updated for Google Analytics library v4.
  *
- * @author Francesco Pontillo
+ * @author Francesco Pontillo, Sebastiano Poggi
  */
 public class TrackerHelper {
 
     private static final String TAG = TrackerHelper.class.getSimpleName();
 
-    /**
-     * Track a start event for an {@link Activity}.
-     * @param activity The {@link Activity} that was started
-     */
-    public static void activityStart(Activity activity) {
-        EasyTracker.getInstance(activity).activityStart(activity);
-    }
+    private static Tracker sTracker;
 
-    /**
-     * Track a stop event for an {@link Activity}.
-     * @param activity The {@link Activity} that was stopped
-     */
-    public static void activityStop(Activity activity) {
-        EasyTracker.getInstance(activity).activityStop(activity);
+    private static synchronized Tracker getTracker(Context context) {
+        if (sTracker == null) {
+            GoogleAnalytics analytics = GoogleAnalytics.getInstance(context.getApplicationContext());
+            sTracker = analytics.newTracker(R.xml.google_analytics);
+            sTracker.enableAutoActivityTracking(true);
+        }
+        return sTracker;
     }
 
     /**
      * Send an exception to Google Analytics, if the user hasn't opted out.
      *
-     * @param context The {@link Context}
+     * @param context     The {@link Context}
      * @param description The description of the occurred {@link Exception}
-     * @param fatal true if the {@link Exception} was fatal, false otherwise
+     * @param fatal       true if the {@link Exception} was fatal, false otherwise
      */
     public static void sendException(Context context, String description, boolean fatal) {
-        EasyTracker exceptionTracker = EasyTracker.getInstance(context);
-        exceptionTracker.send(
-                MapBuilder.createException(description, fatal).build());
+        Tracker tracker = getTracker(context);
+        tracker.send(new HitBuilders.ExceptionBuilder()
+                .setDescription(description)
+                .setFatal(fatal)
+                .build());
     }
 
     /**
      * Send the preference change to Google Analytics, if the user has chosen to do so.
      * It also sets the Google Analytics optout option, if the changed preference is ANALYTICS.
      *
-     * @param context The {@link Context}
+     * @param context       The {@link Context}
      * @param preferenceKey The key of the changed preference
-     * @param value The new value for the changed preference
+     * @param value         The new value for the changed preference
      */
     public static void preferenceChange(Context context, String preferenceKey, Long value) {
         GoogleAnalytics analytics = GoogleAnalytics.getInstance(context);
@@ -87,12 +88,14 @@ public class TrackerHelper {
         }
 
         if (track) {
-            EasyTracker.getInstance(context).send(MapBuilder.createEvent(
-                    Const.Preferences.PREFERENCE, Const.Preferences.CHANGE, preferenceKey, value
-            ).build());
+            Tracker tracker = getTracker(context);
+            Map<String, String> event = new HitBuilders.EventBuilder(Const.Preferences.PREFERENCE, Const.Preferences.CHANGE)
+                    .setLabel(preferenceKey)
+                    .setValue(value)
+                    .build();
+            tracker.send(event);
             FLog.d(context, TAG, "Tracked preference changed event");
-        }
-        else {
+        } else {
             FLog.d(context, TAG, "Could not track preference changed event, analytics is disabled by user");
         }
     }

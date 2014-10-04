@@ -9,6 +9,6 @@ local.properties
 out/
 gen/
 FWeather/src/main/res/values/api_keys.xml
-FWeather/src/main/res/values/analytics.xml
+FWeather/src/main/res/xml/google_analytics.xml
 license/node_modules/
 /build/
