@@ -113,7 +113,9 @@ public class UpdaterService extends IntentService {
 
         if (forced) {
             FLog.i(this, TAG, "User has requested a forced update");
-            TrackerHelper.sendEvent(this, "forced_refresh");
+            TrackerHelper.sendEvent(this,
+                    TrackerHelper.CATEGORY_UPDATE, TrackerHelper.ACTION_DATA_REFRESH, TrackerHelper.LABEL_FORCE_REFRESH);
+
             // Show a toast message
             mHandler.post(new Runnable() {
                 @Override
@@ -389,8 +391,7 @@ public class UpdaterService extends IntentService {
 
         try {
             return Integer.parseInt(prefVal);
-        }
-        catch (NumberFormatException e) {
+        } catch (NumberFormatException e) {
             if (!defaultVal.equals(prefVal)) {
                 FLog.w(TAG, "Invalid preference value for UI BG opacity, defaulting to 0: " + prefVal, e);
             }

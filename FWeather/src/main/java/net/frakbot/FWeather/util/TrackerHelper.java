@@ -40,6 +40,10 @@ public class TrackerHelper {
 
     private static final String TAG = TrackerHelper.class.getSimpleName();
 
+    public static final String CATEGORY_UPDATE = "update";
+    public static final String ACTION_DATA_REFRESH = "data_refresh";
+    public static final String LABEL_FORCE_REFRESH = "force_refresh";
+
     private static Tracker sTracker;
 
     private static synchronized Tracker getTracker(Context context) {
@@ -67,14 +71,14 @@ public class TrackerHelper {
     }
 
     /**
-     * Send an exception to Google Analytics, if the user hasn't opted out.
+     * Send an event to Google Analytics, if the user hasn't opted out.
      *
      * @param context The {@link Context}
      * @param label   The label for the event
      */
-    public static void sendEvent(Context context, String label) {
+    public static void sendEvent(Context context, String category, String action, String label) {
         Tracker tracker = getTracker(context);
-        tracker.send(new HitBuilders.EventBuilder()
+        tracker.send(new HitBuilders.EventBuilder(category, action)
                 .setLabel(label)
                 .build());
     }
