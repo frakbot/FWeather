@@ -13,12 +13,17 @@
   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
--->
-<resources>
-
-    <string name="app_name">FWeather Wear</string>
-    <string name="hello">Hello World!</string>
-    <string name="title">Hello Notification!</string>
-    <string name="notification_posted">Notification posted</string>
-
-</resources>
+  -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context="net.frakbot.fweather.wear.WeatherActivity"
+              tools:deviceIds="wear">
+<TextView
+    android:id="@+id/text"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/hello" />
+</LinearLayout>
