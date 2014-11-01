@@ -99,7 +99,7 @@ public class WeatherActivity extends Activity {
         String imagePath = intent.getStringExtra(EXTRA_IMAGE);
         int accentColor = intent.getIntExtra(EXTRA_ACCENT_COLOR, 0);
 
-       weatherUpdate = new WeatherUpdate(primary, secondary, imagePath, accentColor);
+        weatherUpdate = new WeatherUpdate(primary, secondary, imagePath, accentColor);
     }
 
 }
