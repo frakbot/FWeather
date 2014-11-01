@@ -16,18 +16,33 @@
 package net.frakbot.fweather.wear;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.TextView;
-
+import android.support.wearable.view.CardScrollView;
+import android.view.Gravity;
 
 public class WeatherActivity extends Activity {
 
-    private TextView mTextView;
+    public static final String EXTRA_PRIMARY_TEXT = "important_shit";
+    public static final String EXTRA_SECONDARY_TEXT = "other_stuff";
+    public static final String EXTRA_IMAGE = "dem_pixels";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
-        mTextView = (TextView) findViewById(R.id.text);
+
+        CardScrollView cardScrollView = (CardScrollView) findViewById(R.id.card_scroll_view);
+        cardScrollView.setCardGravity(Gravity.BOTTOM);
+
     }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+
+
+    }
+
 }

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright 2014 Sebastiano Poggi and Francesco Pontillo
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,46 +14,47 @@
   ~ limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="net.frakbot.fweather.wear" >
+  package="net.frakbot.fweather.wear">
 
-    <uses-feature android:name="android.hardware.type.watch" />
+  <uses-feature android:name="android.hardware.type.watch" />
 
-    <application
-        android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
-        android:theme="@android:style/Theme.DeviceDefault" >
-        <activity
-            android:name=".WeatherBroadcastActivity"
-            android:label="WeatherBroadcastActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+  <application
+    android:allowBackup="true"
+    android:icon="@drawable/ic_launcher"
+    android:label="@string/app_name"
+    android:theme="@android:style/Theme.DeviceDefault">
+    <activity
+      android:name=".WeatherBroadcastActivity"
+      android:label="WeatherBroadcastActivity">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".WeatherActivity"
-            android:allowEmbedded="true"
-            android:exported="true"
-            android:taskAffinity=""
-            android:theme="@android:style/Theme.DeviceDefault.Light" >
-        </activity>
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
 
-        <receiver
-            android:name=".WeatherNotificationReceiver"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="net.frakbot.fweather.wear.SHOW_NOTIFICATION" />
-            </intent-filter>
-        </receiver>
+    <activity
+      android:name=".WeatherActivity"
+      android:allowEmbedded="true"
+      android:exported="true"
+      android:taskAffinity=""
+      android:launchMode="singleTop"
+      android:theme="@android:style/Theme.DeviceDefault.Light" />
 
-        <service android:name=".WearService">
-          <intent-filter>
-            <action android:name="com.google.android.gms.wearable.BIND_LISTENER" />
-          </intent-filter>
-        </service>
+    <receiver
+      android:name=".WeatherNotificationReceiver"
+      android:exported="true">
+      <intent-filter>
+        <action android:name="net.frakbot.fweather.wear.SHOW_NOTIFICATION" />
+      </intent-filter>
+    </receiver>
 
-    </application>
+    <service android:name=".WearService">
+      <intent-filter>
+        <action android:name="com.google.android.gms.wearable.BIND_LISTENER" />
+      </intent-filter>
+    </service>
+
+  </application>
 
 </manifest>
