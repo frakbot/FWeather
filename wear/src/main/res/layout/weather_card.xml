@@ -12,7 +12,8 @@
 
     <android.support.wearable.view.CardFrame
       android:layout_height="wrap_content"
-      android:layout_width="fill_parent">
+      android:layout_width="fill_parent"
+      app:layout_box="bottom">
 
       <RelativeLayout
         android:layout_height="wrap_content"

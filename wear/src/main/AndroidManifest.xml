@@ -23,15 +23,10 @@
     android:icon="@drawable/ic_launcher"
     android:label="@string/app_name"
     android:theme="@android:style/Theme.DeviceDefault">
-    <activity
-      android:name=".WeatherBroadcastActivity"
-      android:label="WeatherBroadcastActivity">
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
 
-        <category android:name="android.intent.category.LAUNCHER" />
-      </intent-filter>
-    </activity>
+    <meta-data
+      android:name="com.google.android.gms.version"
+      android:value="@integer/google_play_services_version" />
 
     <activity
       android:name=".WeatherActivity"
@@ -39,15 +34,16 @@
       android:exported="true"
       android:taskAffinity=""
       android:launchMode="singleTop"
-      android:theme="@android:style/Theme.DeviceDefault.Light" />
+      android:theme="@android:style/Theme.DeviceDefault.Light">
 
-    <receiver
-      android:name=".WeatherNotificationReceiver"
-      android:exported="true">
       <intent-filter>
-        <action android:name="net.frakbot.fweather.wear.SHOW_NOTIFICATION" />
+        <action android:name="android.intent.action.MAIN" />
+
+        <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
-    </receiver>
+    </activity>
+
+    <activity android:name="android.support.wearable.activity.ConfirmationActivity" />
 
     <service android:name=".WearService">
       <intent-filter>

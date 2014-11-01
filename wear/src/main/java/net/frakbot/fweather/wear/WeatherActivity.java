@@ -65,6 +65,11 @@ public class WeatherActivity extends Activity implements ShareFragment.OnShareCl
 
         mTeleportClient = new TeleportClient(this);
 
+        weatherUpdate = new WeatherUpdate(EXTRA_PRIMARY_TEXT,
+                EXTRA_SECONDARY_TEXT,
+                "android.resource://net.frakbot.fweather.wear/" + R.drawable.powered_by_google_dark,
+                0);
+
         weatherPager = (GridViewPager) findViewById(R.id.pager);
         weatherPager.setAdapter(new TransactionPagerAdapter(getFragmentManager()));
     }

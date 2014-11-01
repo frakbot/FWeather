@@ -33,12 +33,6 @@ import net.frakbot.fweather.wear.R;
 
 public class ShareFragment extends Fragment implements View.OnClickListener, View.OnTouchListener {
 
-    private static final String ACTION_INTENT = "ACTION_INTENT";
-    private static final String ICON_RESOURCE = "ICON_RESOURCE";
-    private static final String ACTION_LABEL = "ACTION_LABEL";
-    private Intent actionIntent;
-    private int iconResource;
-    private String actionLabel;
     private View rootView;
     private OnShareClickListener shareClickListener;
 
@@ -52,28 +46,17 @@ public class ShareFragment extends Fragment implements View.OnClickListener, Vie
         shareClickListener = (OnShareClickListener) getActivity();
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        actionIntent = getArguments().getParcelable(ACTION_INTENT);
-        iconResource = getArguments().getInt(ICON_RESOURCE);
-        actionLabel = getArguments().getString(ACTION_LABEL);
-        if (actionLabel == null) {
-            actionLabel = getString(android.R.string.ok);
-        }
-    }
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_share, null);
 
         ImageButton iconView = (ImageButton) rootView.findViewById(R.id.action_icon);
-        iconView.setImageResource(iconResource);
+        iconView.setImageResource(R.drawable.ic_full_cancel);
         iconView.setOnClickListener(this);
         iconView.setOnTouchListener(this);
         TextView textView = (TextView) rootView.findViewById(R.id.action_label);
-        textView.setText(actionLabel);
+        textView.setText("Share");
         return rootView;
     }
 
