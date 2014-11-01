@@ -24,17 +24,21 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import net.frakbot.fweather.wear.stuff.image.magic.wellnotreally.ImageMagician;
+
 public class WeatherActivity extends Activity {
 
     public static final String EXTRA_PRIMARY_TEXT = "important_shit";
     public static final String EXTRA_SECONDARY_TEXT = "other_stuff";
     public static final String EXTRA_IMAGE = "dem_pixels";
     public static final String EXTRA_ACCENT_COLOR = "i_see_all_the_colors_accentuated";
+    public static final String EXTRA_UNNECESSARY_EXTRA = "nobody_uses_me_#sadface";
 
     private TextView mPrimary;
     private TextView mSecondary;
     private ImageView mImage;
     private CardScrollView cardScrollView;
+    private ImageMagician imageMagician;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +51,8 @@ public class WeatherActivity extends Activity {
         mPrimary = (TextView) findViewById(R.id.weather_title);
         mSecondary = (TextView) findViewById(R.id.weather_description);
         mImage = (ImageView) findViewById(R.id.weather_src);
+
+        imageMagician = new ImageMagician();
     }
 
     @Override
@@ -71,7 +77,7 @@ public class WeatherActivity extends Activity {
             mSecondary.setVisibility(View.GONE);
         }
 
-        mImage.setImageBitmap(ImageMagician.loadStuffFrom(imagePath));
+        mImage.setImageBitmap(imageMagician.loadStuffFrom(imagePath));
         mPrimary.setText(primary);
         cardScrollView.setBackgroundColor(accentColor);
     }
