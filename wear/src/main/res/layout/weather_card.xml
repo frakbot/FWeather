@@ -1,0 +1,53 @@
+<android.support.wearable.view.BoxInsetLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_height="match_parent"
+  android:layout_width="match_parent">
+
+  <android.support.wearable.view.CardScrollView
+    android:id="@+id/card_scroll_view"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    app:layout_box="bottom">
+
+    <android.support.wearable.view.CardFrame
+      android:layout_height="wrap_content"
+      android:layout_width="fill_parent">
+
+      <RelativeLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <ImageView
+          android:id="@+id/weather_src"
+          android:layout_alignParentTop="true"
+          android:layout_alignParentRight="true"
+          tools:background="@android:drawable/ic_delete"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content" />
+
+        <TextView
+          android:id="@+id/weather_title"
+          android:fontFamily="sans-serif-light"
+          android:layout_height="wrap_content"
+          android:layout_width="match_parent"
+          android:text="Title"
+          android:textColor="@color/black"
+          android:textSize="20sp" />
+
+        <TextView
+          android:id="@+id/weather_description"
+          android:fontFamily="sans-serif-light"
+          android:layout_height="wrap_content"
+          android:layout_width="match_parent"
+          android:text="Description"
+          android:textColor="@color/black"
+          android:layout_below="@id/weather_title"
+          android:textSize="14sp" />
+
+      </RelativeLayout>
+    </android.support.wearable.view.CardFrame>
+  </android.support.wearable.view.CardScrollView>
+</android.support.wearable.view.BoxInsetLayout>

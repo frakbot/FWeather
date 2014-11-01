@@ -16,13 +16,22 @@
 package net.frakbot.fweather.wear;
 
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.wearable.view.CardFragment;
 import android.support.wearable.view.CardScrollView;
+import android.support.wearable.view.FragmentGridPagerAdapter;
+import android.support.wearable.view.GridViewPager;
+import android.support.wearable.view.ImageReference;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import net.frakbot.fweather.wear.fragments.ShareFragment;
+import net.frakbot.fweather.wear.fragments.WeatherFragment;
 
 public class WeatherActivity extends Activity {
 
@@ -31,22 +40,56 @@ public class WeatherActivity extends Activity {
     public static final String EXTRA_IMAGE = "dem_pixels";
     public static final String EXTRA_ACCENT_COLOR = "i_see_all_the_colors_accentuated";
 
-    private TextView mPrimary;
-    private TextView mSecondary;
-    private ImageView mImage;
-    private CardScrollView cardScrollView;
+    private GridViewPager weatherPager;
+    private WeatherUpdate weatherUpdate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
 
-        cardScrollView = (CardScrollView) findViewById(R.id.card_scroll_view);
-        cardScrollView.setCardGravity(Gravity.BOTTOM);
+        weatherPager = (GridViewPager) findViewById(R.id.pager);
+        weatherPager.setAdapter(new TransactionPagerAdapter(getFragmentManager()));
+    }
 
-        mPrimary = (TextView) findViewById(R.id.weather_title);
-        mSecondary = (TextView) findViewById(R.id.weather_description);
-        mImage = (ImageView) findViewById(R.id.weather_src);
+    private class TransactionPagerAdapter extends FragmentGridPagerAdapter {
+
+        public TransactionPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public int getColumnCount(int row) {
+            return 2;
+        }
+
+        @Override
+        public int getRowCount() {
+            return 1;
+        }
+
+        @Override
+        public Fragment getFragment(int row, int col) {
+            if (col == 0) {
+                CardFragment fragment = WeatherFragment.create(weatherUpdate);
+                return fragment;
+            } else {
+                Fragment fragment = ShareFragment.newInstance(createAppIntent());
+                return fragment;
+            }
+        }
+
+        @Override
+        public ImageReference getBackground(int row, int column) {
+            return ImageMagicion.createColorImage(weatherUpdate.getAccentColor());
+        }
+
+    }
+
+    private Intent createAppIntent() {
+        Intent intent = new Intent(this, WearP2PService.class);
+        intent.setAction(Constants.ACTION_OPEN_MOBILE_APP);
+        return intent;
     }
 
     @Override
@@ -55,25 +98,10 @@ public class WeatherActivity extends Activity {
 
         CharSequence primary = intent.getCharSequenceExtra(EXTRA_PRIMARY_TEXT);
         CharSequence secondary = intent.getCharSequenceExtra(EXTRA_SECONDARY_TEXT);
-        String imagePath  = intent.getStringExtra(EXTRA_IMAGE);
-        int accentColor  = intent.getIntExtra(EXTRA_ACCENT_COLOR, 0);
+        String imagePath = intent.getStringExtra(EXTRA_IMAGE);
+        int accentColor = intent.getIntExtra(EXTRA_ACCENT_COLOR, 0);
 
-        updateUI(primary, secondary, imagePath, accentColor);
-    }
-
-    private void updateUI(CharSequence primary, CharSequence secondary, String imagePath, int accentColor) {
-        mPrimary.setText(primary);
-
-        if (secondary != null) {
-            mSecondary.setText(secondary);
-            mSecondary.setVisibility(View.VISIBLE);
-        } else {
-            mSecondary.setVisibility(View.GONE);
-        }
-
-        mImage.setImageBitmap(ImageMagician.loadStuffFrom(imagePath));
-        mPrimary.setText(primary);
-        cardScrollView.setBackgroundColor(accentColor);
+        weatherUpdate = new WeatherUpdate(primary, secondary, imagePath, accentColor);
     }
 
 }
