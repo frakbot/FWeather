@@ -17,8 +17,6 @@
 <resources>
 
     <string name="app_name">FWeather Wear</string>
-    <string name="hello">Hello World!</string>
-    <string name="title">Hello Notification!</string>
-    <string name="notification_posted">Notification posted</string>
+    <string name="voice_command">Showing the Fucking Weather</string>
 
 </resources>

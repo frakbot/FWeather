@@ -23,7 +23,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.wearable.activity.ConfirmationActivity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -31,7 +30,7 @@ import android.widget.TextView;
 
 import net.frakbot.fweather.wear.R;
 
-public class ShareFragment extends Fragment implements View.OnClickListener, View.OnTouchListener {
+public class ShareFragment extends Fragment implements View.OnClickListener {
 
     private View rootView;
     private OnShareClickListener shareClickListener;
@@ -52,9 +51,7 @@ public class ShareFragment extends Fragment implements View.OnClickListener, Vie
         rootView = inflater.inflate(R.layout.fragment_share, null);
 
         ImageButton iconView = (ImageButton) rootView.findViewById(R.id.action_icon);
-        iconView.setImageResource(R.drawable.ic_full_cancel);
         iconView.setOnClickListener(this);
-        iconView.setOnTouchListener(this);
         TextView textView = (TextView) rootView.findViewById(R.id.action_label);
         textView.setText("Share");
         return rootView;
@@ -74,13 +71,4 @@ public class ShareFragment extends Fragment implements View.OnClickListener, Vie
         activity.startActivity(intent, options);
     }
 
-    @Override
-    public boolean onTouch(View v, MotionEvent event) {
-        if (event.getAction() == MotionEvent.ACTION_DOWN) {
-            rootView.setBackgroundResource(android.R.color.black);
-        } else if (event.getAction() == MotionEvent.ACTION_UP || event.getAction() == MotionEvent.ACTION_CANCEL) {
-            rootView.setBackgroundResource(android.R.color.transparent);
-        }
-        return false;
-    }
 }

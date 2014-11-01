@@ -8,12 +8,12 @@
     android:id="@+id/card_scroll_view"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    app:layout_box="bottom">
+    app:layout_box="all">
 
     <android.support.wearable.view.CardFrame
       android:layout_height="wrap_content"
       android:layout_width="fill_parent"
-      app:layout_box="bottom">
+      app:layout_box="all">
 
       <RelativeLayout
         android:layout_height="wrap_content"
@@ -27,7 +27,8 @@
           android:layout_alignParentRight="true"
           tools:background="@android:drawable/ic_delete"
           android:layout_width="wrap_content"
-          android:layout_height="wrap_content" />
+          android:layout_height="wrap_content"
+          app:layout_box="bottom" />
 
         <TextView
           android:id="@+id/weather_title"

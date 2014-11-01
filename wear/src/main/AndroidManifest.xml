@@ -30,6 +30,7 @@
 
     <activity
       android:name=".WeatherActivity"
+      android:label="@string/voice_command"
       android:allowEmbedded="true"
       android:exported="true"
       android:taskAffinity=""

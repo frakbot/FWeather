@@ -70,7 +70,7 @@ public class WeatherActivity extends Activity implements ShareFragment.OnShareCl
                 "android.resource://net.frakbot.fweather.wear/" + R.drawable.powered_by_google_dark,
                 0);
 
-        weatherPager = (GridViewPager) findViewById(R.id.pager);
+        weatherPager = (GridViewPager) findViewById(R.id.weather_pager);
         weatherPager.setAdapter(new TransactionPagerAdapter(getFragmentManager()));
     }
 

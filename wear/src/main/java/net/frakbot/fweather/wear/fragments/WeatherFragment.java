@@ -18,7 +18,6 @@ package net.frakbot.fweather.wear.fragments;
 import android.os.Bundle;
 import android.support.wearable.view.CardFragment;
 import android.support.wearable.view.CardScrollView;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,8 +62,6 @@ public class WeatherFragment extends CardFragment {
         View v = inflater.inflate(R.layout.weather_card, null);
 
         cardScrollView = (CardScrollView) v.findViewById(R.id.card_scroll_view);
-        cardScrollView.setCardGravity(Gravity.BOTTOM);
-
         mPrimary = (TextView) v.findViewById(R.id.weather_title);
         mSecondary = (TextView) v.findViewById(R.id.weather_description);
         mImage = (ImageView) v.findViewById(R.id.weather_src);
