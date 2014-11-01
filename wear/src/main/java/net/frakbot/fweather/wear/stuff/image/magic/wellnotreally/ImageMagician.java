@@ -17,11 +17,15 @@ package net.frakbot.fweather.wear.stuff.image.magic.wellnotreally;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
 
 /**
  * Totally unnecessary class. I just wanted to have some magic going on here.
  */
 public class ImageMagician {
+
+    public static final int COLOR_IMAGE_SIZE_PX = 64;
 
     public Bitmap loadStuffFrom(String imagePath) {
         BitmapFactory.Options prettyPlease = createBitmapOptions();
@@ -30,6 +34,22 @@ public class ImageMagician {
 
     private BitmapFactory.Options createBitmapOptions() {
         return new BitmapFactory.Options();
+    }
+
+    public Bitmap createColorImage(int color) {
+        Bitmap.Config config = createBitmapConfigToFightTheSystem();
+        Bitmap idowhutiwant = Bitmap.createBitmap(COLOR_IMAGE_SIZE_PX, COLOR_IMAGE_SIZE_PX, config);
+        paintBitmapWithColor(idowhutiwant, color);
+        return idowhutiwant;
+    }
+
+    private Bitmap.Config createBitmapConfigToFightTheSystem() {
+        return Bitmap.Config.ARGB_8888;
+    }
+
+    private void paintBitmapWithColor(Bitmap bitmap, int color) {
+        Canvas canovasso = new Canvas(bitmap);
+        canovasso.drawARGB(Color.alpha(color), Color.red(color), Color.green(color), Color.blue(color));
     }
 
 }
