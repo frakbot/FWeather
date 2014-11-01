@@ -28,6 +28,7 @@ import android.widget.TextView;
 import net.frakbot.fweather.wear.R;
 import net.frakbot.fweather.wear.WeatherActivity;
 import net.frakbot.fweather.wear.WeatherUpdate;
+import net.frakbot.fweather.wear.stuff.image.magic.wellnotreally.ImageMagician;
 
 public class WeatherFragment extends CardFragment {
 
@@ -35,6 +36,8 @@ public class WeatherFragment extends CardFragment {
     private TextView mSecondary;
     private ImageView mImage;
     private CardScrollView cardScrollView;
+
+    private ImageMagician imageMagician;
 
     public static WeatherFragment create(WeatherUpdate weatherUpdate) {
         WeatherFragment fragment = new WeatherFragment();
@@ -46,6 +49,13 @@ public class WeatherFragment extends CardFragment {
         fragment.setArguments(bundle);
 
         return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        imageMagician = new ImageMagician();
     }
 
     @Override
@@ -74,7 +84,7 @@ public class WeatherFragment extends CardFragment {
             mSecondary.setVisibility(View.GONE);
         }
 
-        mImage.setImageBitmap(ImageMagician.loadStuffFrom(imagePath));
+        mImage.setImageBitmap(imageMagician.loadStuffFrom(imagePath));
         mPrimary.setText(primary);
         cardScrollView.setBackgroundColor(accentColor);
     }

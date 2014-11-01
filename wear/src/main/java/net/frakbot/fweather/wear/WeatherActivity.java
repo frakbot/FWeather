@@ -21,17 +21,15 @@ import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.wearable.view.CardFragment;
-import android.support.wearable.view.CardScrollView;
 import android.support.wearable.view.FragmentGridPagerAdapter;
 import android.support.wearable.view.GridViewPager;
 import android.support.wearable.view.ImageReference;
-import android.view.Gravity;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import net.frakbot.fweather.wear.fragments.ShareFragment;
 import net.frakbot.fweather.wear.fragments.WeatherFragment;
+import net.frakbot.fweather.wear.stuff.image.magic.wellnotreally.ImageMagician;
 
 public class WeatherActivity extends Activity {
 
@@ -39,6 +37,7 @@ public class WeatherActivity extends Activity {
     public static final String EXTRA_SECONDARY_TEXT = "other_stuff";
     public static final String EXTRA_IMAGE = "dem_pixels";
     public static final String EXTRA_ACCENT_COLOR = "i_see_all_the_colors_accentuated";
+    public static final String EXTRA_UNNECESSARY_EXTRA = "nobody_uses_me_#sadface";
 
     private GridViewPager weatherPager;
     private WeatherUpdate weatherUpdate;
@@ -101,7 +100,7 @@ public class WeatherActivity extends Activity {
         String imagePath = intent.getStringExtra(EXTRA_IMAGE);
         int accentColor = intent.getIntExtra(EXTRA_ACCENT_COLOR, 0);
 
-        weatherUpdate = new WeatherUpdate(primary, secondary, imagePath, accentColor);
+       weatherUpdate = new WeatherUpdate(primary, secondary, imagePath, accentColor);
     }
 
 }
