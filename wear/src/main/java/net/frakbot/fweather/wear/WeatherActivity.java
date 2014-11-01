@@ -19,14 +19,13 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.wearable.view.CardFragment;
 import android.support.wearable.view.FragmentGridPagerAdapter;
 import android.support.wearable.view.GridViewPager;
 import android.support.wearable.view.ImageReference;
-import android.widget.Toast;
 
-import com.google.android.gms.wearable.DataMap;
 import com.mariux.teleport.lib.TeleportClient;
 
 import net.frakbot.fweather.wear.fragments.ShareFragment;
@@ -116,8 +115,15 @@ public class WeatherActivity extends Activity implements ShareFragment.OnShareCl
 
         @Override
         public ImageReference getBackground(int row, int column) {
+            Bitmap colorImage = createColorImageForBackground();
+            return ImageReference.forBitmap(colorImage);
+        }
+
+        private Bitmap createColorImageForBackground() {
             return ImageMagician.createColorImage(weatherUpdate.getAccentColor());
         }
 
     }
+
 }
+

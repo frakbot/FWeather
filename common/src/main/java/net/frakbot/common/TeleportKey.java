@@ -13,7 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package net.frakbot.common;
 
-
-
-include ':FWeather', ':WeatherProvider', ':wear', ':common'
+public class TeleportKey {
+    public static String MAIN_TEXT_ID = "FWEATHER_TELEPORT_MAIN_TEXT_ID";
+    public static String SECONDARY_TEXT_ID = "FWEATHER_TELEPORT_SECONDARY_TEXT_ID";
+    public static String COLOR_TEXT_ID = "FWEATHER_TELEPORT_COLOR_TEXT_ID";
+    public static String WEATHER_IMAGE_ID = "FWEATHER_TELEPORT_WEATHER_IMAGE_ID";
+}

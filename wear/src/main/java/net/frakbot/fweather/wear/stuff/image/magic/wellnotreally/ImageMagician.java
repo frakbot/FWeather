@@ -27,27 +27,27 @@ public class ImageMagician {
 
     public static final int COLOR_IMAGE_SIZE_PX = 64;
 
-    public Bitmap loadStuffFrom(String imagePath) {
+    public static Bitmap loadStuffFrom(String imagePath) {
         BitmapFactory.Options prettyPlease = createBitmapOptions();
         return BitmapFactory.decodeFile(imagePath, prettyPlease);
     }
 
-    private BitmapFactory.Options createBitmapOptions() {
+    private static BitmapFactory.Options createBitmapOptions() {
         return new BitmapFactory.Options();
     }
 
-    public Bitmap createColorImage(int color) {
+    public static Bitmap createColorImage(int color) {
         Bitmap.Config config = createBitmapConfigToFightTheSystem();
         Bitmap idowhutiwant = Bitmap.createBitmap(COLOR_IMAGE_SIZE_PX, COLOR_IMAGE_SIZE_PX, config);
         paintBitmapWithColor(idowhutiwant, color);
         return idowhutiwant;
     }
 
-    private Bitmap.Config createBitmapConfigToFightTheSystem() {
+    private static Bitmap.Config createBitmapConfigToFightTheSystem() {
         return Bitmap.Config.ARGB_8888;
     }
 
-    private void paintBitmapWithColor(Bitmap bitmap, int color) {
+    private static void paintBitmapWithColor(Bitmap bitmap, int color) {
         Canvas canovasso = new Canvas(bitmap);
         canovasso.drawARGB(Color.alpha(color), Color.red(color), Color.green(color), Color.blue(color));
     }
