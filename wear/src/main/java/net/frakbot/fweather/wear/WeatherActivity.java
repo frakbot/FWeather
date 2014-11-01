@@ -24,11 +24,10 @@ import android.support.wearable.view.CardFragment;
 import android.support.wearable.view.FragmentGridPagerAdapter;
 import android.support.wearable.view.GridViewPager;
 import android.support.wearable.view.ImageReference;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import net.frakbot.fweather.wear.fragments.ShareFragment;
 import net.frakbot.fweather.wear.fragments.WeatherFragment;
+import net.frakbot.fweather.wear.model.WeatherUpdate;
 import net.frakbot.fweather.wear.stuff.image.magic.wellnotreally.ImageMagician;
 
 public class WeatherActivity extends Activity {
@@ -80,7 +79,7 @@ public class WeatherActivity extends Activity {
 
         @Override
         public ImageReference getBackground(int row, int column) {
-            return ImageMagicion.createColorImage(weatherUpdate.getAccentColor());
+            return ImageMagician.createColorImage(weatherUpdate.getAccentColor());
         }
 
     }

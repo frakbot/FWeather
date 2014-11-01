@@ -27,7 +27,7 @@ import android.widget.TextView;
 
 import net.frakbot.fweather.wear.R;
 import net.frakbot.fweather.wear.WeatherActivity;
-import net.frakbot.fweather.wear.WeatherUpdate;
+import net.frakbot.fweather.wear.model.WeatherUpdate;
 import net.frakbot.fweather.wear.stuff.image.magic.wellnotreally.ImageMagician;
 
 public class WeatherFragment extends CardFragment {
