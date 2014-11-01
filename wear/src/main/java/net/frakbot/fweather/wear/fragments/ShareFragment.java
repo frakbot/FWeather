@@ -15,6 +15,7 @@
  */
 package net.frakbot.fweather.wear.fragments;
 
+import android.app.Activity;
 import android.app.ActivityOptions;
 import android.app.Fragment;
 import android.content.Intent;
@@ -39,13 +40,16 @@ public class ShareFragment extends Fragment implements View.OnClickListener, Vie
     private int iconResource;
     private String actionLabel;
     private View rootView;
+    private OnShareClickListener shareClickListener;
 
-    public static Fragment newInstance(Intent actionIntent) {
-        Fragment fragment = new ShareFragment();
-        Bundle bundle = new Bundle();
-        bundle.putParcelable(ACTION_INTENT, actionIntent);
-        fragment.setArguments(bundle);
-        return fragment;
+    public interface OnShareClickListener{
+        void onShareSelected();
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        shareClickListener = (OnShareClickListener) getActivity();
     }
 
     @Override
@@ -75,18 +79,16 @@ public class ShareFragment extends Fragment implements View.OnClickListener, Vie
 
     @Override
     public void onClick(View v) {
-        if (actionIntent != null) {
-            getActivity().startService(actionIntent);
-            showConfirmation();
-            getActivity().finish();
-        }
+        shareClickListener.onShareSelected();
+        showConfirmation();
     }
 
     private void showConfirmation() {
-        Intent intent = new Intent(getActivity(), ConfirmationActivity.class);
+        Activity activity = getActivity();
+        Intent intent = new Intent(activity, ConfirmationActivity.class);
         intent.putExtra(ConfirmationActivity.EXTRA_ANIMATION_TYPE, ConfirmationActivity.SUCCESS_ANIMATION);
-        Bundle options = ActivityOptions.makeCustomAnimation(getActivity(), 0, 0).toBundle();
-        getActivity().startActivity(intent, options);
+        Bundle options = ActivityOptions.makeCustomAnimation(activity, 0, 0).toBundle();
+        activity.startActivity(intent, options);
     }
 
     @Override

@@ -24,30 +24,68 @@ import android.support.wearable.view.CardFragment;
 import android.support.wearable.view.FragmentGridPagerAdapter;
 import android.support.wearable.view.GridViewPager;
 import android.support.wearable.view.ImageReference;
+import android.widget.Toast;
+
+import com.google.android.gms.wearable.DataMap;
+import com.mariux.teleport.lib.TeleportClient;
 
 import net.frakbot.fweather.wear.fragments.ShareFragment;
 import net.frakbot.fweather.wear.fragments.WeatherFragment;
 import net.frakbot.fweather.wear.model.WeatherUpdate;
 import net.frakbot.fweather.wear.stuff.image.magic.wellnotreally.ImageMagician;
 
-public class WeatherActivity extends Activity {
+public class WeatherActivity extends Activity implements ShareFragment.OnShareClickListener {
 
     public static final String EXTRA_PRIMARY_TEXT = "important_shit";
     public static final String EXTRA_SECONDARY_TEXT = "other_stuff";
     public static final String EXTRA_IMAGE = "dem_pixels";
     public static final String EXTRA_ACCENT_COLOR = "i_see_all_the_colors_accentuated";
     public static final String EXTRA_UNNECESSARY_EXTRA = "nobody_uses_me_#sadface";
+    public static final String EXTRA_SHARE_EXTRA = "share_the_fucking_shit";
 
     private GridViewPager weatherPager;
     private WeatherUpdate weatherUpdate;
+    private TeleportClient mTeleportClient;
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+
+        CharSequence primary = intent.getCharSequenceExtra(EXTRA_PRIMARY_TEXT);
+        CharSequence secondary = intent.getCharSequenceExtra(EXTRA_SECONDARY_TEXT);
+        String imagePath = intent.getStringExtra(EXTRA_IMAGE);
+        int accentColor = intent.getIntExtra(EXTRA_ACCENT_COLOR, 0);
+
+        weatherUpdate = new WeatherUpdate(primary, secondary, imagePath, accentColor);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
 
+        mTeleportClient = new TeleportClient(this);
+
         weatherPager = (GridViewPager) findViewById(R.id.pager);
         weatherPager.setAdapter(new TransactionPagerAdapter(getFragmentManager()));
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mTeleportClient.connect();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mTeleportClient.disconnect();
+    }
+
+    @Override
+    public void onShareSelected() {
+        mTeleportClient.sendMessage(EXTRA_SHARE_EXTRA, null);
+        weatherPager.setCurrentItem(0, 0);
     }
 
     private class TransactionPagerAdapter extends FragmentGridPagerAdapter {
@@ -72,8 +110,7 @@ public class WeatherActivity extends Activity {
                 CardFragment fragment = WeatherFragment.create(weatherUpdate);
                 return fragment;
             } else {
-                Fragment fragment = ShareFragment.newInstance(createAppIntent());
-                return fragment;
+                return new ShareFragment();
             }
         }
 
@@ -83,23 +120,4 @@ public class WeatherActivity extends Activity {
         }
 
     }
-
-    private Intent createAppIntent() {
-        Intent intent = new Intent(this, WearP2PService.class);
-        intent.setAction(Constants.ACTION_OPEN_MOBILE_APP);
-        return intent;
-    }
-
-    @Override
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-
-        CharSequence primary = intent.getCharSequenceExtra(EXTRA_PRIMARY_TEXT);
-        CharSequence secondary = intent.getCharSequenceExtra(EXTRA_SECONDARY_TEXT);
-        String imagePath = intent.getStringExtra(EXTRA_IMAGE);
-        int accentColor = intent.getIntExtra(EXTRA_ACCENT_COLOR, 0);
-
-       weatherUpdate = new WeatherUpdate(primary, secondary, imagePath, accentColor);
-    }
-
 }
