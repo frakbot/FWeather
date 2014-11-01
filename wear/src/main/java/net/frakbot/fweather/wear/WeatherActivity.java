@@ -20,29 +20,60 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.wearable.view.CardScrollView;
 import android.view.Gravity;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class WeatherActivity extends Activity {
 
     public static final String EXTRA_PRIMARY_TEXT = "important_shit";
     public static final String EXTRA_SECONDARY_TEXT = "other_stuff";
     public static final String EXTRA_IMAGE = "dem_pixels";
+    public static final String EXTRA_ACCENT_COLOR = "i_see_all_the_colors_accentuated";
 
+    private TextView mPrimary;
+    private TextView mSecondary;
+    private ImageView mImage;
+    private CardScrollView cardScrollView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
 
-        CardScrollView cardScrollView = (CardScrollView) findViewById(R.id.card_scroll_view);
+        cardScrollView = (CardScrollView) findViewById(R.id.card_scroll_view);
         cardScrollView.setCardGravity(Gravity.BOTTOM);
 
+        mPrimary = (TextView) findViewById(R.id.weather_title);
+        mSecondary = (TextView) findViewById(R.id.weather_description);
+        mImage = (ImageView) findViewById(R.id.weather_src);
     }
 
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
 
+        CharSequence primary = intent.getCharSequenceExtra(EXTRA_PRIMARY_TEXT);
+        CharSequence secondary = intent.getCharSequenceExtra(EXTRA_SECONDARY_TEXT);
+        String imagePath  = intent.getStringExtra(EXTRA_IMAGE);
+        int accentColor  = intent.getIntExtra(EXTRA_ACCENT_COLOR, 0);
 
+        updateUI(primary, secondary, imagePath, accentColor);
+    }
+
+    private void updateUI(CharSequence primary, CharSequence secondary, String imagePath, int accentColor) {
+        mPrimary.setText(primary);
+
+        if (secondary != null) {
+            mSecondary.setText(secondary);
+            mSecondary.setVisibility(View.VISIBLE);
+        } else {
+            mSecondary.setVisibility(View.GONE);
+        }
+
+        mImage.setImageBitmap(ImageMagician.loadStuffFrom(imagePath));
+        mPrimary.setText(primary);
+        cardScrollView.setBackgroundColor(accentColor);
     }
 
 }
