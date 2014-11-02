@@ -59,11 +59,12 @@ public class WearService extends TeleportService {
         NotificationCompat.WearableExtender wearableExtender =
                 new NotificationCompat.WearableExtender()
                         .setDisplayIntent(notificationPendingIntent)
-                        .addAction(new NotificationCompat.Action(R.drawable.ic_full_cancel, getString(R.string.share), createAppPendingIntent(this)))
+                        .addAction(new NotificationCompat.Action(android.R.drawable.ic_menu_share, getString(R.string.share), createAppPendingIntent(this)))
                         .setBackground(BitmapFactory.decodeResource(getResources(), R.drawable.sky));
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
-                .setContentTitle("The Fweather is updated")
+                .setSmallIcon(R.drawable.ic_launcher)
+                .setContentTitle("FWeather update")
                 .extend(wearableExtender);
 
         Notification notification = builder.build();

@@ -26,15 +26,12 @@ import android.widget.TextView;
 import net.frakbot.fweather.wear.R;
 import net.frakbot.fweather.wear.WeatherActivity;
 import net.frakbot.fweather.wear.model.WeatherUpdate;
-import net.frakbot.fweather.wear.stuff.image.magic.wellnotreally.ImageMagician;
 
 public class WeatherFragment extends CardFragment {
 
     private TextView mPrimary;
     private TextView mSecondary;
     private ImageView mImage;
-
-    private ImageMagician imageMagician;
 
     public static WeatherFragment create(WeatherUpdate weatherUpdate) {
         WeatherFragment fragment = new WeatherFragment();
@@ -46,13 +43,6 @@ public class WeatherFragment extends CardFragment {
         fragment.setArguments(bundle);
 
         return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        imageMagician = new ImageMagician();
     }
 
     @Override
