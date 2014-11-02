@@ -64,8 +64,12 @@
 
     <!-- Widget temperature conditions -->
     <string name="temp_freezing"><![CDATA[<font color="%%COLOR%%">WTF.</font> Fucking north pole.]]></string>
-    <string name="temp_cold"><![CDATA[<font color="%%COLOR%%">Cold</font> like a fucking fridge.]]></string>
-    <string name="temp_hot"><![CDATA[<font color="%%COLOR%%">Hot</font> as in a fucking oven.]]></string>
+
+    <string name="temp_cold_01"><![CDATA[<font color="%%COLOR%%">Cold</font> like a fucking fridge.]]></string>
+    <string name="temp_cold_02"><![CDATA[Boringly <font color="%%COLOR%%">cold</font> and still.]]></string>
+    <string name="temp_cold_03"><![CDATA[<font color="%%COLOR%%">Winter</font> is fucking coming.]]></string>
+
+  <string name="temp_hot"><![CDATA[<font color="%%COLOR%%">Hot</font> as in a fucking oven.]]></string>
     <string name="temp_warm"><![CDATA[Enjoy the fucking birds <font color="%%COLOR%%">singing</font> and shit.]]></string>
     <string name="temp_wtf"><![CDATA[No, seriously, that\'s your best chance right now, I have <font color="%%COLOR%%">no fucking idea.</font>]]></string>
     <string name="temp_no_location"><![CDATA[I don\'t have a <font color="%%COLOR%%">crystal ball!</font> Tap here so you can enable the damn GPS or Location Services.]]></string>
