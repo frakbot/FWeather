@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="false">
+        <shape android:shape="oval">
+            <solid android:color="@color/action_button_normal"></solid>
+            <padding android:bottom="20dip" android:left="20dip" android:right="20dip" android:top="20dip"></padding>
+        </shape>
+    </item>
+    <item android:state_pressed="true">
+        <inset
+            android:insetBottom="5dip" android:insetRight="5dip" android:insetLeft="5dip" android:insetTop="5dip">
+            <shape android:shape="oval">
+                <solid android:color="@color/action_button_pressed"></solid>
+                <padding android:bottom="20dip" android:left="20dip" android:right="20dip" android:top="20dip"></padding>
+            </shape>
+        </inset>
+    </item>
+</selector>

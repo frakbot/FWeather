@@ -17,7 +17,6 @@ package net.frakbot.fweather.wear.fragments;
 
 import android.os.Bundle;
 import android.support.wearable.view.CardFragment;
-import android.support.wearable.view.CardScrollView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,7 +33,6 @@ public class WeatherFragment extends CardFragment {
     private TextView mPrimary;
     private TextView mSecondary;
     private ImageView mImage;
-    private CardScrollView cardScrollView;
 
     private ImageMagician imageMagician;
 
@@ -59,14 +57,13 @@ public class WeatherFragment extends CardFragment {
 
     @Override
     public View onCreateContentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.weather_card, null);
+        View v = inflater.inflate(R.layout.fragment_weather, null);
 
-        cardScrollView = (CardScrollView) v.findViewById(R.id.card_scroll_view);
         mPrimary = (TextView) v.findViewById(R.id.weather_title);
         mSecondary = (TextView) v.findViewById(R.id.weather_description);
         mImage = (ImageView) v.findViewById(R.id.weather_src);
 
-        updateUI(extractPrimary(), extractSecondary(), extractImage(), extractAccentColor());
+//        updateUI(extractPrimary(), extractSecondary(), extractImage(), extractAccentColor());
 
         return v;
     }
@@ -83,7 +80,6 @@ public class WeatherFragment extends CardFragment {
 
         mImage.setImageBitmap(imageMagician.loadStuffFrom(imagePath));
         mPrimary.setText(primary);
-        cardScrollView.setBackgroundColor(accentColor);
     }
 
     private CharSequence extractPrimary(){
