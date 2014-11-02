@@ -43,7 +43,13 @@
     <string name="weather_thunderstorm">
         <![CDATA[Hell\'s fucking <font color="%%COLOR%%">thunder fury.</font>]]></string>
     <string name="weather_haze"><![CDATA[<font color="%%COLOR%%">Can\'t see</font> a damn thing.]]></string>
-    <string name="weather_partly_cloudy"><![CDATA[Not fucking raining. <font color="%%COLOR%%">Yet.</font>]]></string>
+
+    <string name="weather_partly_cloudy_01"><![CDATA[Not fucking raining. <font color="%%COLOR%%">Yet.</font>]]></string>
+    <string name="weather_partly_cloudy_02"><![CDATA[The <font color="%%COLOR%%">sun</font> is fucking with you.]]></string>
+    <string name="weather_partly_cloudy_03"><![CDATA[If only it had the fucking <font color="%%COLOR%%">balls</font> to rain.]]></string>
+    <string name="weather_partly_cloudy_04"><![CDATA[The weather equivalent of a <font color="%%COLOR%%">ladyboy</font>.]]></string>
+    <string name="weather_partly_cloudy_05"><![CDATA[Not really sure <font color="%%COLOR%%">WTF</font> is the weather.]]></string>
+
     <string name="weather_drizzle">
         <![CDATA[Slight raining, like a fucking <font color="%%COLOR%%">pussy.</font>]]></string>
     <string name="weather_snowy"><![CDATA[Here\'s <font color="%%COLOR%%">Santa</font> fucking Claus.]]></string>

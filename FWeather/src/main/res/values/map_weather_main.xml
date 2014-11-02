@@ -197,13 +197,25 @@
     </string-array>
 
     <string-array name="weather_code_29" translatable="false">
-        <item>weather_partly_cloudy</item>
+        <item>weather_partly_cloudy_01</item>
+        <item>weather_partly_cloudy_02</item>
+        <item>weather_partly_cloudy_03</item>
+        <item>weather_partly_cloudy_04</item>
+        <item>weather_partly_cloudy_05</item>
     </string-array>
     <string-array name="weather_code_30" translatable="false">
-        <item>weather_partly_cloudy</item>
+      <item>weather_partly_cloudy_01</item>
+      <item>weather_partly_cloudy_02</item>
+      <item>weather_partly_cloudy_03</item>
+      <item>weather_partly_cloudy_04</item>
+      <item>weather_partly_cloudy_05</item>
     </string-array>
     <string-array name="weather_code_44" translatable="false">
-        <item>weather_partly_cloudy</item>
+      <item>weather_partly_cloudy_01</item>
+      <item>weather_partly_cloudy_02</item>
+      <item>weather_partly_cloudy_03</item>
+      <item>weather_partly_cloudy_04</item>
+      <item>weather_partly_cloudy_05</item>
     </string-array>
 
     <string-array name="weather_code_26" translatable="false">

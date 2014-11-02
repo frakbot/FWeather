@@ -48,7 +48,13 @@
     <color name="weather_cloudy">#999999</color>
     <color name="weather_thunderstorm">#fff883</color>
     <color name="weather_haze">#beafd2</color>
-    <color name="weather_partly_cloudy">#fb6e5e</color>
+
+    <color name="weather_partly_cloudy_01">#fb6e5e</color>
+    <color name="weather_partly_cloudy_02">#fb6e5e</color>
+    <color name="weather_partly_cloudy_03">#fb6e5e</color>
+    <color name="weather_partly_cloudy_04">#fb6e5e</color>
+    <color name="weather_partly_cloudy_05">#fb6e5e</color>
+
     <color name="weather_drizzle">#ffa6d1</color>
     <color name="weather_snowy">#ff3836</color>
     <color name="weather_extreme">#ff6f14</color>
