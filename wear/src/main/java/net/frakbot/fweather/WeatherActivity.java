@@ -27,6 +27,8 @@ import net.frakbot.FWeather.R;
 import net.frakbot.fweather.fragments.WeatherFragment;
 import net.frakbot.fweather.model.WeatherUpdate;
 
+import net.frakbot.common.SantaLittleHelper;
+
 public class WeatherActivity extends Activity{
 
     public static final String EXTRA_PRIMARY_TEXT = "important_shit";
@@ -56,8 +58,12 @@ public class WeatherActivity extends Activity{
         setContentView(R.layout.activity_weather);
         mTeleportClient = new TeleportClient(this);
 
-        weatherUpdate = new WeatherUpdate(EXTRA_PRIMARY_TEXT,
-                EXTRA_SECONDARY_TEXT,
+        // TODO: HARDCODE EVERYTHINGZ!
+        CharSequence main = SantaLittleHelper.getColoredSpannedString(this, R.string.weather_rainy, R.color.primary_text_light, R.color.primary_text_dark, false);
+        CharSequence second = SantaLittleHelper.getColoredSpannedString(this, R.string.temp_cold, R.color.secondary_text_light, R.color.secondary_text_light, false);
+
+        weatherUpdate = new WeatherUpdate(main,
+                second,
                 R.drawable.weather_background,
                 0);
 

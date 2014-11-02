@@ -71,7 +71,12 @@
     <color name="temp_cold_02">#cde2ff</color>
     <color name="temp_cold_03">#cde2ff</color>
 
-    <color name="temp_hot">#f25e5e</color>
+    <color name="temp_hot_01">#f25e5e</color>
+    <color name="temp_hot_02">#f25e5e</color>
+    <color name="temp_hot_03">#f25e5e</color>
+    <color name="temp_hot_04">#f25e5e</color>
+    <color name="temp_hot_05">#f25e5e</color>
+
     <color name="temp_warm">#00d500</color>
     <color name="temp_wtf">#3075e0</color>
     <color name="temp_no_location">#61e0e0</color>
