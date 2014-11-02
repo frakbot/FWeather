@@ -21,10 +21,10 @@ import android.app.FragmentManager;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.support.wearable.view.CardFragment;
 import android.support.wearable.view.FragmentGridPagerAdapter;
 import android.support.wearable.view.GridViewPager;
 import android.support.wearable.view.ImageReference;
+import android.view.Gravity;
 
 import com.mariux.teleport.lib.TeleportClient;
 
@@ -45,6 +45,7 @@ public class WeatherActivity extends Activity implements ShareFragment.OnShareCl
     private GridViewPager weatherPager;
     private WeatherUpdate weatherUpdate;
     private TeleportClient mTeleportClient;
+    private TransactionPagerAdapter adapter;
 
     @Override
     protected void onNewIntent(Intent intent) {
@@ -55,23 +56,23 @@ public class WeatherActivity extends Activity implements ShareFragment.OnShareCl
         String imagePath = intent.getStringExtra(EXTRA_IMAGE);
         int accentColor = intent.getIntExtra(EXTRA_ACCENT_COLOR, 0);
 
-        weatherUpdate = new WeatherUpdate(primary, secondary, imagePath, accentColor);
+        weatherUpdate = new WeatherUpdate(primary, secondary, R.drawable.sky, accentColor);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
-
         mTeleportClient = new TeleportClient(this);
 
         weatherUpdate = new WeatherUpdate(EXTRA_PRIMARY_TEXT,
                 EXTRA_SECONDARY_TEXT,
-                "android.resource://net.frakbot.fweather.wear/" + R.drawable.powered_by_google_dark,
+                R.drawable.weather_background,
                 0);
 
         weatherPager = (GridViewPager) findViewById(R.id.weather_pager);
-        weatherPager.setAdapter(new TransactionPagerAdapter(getFragmentManager()));
+        adapter = new TransactionPagerAdapter(getFragmentManager());
+        weatherPager.setAdapter(adapter);
     }
 
     @Override
@@ -89,7 +90,10 @@ public class WeatherActivity extends Activity implements ShareFragment.OnShareCl
     @Override
     public void onShareSelected() {
         mTeleportClient.sendMessage(EXTRA_SHARE_EXTRA, null);
-        weatherPager.setCurrentItem(0, 0);
+    }
+
+    private void updateWeather(){
+        ((WeatherFragment) adapter.getFragment(0,0)).updateWeatherWith(weatherUpdate);
     }
 
     private class TransactionPagerAdapter extends FragmentGridPagerAdapter {
@@ -111,7 +115,8 @@ public class WeatherActivity extends Activity implements ShareFragment.OnShareCl
         @Override
         public Fragment getFragment(int row, int col) {
             if (col == 0) {
-                CardFragment fragment = WeatherFragment.create(weatherUpdate);
+                WeatherFragment fragment = WeatherFragment.create(weatherUpdate);
+                fragment.setCardGravity(Gravity.BOTTOM);
                 return fragment;
             } else {
                 return new ShareFragment();
@@ -120,8 +125,9 @@ public class WeatherActivity extends Activity implements ShareFragment.OnShareCl
 
         @Override
         public ImageReference getBackground(int row, int column) {
-            Bitmap colorImage = createColorImageForBackground();
-            return ImageReference.forBitmap(colorImage);
+            return ImageReference.forDrawable(R.drawable.weather_bg_others);
+//            Bitmap colorImage = createColorImageForBackground();
+//            return ImageReference.forBitmap(colorImage);
         }
 
         private Bitmap createColorImageForBackground() {

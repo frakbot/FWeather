@@ -9,7 +9,6 @@
   android:paddingBottom="12dp"
   android:paddingStart="16dp"
   android:paddingEnd="16dp"
-  android:background="@color/dark_blue"
   android:gravity="center_horizontal">
 
   <ImageButton

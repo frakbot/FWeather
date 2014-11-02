@@ -19,10 +19,10 @@ public class WeatherUpdate {
 
     private CharSequence primary;
     private CharSequence secondary;
-    private String image;
+    private int image;
     private int accentColor;
 
-    public WeatherUpdate(CharSequence primary, CharSequence secondary, String image, int accentColor) {
+    public WeatherUpdate(CharSequence primary, CharSequence secondary, int image, int accentColor) {
         this.primary = primary;
         this.secondary = secondary;
         this.image = image;
@@ -37,7 +37,7 @@ public class WeatherUpdate {
         return secondary;
     }
 
-    public String getImage() {
+    public int getImage() {
         return image;
     }
 

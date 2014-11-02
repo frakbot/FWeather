@@ -41,7 +41,7 @@ public class WeatherFragment extends CardFragment {
         Bundle bundle = new Bundle();
         bundle.putCharSequence(WeatherActivity.EXTRA_PRIMARY_TEXT, weatherUpdate.getPrimary());
         bundle.putCharSequence(WeatherActivity.EXTRA_SECONDARY_TEXT, weatherUpdate.getSecondary());
-        bundle.putString(WeatherActivity.EXTRA_IMAGE, weatherUpdate.getImage());
+        bundle.putInt(WeatherActivity.EXTRA_IMAGE, weatherUpdate.getImage());
         bundle.putInt(WeatherActivity.EXTRA_ACCENT_COLOR, weatherUpdate.getAccentColor());
         fragment.setArguments(bundle);
 
@@ -63,23 +63,26 @@ public class WeatherFragment extends CardFragment {
         mSecondary = (TextView) v.findViewById(R.id.weather_description);
         mImage = (ImageView) v.findViewById(R.id.weather_src);
 
-//        updateUI(extractPrimary(), extractSecondary(), extractImage(), extractAccentColor());
+        updateWeatherWith(createUpdateFromArguments());
 
         return v;
     }
 
-    private void updateUI(CharSequence primary, CharSequence secondary, String imagePath, int accentColor) {
-        mPrimary.setText(primary);
+    public void updateWeatherWith(WeatherUpdate weatherUpdate) {
+        mPrimary.setText(weatherUpdate.getPrimary());
 
-        if (secondary != null) {
-            mSecondary.setText(secondary);
+        if (weatherUpdate.getSecondary() != null) {
+            mSecondary.setText(weatherUpdate.getSecondary());
             mSecondary.setVisibility(View.VISIBLE);
         } else {
             mSecondary.setVisibility(View.GONE);
         }
 
-        mImage.setImageBitmap(imageMagician.loadStuffFrom(imagePath));
-        mPrimary.setText(primary);
+        mImage.setImageResource(R.drawable.ic_full_cancel);
+    }
+
+    private WeatherUpdate createUpdateFromArguments(){
+        return new WeatherUpdate(extractPrimary(), extractSecondary(), extractImage(), extractAccentColor());
     }
 
     private CharSequence extractPrimary(){
@@ -90,12 +93,11 @@ public class WeatherFragment extends CardFragment {
         return getArguments().getCharSequence(WeatherActivity.EXTRA_SECONDARY_TEXT);
     }
 
-    private String extractImage() {
-        return getArguments().getString(WeatherActivity.EXTRA_IMAGE);
+    private int extractImage() {
+        return getArguments().getInt(WeatherActivity.EXTRA_IMAGE);
     }
 
     private int extractAccentColor() {
         return getArguments().getInt(WeatherActivity.EXTRA_ACCENT_COLOR);
     }
-
 }

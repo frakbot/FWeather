@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright 2014 Sebastiano Poggi and Francesco Pontillo
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,7 +15,9 @@
 -->
 <resources>
 
-    <string name="app_name">FWeather Wear</string>
-    <string name="voice_command">Showing the Fucking Weather</string>
+  <string name="app_name">FWeather Wear</string>
+  <string name="voice_command">Showing the Fucking Weather</string>
+
+  <string name="share">Share</string>
 
 </resources>
