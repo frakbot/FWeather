@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <!--
   ~ Copyright 2014 Sebastiano Poggi and Francesco Pontillo
   ~
@@ -17,13 +16,6 @@
   -->
 <resources>
 
-  <!--Replace placeholder ID with your tracking ID-->
-  <string name="ga_trackingId">UA-XXXXXXX-Y</string>
-
-  <!--Enable automatic activity tracking-->
-  <bool name="ga_autoActivityTracking">true</bool>
-
-  <!--Enable automatic exception tracking-->
-  <bool name="ga_reportUncaughtExceptions">true</bool>
+  <string name="weather_api_key">yCk6xNPV34EHbm.peR85701O9PBdwoKlyw.HRSezF2URIWugB2YX763PSuaztaorV1skYXU6DEx8bAIl7d2YqaX8zOGk8ac-</string>
 
 </resources>

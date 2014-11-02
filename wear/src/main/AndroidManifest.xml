@@ -14,7 +14,7 @@
   ~ limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="net.frakbot.FWeather">
+  package="net.frakbot.fweather">
 
   <uses-feature android:name="android.hardware.type.watch" />
 

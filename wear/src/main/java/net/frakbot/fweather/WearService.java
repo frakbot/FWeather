@@ -28,8 +28,6 @@ import android.util.Log;
 
 import com.mariux.teleport.lib.TeleportService;
 
-import net.frakbot.FWeather.R;
-
 public class WearService extends TeleportService {
 
     private static final String TAG = WearService.class.getSimpleName();

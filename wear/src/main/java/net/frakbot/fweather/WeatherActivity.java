@@ -23,11 +23,9 @@ import android.os.Bundle;
 
 import com.mariux.teleport.lib.TeleportClient;
 
-import net.frakbot.FWeather.R;
+import net.frakbot.common.SantaLittleHelper;
 import net.frakbot.fweather.fragments.WeatherFragment;
 import net.frakbot.fweather.model.WeatherUpdate;
-
-import net.frakbot.common.SantaLittleHelper;
 
 public class WeatherActivity extends Activity{
 

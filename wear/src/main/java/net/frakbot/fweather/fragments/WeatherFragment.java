@@ -22,8 +22,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import net.frakbot.FWeather.R;
+import net.frakbot.fweather.R;
 import net.frakbot.fweather.WeatherActivity;
 import net.frakbot.fweather.model.WeatherUpdate;
 
