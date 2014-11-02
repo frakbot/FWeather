@@ -56,6 +56,7 @@ import net.frakbot.FWeather.util.LocationHelper;
 import net.frakbot.FWeather.util.TrackerHelper;
 import net.frakbot.FWeather.util.WeatherHelper;
 import net.frakbot.FWeather.util.WidgetHelper;
+import net.frakbot.common.SantaLittleHelper;
 import net.frakbot.common.WeatherResources;
 import net.frakbot.global.Const;
 import net.frakbot.util.log.FLog;
@@ -186,6 +187,8 @@ public class UpdaterService extends IntentService {
             RemoteViews views = new RemoteViews(getPackageName(),
                     getWidgetLayout(appWidgetManager, appWidgetId));
             updateViews(views, weather, appWidgetIds, weatherResources);
+            // send appropriate data over to the Wear
+            updateWearz(weatherResources);
             setupViewsForKeyguard(views, appWidgetManager, appWidgetId);
 
             // Tell the AppWidgetManager to perform an update on the current app widget
@@ -416,18 +419,6 @@ public class UpdaterService extends IntentService {
         } else {
             views.setViewVisibility(R.id.btn_share, View.GONE);
         }
-
-        // TODO: send appropriate data over to the Wear
-    }
-
-    private int getStringIdInArray(int arrayId, int position) {
-        String varName = getResources().getStringArray(arrayId)[position];
-        return getResources().getIdentifier(varName, "string", getPackageName());
-    }
-
-    private Spanned getSpannedInArray(int arrayId, int position, boolean darkMode, int lightColorId, int darkColorId) {
-        int lol = getStringIdInArray(arrayId, position);
-        return mWidgetHelper.getColoredSpannedString(lol, lightColorId, darkColorId, darkMode);
     }
 
     /**
@@ -445,7 +436,7 @@ public class UpdaterService extends IntentService {
         int textColor = getResources().getColor(weatherResources.getTextColorId());
 
         // Show/hide elements, and update them only if needed
-        views.setTextViewText(R.id.txt_weather, getSpannedInArray(
+        views.setTextViewText(R.id.txt_weather, SantaLittleHelper.getSpannedInArray(this,
                 weatherResources.getMainTextArrayId(), weatherResources.getMainTextPosition(), darkMode,
                 weatherResources.getMainLightColorId(), weatherResources.getMainDarkColorId()));
         views.setTextColor(R.id.txt_weather, textColor);
@@ -455,7 +446,7 @@ public class UpdaterService extends IntentService {
 
         if (prefs.getBoolean(getString(R.string.pref_key_ui_toggle_temperature_info), true)) {
             views.setViewVisibility(R.id.txt_temp, View.VISIBLE);
-            views.setTextViewText(R.id.txt_temp, getSpannedInArray(
+            views.setTextViewText(R.id.txt_temp, SantaLittleHelper.getSpannedInArray(this,
                     weatherResources.getSecondaryTextArrayId(), weatherResources.getSecondaryTextPosition(),
                     darkMode, weatherResources.getSecondaryLightColorId(), weatherResources.getSecondaryDarkColorId()));
             views.setTextColor(R.id.txt_temp, textColor);
@@ -520,6 +511,10 @@ public class UpdaterService extends IntentService {
         } else {
             views.setViewVisibility(R.id.btn_share, View.GONE);
         }
+    }
+
+    private void updateWearz(WeatherResources weatherResources) {
+
     }
 
     private WeatherResources buildWeatherResources(WeatherData weather) {
