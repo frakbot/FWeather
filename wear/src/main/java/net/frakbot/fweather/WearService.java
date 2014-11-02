@@ -93,7 +93,7 @@ public class WearService extends TeleportService {
         @Override
         protected void onPostExecute(String path) {
             Log.d(TAG, "Received message with path: ");
-
+            showNotification();
             //let`s reset the task (otherwise it will be executed only once)
             setOnGetMessageTask(new StartActivityTask());
         }
