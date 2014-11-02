@@ -15,6 +15,15 @@
  */
 package net.frakbot.fweather.wear;
 
+import android.app.Notification;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.util.Log;
 
 import com.mariux.teleport.lib.TeleportService;
@@ -29,6 +38,55 @@ public class WearService extends TeleportService {
 
         setOnGetMessageTask(new StartActivityTask());
 
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        if (null != intent) {
+            String action = intent.getAction();
+            if ("net.frakbot.fweather.WEATHER_UPDATE".equals(action)) {
+                showNotification();
+            }
+        }
+        return super.onStartCommand(intent, flags, startId);
+    }
+
+    private void showNotification(){
+        Intent notificationIntent = new Intent(this, WeatherActivity.class);
+        PendingIntent notificationPendingIntent = PendingIntent.getActivity(this, 0, notificationIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+
+        NotificationCompat.WearableExtender wearableExtender =
+                new NotificationCompat.WearableExtender()
+                        .setDisplayIntent(notificationPendingIntent)
+                        .addAction(new NotificationCompat.Action(R.drawable.ic_full_cancel, getString(R.string.share), createAppPendingIntent(this)))
+                        .setBackground(BitmapFactory.decodeResource(getResources(), R.drawable.sky));
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
+                .setSmallIcon(R.drawable.ic_full_cancel)
+                .setContentTitle("Title")
+                .setContentText("Description")
+                .extend(wearableExtender);
+
+        Notification notification = builder.build();
+
+        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
+        notificationManagerCompat.notify(1, notification);
+    }
+
+    private static PendingIntent createAppPendingIntent(Context context) {
+        Intent notificationIntent = createAppIntent(context);
+        return PendingIntent.getActivity(context, 0, notificationIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+    }
+
+    public static Intent createAppIntent(Context context) {
+        PackageManager manager = context.getPackageManager();
+        Intent notificationIntent = manager.getLaunchIntentForPackage("net.frakbot.fweather");
+        if (notificationIntent == null) {
+            notificationIntent = new Intent(Intent.ACTION_VIEW);
+            notificationIntent.setData(Uri.parse("net.frakbot.fweather"));
+        }
+        return notificationIntent;
     }
 
     //Task that shows the path of a received message

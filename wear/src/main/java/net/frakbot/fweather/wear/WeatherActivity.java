@@ -104,7 +104,7 @@ public class WeatherActivity extends Activity implements ShareFragment.OnShareCl
 
         @Override
         public int getColumnCount(int row) {
-            return 2;
+            return 1;
         }
 
         @Override
