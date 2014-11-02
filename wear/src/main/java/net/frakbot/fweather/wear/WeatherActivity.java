@@ -28,6 +28,7 @@ import android.view.Gravity;
 
 import com.mariux.teleport.lib.TeleportClient;
 
+import net.frakbot.common.SantaLittleHelper;
 import net.frakbot.fweather.wear.fragments.ShareFragment;
 import net.frakbot.fweather.wear.fragments.WeatherFragment;
 import net.frakbot.fweather.wear.model.WeatherUpdate;
@@ -35,12 +36,12 @@ import net.frakbot.fweather.wear.stuff.image.magic.wellnotreally.ImageMagician;
 
 public class WeatherActivity extends Activity implements ShareFragment.OnShareClickListener {
 
-    public static final String EXTRA_PRIMARY_TEXT = "important_shit";
-    public static final String EXTRA_SECONDARY_TEXT = "other_stuff";
-    public static final String EXTRA_IMAGE = "dem_pixels";
-    public static final String EXTRA_ACCENT_COLOR = "i_see_all_the_colors_accentuated";
-    public static final String EXTRA_UNNECESSARY_EXTRA = "nobody_uses_me_#sadface";
-    public static final String EXTRA_SHARE_EXTRA = "share_the_fucking_shit";
+    public static String EXTRA_PRIMARY_TEXT = "EXTRA_PRIMARY_TEXT";
+    public static String EXTRA_SECONDARY_TEXT = "EXTRA_SECONDARY_TEXT";
+    public static String EXTRA_IMAGE = "dem_pixels";
+    public static String EXTRA_ACCENT_COLOR = "i_see_all_the_colors_accentuated";
+    public static String EXTRA_UNNECESSARY_EXTRA = "nobody_uses_me_#sadface";
+    public static String EXTRA_SHARE_EXTRA = "share_the_fucking_shit";
 
     private GridViewPager weatherPager;
     private WeatherUpdate weatherUpdate;
@@ -65,8 +66,12 @@ public class WeatherActivity extends Activity implements ShareFragment.OnShareCl
         setContentView(R.layout.activity_weather);
         mTeleportClient = new TeleportClient(this);
 
-        weatherUpdate = new WeatherUpdate(EXTRA_PRIMARY_TEXT,
-                EXTRA_SECONDARY_TEXT,
+        // TODO: HARDCODE EVERYTHINGZ!
+        CharSequence main = SantaLittleHelper.getColoredSpannedString(this, R.string.weather_rainy, R.color.primary_text_light, R.color.primary_text_dark, false);
+        CharSequence second = SantaLittleHelper.getColoredSpannedString(this, R.string.temp_cold, R.color.secondary_text_light, R.color.secondary_text_light, false);
+
+        weatherUpdate = new WeatherUpdate(main,
+                second,
                 R.drawable.weather_background,
                 0);
 
