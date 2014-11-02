@@ -63,9 +63,7 @@ public class WearService extends TeleportService {
                         .setBackground(BitmapFactory.decodeResource(getResources(), R.drawable.sky));
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
-                .setSmallIcon(R.drawable.ic_full_cancel)
-                .setContentTitle("Title")
-                .setContentText("Description")
+                .setContentTitle("The Fweather is updated")
                 .extend(wearableExtender);
 
         Notification notification = builder.build();
