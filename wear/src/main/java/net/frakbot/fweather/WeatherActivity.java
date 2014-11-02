@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.frakbot.fweather.wear;
+package net.frakbot.FWeather;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -28,10 +28,10 @@ import android.view.Gravity;
 
 import com.mariux.teleport.lib.TeleportClient;
 
-import net.frakbot.fweather.wear.fragments.ShareFragment;
-import net.frakbot.fweather.wear.fragments.WeatherFragment;
-import net.frakbot.fweather.wear.model.WeatherUpdate;
-import net.frakbot.fweather.wear.stuff.image.magic.wellnotreally.ImageMagician;
+import net.frakbot.FWeather.fragments.ShareFragment;
+import net.frakbot.FWeather.fragments.WeatherFragment;
+import net.frakbot.FWeather.model.WeatherUpdate;
+import net.frakbot.FWeather.wellnotreally.ImageMagician;
 
 public class WeatherActivity extends Activity implements ShareFragment.OnShareClickListener {
 

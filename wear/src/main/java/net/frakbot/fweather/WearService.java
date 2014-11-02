@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.frakbot.fweather.wear;
+package net.frakbot.FWeather;
 
 import android.app.Notification;
 import android.app.PendingIntent;

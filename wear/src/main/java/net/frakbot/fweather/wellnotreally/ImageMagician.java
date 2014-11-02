@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.frakbot.fweather.wear.stuff.image.magic.wellnotreally;
+package net.frakbot.FWeather.wellnotreally;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
