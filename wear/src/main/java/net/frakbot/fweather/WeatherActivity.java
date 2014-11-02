@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.frakbot.fweather.wear;
+package net.frakbot.fweather;
 
 import android.app.Activity;
 import android.app.FragmentManager;
@@ -23,8 +23,9 @@ import android.os.Bundle;
 
 import com.mariux.teleport.lib.TeleportClient;
 
-import net.frakbot.fweather.wear.fragments.WeatherFragment;
-import net.frakbot.fweather.wear.model.WeatherUpdate;
+import net.frakbot.FWeather.R;
+import net.frakbot.fweather.fragments.WeatherFragment;
+import net.frakbot.fweather.model.WeatherUpdate;
 
 public class WeatherActivity extends Activity{
 

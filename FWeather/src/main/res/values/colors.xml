@@ -27,12 +27,34 @@
     <color name="text_big_title_shadow">#e5c39849</color>
 
     <!-- WIDGET PHRASES COLORS - LIGHT MODE -->
-    <color name="weather_sunny">#ff0160</color>
-    <color name="weather_rainy">#0076e9</color>
+    <color name="weather_sunny_01">#ff0160</color>
+    <color name="weather_sunny_02">#ff0160</color>
+    <color name="weather_sunny_03">#ff0160</color>
+    <color name="weather_sunny_04">#ff0160</color>
+    <color name="weather_sunny_05">#ff0160</color>
+    <color name="weather_sunny_06">#ff0160</color>
+    <color name="weather_sunny_07">#ff0160</color>
+    <color name="weather_sunny_08">#ff0160</color>
+    <color name="weather_sunny_09">#ff0160</color>
+    <color name="weather_sunny_10">#ff0160</color>
+
+    <color name="weather_rainy_01">#0076e9</color>
+    <color name="weather_rainy_02">#0076e9</color>
+    <color name="weather_rainy_03">#0076e9</color>
+    <color name="weather_rainy_04">#0076e9</color>
+    <color name="weather_rainy_05">#0076e9</color>
+    <color name="weather_rainy_06">#0076e9</color>
+
     <color name="weather_cloudy">#999999</color>
     <color name="weather_thunderstorm">#fff883</color>
     <color name="weather_haze">#beafd2</color>
-    <color name="weather_partly_cloudy">#fb6e5e</color>
+
+    <color name="weather_partly_cloudy_01">#fb6e5e</color>
+    <color name="weather_partly_cloudy_02">#fb6e5e</color>
+    <color name="weather_partly_cloudy_03">#fb6e5e</color>
+    <color name="weather_partly_cloudy_04">#fb6e5e</color>
+    <color name="weather_partly_cloudy_05">#fb6e5e</color>
+
     <color name="weather_drizzle">#ffa6d1</color>
     <color name="weather_snowy">#ff3836</color>
     <color name="weather_extreme">#ff6f14</color>
@@ -44,7 +66,11 @@
     <color name="weather_no_location">#a7ff7b</color>
     <color name="weather_no_weather">#70ff93</color>
     <color name="temp_freezing">#d28aff</color>
-    <color name="temp_cold">#cde2ff</color>
+
+    <color name="temp_cold_01">#cde2ff</color>
+    <color name="temp_cold_02">#cde2ff</color>
+    <color name="temp_cold_03">#cde2ff</color>
+
     <color name="temp_hot">#f25e5e</color>
     <color name="temp_warm">#00d500</color>
     <color name="temp_wtf">#3075e0</color>

@@ -53,19 +53,44 @@
     </string-array>
 
     <string-array name="weather_code_10" translatable="false">
-        <item>weather_rainy</item>
+        <item>weather_rainy_01</item>
+        <item>weather_rainy_02</item>
+        <item>weather_rainy_03</item>
+        <item>weather_rainy_04</item>
+        <item>weather_rainy_05</item>
+        <item>weather_rainy_06</item>
     </string-array>
     <string-array name="weather_code_11" translatable="false">
-        <item>weather_rainy</item>
+      <item>weather_rainy_01</item>
+      <item>weather_rainy_02</item>
+      <item>weather_rainy_03</item>
+      <item>weather_rainy_04</item>
+      <item>weather_rainy_05</item>
+      <item>weather_rainy_06</item>
     </string-array>
     <string-array name="weather_code_12" translatable="false">
-        <item>weather_rainy</item>
+      <item>weather_rainy_01</item>
+      <item>weather_rainy_02</item>
+      <item>weather_rainy_03</item>
+      <item>weather_rainy_04</item>
+      <item>weather_rainy_05</item>
+      <item>weather_rainy_06</item>
     </string-array>
     <string-array name="weather_code_40" translatable="false">
-        <item>weather_rainy</item>
+      <item>weather_rainy_01</item>
+      <item>weather_rainy_02</item>
+      <item>weather_rainy_03</item>
+      <item>weather_rainy_04</item>
+      <item>weather_rainy_05</item>
+      <item>weather_rainy_06</item>
     </string-array>
     <string-array name="weather_code_6" translatable="false">
-        <item>weather_rainy</item>
+      <item>weather_rainy_01</item>
+      <item>weather_rainy_02</item>
+      <item>weather_rainy_03</item>
+      <item>weather_rainy_04</item>
+      <item>weather_rainy_05</item>
+      <item>weather_rainy_06</item>
     </string-array>
 
     <string-array name="weather_code_17" translatable="false">
@@ -123,26 +148,74 @@
     </string-array>
 
     <string-array name="weather_code_31" translatable="false">
-        <item>weather_sunny</item>
+        <item>weather_sunny_01</item>
+        <item>weather_sunny_02</item>
+        <item>weather_sunny_03</item>
+        <item>weather_sunny_04</item>
+        <item>weather_sunny_05</item>
+        <item>weather_sunny_06</item>
+        <item>weather_sunny_07</item>
+        <item>weather_sunny_08</item>
+        <item>weather_sunny_09</item>
+        <item>weather_sunny_10</item>
     </string-array>
     <string-array name="weather_code_32" translatable="false">
-        <item>weather_sunny</item>
+        <item>weather_sunny_01</item>
+        <item>weather_sunny_02</item>
+        <item>weather_sunny_03</item>
+        <item>weather_sunny_04</item>
+        <item>weather_sunny_05</item>
+        <item>weather_sunny_06</item>
+        <item>weather_sunny_07</item>
+        <item>weather_sunny_08</item>
+        <item>weather_sunny_09</item>
+        <item>weather_sunny_10</item>
     </string-array>
     <string-array name="weather_code_33" translatable="false">
-        <item>weather_sunny</item>
+        <item>weather_sunny_01</item>
+        <item>weather_sunny_02</item>
+        <item>weather_sunny_03</item>
+        <item>weather_sunny_04</item>
+        <item>weather_sunny_05</item>
+        <item>weather_sunny_06</item>
+        <item>weather_sunny_07</item>
+        <item>weather_sunny_08</item>
+        <item>weather_sunny_09</item>
+        <item>weather_sunny_10</item>
     </string-array>
     <string-array name="weather_code_34" translatable="false">
-        <item>weather_sunny</item>
+        <item>weather_sunny_01</item>
+        <item>weather_sunny_02</item>
+        <item>weather_sunny_03</item>
+        <item>weather_sunny_04</item>
+        <item>weather_sunny_05</item>
+        <item>weather_sunny_06</item>
+        <item>weather_sunny_07</item>
+        <item>weather_sunny_08</item>
+        <item>weather_sunny_09</item>
+        <item>weather_sunny_10</item>
     </string-array>
 
     <string-array name="weather_code_29" translatable="false">
-        <item>weather_partly_cloudy</item>
+        <item>weather_partly_cloudy_01</item>
+        <item>weather_partly_cloudy_02</item>
+        <item>weather_partly_cloudy_03</item>
+        <item>weather_partly_cloudy_04</item>
+        <item>weather_partly_cloudy_05</item>
     </string-array>
     <string-array name="weather_code_30" translatable="false">
-        <item>weather_partly_cloudy</item>
+      <item>weather_partly_cloudy_01</item>
+      <item>weather_partly_cloudy_02</item>
+      <item>weather_partly_cloudy_03</item>
+      <item>weather_partly_cloudy_04</item>
+      <item>weather_partly_cloudy_05</item>
     </string-array>
     <string-array name="weather_code_44" translatable="false">
-        <item>weather_partly_cloudy</item>
+      <item>weather_partly_cloudy_01</item>
+      <item>weather_partly_cloudy_02</item>
+      <item>weather_partly_cloudy_03</item>
+      <item>weather_partly_cloudy_04</item>
+      <item>weather_partly_cloudy_05</item>
     </string-array>
 
     <string-array name="weather_code_26" translatable="false">

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.frakbot.fweather.wear;
+package net.frakbot.fweather;
 
 import android.app.Notification;
 import android.app.PendingIntent;
@@ -27,6 +27,8 @@ import android.support.v4.app.NotificationManagerCompat;
 import android.util.Log;
 
 import com.mariux.teleport.lib.TeleportService;
+
+import net.frakbot.FWeather.R;
 
 public class WearService extends TeleportService {
 

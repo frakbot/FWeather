@@ -14,7 +14,7 @@
   ~ limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="net.frakbot.fweather.wear">
+  package="net.frakbot.FWeather">
 
   <uses-feature android:name="android.hardware.type.watch" />
 
@@ -28,7 +28,7 @@
       android:name="com.google.android.gms.version"
       android:value="@integer/google_play_services_version" />
 
-    <activity android:name=".LaunchActivity">
+    <activity android:name="net.frakbot.fweather.LaunchActivity">
 
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
@@ -40,7 +40,7 @@
     </activity>
 
     <activity
-      android:name=".WeatherActivity"
+      android:name="net.frakbot.fweather.WeatherActivity"
       android:label="@string/voice_command"
       android:allowEmbedded="true"
       android:exported="true"
@@ -52,7 +52,7 @@
 
     <activity android:name="android.support.wearable.activity.ConfirmationActivity" />
 
-    <service android:name=".WearService">
+    <service android:name="net.frakbot.fweather.WearService">
       <intent-filter>
         <action android:name="com.google.android.gms.wearable.BIND_LISTENER" />
       </intent-filter>

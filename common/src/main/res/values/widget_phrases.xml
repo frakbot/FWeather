@@ -21,13 +21,35 @@
     <string name="loading_small"><![CDATA[Get close to one so that I can tell you the weather.]]></string>
 
     <!-- Widget weather conditions -->
-    <string name="weather_sunny"><![CDATA[Fucking <font color="%%COLOR%%">love</font> is in the air.]]></string>
-    <string name="weather_rainy"><![CDATA[It\'s fucking <font color="%%COLOR%%">raining.</font> Now.]]></string>
+    <string name="weather_sunny_01"><![CDATA[Fucking <font color="%%COLOR%%">love</font> is in the air.]]></string>
+    <string name="weather_sunny_02"><![CDATA[So fucking sunny, not even <font color="%%COLOR%%">funny</font>.]]></string>
+    <string name="weather_sunny_03"><![CDATA[<font color="%%COLOR%%">Sunny</font> fucking funny.]]></string>
+    <string name="weather_sunny_04"><![CDATA[<font color="%%COLOR%%">Crystal</font> fucking clear.]]></string>
+    <string name="weather_sunny_05"><![CDATA[Ain\'t <font color="%%COLOR%%">worry</font> \'bout nothing.]]></string>
+    <string name="weather_sunny_06"><![CDATA[Fucking <font color="%%COLOR%%">blinding</font> sun.]]></string>
+    <string name="weather_sunny_07"><![CDATA[Too bright to be fucking <font color="%%COLOR%%">hungover</font>.]]></string>
+    <string name="weather_sunny_08"><![CDATA[You\'re going to get fucking <font color="%%COLOR%%">pink</font>.]]></string>
+    <string name="weather_sunny_09"><![CDATA[Hope you\'re not a fucking <font color="%%COLOR%%">ginger</font>.]]></string>
+    <string name="weather_sunny_10"><![CDATA[This sun gives fucking skin <font color="%%COLOR%%">cancer</font>.]]></string>
+
+    <string name="weather_rainy_01"><![CDATA[It\'s fucking <font color="%%COLOR%%">raining</font>. Now.]]></string>
+    <string name="weather_rainy_02"><![CDATA[Umbrellas are for <font color="%%COLOR%%">cowards</font>.]]></string>
+    <string name="weather_rainy_03"><![CDATA[It\'s raining, I\'ll get fucking <font color="%%COLOR%%">wet</font>.]]></string>
+    <string name="weather_rainy_04"><![CDATA[<font color="%%COLOR%%">Raindrops</font> keep fallin\' on my fucking head.]]></string>
+    <string name="weather_rainy_05"><![CDATA[Go <font color="%%COLOR%%">sing</font> in the fucking rain.]]></string>
+    <string name="weather_rainy_06"><![CDATA[Stay the fuck <font color="%%COLOR%%">indoors</font>.]]></string>
+
     <string name="weather_cloudy"><![CDATA[Just fucking <font color="%%COLOR%%">grey.</font>]]></string>
     <string name="weather_thunderstorm">
         <![CDATA[Hell\'s fucking <font color="%%COLOR%%">thunder fury.</font>]]></string>
     <string name="weather_haze"><![CDATA[<font color="%%COLOR%%">Can\'t see</font> a damn thing.]]></string>
-    <string name="weather_partly_cloudy"><![CDATA[Not fucking raining. <font color="%%COLOR%%">Yet.</font>]]></string>
+
+    <string name="weather_partly_cloudy_01"><![CDATA[Not fucking raining. <font color="%%COLOR%%">Yet.</font>]]></string>
+    <string name="weather_partly_cloudy_02"><![CDATA[The <font color="%%COLOR%%">sun</font> is fucking with you.]]></string>
+    <string name="weather_partly_cloudy_03"><![CDATA[If only it had the fucking <font color="%%COLOR%%">balls</font> to rain.]]></string>
+    <string name="weather_partly_cloudy_04"><![CDATA[The weather equivalent of a <font color="%%COLOR%%">ladyboy</font>.]]></string>
+    <string name="weather_partly_cloudy_05"><![CDATA[Not really sure <font color="%%COLOR%%">WTF</font> is the weather.]]></string>
+
     <string name="weather_drizzle">
         <![CDATA[Slight raining, like a fucking <font color="%%COLOR%%">pussy.</font>]]></string>
     <string name="weather_snowy"><![CDATA[Here\'s <font color="%%COLOR%%">Santa</font> fucking Claus.]]></string>
@@ -42,8 +64,12 @@
 
     <!-- Widget temperature conditions -->
     <string name="temp_freezing"><![CDATA[<font color="%%COLOR%%">WTF.</font> Fucking north pole.]]></string>
-    <string name="temp_cold"><![CDATA[<font color="%%COLOR%%">Cold</font> like a fucking fridge.]]></string>
-    <string name="temp_hot"><![CDATA[<font color="%%COLOR%%">Hot</font> as in a fucking oven.]]></string>
+
+    <string name="temp_cold_01"><![CDATA[<font color="%%COLOR%%">Cold</font> like a fucking fridge.]]></string>
+    <string name="temp_cold_02"><![CDATA[Boringly <font color="%%COLOR%%">cold</font> and still.]]></string>
+    <string name="temp_cold_03"><![CDATA[<font color="%%COLOR%%">Winter</font> is fucking coming.]]></string>
+
+  <string name="temp_hot"><![CDATA[<font color="%%COLOR%%">Hot</font> as in a fucking oven.]]></string>
     <string name="temp_warm"><![CDATA[Enjoy the fucking birds <font color="%%COLOR%%">singing</font> and shit.]]></string>
     <string name="temp_wtf"><![CDATA[No, seriously, that\'s your best chance right now, I have <font color="%%COLOR%%">no fucking idea.</font>]]></string>
     <string name="temp_no_location"><![CDATA[I don\'t have a <font color="%%COLOR%%">crystal ball!</font> Tap here so you can enable the damn GPS or Location Services.]]></string>
