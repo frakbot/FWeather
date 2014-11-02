@@ -32,6 +32,7 @@ import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.updater.UpdaterService;
 import net.frakbot.FWeather.updater.weather.model.WeatherData;
 import net.frakbot.FWeather.widget.FontTextView;
+import net.frakbot.common.SantaLittleHelper;
 import net.frakbot.common.WeatherResources;
 import net.frakbot.global.Const;
 import net.frakbot.util.log.FLog;
@@ -43,8 +44,6 @@ import net.frakbot.util.log.FLog;
  * <b>WARNING!</b> Unavoidable spaghetti lies in here (maybe not anymore).
  */
 public class WidgetHelper {
-
-    private static final String PLACEHOLDER_COLOR = "%%COLOR%%";
 
     private Context mContext;
 
@@ -89,29 +88,6 @@ public class WidgetHelper {
         }
 
         return i;
-    }
-
-    /**
-     * Returns the specified spanned string with the correct highlighting color.
-     *
-     * @param stringId     The Resource ID of the string
-     * @param lightColorId The Resource ID of the highlight color in normal (light) mode
-     * @param darkColorId  The Resource ID of the highlight color in dark mode
-     * @param darkMode     True if the widget is in dark mode, false otherwise
-     * @return Returns the spanned, colored string
-     */
-    public Spanned getColoredSpannedString(int stringId, int lightColorId, int darkColorId, boolean darkMode) {
-        int color = mContext.getResources().getColor(!darkMode ? lightColorId : darkColorId);
-        String string = mContext.getString(stringId)
-                .replace(PLACEHOLDER_COLOR, String.format("#%06X", (0xFFFFFF & color)));
-        return Html.fromHtml(string);
-    }
-
-    public Spanned getColoredSpannedString(int stringId, boolean darkMode, WeatherResources weatherResources) {
-        int color = mContext.getResources().getColor(!darkMode ? weatherResources.getMainLightColorId() : weatherResources.getMainDarkColorId());
-        String string = mContext.getString(stringId)
-                .replace(PLACEHOLDER_COLOR, String.format("#%06X", (0xFFFFFF & color)));
-        return Html.fromHtml(string);
     }
 
     /**
@@ -347,7 +323,7 @@ public class WidgetHelper {
         int colorId = mContext.getResources().getIdentifier(theChosenOne, "color", packageName);
         int colorDarkId = mContext.getResources().getIdentifier(theChosenOne + "_dark", "color", packageName);
         // Return the spanned string
-        return getColoredSpannedString(theChosenOneId, colorId, colorDarkId, darkMode);
+        return SantaLittleHelper.getColoredSpannedString(mContext, theChosenOneId, colorId, colorDarkId, darkMode);
     }
 
     /**
@@ -373,7 +349,7 @@ public class WidgetHelper {
         int colorId = mContext.getResources().getIdentifier(theChosenOne, "color", packageName);
         int colorDarkId = mContext.getResources().getIdentifier(theChosenOne + "_dark", "color", packageName);
         // Return the spanned string
-        return getColoredSpannedString(theChosenOneId, colorId, colorDarkId, darkMode);
+        return SantaLittleHelper.getColoredSpannedString(mContext, theChosenOneId, colorId, colorDarkId, darkMode);
     }
 
     /**
@@ -491,6 +467,7 @@ public class WidgetHelper {
      */
     public String getShareString(WeatherResources weatherResources) {
         String weather = mContext.getResources().getStringArray(weatherResources.getMainTextArrayId())[weatherResources.getMainTextPosition()];
-        return mContext.getString(mContext.getResources().getIdentifier(weather, "string", mContext.getPackageName())) + " " + Const.Share.VIA;
+        String shareText = Html.fromHtml(mContext.getString(mContext.getResources().getIdentifier(weather, "string", mContext.getPackageName()))).toString();
+        return shareText + " " + Const.Share.VIA;
     }
 }
