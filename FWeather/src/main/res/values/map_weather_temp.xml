@@ -28,7 +28,9 @@
         <item>temp_freezing</item>
     </string-array>
     <string-array name="weather_temp_15" translatable="false">
-        <item>temp_cold</item>
+        <item>temp_cold_01</item>
+        <item>temp_cold_02</item>
+        <item>temp_cold_03</item>
     </string-array>
     <string-array name="weather_temp_28" translatable="false">
         <item>temp_warm</item>
