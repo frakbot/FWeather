@@ -514,7 +514,7 @@ public class UpdaterService extends IntentService {
     }
 
     private void updateWearz(WeatherResources weatherResources) {
-
+        // TODO: stuff
     }
 
     private WeatherResources buildWeatherResources(WeatherData weather) {

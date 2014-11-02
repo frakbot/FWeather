@@ -467,6 +467,7 @@ public class WidgetHelper {
      */
     public String getShareString(WeatherResources weatherResources) {
         String weather = mContext.getResources().getStringArray(weatherResources.getMainTextArrayId())[weatherResources.getMainTextPosition()];
-        return mContext.getString(mContext.getResources().getIdentifier(weather, "string", mContext.getPackageName())) + " " + Const.Share.VIA;
+        String shareText = Html.fromHtml(mContext.getString(mContext.getResources().getIdentifier(weather, "string", mContext.getPackageName()))).toString();
+        return shareText + " " + Const.Share.VIA;
     }
 }
