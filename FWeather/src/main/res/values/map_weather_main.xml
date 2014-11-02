@@ -123,16 +123,52 @@
     </string-array>
 
     <string-array name="weather_code_31" translatable="false">
-        <item>weather_sunny</item>
+        <item>weather_sunny_01</item>
+        <item>weather_sunny_02</item>
+        <item>weather_sunny_03</item>
+        <item>weather_sunny_04</item>
+        <item>weather_sunny_05</item>
+        <item>weather_sunny_06</item>
+        <item>weather_sunny_07</item>
+        <item>weather_sunny_08</item>
+        <item>weather_sunny_09</item>
+        <item>weather_sunny_10</item>
     </string-array>
     <string-array name="weather_code_32" translatable="false">
-        <item>weather_sunny</item>
+        <item>weather_sunny_01</item>
+        <item>weather_sunny_02</item>
+        <item>weather_sunny_03</item>
+        <item>weather_sunny_04</item>
+        <item>weather_sunny_05</item>
+        <item>weather_sunny_06</item>
+        <item>weather_sunny_07</item>
+        <item>weather_sunny_08</item>
+        <item>weather_sunny_09</item>
+        <item>weather_sunny_10</item>
     </string-array>
     <string-array name="weather_code_33" translatable="false">
-        <item>weather_sunny</item>
+        <item>weather_sunny_01</item>
+        <item>weather_sunny_02</item>
+        <item>weather_sunny_03</item>
+        <item>weather_sunny_04</item>
+        <item>weather_sunny_05</item>
+        <item>weather_sunny_06</item>
+        <item>weather_sunny_07</item>
+        <item>weather_sunny_08</item>
+        <item>weather_sunny_09</item>
+        <item>weather_sunny_10</item>
     </string-array>
     <string-array name="weather_code_34" translatable="false">
-        <item>weather_sunny</item>
+        <item>weather_sunny_01</item>
+        <item>weather_sunny_02</item>
+        <item>weather_sunny_03</item>
+        <item>weather_sunny_04</item>
+        <item>weather_sunny_05</item>
+        <item>weather_sunny_06</item>
+        <item>weather_sunny_07</item>
+        <item>weather_sunny_08</item>
+        <item>weather_sunny_09</item>
+        <item>weather_sunny_10</item>
     </string-array>
 
     <string-array name="weather_code_29" translatable="false">

@@ -27,7 +27,17 @@
     <color name="text_big_title_shadow">#e5c39849</color>
 
     <!-- WIDGET PHRASES COLORS - LIGHT MODE -->
-    <color name="weather_sunny">#ff0160</color>
+    <color name="weather_sunny_01">#ff0160</color>
+    <color name="weather_sunny_02">#ff0160</color>
+    <color name="weather_sunny_03">#ff0160</color>
+    <color name="weather_sunny_04">#ff0160</color>
+    <color name="weather_sunny_05">#ff0160</color>
+    <color name="weather_sunny_06">#ff0160</color>
+    <color name="weather_sunny_07">#ff0160</color>
+    <color name="weather_sunny_08">#ff0160</color>
+    <color name="weather_sunny_09">#ff0160</color>
+    <color name="weather_sunny_10">#ff0160</color>
+
     <color name="weather_rainy">#0076e9</color>
     <color name="weather_cloudy">#999999</color>
     <color name="weather_thunderstorm">#fff883</color>
