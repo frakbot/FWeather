@@ -32,6 +32,7 @@ import net.frakbot.FWeather.R;
 import net.frakbot.FWeather.updater.UpdaterService;
 import net.frakbot.FWeather.updater.weather.model.WeatherData;
 import net.frakbot.FWeather.widget.FontTextView;
+import net.frakbot.common.WeatherResources;
 import net.frakbot.global.Const;
 import net.frakbot.util.log.FLog;
 
@@ -106,6 +107,13 @@ public class WidgetHelper {
         return Html.fromHtml(string);
     }
 
+    public Spanned getColoredSpannedString(int stringId, boolean darkMode, WeatherResources weatherResources) {
+        int color = mContext.getResources().getColor(!darkMode ? weatherResources.getMainLightColorId() : weatherResources.getMainDarkColorId());
+        String string = mContext.getString(stringId)
+                .replace(PLACEHOLDER_COLOR, String.format("#%06X", (0xFFFFFF & color)));
+        return Html.fromHtml(string);
+    }
+
     /**
      * Gets the string representing the weather.
      *
@@ -124,6 +132,28 @@ public class WidgetHelper {
 
         Spanned randomSpanned = getGenericRandomWeatherSpanned("weather_code", weatherId, darkMode);
         return randomSpanned;
+    }
+
+    /**
+     * Gets the string ID representing the weather.
+     *
+     * @param weather  The weather to get the string for
+     *
+     * @return Returns the corresponding weather string
+     */
+    public int getWeatherMainStringArrayId(WeatherData weather) {
+        final int weatherId;
+        if (weather != null) {
+            weatherId = weather.conditionCode;
+        } else {
+            weatherId = -1;
+        }
+        return getGenericStringNameArrayId("weather_code", weatherId);
+    }
+
+    public int getRandomStringFromArray(int arrayId) {
+        String[] candidates = mContext.getResources().getStringArray(arrayId);
+        return getRandomStringId(candidates);
     }
 
     /**
@@ -169,6 +199,45 @@ public class WidgetHelper {
     }
 
     /**
+     * Gets the temperature string ID for the weather.
+     *
+     * @param weather  The weather to get the temperature string ID for
+     * @return Returns the temperature string ID
+     */
+    public int getWeatherTempStringArrayId(WeatherData weather) {
+        final float temp;
+
+        if (weather != null) {
+            if (weather.conditionCode == WeatherData.WEATHER_ID_ERR_NO_LOCATION) {
+                // Error: no location available
+                temp = WeatherData.WEATHER_ID_ERR_NO_LOCATION;
+            } else if (weather.conditionCode == WeatherData.WEATHER_ID_ERR_NO_NETWORK) {
+                // Error: no location or no network available
+                temp = WeatherData.WEATHER_ID_ERR_NO_NETWORK;
+            } else {
+                temp = weather.temperature;
+            }
+        } else {
+            temp = WeatherData.WEATHER_ID_ERR_WTF;
+        }
+
+        int tempRangeDescriptor = WeatherData.WEATHER_ID_ERR_WTF;
+
+        // Loop for every temperature
+        int[] temperatures = new int[] {-10002, -10001, -10000, -1, 15, 28, 1000};
+        for (int t : temperatures) {
+            // If the range minimum bound matches
+            if (temp <= t) {
+                // Select it and let's grab a beer
+                tempRangeDescriptor = t;
+                break;
+            }
+        }
+
+        return getGenericStringNameArrayId("weather_temp", tempRangeDescriptor);
+    }
+
+    /**
      * Gets the ID of the image representing the weather.
      *
      * @param weather  The weather to get the image for
@@ -195,9 +264,8 @@ public class WidgetHelper {
         if (darkMode) {
             imageName += "_dark";
         }
-        int drawableId = mContext.getResources().getIdentifier(imageName, "drawable", packageName);
 
-        return drawableId;
+        return mContext.getResources().getIdentifier(imageName, "drawable", packageName);
     }
 
     /**
@@ -243,6 +311,45 @@ public class WidgetHelper {
         return candidates;
     }
 
+    private int getGenericStringNameArrayId(String prefix, int value) {
+        final String packageName = mContext.getPackageName();
+        // Create the array identifier string, such as "code_32" or "code_m_10000"
+        String valueId = buildResourceName(prefix, value);
+        // Get the array int id
+        int arrayId = mContext.getResources().getIdentifier(valueId, "array", packageName);
+        if (arrayId == 0) {
+            FLog.w(mContext, "WidgetHelper", String.format("No resource named %s", valueId));
+            return 0;
+        }
+        return arrayId;
+    }
+
+    /**
+     * Get a generic random weather {@link android.text.Spanned} by doing the following:
+     * 1) Uses the prefix and the value to retrieve a custom {@link java.lang.String} array
+     * 2) Selects a pseudo-random {@link java.lang.String} from the retrieved array
+     * 3) Gets the corresponding string with the random selected name
+     * 4) Gets the default "light" color with the same string name
+     * 5) Gets the "dark" color by appending "_dark" to the selected string name
+     *
+     * @param prefix   The prefix for the string array (e.g. "code")
+     * @param value    The value to attach to the prefix
+     * @param darkMode true to return a dark {@link android.text.Spanned} text
+     *
+     * @return The randomly selected {@link android.text.Spanned} text
+     */
+    private Spanned getGenericRandomWeatherTextId(String prefix, int value, boolean darkMode) {
+        String packageName = mContext.getPackageName();
+        // Get a pseudo-random string
+        String theChosenOne = getRandomString(getGenericStringNameArray(prefix, value));
+        // Retrieve the string name, the color and dark color
+        int theChosenOneId = mContext.getResources().getIdentifier(theChosenOne, "string", packageName);
+        int colorId = mContext.getResources().getIdentifier(theChosenOne, "color", packageName);
+        int colorDarkId = mContext.getResources().getIdentifier(theChosenOne + "_dark", "color", packageName);
+        // Return the spanned string
+        return getColoredSpannedString(theChosenOneId, colorId, colorDarkId, darkMode);
+    }
+
     /**
      * Get a generic random weather {@link android.text.Spanned} by doing the following:
      * 1) Uses the prefix and the value to retrieve a custom {@link java.lang.String} array
@@ -270,23 +377,32 @@ public class WidgetHelper {
     }
 
     /**
+     * Get a pseudo-random string ID from a string array.
+     *
+     * @param candidates The candidates {@link java.lang.String}s
+     * @return A pseudo-random {@link java.lang.String} ID as an int
+     */
+    private int getRandomStringId(String[] candidates) {
+        if (candidates == null || candidates.length <= 0) {
+            return -1;
+        }
+        // Save some computing power when possible
+        if (candidates.length == 1) {
+            return 0;
+        }
+        int min = 0;
+        int max = candidates.length - 1;
+        return min + (int) (Math.random() * ((max - min) + 1));
+    }
+
+    /**
      * Get a pseudo-random string from a string array.
      *
      * @param candidates The candidates {@link java.lang.String}s
      * @return A pseudo-random {@link java.lang.String}
      */
     private String getRandomString(String[] candidates) {
-        if (candidates == null || candidates.length <= 0) {
-            return null;
-        }
-        // Save some computing power when possible
-        if (candidates.length == 1) {
-            return candidates[0];
-        }
-        int min = 0;
-        int max = candidates.length - 1;
-        int rnd = min + (int) (Math.random() * ((max - min) + 1));
-        return candidates[rnd];
+        return candidates[getRandomStringId(candidates)];
     }
 
     /**
@@ -363,6 +479,18 @@ public class WidgetHelper {
      */
     public String getShareString(WeatherData weatherData) {
         String weather = getWeatherMainString(weatherData, false).toString();
-        return new StringBuilder().append(weather).append(" ").append(Const.Share.VIA).toString();
+        return weather + " " + Const.Share.VIA;
+    }
+
+    /**
+     * Get the sharing string by using the given weather data.
+     *
+     * @param weatherResources The {@link net.frakbot.common.WeatherResources} to build the share
+     *                    string from
+     * @return The sharing string
+     */
+    public String getShareString(WeatherResources weatherResources) {
+        String weather = mContext.getResources().getStringArray(weatherResources.getMainTextArrayId())[weatherResources.getMainTextPosition()];
+        return mContext.getString(mContext.getResources().getIdentifier(weather, "string", mContext.getPackageName())) + " " + Const.Share.VIA;
     }
 }

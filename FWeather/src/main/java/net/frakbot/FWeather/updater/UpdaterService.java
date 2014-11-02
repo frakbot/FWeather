@@ -30,13 +30,17 @@ import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.IBinder;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.RemoteViews;
 import android.widget.Toast;
+
+import com.mariux.teleport.lib.TeleportClient;
 
 import java.io.IOException;
 import java.util.Locale;
@@ -52,6 +56,7 @@ import net.frakbot.FWeather.util.LocationHelper;
 import net.frakbot.FWeather.util.TrackerHelper;
 import net.frakbot.FWeather.util.WeatherHelper;
 import net.frakbot.FWeather.util.WidgetHelper;
+import net.frakbot.common.WeatherResources;
 import net.frakbot.global.Const;
 import net.frakbot.util.log.FLog;
 
@@ -74,6 +79,7 @@ public class UpdaterService extends IntentService {
     private static final Pattern REGEX_LANGCODE_COUNTRY = Pattern.compile("([a-z]{2})\\-([A-Z]{2})");
 
     private Handler mHandler;
+    private TeleportClient mBeamer;
 
     public UpdaterService() {
         super(UpdaterService.class.getSimpleName());
@@ -87,10 +93,23 @@ public class UpdaterService extends IntentService {
         FLog.i(this, TAG, "Initializing the UpdaterService");
         mWidgetHelper = new WidgetHelper(this);
         mHandler = new Handler();
+        mBeamer = new TeleportClient(this);
 
         // Initialize the amazing LocationHelper
         // (the method is idempotent)
         LocationHelper.init(this);
+    }
+
+    @Override
+    public IBinder onBind(Intent intent) {
+        mBeamer.connect();
+        return super.onBind(intent);
+    }
+
+    @Override
+    public boolean onUnbind(Intent intent) {
+        mBeamer.disconnect();
+        return super.onUnbind(intent);
     }
 
     @Override
@@ -157,6 +176,8 @@ public class UpdaterService extends IntentService {
             defaultLocale = switchLocale(this, selectedLocale);
         }
 
+        WeatherResources weatherResources = buildWeatherResources(weather);
+
         // Perform this loop procedure for each App Widget that belongs to this provider
         for (int appWidgetId : appWidgetIds) {
             FLog.i(this, TAG, "Updating the widget views for widget #" + appWidgetId);
@@ -164,7 +185,7 @@ public class UpdaterService extends IntentService {
             // Get the widget layout and update it
             RemoteViews views = new RemoteViews(getPackageName(),
                     getWidgetLayout(appWidgetManager, appWidgetId));
-            updateViews(views, weather, appWidgetIds);
+            updateViews(views, weather, appWidgetIds, weatherResources);
             setupViewsForKeyguard(views, appWidgetManager, appWidgetId);
 
             // Tell the AppWidgetManager to perform an update on the current app widget
@@ -292,37 +313,56 @@ public class UpdaterService extends IntentService {
      *
      * @param views   The RemoteViews to use
      * @param weather The weather to update with
+     *
+     * @deprecated because
      */
     private void updateViews(RemoteViews views, WeatherData weather, int[] widgetIds) {
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         final boolean darkMode = prefs.getBoolean(getString(R.string.pref_key_ui_darkmode), false);
 
         // Determine the main text color for the widget
-        int textColor;
+        int mainTextColor;
+        final Spanned mainText = mWidgetHelper.getWeatherMainString(weather, darkMode);
+        int wearMainTextColor;
+        Spanned wearMainString;
+        Spanned secondaryText = null;
+        String shareText;
+        int weatherIcon;
+        int wearWeatherIcon;
+
         if (!darkMode) {
-            textColor = getResources().getColor(R.color.text_widget_main_color);
+            mainTextColor = getResources().getColor(R.color.text_widget_main_color);
+            wearMainString = mWidgetHelper.getWeatherMainString(weather, true);
+            wearMainTextColor = getResources().getColor(R.color.text_widget_main_color_dark);
         } else {
-            textColor = getResources().getColor(R.color.text_widget_main_color_dark);
+            mainTextColor = getResources().getColor(R.color.text_widget_main_color_dark);
+            wearMainString = mainText;
+            wearMainTextColor = mainTextColor;
         }
 
         // Show/hide elements, and update them only if needed
-        views.setTextViewText(R.id.txt_weather, mWidgetHelper.getWeatherMainString(weather, darkMode));
-        views.setTextColor(R.id.txt_weather, textColor);
+        views.setTextViewText(R.id.txt_weather, mainText);
+        views.setTextColor(R.id.txt_weather, mainTextColor);
         int bgColorPrefValue = getWidgetBgColorPrefValue(prefs);
         views.setInt(R.id.content, "setBackgroundColor",
                 mWidgetHelper.getWidgetBGColor(bgColorPrefValue, darkMode));
 
         if (prefs.getBoolean(getString(R.string.pref_key_ui_toggle_temperature_info), true)) {
             views.setViewVisibility(R.id.txt_temp, View.VISIBLE);
-            views.setTextViewText(R.id.txt_temp, mWidgetHelper.getWeatherTempString(weather, darkMode));
-            views.setTextColor(R.id.txt_temp, textColor);
+            secondaryText = mWidgetHelper.getWeatherTempString(weather, darkMode);
+            views.setTextViewText(R.id.txt_temp, secondaryText);
+            views.setTextColor(R.id.txt_temp, mainTextColor);
         } else {
             views.setViewVisibility(R.id.txt_temp, View.GONE);
         }
 
         if (prefs.getBoolean(getString(R.string.pref_key_ui_toggle_weather_icon), true)) {
             views.setViewVisibility(R.id.img_weathericon, View.VISIBLE);
-            views.setImageViewResource(R.id.img_weathericon, mWidgetHelper.getWeatherImageId(weather, darkMode));
+            weatherIcon = mWidgetHelper.getWeatherImageId(weather, darkMode);
+            if (!darkMode) {
+                wearWeatherIcon = mWidgetHelper.getWeatherImageId(weather, true);
+            }
+            views.setImageViewResource(R.id.img_weathericon, weatherIcon);
         } else {
             views.setViewVisibility(R.id.img_weathericon, View.INVISIBLE);
         }
@@ -369,12 +409,153 @@ public class UpdaterService extends IntentService {
         if (weather != null && weather.conditionCode >= 0) {
             Intent shareIntent = new Intent(Intent.ACTION_SEND);
             shareIntent.setType("text/plain");
-            shareIntent.putExtra(Intent.EXTRA_TEXT, mWidgetHelper.getShareString(weather));
+            shareText = mWidgetHelper.getShareString(weather);
+            shareIntent.putExtra(Intent.EXTRA_TEXT, shareText);
             PendingIntent sharePendingIntent = PendingIntent.getActivity(this, 1, shareIntent, PendingIntent.FLAG_UPDATE_CURRENT);
             views.setOnClickPendingIntent(R.id.btn_share, sharePendingIntent);
         } else {
             views.setViewVisibility(R.id.btn_share, View.GONE);
         }
+
+        // TODO: send appropriate data over to the Wear
+    }
+
+    private int getStringIdInArray(int arrayId, int position) {
+        String varName = getResources().getStringArray(arrayId)[position];
+        return getResources().getIdentifier(varName, "string", getPackageName());
+    }
+
+    private Spanned getSpannedInArray(int arrayId, int position, boolean darkMode, int lightColorId, int darkColorId) {
+        int lol = getStringIdInArray(arrayId, position);
+        return mWidgetHelper.getColoredSpannedString(lol, lightColorId, darkColorId, darkMode);
+    }
+
+    /**
+     * Updates the widget's views.
+     *
+     * @param views   The RemoteViews to use
+     * @param weather The weather to update with
+     * @param widgetIds All teh IDs
+     * @param weatherResources Them resources
+     */
+    private void updateViews(RemoteViews views, WeatherData weather, int[] widgetIds, WeatherResources weatherResources) {
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        final boolean darkMode = prefs.getBoolean(getString(R.string.pref_key_ui_darkmode), false);
+
+        int textColor = getResources().getColor(weatherResources.getTextColorId());
+
+        // Show/hide elements, and update them only if needed
+        views.setTextViewText(R.id.txt_weather, getSpannedInArray(
+                weatherResources.getMainTextArrayId(), weatherResources.getMainTextPosition(), darkMode,
+                weatherResources.getMainLightColorId(), weatherResources.getMainDarkColorId()));
+        views.setTextColor(R.id.txt_weather, textColor);
+        int bgColorPrefValue = getWidgetBgColorPrefValue(prefs);
+        views.setInt(R.id.content, "setBackgroundColor",
+                mWidgetHelper.getWidgetBGColor(bgColorPrefValue, darkMode));
+
+        if (prefs.getBoolean(getString(R.string.pref_key_ui_toggle_temperature_info), true)) {
+            views.setViewVisibility(R.id.txt_temp, View.VISIBLE);
+            views.setTextViewText(R.id.txt_temp, getSpannedInArray(
+                    weatherResources.getSecondaryTextArrayId(), weatherResources.getSecondaryTextPosition(),
+                    darkMode, weatherResources.getSecondaryLightColorId(), weatherResources.getSecondaryDarkColorId()));
+            views.setTextColor(R.id.txt_temp, textColor);
+        } else {
+            views.setViewVisibility(R.id.txt_temp, View.GONE);
+        }
+
+        if (prefs.getBoolean(getString(R.string.pref_key_ui_toggle_weather_icon), true)) {
+            views.setViewVisibility(R.id.img_weathericon, View.VISIBLE);
+            views.setImageViewResource(R.id.img_weathericon, weatherResources.getImageId());
+        } else {
+            views.setViewVisibility(R.id.img_weathericon, View.INVISIBLE);
+        }
+
+        if (prefs.getBoolean(getString(R.string.pref_key_ui_toggle_buttons), true)) {
+            views.setViewVisibility(R.id.btn_settings, View.VISIBLE);
+            views.setViewVisibility(R.id.btn_refresh, View.VISIBLE);
+            views.setViewVisibility(R.id.btn_share, View.VISIBLE);
+
+            views.setImageViewResource(R.id.btn_settings,
+                    darkMode ? R.drawable.ic_action_settings_dark : R.drawable.ic_action_settings);
+            views.setImageViewResource(R.id.btn_refresh,
+                    darkMode ? R.drawable.ic_action_refresh_dark : R.drawable.ic_action_refresh);
+            views.setImageViewResource(R.id.btn_share,
+                    darkMode ? R.drawable.ic_action_share_dark : R.drawable.ic_action_share);
+        } else {
+            views.setViewVisibility(R.id.btn_settings, View.GONE);
+            views.setViewVisibility(R.id.btn_refresh, View.GONE);
+            views.setViewVisibility(R.id.btn_share, View.GONE);
+        }
+
+        // Initalize OnClick listeners
+        Intent i = new Intent(this, SettingsActivity.class);
+        views.setOnClickPendingIntent(R.id.btn_settings,
+                PendingIntent.getActivity(this, 0, i, 0));
+
+        i = new Intent(this, UpdaterService.class);
+        i.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+        i.putExtra(UpdaterService.EXTRA_WIDGET_IDS, widgetIds);
+        i.putExtra(UpdaterService.EXTRA_USER_FORCE_UPDATE, true);
+        views.setOnClickPendingIntent(R.id.btn_refresh, PendingIntent.getService(this, 0, i, 0));
+
+        // If the user hasn't enabled location settings and there's no information available,
+        // they can tap the widget to open the system Location Settings activity
+        if (weather != null && weather.conditionCode == WeatherData.WEATHER_ID_ERR_NO_LOCATION) {
+            // The pending intent (Magnum PI, ha!) for the main TextViews
+            PendingIntent enableLocationPendingIntent =
+                    PendingIntent.getActivity(this, 0, new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS), 0);
+            views.setOnClickPendingIntent(R.id.txt_weather, enableLocationPendingIntent);
+            views.setOnClickPendingIntent(R.id.txt_temp, enableLocationPendingIntent);
+        }
+
+        // Create and set the PendingIntent for the share action
+        if (weather != null && weather.conditionCode >= 0) {
+            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+            shareIntent.setType("text/plain");
+            String shareText = mWidgetHelper.getShareString(weatherResources);
+
+            shareIntent.putExtra(Intent.EXTRA_TEXT, shareText);
+            PendingIntent sharePendingIntent = PendingIntent.getActivity(this, 1, shareIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+            views.setOnClickPendingIntent(R.id.btn_share, sharePendingIntent);
+        } else {
+            views.setViewVisibility(R.id.btn_share, View.GONE);
+        }
+    }
+
+    private WeatherResources buildWeatherResources(WeatherData weather) {
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        final boolean darkMode = prefs.getBoolean(getString(R.string.pref_key_ui_darkmode), false);
+
+        WeatherResources weatherResources = new WeatherResources();
+
+        if (!darkMode) {
+            weatherResources.setTextColorId(R.color.text_widget_main_color);
+        } else {
+            weatherResources.setTextColorId(R.color.text_widget_main_color_dark);
+        }
+        weatherResources.setMainTextArrayId(mWidgetHelper.getWeatherMainStringArrayId(weather));
+        weatherResources.setMainTextPosition(mWidgetHelper.getRandomStringFromArray(weatherResources.getMainTextArrayId()));
+
+        String theChosenOne = getResources().getStringArray(weatherResources.getMainTextArrayId())[weatherResources.getMainTextPosition()];
+        weatherResources.setMainLightColorId(getResources().getIdentifier(theChosenOne, "color", getPackageName()));
+        weatherResources.setMainDarkColorId(getResources().getIdentifier(theChosenOne + "_dark", "color", getPackageName()));
+        weatherResources.setWearTextColorId(R.color.text_widget_main_color_dark);
+
+        if (prefs.getBoolean(getString(R.string.pref_key_ui_toggle_temperature_info), true)) {
+            weatherResources.setSecondaryTextArrayId(mWidgetHelper.getWeatherTempStringArrayId(weather));
+            weatherResources.setSecondaryTextPosition(mWidgetHelper.getRandomStringFromArray(weatherResources.getSecondaryTextArrayId()));
+        }
+        String jesus = getResources().getStringArray(weatherResources.getSecondaryTextArrayId())[weatherResources.getSecondaryTextPosition()];
+        weatherResources.setSecondaryLightColorId(getResources().getIdentifier(jesus, "color", getPackageName()));
+        weatherResources.setSecondaryDarkColorId(getResources().getIdentifier(jesus + "_dark", "color", getPackageName()));
+
+        if (prefs.getBoolean(getString(R.string.pref_key_ui_toggle_weather_icon), true)) {
+            weatherResources.setImageId(mWidgetHelper.getWeatherImageId(weather, darkMode));
+            weatherResources.setWearImageId(mWidgetHelper.getWeatherImageId(weather, true));
+        }
+
+        return weatherResources;
+        // hahahahahahahah la canzone è finita
     }
 
     /**

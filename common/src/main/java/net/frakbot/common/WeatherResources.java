@@ -19,25 +19,49 @@ package net.frakbot.common;
  * Contains weather resource IDs for the widget instances and the connected Wear devices.
  */
 public class WeatherResources {
-    private int mainTextId;
-    private int secondaryTextId;
+    private int mainTextArrayId;
+    private int mainTextPosition;
+    private int secondaryTextArrayId;
+    private int secondaryTextPosition;
     private int textColorId;
+    private int wearTextColorId;
     private int imageId;
+    private int wearImageId;
+    private int mainLightColorId;
+    private int mainDarkColorId;
+    private int secondaryLightColorId;
+    private int secondaryDarkColorId;
 
-    public int getMainTextId() {
-        return mainTextId;
+    public int getMainTextArrayId() {
+        return mainTextArrayId;
     }
 
-    public void setMainTextId(int mainTextId) {
-        this.mainTextId = mainTextId;
+    public void setMainTextArrayId(int mainTextArrayId) {
+        this.mainTextArrayId = mainTextArrayId;
     }
 
-    public int getSecondaryTextId() {
-        return secondaryTextId;
+    public int getMainTextPosition() {
+        return mainTextPosition;
     }
 
-    public void setSecondaryTextId(int secondaryTextId) {
-        this.secondaryTextId = secondaryTextId;
+    public void setMainTextPosition(int mainTextPosition) {
+        this.mainTextPosition = mainTextPosition;
+    }
+
+    public int getSecondaryTextArrayId() {
+        return secondaryTextArrayId;
+    }
+
+    public void setSecondaryTextArrayId(int secondaryTextArrayId) {
+        this.secondaryTextArrayId = secondaryTextArrayId;
+    }
+
+    public int getSecondaryTextPosition() {
+        return secondaryTextPosition;
+    }
+
+    public void setSecondaryTextPosition(int secondaryTextPosition) {
+        this.secondaryTextPosition = secondaryTextPosition;
     }
 
     public int getTextColorId() {
@@ -48,11 +72,59 @@ public class WeatherResources {
         this.textColorId = textColorId;
     }
 
+    public int getWearTextColorId() {
+        return wearTextColorId;
+    }
+
+    public void setWearTextColorId(int wearTextColorId) {
+        this.wearTextColorId = wearTextColorId;
+    }
+
     public int getImageId() {
         return imageId;
     }
 
     public void setImageId(int imageId) {
         this.imageId = imageId;
+    }
+
+    public int getWearImageId() {
+        return wearImageId;
+    }
+
+    public void setWearImageId(int wearImageId) {
+        this.wearImageId = wearImageId;
+    }
+
+    public int getMainLightColorId() {
+        return mainLightColorId;
+    }
+
+    public void setMainLightColorId(int mainLightColorId) {
+        this.mainLightColorId = mainLightColorId;
+    }
+
+    public int getMainDarkColorId() {
+        return mainDarkColorId;
+    }
+
+    public void setMainDarkColorId(int mainDarkColorId) {
+        this.mainDarkColorId = mainDarkColorId;
+    }
+
+    public int getSecondaryLightColorId() {
+        return secondaryLightColorId;
+    }
+
+    public void setSecondaryLightColorId(int secondaryLightColorId) {
+        this.secondaryLightColorId = secondaryLightColorId;
+    }
+
+    public int getSecondaryDarkColorId() {
+        return secondaryDarkColorId;
+    }
+
+    public void setSecondaryDarkColorId(int secondaryDarkColorId) {
+        this.secondaryDarkColorId = secondaryDarkColorId;
     }
 }
