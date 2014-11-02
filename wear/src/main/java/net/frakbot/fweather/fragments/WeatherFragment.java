@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.frakbot.fweather.wear.fragments;
+package net.frakbot.FWeather.fragments;
 
 import android.os.Bundle;
 import android.support.wearable.view.CardFragment;
@@ -23,10 +23,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import net.frakbot.fweather.wear.R;
-import net.frakbot.fweather.wear.WeatherActivity;
-import net.frakbot.fweather.wear.model.WeatherUpdate;
-import net.frakbot.fweather.wear.stuff.image.magic.wellnotreally.ImageMagician;
+import net.frakbot.FWeather.R;
+import net.frakbot.FWeather.WeatherActivity;
+import net.frakbot.FWeather.model.WeatherUpdate;
+import net.frakbot.FWeather.wellnotreally.ImageMagician;
 
 public class WeatherFragment extends CardFragment {
 

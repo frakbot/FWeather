@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.frakbot.fweather.wear;
+package net.frakbot.FWeather;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -36,12 +36,12 @@ import net.frakbot.fweather.wear.stuff.image.magic.wellnotreally.ImageMagician;
 
 public class WeatherActivity extends Activity implements ShareFragment.OnShareClickListener {
 
-    public static String EXTRA_PRIMARY_TEXT = "EXTRA_PRIMARY_TEXT";
-    public static String EXTRA_SECONDARY_TEXT = "EXTRA_SECONDARY_TEXT";
-    public static String EXTRA_IMAGE = "dem_pixels";
-    public static String EXTRA_ACCENT_COLOR = "i_see_all_the_colors_accentuated";
-    public static String EXTRA_UNNECESSARY_EXTRA = "nobody_uses_me_#sadface";
-    public static String EXTRA_SHARE_EXTRA = "share_the_fucking_shit";
+    public static final String EXTRA_PRIMARY_TEXT = "important_shit";
+    public static final String EXTRA_SECONDARY_TEXT = "other_stuff";
+    public static final String EXTRA_IMAGE = "dem_pixels";
+    public static final String EXTRA_ACCENT_COLOR = "i_see_all_the_colors_accentuated";
+    public static final String EXTRA_UNNECESSARY_EXTRA = "nobody_uses_me_#sadface";
+    public static final String EXTRA_SHARE_EXTRA = "share_the_fucking_shit";
 
     private GridViewPager weatherPager;
     private WeatherUpdate weatherUpdate;
@@ -109,7 +109,7 @@ public class WeatherActivity extends Activity implements ShareFragment.OnShareCl
 
         @Override
         public int getColumnCount(int row) {
-            return 2;
+            return 1;
         }
 
         @Override

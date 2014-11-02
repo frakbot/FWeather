@@ -21,7 +21,7 @@ android {
     buildToolsVersion "21.1.0"
 
     defaultConfig {
-        applicationId "net.frakbot.fweather.wear"
+        applicationId "net.frakbot.FWeather"
         minSdkVersion 20
         targetSdkVersion 20
         versionCode 1

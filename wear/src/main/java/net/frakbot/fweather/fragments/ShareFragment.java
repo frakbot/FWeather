@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.frakbot.fweather.wear.fragments;
+package net.frakbot.FWeather.fragments;
 
 import android.app.Activity;
 import android.app.ActivityOptions;
@@ -28,7 +28,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import net.frakbot.fweather.wear.R;
+import net.frakbot.FWeather.R;
 
 public class ShareFragment extends Fragment implements View.OnClickListener {
 
