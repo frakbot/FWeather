@@ -53,19 +53,44 @@
     </string-array>
 
     <string-array name="weather_code_10" translatable="false">
-        <item>weather_rainy</item>
+        <item>weather_rainy_01</item>
+        <item>weather_rainy_02</item>
+        <item>weather_rainy_03</item>
+        <item>weather_rainy_04</item>
+        <item>weather_rainy_05</item>
+        <item>weather_rainy_06</item>
     </string-array>
     <string-array name="weather_code_11" translatable="false">
-        <item>weather_rainy</item>
+      <item>weather_rainy_01</item>
+      <item>weather_rainy_02</item>
+      <item>weather_rainy_03</item>
+      <item>weather_rainy_04</item>
+      <item>weather_rainy_05</item>
+      <item>weather_rainy_06</item>
     </string-array>
     <string-array name="weather_code_12" translatable="false">
-        <item>weather_rainy</item>
+      <item>weather_rainy_01</item>
+      <item>weather_rainy_02</item>
+      <item>weather_rainy_03</item>
+      <item>weather_rainy_04</item>
+      <item>weather_rainy_05</item>
+      <item>weather_rainy_06</item>
     </string-array>
     <string-array name="weather_code_40" translatable="false">
-        <item>weather_rainy</item>
+      <item>weather_rainy_01</item>
+      <item>weather_rainy_02</item>
+      <item>weather_rainy_03</item>
+      <item>weather_rainy_04</item>
+      <item>weather_rainy_05</item>
+      <item>weather_rainy_06</item>
     </string-array>
     <string-array name="weather_code_6" translatable="false">
-        <item>weather_rainy</item>
+      <item>weather_rainy_01</item>
+      <item>weather_rainy_02</item>
+      <item>weather_rainy_03</item>
+      <item>weather_rainy_04</item>
+      <item>weather_rainy_05</item>
+      <item>weather_rainy_06</item>
     </string-array>
 
     <string-array name="weather_code_17" translatable="false">

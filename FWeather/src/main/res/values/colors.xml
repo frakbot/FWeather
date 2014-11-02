@@ -38,7 +38,13 @@
     <color name="weather_sunny_09">#ff0160</color>
     <color name="weather_sunny_10">#ff0160</color>
 
-    <color name="weather_rainy">#0076e9</color>
+    <color name="weather_rainy_01">#0076e9</color>
+    <color name="weather_rainy_02">#0076e9</color>
+    <color name="weather_rainy_03">#0076e9</color>
+    <color name="weather_rainy_04">#0076e9</color>
+    <color name="weather_rainy_05">#0076e9</color>
+    <color name="weather_rainy_06">#0076e9</color>
+
     <color name="weather_cloudy">#999999</color>
     <color name="weather_thunderstorm">#fff883</color>
     <color name="weather_haze">#beafd2</color>

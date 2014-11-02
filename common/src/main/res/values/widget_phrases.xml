@@ -32,7 +32,13 @@
     <string name="weather_sunny_09"><![CDATA[Hope you\'re not a fucking <font color="%%COLOR%%">ginger</font>.]]></string>
     <string name="weather_sunny_10"><![CDATA[This sun gives fucking skin <font color="%%COLOR%%">cancer</font>.]]></string>
 
-    <string name="weather_rainy"><![CDATA[It\'s fucking <font color="%%COLOR%%">raining.</font> Now.]]></string>
+    <string name="weather_rainy_01"><![CDATA[It\'s fucking <font color="%%COLOR%%">raining</font>. Now.]]></string>
+    <string name="weather_rainy_02"><![CDATA[Umbrellas are for <font color="%%COLOR%%">cowards</font>.]]></string>
+    <string name="weather_rainy_03"><![CDATA[It\'s raining, I\'ll get fucking <font color="%%COLOR%%">wet</font>.]]></string>
+    <string name="weather_rainy_04"><![CDATA[<font color="%%COLOR%%">Raindrops</font> keep fallin\' on my fucking head.]]></string>
+    <string name="weather_rainy_05"><![CDATA[Go <font color="%%COLOR%%">sing</font> in the fucking rain.]]></string>
+    <string name="weather_rainy_06"><![CDATA[Stay the fuck <font color="%%COLOR%%">indoors</font>.]]></string>
+
     <string name="weather_cloudy"><![CDATA[Just fucking <font color="%%COLOR%%">grey.</font>]]></string>
     <string name="weather_thunderstorm">
         <![CDATA[Hell\'s fucking <font color="%%COLOR%%">thunder fury.</font>]]></string>
