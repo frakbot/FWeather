@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.frakbot.FWeather.model;
+package net.frakbot.fweather.model;
 
 public class WeatherUpdate {
 

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.frakbot.FWeather;
+package net.frakbot.fweather;
 
 import android.app.Notification;
 import android.app.PendingIntent;
@@ -27,6 +27,8 @@ import android.support.v4.app.NotificationManagerCompat;
 import android.util.Log;
 
 import com.mariux.teleport.lib.TeleportService;
+
+import net.frakbot.FWeather.R;
 
 public class WearService extends TeleportService {
 
@@ -59,11 +61,12 @@ public class WearService extends TeleportService {
         NotificationCompat.WearableExtender wearableExtender =
                 new NotificationCompat.WearableExtender()
                         .setDisplayIntent(notificationPendingIntent)
-                        .addAction(new NotificationCompat.Action(R.drawable.ic_full_cancel, getString(R.string.share), createAppPendingIntent(this)))
+                        .addAction(new NotificationCompat.Action(android.R.drawable.ic_menu_share, getString(R.string.share), createAppPendingIntent(this)))
                         .setBackground(BitmapFactory.decodeResource(getResources(), R.drawable.sky));
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
-                .setContentTitle("The Fweather is updated")
+                .setSmallIcon(R.drawable.ic_launcher)
+                .setContentTitle("FWeather update")
                 .extend(wearableExtender);
 
         Notification notification = builder.build();

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.frakbot.FWeather.fragments;
+package net.frakbot.fweather.fragments;
 
 import android.os.Bundle;
 import android.support.wearable.view.CardFragment;
@@ -24,17 +24,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import net.frakbot.FWeather.R;
-import net.frakbot.FWeather.WeatherActivity;
-import net.frakbot.FWeather.model.WeatherUpdate;
-import net.frakbot.FWeather.wellnotreally.ImageMagician;
+import net.frakbot.fweather.WeatherActivity;
+import net.frakbot.fweather.model.WeatherUpdate;
 
 public class WeatherFragment extends CardFragment {
 
     private TextView mPrimary;
     private TextView mSecondary;
     private ImageView mImage;
-
-    private ImageMagician imageMagician;
 
     public static WeatherFragment create(WeatherUpdate weatherUpdate) {
         WeatherFragment fragment = new WeatherFragment();
@@ -46,13 +43,6 @@ public class WeatherFragment extends CardFragment {
         fragment.setArguments(bundle);
 
         return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        imageMagician = new ImageMagician();
     }
 
     @Override
