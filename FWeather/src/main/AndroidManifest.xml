@@ -17,13 +17,7 @@
 
 <!--suppress AndroidLintIconLocation -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="net.frakbot.FWeather"
-          android:versionCode="30"
-          android:versionName="2.2.10">
-
-    <uses-sdk
-            android:minSdkVersion="10"
-            android:targetSdkVersion="19"/>
+          package="net.frakbot.FWeather">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
