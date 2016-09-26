@@ -408,15 +408,12 @@ public class YahooWeatherApiClient {
     }
 
     private static String buildWeatherQueryUrl(String woeid) {
-        // http://developer.yahoo.com/weather/
-        return "http://weather.yahooapis.com/forecastrss?w=" + woeid + "&u=" + sWeatherUnits;
+        return "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%3D" + woeid + "&appid=" + FWeatherApplication.getApiKey();
     }
 
     private static String buildPlaceSearchUrl(Location l) {
         // GeoPlanet API
-        return "http://where.yahooapis.com/v1/places.q('"
-                + l.getLatitude() + "," + l.getLongitude() + "')"
-                + "?appid=" + FWeatherApplication.getApiKey();
+        return "http://query.yahooapis.com/v1/public/yql?q=SELECT%20*%20FROM%20geo.places%20WHERE%20text%3D%22(" + l.getLatitude() + ", " + l.getLongitude() +")%22&appid=" + FWeatherApplication.getApiKey();
     }
 
     private static String buildPlaceSearchStartsWithUrl(String startsWith) {
