@@ -28,6 +28,10 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ *  Updated to new Yahoo Weather API (https://developer.yahoo.com/weather/)
+ *  by J. Joe Feise <jfeise@feise.com>
+ *
  */
 
 package net.frakbot.FWeather.updater.weather;
@@ -409,22 +413,24 @@ public class YahooWeatherApiClient {
 
     private static String buildWeatherQueryUrl(String woeid) {
         // http://developer.yahoo.com/weather/
-        return "http://weather.yahooapis.com/forecastrss?w=" + woeid + "&u=" + sWeatherUnits;
+        // https://query.yahooapis.com/v1/public/yql?format=xml&q=select * from weather.forecast where woeid=<woeid> and u="<units>"
+        return "https://query.yahooapis.com/v1/public/yql?format=xml&q=select+%2A+from+weather.forecast+where+woeid%3D" + woeid
+                + "+and+u%3D%22" + sWeatherUnits + "%22";
     }
 
     private static String buildPlaceSearchUrl(Location l) {
         // GeoPlanet API
-        return "http://where.yahooapis.com/v1/places.q('"
-                + l.getLatitude() + "," + l.getLongitude() + "')"
-                + "?appid=" + FWeatherApplication.getApiKey();
+        // https://query.yahooapis.com/v1/public/yql?format=xml&q=select woeid from geo.places where text="(lat,lon)"
+        return "https://query.yahooapis.com/v1/public/yql?format=xml&q=select+woeid+from+geo.places+where+text%3D%22("
+                + l.getLatitude() + "," + l.getLongitude() + ")%22";
     }
 
     private static String buildPlaceSearchStartsWithUrl(String startsWith) {
         // GeoPlanet API
         startsWith = startsWith.replaceAll("[^\\w ]+", "").replaceAll(" ", "%20");
-        return "http://where.yahooapis.com/v1/places.q('" + startsWith + "%2A');"
-                + "count=" + MAX_SEARCH_RESULTS
-                + "?appid=" + FWeatherApplication.getApiKey();
+        // https://query.yahooapis.com/v1/public/yql?format=xml&q=select woeid from geo.places where text="Santa Ana"
+        return "https://query.yahooapis.com/v1/public/yql?format=xml&q=select+woeid+from+geo.places+where+text%3D%22"
+                + startsWith + "%22";
     }
 
     public static class LocationInfo {
