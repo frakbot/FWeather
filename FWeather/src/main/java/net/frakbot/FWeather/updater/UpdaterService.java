@@ -225,6 +225,8 @@ public class UpdaterService extends IntentService {
             // and 'US' is the ISO country variant
             targetLanguage = countryLangFormat.group(1);
             targetCountry = countryLangFormat.group(2);
+        } else if (preferenceValue.equals(LANG_AUTO)) {
+            targetLanguage = LANG_AUTO;
         } else {
             FLog.w(TAG, "Invalid locale detected in the preferences: " + preferenceValue + ". Resetting to AUTO");
             prefs.edit()
